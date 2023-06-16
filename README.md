@@ -1,8 +1,6 @@
-![Site Build Status](https://travis.ibm.com/CE-National/TechDemos.svg?token=bsyfqHy4xhMwWSdQvCND&branch=main)
+# IBM Cloud Native Bootcamp  
 
-# IBM TechDemos  
 
-This site is home of the Client Engineering Tech Demos site.
 
 ## Technologies Covered
 
@@ -11,29 +9,17 @@ This site is home of the Client Engineering Tech Demos site.
 - Openshift
 - Kubernetes
 
-#### IBM Cloud Paks
-
-- CloudPak for Business Automation
-- CloudPak for Data
-- CloudPak for Integration
-
-#### Watson Services
-
-- Watson Assistant
-- Watson Discovery
-
 #### CI/CD
 
 - ArgoCD
 - Tekton
-- Jenkins https://github.ibm.com/Vibe/Jenkins-CICD
 
 ## Running Locally
 
 1. Clone this github repo
 
 ``` bash
-git clone https://github.ibm.com/CE-National/TechDemos
+git clone (https://github.com/ibm-cloud-architecture/cloud-native-bootcamp)
 ```
 
 2. Verify mkdocs and mkdocs material are installed.
@@ -53,5 +39,3 @@ mkdocs build
 ```bash
 mkdocs serve
 ```
-
-## How to Contribute
