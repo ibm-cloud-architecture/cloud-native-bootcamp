@@ -10,10 +10,12 @@ A Kubernetes volume, on the other hand, has an explicit lifetime - the same as t
 ## Resources
 
 **OpenShift**
-- [Volume Lifecycle](https://docs.openshift.com/container-platform/4.3/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage)
+
+- [Volume Lifecycle](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){:target="_blank"}
 
 **IKS**
-- [Volumes](https://kubernetes.io/docs/concepts/storage/volumes/)
+
+- [Volumes](https://kubernetes.io/docs/concepts/storage/volumes/){:target="_blank"}
 
 
 ## References
@@ -76,14 +78,16 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
 ## Resources
 **OpenShift**
-- [Persistent Storage](https://docs.openshift.com/container-platform/4.3/storage/understanding-persistent-storage.html)
-- [Persistent Volume Types](https://docs.openshift.com/container-platform/4.3/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage)
-- [Expanding Peristent Volumes](https://docs.openshift.com/container-platform/4.3/storage/expanding-persistent-volumes.html)
+
+- [Persistent Storage](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){:target="_blank"}
+- [Persistent Volume Types](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){:target="_blank"}
+- [Expanding Peristent Volumes](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){:target="_blank"}
 
 **IKS**
-- [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
-- [Writing Portable Configurations](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration)
-- [Configuring Persistent Volume Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+
+- [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){:target="_blank"}
+- [Writing Portable Configurations](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){:target="_blank"}
+- [Configuring Persistent Volume Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){:target="_blank"}
 
 ## References
 
@@ -135,44 +139,34 @@ spec:
       claimName: my-pvc
 ```
 
-<Tabs>
+=== "OpenShift"
 
-  <Tab label="OpenShift">
+    ``` Bash title="Get the Persistent Volumes in Project"
+    oc get pv
+    ```
 
-  **Getting the Persistent Volumes in Project** 
-  ```
-    oc get pv 
-  ```
-  **Getting the Persistent Volume Claims ** 
-  ```
+    ``` Bash title="Get the Persistent Volume Claims"
     oc get pvc
-  ```
-  **Getting a specific Persistent Volume** 
-  ```
-    oc get pv <pv-claim>
-  ```
+    ```
 
-  </Tab>
+    ``` Bash title="Get a specific Persistent Volume"
+    oc get pv <pv_claim>
+    ```
 
-  <Tab label="IKS">
+=== "Kubernetes"
 
-  **Getting the PersistentVolume ** 
-  ```
+    ``` Bash title="Get the Persistent Volume"
     kubectl get pv
-  ```
-  **Getting the PersistentVolumeClaims ** 
-  ```
+    ```
+
+    ``` Bash title="Get the Persistent Volume Claims"
     kubectl get pvc
-  ```
-
-  </Tab>
-
-</Tabs>
+    ```
 
 ## Activities
 
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |    
-| Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](../kube-overview/activities/labs/lab10) |
+| Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](../labs/kube-overview/activities/labs/lab10/index.md) |
 

@@ -103,6 +103,10 @@ nav:
       - ArgoCD: devops/argocd/index.md
     - <div class="header">Labs</div>:
       - openshift/labs/index.md
-      - Tekton: devops/tekton/labs/openshift.md
-      - Jenkins: devops/jenkins/openshift.md
+      - Tekton: 
+        - Using Openshift: devops/tekton/labs/openshift.md
+        - Using Kubernetes: devops/tekton/labs/iks.md
+      - Jenkins:
+        - Using Openshift: devops/jenkins/openshift.md
+        - Using Kubernetes: devops/jenkins/iks.md
       - IBM Toolchain: devops/ibm-toolchain/index.md
