@@ -17,7 +17,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 ### Resources
 
 === "OpenShift"
-    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/applications/application-health.html){ .md-button }
+    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button }
     [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button }
 
 === "Kubernetes"
@@ -83,7 +83,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 ### References
 
 
-```yaml title="Pod Example"
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -94,28 +94,36 @@ spec:
     image: busybox
     command: ['sh','-c','i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 5; done']
 ```
+<Tabs>
+<Tab label="OpenShift">
 
-=== "OpenShift"
+** Get Logs **
+```
+oc logs
+```
+** Use Stern to View Logs **
+```
+brew install stern
+stern . -n default
+```
 
-    ```Bash title="Get Logs"
-    oc logs
-    ```
+</Tab>
 
-    ``` Bash title="Use Stern to View Logs"
-    brew install stern
-    stern . -n default
-    ```
+<Tab label="IKS">
 
-=== "Kubernetes"
+** Get Logs **
+```
+kubectl logs
+```
+** Use Stern to View Logs **
+```
+brew install stern
+stern . -n default
+```
 
-    ``` Bash title="Get Logs"
-    kubectl logs
-    ```
+</Tab>
 
-    ``` Bash title="Use Stern to View Logs"
-    brew install stern
-    stern . -n default
-    ```
+</Tabs>
 
 ## Monitoring Applications
 
@@ -127,6 +135,8 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 **OpenShift**
 - [Monitoring Application Health](https://docs.openshift.com/container-platform/4.13/applications/application-health.html)
+- [Monitoring Services](https://docs.openshift.com/container-platform/4.13/monitoring/monitoring-your-own-services.html)
+- [Custom Application Metrics](https://docs.openshift.com/container-platform/4.13/monitoring/exposing-custom-application-metrics-for-autoscaling.html)
 
 **IKS**
 - [Monitoring Resource Usage](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
@@ -169,34 +179,38 @@ spec:
     image: radial/busyboxplus:curl
     command: [/bin/sh, -c, 'until curl localhost:8080/ConsumeCPU -d "millicores=200&durationSec=3600"; do sleep 5; done && sleep 3700']
 ```
+<Tabs>
+<Tab label="OpenShift">
 
-=== "OpenShift"
-    ```
-    oc get projects
-    oc api-resources -o wide
-    oc api-resources -o name
+```
+  oc get projects
+  oc api-resources -o wide
+  oc api-resources -o name
 
-    oc get nodes,ns,po,deploy,svc
+  oc get nodes,ns,po,deploy,svc
 
-    oc describe node --all
-    ```
+  oc describe node --all
+  ```
 
-=== "Kubernetes"
-    ** Verify Metrics is enabled**
-    ```
-    kubectl get --raw /apis/metrics.k8s.io/
-    ```
+</Tab>
 
-    ** Get Node Description **
-    ```
-    kubectl describe node
-    ```
+<Tab label="IKS">
 
-    ** Check Resource Useage **
-    ```
-    kubectl top pods
-    kubectl top nodes
-    ```
+** Verify Metrics is enabled**
+```
+kubectl get --raw /apis/metrics.k8s.io/
+```
+
+** Get Node Description **
+```
+kubectl describe node
+```
+
+** Check Resource Useage **
+```
+kubectl top pods
+kubectl top nodes
+```
 
 </Tab>
 

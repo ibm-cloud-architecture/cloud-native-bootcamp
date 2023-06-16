@@ -36,74 +36,82 @@ spec:
     image: bitnami/nginx
 ```
 
-=== "OpenShift"
 
-    ** Change Labels on Objects **
-    ```
-    oc label pod my-pod boot=camp
-    ```
-    **Getting Pods based on their labels.**
-    ```
-    oc get pods --show-labels
-    ```
-    ```
-    oc get pods -L tier,env
-    ```
-    ```
-    oc get pods -l app
-    ```
-    ```
-    oc get pods -l tier=frontend
-    ```
-    ```
-    oc get pods -l 'env=dev,tier=frontend'
-    ```
-    ```
-    oc get pods -l 'env in (dev, test)'
-    ```
-    ```
-    oc get pods -l 'tier!=backend'
-    ```
-    ```
-    oc get pods -l 'env,env notin (prod)'
-    ```
-    **Delete the Pod.**
-    ```
-    oc delete pod my-pod
-    ```
+<Tabs>
+<Tab label="OpenShift">
 
-=== "Kubernetes"
+** Change Labels on Objects **
+```
+oc label pod my-pod boot=camp
+```
+ **Getting Pods based on their labels.**
+```
+oc get pods --show-labels
+```
+```
+oc get pods -L tier,env
+```
+```
+oc get pods -l app
+```
+```
+oc get pods -l tier=frontend
+```
+```
+oc get pods -l 'env=dev,tier=frontend'
+```
+```
+oc get pods -l 'env in (dev, test)'
+```
+```
+oc get pods -l 'tier!=backend'
+```
+```
+oc get pods -l 'env,env notin (prod)'
+```
+**Delete the Pod.**
+```
+oc delete pod my-pod
+```
 
-    ** Change Labels on Objects **
-    ```
-    kubectl label pod my-pod boot=camp
-    ```
-    **Getting Pods based on their labels.**
-    ```
-    kubectl get pods --show-labels
-    ```
-    ```
-    kubectl get pods -L tier,env
-    ```
-    ```
-    kubectl get pods -l app
-    ```
-    ```
-    kubectl get pods -l tier=frontend
-    ```
-    ```
-    kubectl get pods -l 'env=dev,tier=frontend'
-    ```
-    ```
-    kubectl get pods -l 'env in (dev, test)'
-    ```
-    ```
-    kubectl get pods -l 'tier!=backend'
-    ```
-    ```
-    kubectl get pods -l 'env,env notin (prod)'
-    ```
-    **Delete the Pod.**
-    ```
-    kubectl delete pod my-pod
-    ```
+</Tab>
+
+<Tab label="IKS">
+
+** Change Labels on Objects **
+```
+kubectl label pod my-pod boot=camp
+```
+ **Getting Pods based on their labels.**
+```
+kubectl get pods --show-labels
+```
+```
+kubectl get pods -L tier,env
+```
+```
+kubectl get pods -l app
+```
+```
+kubectl get pods -l tier=frontend
+```
+```
+kubectl get pods -l 'env=dev,tier=frontend'
+```
+```
+kubectl get pods -l 'env in (dev, test)'
+```
+```
+kubectl get pods -l 'tier!=backend'
+```
+```
+kubectl get pods -l 'env,env notin (prod)'
+```
+**Delete the Pod.**
+```
+kubectl delete pod my-pod
+```
+
+</Tab>
+
+</Tabs>

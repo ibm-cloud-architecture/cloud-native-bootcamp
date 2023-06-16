@@ -15,8 +15,8 @@ Two primary members
 ## Resources
 
 **OpenShift**
-- [Pods](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html)
-- [Nodes](https://docs.openshift.com/container-platform/4.3/nodes/nodes/nodes-nodes-viewing.html)
+- [Pods](https://docs.openshift.com/container-platform/4.13/nodes/pods/nodes-pods-using.html)
+- [Nodes](https://docs.openshift.com/container-platform/4.13/nodes/nodes/nodes-nodes-viewing.html)
 
 **IKS**
 - [Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/)

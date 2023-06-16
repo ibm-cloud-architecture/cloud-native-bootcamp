@@ -8,8 +8,8 @@ A Secret is an object that contains a small amount of sensitive data such as a p
 ## Resources
 
 **OpenShift**
-- [Secrets][(https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html)
-- [Secret Commands](https://docs.openshift.com/container-platform/4.3/cli_reference/openshift_cli/developer-cli-commands.html#secrets)
+- [Image Pull Secrets](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html)
+- [Secret Commands](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic)
 
 **IKS**
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
@@ -71,50 +71,41 @@ spec:
         secretName: mysecret-config
 ```
 
-<Tabs>
-<Tab label="OpenShift">
+=== "OpenShift"
+    ** Create files needed for rest of example.**
+    ```
+    echo -n 'admin' > ./username.txt
+    echo -n '1f2d1e2e67df' > ./password.txt
+    ```
 
-** Create files needed for rest of example.**
-```
-echo -n 'admin' > ./username.txt
-echo -n '1f2d1e2e67df' > ./password.txt
-```
+    ** Creating Secret from files. **
+    ```
+    oc create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+    ```
+    ** Getting Secret **
+    ```
+    oc get secrets
+    ```
+    ** Gets the Secret's Description. **
+    ```
+    oc describe secrets/db-user-pass
+    ```
 
-** Creating Secret from files. **
-```
-oc create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
-```
-** Getting Secret **
-```
-oc get secrets
-```
-** Gets the Secret's Description. **
-```
-oc describe secrets/db-user-pass
-```
-
-</Tab>
-
-<Tab label="IKS">
-
-** Create files needed for rest of example. **
-```
-echo -n 'admin' > ./username.txt
-echo -n '1f2d1e2e67df' > ./password.txt
-```
-** Creates the Secret from the files **
-```
-kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
-```
-** Gets the Secret **
-```
-kubectl get secrets
-```
-** Gets the Secret's Description. **
-```
-kubectl describe secrets/db-user-pass
-```
-
-</Tab>
-
-</Tabs>
+=== "Kubernetes"
+    ** Create files needed for rest of example. **
+    ```
+    echo -n 'admin' > ./username.txt
+    echo -n '1f2d1e2e67df' > ./password.txt
+    ```
+    ** Creates the Secret from the files **
+    ```
+    kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+    ```
+    ** Gets the Secret **
+    ```
+    kubectl get secrets
+    ```
+    ** Gets the Secret's Description. **
+    ```
+    kubectl describe secrets/db-user-pass
+    ```
