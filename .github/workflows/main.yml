@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: generate site
         uses: ./.github/actions/
+      - name: List Structure
+        run: ls -al
       - name: Set CNAME
         run: sudo chmod 777 ./public/CNAME && echo "cloudbootcamp.dev" > ./public/CNAME
         
