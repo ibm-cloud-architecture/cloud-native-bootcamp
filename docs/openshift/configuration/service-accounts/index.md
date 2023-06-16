@@ -12,13 +12,13 @@ User accounts are intended to be global. Names must be unique across all namespa
 
 **OpenShift**
 
-- [Service Accounts](https://docs.openshift.com/container-platform/4.3/authentication/understanding-and-creating-service-accounts.html)
-- [Using Service Accounts](https://docs.openshift.com/container-platform/4.3/authentication/using-service-accounts-in-applications.html)
+- [Service Accounts](https://docs.openshift.com/container-platform/4.13/authentication/understanding-and-creating-service-accounts.html){:target="_blank"}
+- [Using Service Accounts](https://docs.openshift.com/container-platform/4.13/authentication/using-service-accounts-in-applications.html){:target="_blank"}
 
 **IKS**
 
-- [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/)
-- [Service Account Configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+- [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/){:target="_blank"}
+- [Service Account Configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/){:target="_blank"}
 
 ## References
 
@@ -53,31 +53,22 @@ metadata:
 type: kubernetes.io/service-account-token
 ```
 
-<Tabs>
-<Tab label="OpenShift">
+=== "Openshift"
 
-** Creating a ServiceAccount**
-```
-oc create sa <service_account_name>
-```
-** View ServiceAccount Details **
-```
-oc describe sa <service_account_name>
-```
+    ``` Bash title="Create a Service Account"
+    oc create sa <service_account_name>
+    ```
 
-</Tab>
+    ``` Bash title="View Service Account Details"
+    oc describe sa <service_account_name>
+    ```
 
-<Tab label="IKS">
+=== "Kubernetes"
 
-** Create a ServiceAccount **
-```
-kubectl create sa <service_account_name>
-```
-** View ServiceAccount Details **
-```
-kubectl describe sa <service_account_name>
-```
+    ``` Bash title="Create a Service Account"
+    kubectl create sa <service_account_name>
+    ```
 
-</Tab>
-
-</Tabs>
+    ``` Bash title="View Service Account Details"
+    kubectl describe sa <service_account_name>
+    ```

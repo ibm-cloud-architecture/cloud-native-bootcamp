@@ -17,13 +17,13 @@ A Deployment’s revision is created when a Deployment’s rollout is triggered.
 
 **OpenShift**
 
-- [Rollouts](https://docs.openshift.com/container-platform/4.3/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are)
-- [Rolling Back](https://docs.openshift.com/container-platform/4.3/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations)
+- [Rollouts](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){:target="_blank"}
+- [Rolling Back](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){:target="_blank"}
 
 **IKS**
 
-- [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment)
-- [Rolling Back a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment)
+- [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment){:target="_blank"}
+- [Rolling Back a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment){:target="_blank"}
 
 
 ## References

@@ -16,8 +16,9 @@ For non-native applications, Kubernetes offers ways to place a network port or l
 ## Resources
 
 **IKS & OpenShift**
-- [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
-- [Exposing Services](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/)
+
+- [Services](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank"}
+- [Exposing Services](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){:target="_blank"}
 
 ## References
 
@@ -81,50 +82,44 @@ spec:
     stern . -n default
     ```
 
-<Tabs>
-<Tab label="OpenShift">
-
-** Get Service **
 ```
-oc get svc
-```
-** Get Service Description **
-```
-oc describe svc my-service
-```
-** Expose a service **
-```
-oc expose service <service_name>
-```
-** Get Route for the Service **
-```  
-oc get route
 ```
 
-</Tab>
+=== "OpenShift"
 
-<Tab label="IKS">
+    ``` Bash title="Get Service"
+    oc get svc
+    ```
 
-** Get Service **
-```
-kubectl get svc
-```
-** Get Service Description **
-```
-kubectl describe svc my-service
-```
-** Get Service Endpoints **
-```
-kubectl get ep my-service
-```
-** Expose a Deployment via a Service **
-```
-kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
-```
+    ``` Bash title="Get Service Description"
+    oc describe svc my-service
+    ```
 
-</Tab>
+    ``` Bash title="Expose a Service"
+    oc expose service <service_name>
+    ```
 
-</Tabs>
+    ``` Bash title="Get Route for the Service"
+    oc get route
+    ```
+
+=== "Kubernetes"
+
+    ``` Bash title="Get Service"
+    kubectl get svc
+    ```
+
+    ``` Bash title="Get Service Description"
+    kubectl describe svc my-service
+    ```
+
+    ``` Bash title="Get Service Endpoints"
+    kubectl get ep my-service
+    ```
+
+    ``` Bash title="Expose a Deployment via a Service"
+    kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
+    ```
 
 ## Activities
 
