@@ -14,8 +14,6 @@ jobs:
         uses: ./.github/actions/
       - name: List Structure
         run: ls -al
-      - name: Set CNAME
-        run: sudo chmod 777 ./public/CNAME && echo "cloudbootcamp.dev" > ./public/CNAME
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
