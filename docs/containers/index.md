@@ -69,7 +69,7 @@ For example, Docker created standard way to create images for Linux Containers.
         config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
         ```
 
-        3. Create a "context" that points to the cluster with a specific user
+        3. Create a "context" that points to the cluster with a specific user.
         ``` bash
         kubectl config set-context default/foo.kubernetes.com/kubeuser --user=kubeuser/foo.kubernetes.com --namespace=default --cluster=foo.kubernetes.com
         ```

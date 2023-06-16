@@ -35,8 +35,8 @@ These tasks assume that you have:
 | Task                            | Description         | Link        | Time    |
 | --------------------------------| ------------------  |:----------- |---------|
 | *** Walkthroughs ***                         |         |         |     |
-| GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/) | 20 min |
-| GitOps Multi-cluster | Multi-cluster GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/) | 20 min |
+| GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/){:target="_blank"} | 20 min |
+| GitOps Multi-cluster | Multi-cluster GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/){:target="_blank"} | 20 min |
 | *** Try It Yourself ***                         |         |         |     |
 | ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../continuous-deployment/activities/openshift/) | 30 min |
 
