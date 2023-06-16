@@ -8,7 +8,7 @@ A Secret is an object that contains a small amount of sensitive data such as a p
 ## Resources
 
 **OpenShift**
-- [Secrets](https://docs.openshift.com/container-platform/4.3/nodes/containers/nodes-containers-projected-volumes.html)
+- [Secrets][(https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html)
 - [Secret Commands](https://docs.openshift.com/container-platform/4.3/cli_reference/openshift_cli/developer-cli-commands.html#secrets)
 
 **IKS**
