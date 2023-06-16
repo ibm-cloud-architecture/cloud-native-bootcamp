@@ -33,6 +33,28 @@ For example, Docker created standard way to create images for Linux Containers.
 
     2. Test it out
 
+=== "IBM Cloud"
+    
+    1. Install ibmcloud CLI
+    ``` bash
+    curl -fsSL https://clis.cloud.ibm.com/install/osx | sh
+    ```
+
+    2. Verify installation
+    ``` bash
+    ibmcloud help
+    ```
+
+    3. Configure environment. Go to cloud.ibm.com -> click on your profile -> Log into CLI and API and copy IBM Cloud CLI command. It will look something like this:
+    ``` bash
+    ibmcloud login -a https://cloud.ibm.com -u passcode -p <password>
+    ```
+
+    4. Log into docker through IBM Cloud
+    ``` bash
+    ibmcloud cr login --client docker
+    ```
+<!---
 === "Docker on Kubernetes/OpenShift"
 
     === "OpenShift"
@@ -66,7 +88,7 @@ For example, Docker created standard way to create images for Linux Containers.
 
         2. Point to a cluster. Make sure the URI of the cluster matches the credential name you created in step 1.
         ``` bash
-        config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
+        kubectl config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
         ```
 
         3. Create a "context" that points to the cluster with a specific user.
@@ -93,7 +115,7 @@ For example, Docker created standard way to create images for Linux Containers.
         ``` bash
         docker version
         ```
-
+--->
 ## Activities
 
 | Task                    | Description                                                     | Link                                                                                                                         | Time   |
