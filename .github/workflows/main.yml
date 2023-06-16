@@ -2,7 +2,6 @@ name: gh-deploy
 on:
   push:
     branches:
-      - master 
       - main
 permissions:
   contents: write
@@ -10,16 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v2
+      - name: generate site
+        uses: ./.github/actions/
+      - name: Set CNAME
+        run: sudo chmod 777 ./public/CNAME && echo "cloudnativetoolkit.dev" > ./public/CNAME
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+          personal_token: ${{ secrets.TOKEN }}
+          publish_dir: ./public
