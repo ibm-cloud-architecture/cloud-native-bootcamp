@@ -28,6 +28,8 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      fallback_to_build_date: true
+      strict: false
 
 extra_css:
   - stylesheets/index.css
@@ -89,6 +91,8 @@ nav:
       - openshift/state-persistence/index.md
       - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
       - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
+    - <div class="header">Labs</div>:
+      - openshift/labs/index.md
   - DevOps/GitOps:
     - devops/tekton/index.md
     - <div class="header">Continuous Integration</div>:
@@ -97,3 +101,8 @@ nav:
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
       - ArgoCD: devops/argocd/index.md
+    - <div class="header">Labs</div>:
+      - openshift/labs/index.md
+      - Tekton: devops/tekton/labs/openshift.md
+      - Jenkins: devops/jenkins/openshift.md
+      - IBM Toolchain: devops/ibm-toolchain/index.md

@@ -18,15 +18,15 @@ The following are typical use cases for Deployments:
 
 **OpenShift**
 
-- [Deployments](https://docs.openshift.com/container-platform/4.3/applications/deployments/what-deployments-are.html)
-- [Managing Deployment Processes](https://docs.openshift.com/container-platform/4.3/applications/deployments/managing-deployment-processes.html)
-- [DeploymentConfig Strategies](https://docs.openshift.com/container-platform/4.3/applications/deployments/deployment-strategies.html)
-- [Route Based Deployment Strategies](https://docs.openshift.com/container-platform/4.3/applications/deployments/route-based-deployment-strategies.html)
+- [Deployments](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html){:target="_blank"}
+- [Managing Deployment Processes](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html){:target="_blank"}
+- [DeploymentConfig Strategies](https://docs.openshift.com/container-platform/4.13/applications/deployments/deployment-strategies.html){:target="_blank"}
+- [Route Based Deployment Strategies](https://docs.openshift.com/container-platform/4.13/applications/deployments/route-based-deployment-strategies.html){:target="_blank"}
 
 **IKS**
 
-- [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-- [Scaling Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment)
+- [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){:target="_blank"}
+- [Scaling Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment){:target="_blank"}
 
 ## References
 
@@ -54,62 +54,54 @@ spec:
         - containerPort: 8080
 ```
 
-<Tabs>
-<Tab label="OpenShift">
+=== "Openshift"
 
-** Creates a Deployment **
-```
-oc apply -f deployment.yaml
-```
-** Gets Deployments **
-```
-oc get deployment my-deployment
-```
-** Gets the deployments description **
-```
-oc describe deployment my-deployment
-```
-** Edit the deployment **
-```
-oc edit deployment my-deployment
-```
-** Scale the deployment **
-```
-oc scale deployment/my-deployment --replicas=3
-```
-** Delete the deployment **
-```
-oc delete deployment my-deployment
-```
-</Tab>
+    ``` Bash title="Create a Deployment"
+    oc apply -f deployment.yaml
+    ```
 
-<Tab label="IKS">
+    ``` Bash title="Get Deployment"
+    oc get deployment my-deployment
+    ```
 
-** Creates a Deployment **
-```
-kubectl apply -f <deploymentYAML>
-```
-** Get the deployment **
-```
-kubectl get deployment my-deployment
-```
-** Describe the deployment **
-```
-kubectl describe deployment my-deployment
-```
-** Edit the deployment **
-```
-kubectl edit deployment my-deployment
-```
-** Scale the deployment **
-```
-kubectl scale deployment/my-deployment --replicas=4
-```
-** Delete the deployment **
-```
-kubectl delete deployment my-deployment
-```
+    ``` Bash title="Get Deployment's Description"
+    oc describe deployment my-deployment
+    ```
 
-</Tab>
+    ``` Bash title="Edit Deployment"
+    oc edit deployment my-deployment
+    ```
 
-</Tabs>
+    ``` Bash title="Scale Deployment"
+    oc scale deployment/my-deployment --replicas=3
+    ```
+
+    ``` Bash title="Delete Deployment"
+    oc delete deployment my-deployment
+    ```
+
+=== "Kubernetes"
+
+    ``` Bash title="Create a Deployment"
+    kubectl apply -f deployment.yaml
+    ```
+
+    ``` Bash title="Get Deployment"
+    kubectl get deployment my-deployment
+    ```
+
+    ``` Bash title="Get Deployment's Description"
+    kubectl describe deployment my-deployment
+    ```
+
+    ``` Bash title="Edit Deployment"
+    kubectl edit deployment my-deployment
+    ```
+
+    ``` Bash title="Scale Deployment"
+    kubectl scale deployment/my-deployment --replicas=3
+    ```
+
+    ``` Bash title="Delete Deployment"
+    kubectl delete deployment my-deployment
+    ```

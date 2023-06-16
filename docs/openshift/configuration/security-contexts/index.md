@@ -7,11 +7,12 @@ To specify security settings for a Pod, include the securityContext field in the
 ## Resources
 
 **OpenShift**
-- [Managing Security Contexts](https://docs.openshift.com/container-platform/4.3/authentication/managing-security-context-constraints.html)
+
+- [Managing Security Contexts](https://docs.openshift.com/container-platform/4.13/authentication/managing-security-context-constraints.html){:target="_blank"}
 
 **IKS**
 
-- [Security Contexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+- [Security Contexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/){:target="_blank"}
 
 
 ## References
@@ -88,19 +89,20 @@ spec:
 
 === "OpenShift"
 
-  ``` Bash title="Get Pod Logs"
-  oc logs my-securitycontext-pod
-  ```
+    ``` Bash title="Get Pod Logs"
+    oc logs my-securitycontext-pod
+    ```
 
-  ``` Bash title="Should return"
-  cat: can't open '/message/message.text': Permission denied
-  ```
+    ``` Bash title="Should return"
+    cat: can't open '/message/message.text': Permission denied
+    ```
+
 === "Kubernetes"
 
-  ``` Bash title="Get Pod Logs"
-  kubectl logs my-securitycontext-pod
-  ```
+    ``` Bash title="Get Pod Logs"
+    kubectl logs my-securitycontext-pod
+    ```
 
-  ``` Bash title="Should return"
-  cat: can't open '/message/message.txt': Permission denied
-  ```
+    ``` Bash title="Should return"
+    cat: can't open '/message/message.txt': Permission denied
+    ```

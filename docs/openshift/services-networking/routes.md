@@ -11,9 +11,10 @@ The new route inherits the name from the service unless you specify one using th
 ## Resources
 
 **OpenShift**
-- [Routes](https://docs.openshift.com/online/pro/dev_guide/routes.html)
-- [Route Configuration](https://docs.openshift.com/container-platform/4.3/networking/routes/route-configuration.html)
-- [Secured Routes](https://docs.openshift.com/container-platform/4.3/networking/routes/secured-routes.html)
+
+- [Routes](https://docs.openshift.com/online/pro/dev_guide/routes.html){:target="_blank"}
+- [Route Configuration](https://docs.openshift.com/container-platform/4.13/networking/routes/route-configuration.html){:target="_blank"}
+- [Secured Routes](https://docs.openshift.com/container-platform/4.13/networking/routes/secured-routes.html){:target="_blank"}
 
 ## References
 
@@ -42,26 +43,21 @@ spec:
     termination: edge
 ```
 
-### Commands
-<Tabs>
-<Tab label="OpenShift">
+## Commands
+=== "OpenShift"
 
-** Create Route from YAML **
-```
-oc apply -f route.yaml
-```
-** Get Route **
-```
-oc get route
-```
-** Describe Route **
-```
-oc get route <route-name>
-```
-** Get Route YAML **
-```
-oc get route <route-name> -o yaml
-```
+    ``` Bash title="Create Route from YAML"
+    oc apply -f route.yaml
+    ```
 
-</Tab>
-</Tabs>
+    ``` Bash title="Get Route"
+    oc get route
+    ```
+
+    ``` Bash title="Describe Route"
+    oc get route <route_name>
+    ```
+
+    ``` Bash title="Get Route YAML"
+    oc get route <route_name> -o yaml
+    ```

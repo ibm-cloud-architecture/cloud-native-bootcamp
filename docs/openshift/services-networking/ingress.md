@@ -9,13 +9,15 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services withi
 ## Resources
 
 **OpenShift**
-- [Ingress Operator](https://docs.openshift.com/container-platform/4.3/networking/ingress-operator.html)
-- [Using Ingress Controllers](https://docs.openshift.com/container-platform/4.3/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html)
+
+- [Ingress Operator](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){:target="_blank"}
+- [Using Ingress Controllers](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){:target="_blank"}
 
 **IKS**
-- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
-- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-- [Minikube Ingress](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
+
+- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/){:target="_blank"}
+- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/){:target="_blank"}
+- [Minikube Ingress](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/){:target="_blank"}
 
 ## References
 
@@ -34,50 +36,36 @@ spec:
           serviceName: web
           servicePort: 8080
 ```
-<Tabs>
-<Tab label="OpenShift">
+=== "OpenShift"
 
-** View Ingress Status **
-```
-oc describe clusteroperators/ingress
-```
-** Describe default Ingress Controller **
-```
-oc describe --namespace=openshift-ingress-operator ingresscontroller/default
-```
+    ``` Bash title="View Ingress Status"
+    oc describe clusteroperators/ingress
+    ```
 
-</Tab>
+    ``` Bash title="Describe default Ingress Controller"
+    oc describe --namespace=openshift-ingress-operator ingresscontroller/default
+    ```
 
-<Tab label="IKS">
+=== "Kubernetes"
 
-```
-minikube addons enable ingress
-```
-```
-kubectl get pods -n kube-system | grep ingress
-```
-```
-kubectl create deployment web --image=bitnami/nginx
-```
-```
-kubectl expose deployment web --name=web --port 8080
-```
-```
-kubectl get svc web
-```
-```
-minikube service --url web
-```
-```
-kubectl get ingress
-```
-```
-kubcetl describe ingress example-ingress
-```
-```
-curl hello-world.info --resolve hello-world.info:80:<ADDRESS>
-```
-
-</Tab>
-
-</Tabs>
+    ``` Bash title="Describe default Ingress Controller"
+    kubectl get pods -n kube-system | grep ingress
+    ```
+    ```
+    kubectl create deployment web --image=bitnami/nginx
+    ```
+    ```
+    kubectl expose deployment web --name=web --port 8080
+    ```
+    ```
+    kubectl get svc web
+    ```
+    ```
+    kubectl get ingress
+    ```
+    ```
+    kubcetl describe ingress example-ingress
+    ```
+    ```
+    curl hello-world.info --resolve hello-world.info:80:<ADDRESS>
+    ```
