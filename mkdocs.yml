@@ -1,5 +1,5 @@
-site_name: TechDemos
-repo_url: https://github.ibm.com/CE-National/TechDemos
+site_name: Cloud Native Bootcamp
+repo_url: https://github.com/ibm-cloud-architecture/cloud-native-bootcamp
 
 theme:
   name: material
@@ -97,27 +97,3 @@ nav:
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
       - ArgoCD: devops/argocd/index.md
-  - Cloud Paks:
-    - cloudpaks/index.md
-    - Installation: cloudpaks/installation/index.md
-    - <div class="header">Business Automation</div>: 
-      - cloudpaks/cp4ba/index.md
-    - <div class="header">Data</div>: 
-      - cloudpaks/cp4d/index.md
-    - <div class="header">Integration</div>: 
-      - cloudpaks/cp4i/index.md
-      - API Connect: cloudpaks/cp4i/api-connect/index.md
-      - App Connect: cloudpaks/cp4i/app-connect/index.md
-      - MQ: cloudpaks/cp4i/mq/index.md
-    - <div class="header">Network Automation</div>: 
-      - cloudpaks/cp4na/index.md
-  - Watson Services:
-    - watson-services/index.md
-    - <div class="header">Speech to Text</div>: watson-services/stt/index.md
-    - <div class="header">Text to Speech</div>: watson-services/tts/index.md
-    - <div class="header">Assistant</div>: watson-services/watson-assistant/index.md
-    - <div class="header">Discovery</div>: watson-services/watson-discovery/index.md
-  - Other Technologies:
-    - otherTech/index.md
-    - Maximo: otherTech/maximo/index.md
-    - DB2/QRep: otherTech/db2-qrep/index.md
