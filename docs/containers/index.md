@@ -35,34 +35,73 @@ For example, Docker created standard way to create images for Linux Containers.
 
 === "Docker on Kubernetes/OpenShift"
 
-    1. Login to your Kubernetes or OpenShift cluster.
-    ``` bash
-    oc login...
-    ```
+    === "OpenShift"
 
-    2. Apply the following yaml file to create the docker pod.
-    ``` bash
-    kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/static/yamls/containers/dind.yaml
-    ```
+        1. Login to your OpenShift cluster.
+        ``` bash
+        oc login...
+        ```
 
-    3. Then, we need to bash into the running pod.
-    ``` bash
-    kubectl exec -it dind
-    ```
+        2. Apply the following yaml file to create the docker pod.
+        ``` bash
+        oc apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/static/yamls/containers/dind.yaml
+        ```
 
-    4. Finally check to make sure you can run docker commands, such as
-    ``` bash
-    docker version
-    ```
+        3. Then, we need to bash into the running pod.
+        ``` bash
+        oc exec -it dind
+        ```
+
+        4. Finally check to make sure you can run docker commands, such as
+        ``` bash
+        docker version
+        ```
+    
+    === "Kubernetes"
+
+        1. If you have already configured your Kubernetes, skip to step 5. First, add a user by setting credentials. Feel free to change the credential name, username and password to whatever you like.
+        ``` bash
+        kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+        ```
+
+        2. Point to a cluster. Make sure the URI of the cluster matches the credential name you created in step 1.
+        ``` bash
+        config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
+        ```
+
+        3. Create a "context" that points to the cluster with a specific user
+        ``` bash
+        kubectl config set-context default/foo.kubernetes.com/kubeuser --user=kubeuser/foo.kubernetes.com --namespace=default --cluster=foo.kubernetes.com
+        ```
+
+        4. Tell kubectl to use this context
+        ``` bash
+        kubectl config use-context default/foo.kubernetes.com/kubeuser
+        ```
+
+        5. Apply the following yaml file to create the docker pod.
+        ``` bash
+        kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/static/yamls/containers/dind.yaml
+        ```
+
+        6. Then, we need to bash into the running pod.
+        ``` bash
+        kubectl exec -it dind
+        ```
+
+        7. Finally check to make sure you can run docker commands, such as
+        ``` bash
+        docker version
+        ```
 
 ## Activities
 
 | Task                    | Description                                                     | Link                                                                                                                         | Time   |
 | ----------------------- | --------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- | ------ |
 | **_ Walkthroughs _**    |                                                                 |                                                                                                                              |        |
-| What is a Container?    | A look under the the covers at what is a Linux Container?       | <a href="https://www.katacoda.com/courses/container-runtimes/what-is-a-container" target="_blank">Understand Containers</a>  | 10 min |
-| What is an Image?       | A look under the the covers at what is a Linux Container Image? | <a href="https://www.katacoda.com/courses/container-runtimes/what-is-a-container-image" target="_blank">Container Images</a> | 10 min |
-| Docker Basics           | Set of walkthroughs that cover docker basics                    | <a href="https://www.katacoda.com/courses/docker" target="_blank">Docker Basics</a>                                          | 10 min |
+| What is a Container?    | A look under the the covers at what is a Linux Container?       | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_01_00_00/" target="_blank">Understand Containers</a>  | 10 min |
+| What is an Image?       | A look under the the covers at what is a Linux Container Image? | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_06_01_00/" target="_blank">Container Images</a> | 10 min |
+| Docker Basics           | Set of walkthroughs that cover docker basics                    | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_03_00_00/" target="_blank">Docker Basics</a>                                          | 10 min |
 | **_ Try It Yourself _** |                                                                 |                                                                                                                              |        |
 | IBM Container Registry  | Build and Deploy Run using IBM Container Registry               | [IBM Container Registry](./activities/ibmcloud-cr)                                                                           | 30 min |
 | Docker Lab              | Running a Sample Application on Docker                          | [Docker Lab](./activities/)                                                                                                  | 30 min |
