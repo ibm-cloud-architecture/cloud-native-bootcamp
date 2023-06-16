@@ -1,7 +1,7 @@
 {
-    "name": "TechDemos",
+    "name": "Cloud Native Bootcamp",
     "version": "1.0.0",
-    "description": "National Market Demos Page",
+    "description": "Cloud Native Bootcamp",
     "main": "index.js",
     "directories": {
       "doc": "docs"
