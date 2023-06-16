@@ -86,30 +86,21 @@ spec:
 ```
 ** Run to see the errors **
 
-<Tabs>
-<Tab label="OpenShift">
+=== "OpenShift"
 
-** Get Pod Logs **
-```
-oc logs my-securitycontext-pod
-```
-** Should return **
-```
-cat: can't open '/message/message.txt': Permission denied
-```
-</Tab>
+  ``` Bash title="Get Pod Logs"
+  oc logs my-securitycontext-pod
+  ```
 
-<Tab label="IKS">
+  ``` Bash title="Should return"
+  cat: can't open '/message/message.text': Permission denied
+  ```
+=== "Kubernetes"
 
-** Get Pod Logs **
-```
-kubectl logs my-securitycontext-pod
-```
+  ``` Bash title="Get Pod Logs"
+  kubectl logs my-securitycontext-pod
+  ```
 
-** Should return **
-```
-cat: can't open '/message/message.txt': Permission denied
-```
-</Tab>
-
-</Tabs>
+  ``` Bash title="Should return"
+  cat: can't open '/message/message.txt': Permission denied
+  ```
