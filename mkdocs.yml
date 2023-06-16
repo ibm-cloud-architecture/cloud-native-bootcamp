@@ -28,6 +28,8 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      fallback_to_build_date: true
+      
 
 extra_css:
   - stylesheets/index.css
