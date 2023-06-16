@@ -21,6 +21,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: ls
+      - name: Set CNAME
+        run: sudo chmod 777 ./public/CNAME && echo "develop.cloudnativetoolkit.dev" > ./public/CNAME
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
