@@ -3,7 +3,7 @@
 cd "${GITHUB_WORKSPACE}"
 
 # Python Dependencies
-pip --no-cache-dir install git+https://github.com/linkchecker/linkchecker@v10.0.1#egg=linkchecker
+pip install -r requirements.txt
 # NodeJS Dependencies
 npm ci
 
