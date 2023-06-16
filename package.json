@@ -1,0 +1,36 @@
+{
+    "name": "TechDemos",
+    "version": "1.0.0",
+    "description": "National Market Demos Page",
+    "main": "index.js",
+    "directories": {
+      "doc": "docs"
+    },
+    "scripts": {
+      "dev:build": "./dev/build.sh prodguide-dev",
+      "predev": "./dev/clean.sh prodguide-dev",
+      "dev": "./dev/run.sh prodguide-dev 8000",
+      "postdev": "./dev/logs.sh prodguide-dev",
+      "dev:stop": "./dev/clean.sh prodguide-dev",
+      "test": "./dev/test.sh prodguide-dev && exit 1",
+      "build": "./build.sh",
+      "dev:spell": "cspell docs/**/*.md",
+      "dev:links": "linkchecker -f linkcheckerrc --check-extern public",
+      "serve": "./dev/mkdocs.sh"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.ibm.com/CE-National/TechDemos.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.ibm.com/CE-National/TechDemos/issues"
+    },
+    "homepage": "https://github.ibm.com/CE-National/TechDemos#readme",
+    "dependencies": {
+      "cspell": "^5.18.4",
+      "linkchecker": "^1.1.0"
+    }
+  }

@@ -1,0 +1,123 @@
+site_name: TechDemos
+repo_url: https://github.ibm.com/CE-National/TechDemos
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.prune
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.share
+  icon:
+    repo: fontawesome/brands/github
+  logo: images/watson-white-logo.png
+  favicon: images/watson-white-logo.png
+  font:
+    text: IBM Plex Sans
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+
+extra_css:
+  - stylesheets/index.css
+
+
+markdown_extensions:
+  - attr_list
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - Home: 
+    - index.md
+    - Content: sections-index.md
+    - Cloud Native Challenge: cloudnative-challenge.md
+    - How to Contribute: contribute-index.md
+  - Containers:
+    - containers/index.md
+    - Image Registries: containers/imageregistry.md
+    - Lab: containers/labs/index.md
+  - <div class="header">Kubernetes/OpenShift</div>:
+    - openshift/index.md
+    - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
+    - <div class="sub-section">Namespaces/Projects</div>: openshift/core-concepts/namespaces-projects/index.md
+    - <div class="header">Pods</div>:
+      - openshift/pods/index.md
+      - <div class="sub-section">Labels-Selectors</div>: openshift/pods/tagging/index.md
+      - <div class="sub-section">Multi-Container</div>: openshift/pods/multi-container/index.md
+      - <div class="sub-section">Health Checks</div>: openshift/pods/health-checks/index.md
+      - <div class="sub-section">Troubleshooting</div>: openshift/pods/troubleshooting/index.md
+    - <div class="header">Configuration</div>: 
+      - openshift/configuration/index.md
+      - <div class="sub-section">Config Maps</div>: openshift/configuration/config-map/index.md
+      - <div class="sub-section">Secrets</div>: openshift/configuration/secrets/index.md
+      - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
+      - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
+    - <div class="header">Deployments</div>: 
+      - openshift/deployments/index.md
+      - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
+    - <div class="header">Networking</div>: 
+      - openshift/services-networking/index.md
+      - <div class="sub-section">Services</div>: openshift/services-networking/services.md
+      - <div class="sub-section">Routes</div>: openshift/services-networking/routes.md
+      - <div class="sub-section">Ingresses</div>: openshift/services-networking/ingress.md
+    - <div class="header">State Persistence</div>: 
+      - openshift/state-persistence/index.md
+      - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
+      - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
+  - DevOps/GitOps:
+    - devops/tekton/index.md
+    - <div class="header">Continuous Integration</div>:
+      - devops/argocd/index.md
+      - Tekton: devops/tekton/index.md
+    - <div class="header">Continuous Deployment</div>:
+      - devops/argocd/index.md
+      - ArgoCD: devops/argocd/index.md
+  - Cloud Paks:
+    - cloudpaks/index.md
+    - Installation: cloudpaks/installation/index.md
+    - <div class="header">Business Automation</div>: 
+      - cloudpaks/cp4ba/index.md
+    - <div class="header">Data</div>: 
+      - cloudpaks/cp4d/index.md
+    - <div class="header">Integration</div>: 
+      - cloudpaks/cp4i/index.md
+      - API Connect: cloudpaks/cp4i/api-connect/index.md
+      - App Connect: cloudpaks/cp4i/app-connect/index.md
+      - MQ: cloudpaks/cp4i/mq/index.md
+    - <div class="header">Network Automation</div>: 
+      - cloudpaks/cp4na/index.md
+  - Watson Services:
+    - watson-services/index.md
+    - <div class="header">Speech to Text</div>: watson-services/stt/index.md
+    - <div class="header">Text to Speech</div>: watson-services/tts/index.md
+    - <div class="header">Assistant</div>: watson-services/watson-assistant/index.md
+    - <div class="header">Discovery</div>: watson-services/watson-discovery/index.md
+  - Other Technologies:
+    - otherTech/index.md
+    - Maximo: otherTech/maximo/index.md
+    - DB2/QRep: otherTech/db2-qrep/index.md
