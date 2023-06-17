@@ -1,3 +1,0 @@
-# MQ
-
-## Coming Soon

@@ -1,3 +1,0 @@
-# Watson Assistant
-
-## Coming Soon

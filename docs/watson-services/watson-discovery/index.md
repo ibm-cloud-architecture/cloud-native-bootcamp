@@ -1,3 +1,0 @@
-# Watson Discovery
-
-## Coming Soon
