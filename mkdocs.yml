@@ -56,7 +56,7 @@ markdown_extensions:
 nav:
   - Home: 
     - index.md
-    - Course Agenda: 
+    - Course Agenda: agenda.md
     - Cloud Native Challenge: cloudnative-challenge.md
   - Cloud Native:
     - cloud-native/index.md
@@ -114,8 +114,6 @@ nav:
   - Activities/Labs:
     - labs/index.md
     - Containers: containers/labs/index.md
-    - Kubernetes/Openshift:
-      - 
     - DevOps/GitOps:
       - devops/tekton/labs/iks.md
       - Tekton: devops/tekton/labs/iks.md
