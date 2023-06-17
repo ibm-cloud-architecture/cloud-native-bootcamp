@@ -5,6 +5,7 @@
 These activites give you a chance to walkthrough basic kubernetes tasks via Katacoda. Then give them a try yourself by solving some problems from scratch.
 
 These tasks assume that you have:
+
  - Reviewed Kubernetes Concept pages.
  - Created a Mini-Kube cluster.
  - Created a Katacoda Account.

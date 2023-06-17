@@ -116,7 +116,7 @@ nav:
     - labs/index.md
     - Containers: containers/labs/index.md
     - DevOps/GitOps:
-      - devops/tekton/labs/iks.md
+      - labs/index.md
       - Tekton: devops/tekton/labs/iks.md
-      - Jenkins: devops/tekton/labs/iks.md
-      - IBM Cloud: devops/tekton/labs/iks.md
+      - Jenkins: labs/devops/jenkins/iks.md
+      - IBM Cloud: devops/ibm-toolchain/index.md
