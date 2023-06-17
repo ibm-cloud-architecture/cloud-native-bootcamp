@@ -56,11 +56,14 @@ markdown_extensions:
 nav:
   - Home: 
     - index.md
+    - Course Agenda: 
     - Cloud Native Challenge: cloudnative-challenge.md
+  - Cloud Native:
+    - cloud-native/index.md
   - Containers:
     - containers/index.md
     - Image Registries: containers/imageregistry.md
-    - Lab: containers/labs/index.md
+    - Lab: labs/containers/index.md
   - <div class="header">Kubernetes/OpenShift</div>:
     - openshift/index.md
     - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
@@ -108,3 +111,13 @@ nav:
         - Using Openshift: devops/jenkins/openshift.md
         - Using Kubernetes: devops/jenkins/iks.md
       - IBM Toolchain: devops/ibm-toolchain/index.md
+  - Activities/Labs:
+    - labs/index.md
+    - Containers: containers/labs/index.md
+    - Kubernetes/Openshift:
+      - 
+    - DevOps/GitOps:
+      - devops/tekton/labs/iks.md
+      - Tekton: devops/tekton/labs/iks.md
+      - Jenkins:
+      - IBM Cloud: 
