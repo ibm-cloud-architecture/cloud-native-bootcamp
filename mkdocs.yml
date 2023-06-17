@@ -117,5 +117,5 @@ nav:
     - DevOps/GitOps:
       - devops/tekton/labs/iks.md
       - Tekton: devops/tekton/labs/iks.md
-      - Jenkins:
-      - IBM Cloud: 
+      - Jenkins: devops/tekton/labs/iks.md
+      - IBM Cloud: devops/tekton/labs/iks.md
