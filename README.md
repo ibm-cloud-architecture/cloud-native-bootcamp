@@ -1,8 +1,17 @@
 # IBM Cloud Native Bootcamp  
 
 
-
 ## Technologies Covered
+
+### Cloud Native
+
+- Overview about Cloud Native
+
+### Containers
+
+- Docker
+- Quay Registry
+- IBM Container Registry
 
 #### Cloud Orchestration
 
