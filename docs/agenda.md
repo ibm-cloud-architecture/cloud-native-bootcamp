@@ -10,12 +10,12 @@ The following table lists the topics and coding activities for the week. Click o
     | --------------------------------------------------------------------- | --------------------------- |
     | Kickoff                                                    | Activity                     |
     | Introductions                                                          | Activity                     |
-    | [Introduction Cloud Native](../lectures/cloud-native)                  | Presentation                 |
-    | [Containers](../lectures/containers/)                                         | Presentation                 |
-    | [Container Activities](../lectures/containers#activities)                     | Activity                     |
+    | [Introduction Cloud Native](cloud-native/index.md)                  | Presentation                 |
+    | [Containers](./containers/index.md)                                         | Presentation                 |
+    | [Container Activities](./labs/containers/index.md)                     | Activity                     |
     | Lunch                                                                  | Activity                     |
-    | [Container Activities](../lectures/containers#activities) (Cont.)             | Activity                     |
-    | [Kubernetes](../lectures/kube-overview/)                                         | Presentation                 |
+    | [Container Activities](./labs/containers/index.md) (Cont.)             | Activity                     |
+    | [Kubernetes](./openshift/index.md)                                         | Presentation                 |
     | Wrap up                                                                |                              |
 
     ## Day 2
@@ -23,9 +23,9 @@ The following table lists the topics and coding activities for the week. Click o
     | Topic                                                                  | Type of Activity             |
     | --------------------------------------------------------------------- | --------------------------- |
     | Recap and review from Monday; Q&A                                      | Presentation                 |
-    | [Kubernetes Activities](../lectures/kube-overview#activities)                                         | Activity                     |
+    | [Kubernetes Activities](./labs/containers/index.md)                                         | Activity                     |
     | Lunch                                                                  | Activity                     |
-    | [Kubernetes](../lectures/kube-overview/)                                         | Presentation                 |
+    | [Kubernetes](./openshift/index.md)                                         | Presentation                 |
     |  Wrap up                                                               |                              |
 
     ## Day 3
