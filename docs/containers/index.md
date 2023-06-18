@@ -1,131 +1,114 @@
-# Containers
+# Containers Introduction
+
+You wanted to run your application on different computing environments. It may be your laptop, test environment, staging environment or production environment.
+
+So, when you run it on these different environments, will your application work reliably ?
+
+What if some underlying software changes ? What if the security policies are different ? or something else changes ?
+
+To solve this problems, we need Containers.
+
+## Containers
 
 Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change. They work by hiding the differences between applications inside the container so that everything outside the container can be standardized.
 
 For example, Docker created standard way to create images for Linux Containers.
 
-## Resources
+<iframe width="1206" height="678" src="https://www.youtube.com/embed/0qotVMX-J5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[Container Basics :fontawesome-regular-file-pdf:](../containers/materials/02-Containers-Basics.pdf){ .md-button }
+## Why containers ?
 
-## Basic Docker Commands
+- We can run them anywhere.
+- They are lightweight .
+- Isolate your application from others.
 
-| Action                      | Command                                     |
-| --------------------------- | ------------------------------------------- |
-| Get Docker version          | `docker version`                            |
-| Run `hello-world` Container | `docker run hello-world`                    |
-| List Running Containers     | `docker ps`                                 |
-| Stop a container            | `docker stop <container-name/container-id>` |
-| List Docker Images          | `docker images`                            |
-| Login into registry         | `docker login`                              |
-| Build an image              | `docker build -t <image_name>:<tag> .`      |
-| Inspect a docker object     | `docker inspect <name/id>`                 |
-| Inspect a docker image      | `docker inspect image <name/id>`           |
-| Pull an image               | `docker pull <image_name>:<tag>`           |
-| Push an Image               | `docker push <image_name>:<tag>`           |
-| Remove a container          | `docker rm <container-name/container-id>`  |
+<iframe width="640" height="480" src="https://www.youtube.com/embed/muTkqVewJMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Running Docker
+## Different Container Standards
 
-=== "Local Docker"
+There are many different container standards available today. Some of them are as follows.
 
-    1. Install Docker Desktop
+**Docker** - The most common standard, made Linux containers usable by the masses.
 
-    2. Test it out
+**Rocket (rkt)** - An emerging container standard from CoreOS, the company that developed etcd.
 
-=== "IBM Cloud"
-    
-    1. Install ibmcloud CLI
-    ``` bash
-    curl -fsSL https://clis.cloud.ibm.com/install/osx | sh
-    ```
+**Garden** - The format Cloud Foundry builds using buildpacks.
 
-    2. Verify installation
-    ``` bash
-    ibmcloud help
-    ```
+Among them, Docker was one of the most popular mainstream container software tools.
 
-    3. Configure environment. Go to cloud.ibm.com -> click on your profile -> Log into CLI and API and copy IBM Cloud CLI command. It will look something like this:
-    ``` bash
-    ibmcloud login -a https://cloud.ibm.com -u passcode -p <password>
-    ```
+***Open Container Initiative (OCI)***
 
-    4. Log into docker through IBM Cloud
-    ``` bash
-    ibmcloud cr login --client docker
-    ```
-<!---
-=== "Docker on Kubernetes/OpenShift"
+A Linux Foundation project developing a governed container standard. Docker and Rocket are OCI-compliant. But, Garden is not.
 
-    === "OpenShift"
+## Benefits
 
-        1. Login to your OpenShift cluster.
-        ``` bash
-        oc login...
-        ```
+- Lightweight
+- Scalable
+- Efficient
+- Portable
+- Supports agile development
 
-        2. Apply the following yaml file to create the docker pod.
-        ``` bash
-        oc apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/static/yamls/containers/dind.yaml
-        ```
+To know more about Containerization, we have couple of guides. Feel free to check them out.
 
-        3. Then, we need to bash into the running pod.
-        ``` bash
-        oc exec -it dind
-        ```
+- [Containerization: A Complete Guide](https://www.ibm.com/cloud/learn/containerization).
+- [Containers: A Complete Guide](https://www.ibm.com/cloud/learn/containers).
 
-        4. Finally check to make sure you can run docker commands, such as
-        ``` bash
-        docker version
-        ```
-    
-    === "Kubernetes"
+## Docker
 
-        1. If you have already configured your Kubernetes, skip to step 5. First, add a user by setting credentials. Feel free to change the credential name, username and password to whatever you like.
-        ``` bash
-        kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
-        ```
+Docker is one of the most popular Containerization platforms which allows you to develop, deploy, and run application inside containers.
 
-        2. Point to a cluster. Make sure the URI of the cluster matches the credential name you created in step 1.
-        ``` bash
-        kubectl config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
-        ```
+- It is an open source project.
+- Can run it anywhere.
 
-        3. Create a "context" that points to the cluster with a specific user.
-        ``` bash
-        kubectl config set-context default/foo.kubernetes.com/kubeuser --user=kubeuser/foo.kubernetes.com --namespace=default --cluster=foo.kubernetes.com
-        ```
+<iframe width="640" height="480" src="https://www.youtube.com/embed/wFNWl-QwPfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        4. Tell kubectl to use this context
-        ``` bash
-        kubectl config use-context default/foo.kubernetes.com/kubeuser
-        ```
+An installation of Docker includes an engine. This comes with a daemon, REST APIs, and CLI. Users can use CLI to interact with the docker using commands. These commands are sent to the daemon which listens for the Docker Rest APIs which in turn manages images and containers. The engine runs a container by retrieving its image from the local system or registry. A running container starts one or more processes in the Linux kernel.
 
-        5. Apply the following yaml file to create the docker pod.
-        ``` bash
-        kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/static/yamls/containers/dind.yaml
-        ```
+### Docker Image
 
-        6. Then, we need to bash into the running pod.
-        ``` bash
-        kubectl exec -it dind
-        ```
+A read-only snapshot of a container that is stored in Docker Hub or in private repository. You use an image as a template for building containers.
 
-        7. Finally check to make sure you can run docker commands, such as
-        ``` bash
-        docker version
-        ```
---->
-## Activities
+These images are build from the `Dockerfile`.
 
-| Task                    | Description                                                     | Link                                                                                                                         | Time   |
-| ----------------------- | --------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **_ Walkthroughs _**    |                                                                 |                                                                                                                              |        |
-| What is a Container?    | A look under the the covers at what is a Linux Container?       | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_01_00_00/" target="_blank">Understand Containers</a>  | 10 min |
-| What is an Image?       | A look under the the covers at what is a Linux Container Image? | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_06_01_00/" target="_blank">Container Images</a> | 10 min |
-| Docker Basics           | Set of walkthroughs that cover docker basics                    | <a href="https://learning.oreilly.com/videos/getting-started-with/9780137649648/9780137649648-gswc_01_03_00_00/" target="_blank">Docker Basics</a>                                          | 10 min |
-| **_ Try It Yourself _** |                                                                 |                                                                                                                              |        |
-| IBM Container Registry  | Build and Deploy Run using IBM Container Registry               | [IBM Container Registry](./activities/ibmcloud-cr)                                                                           | 30 min |
-| Docker Lab              | Running a Sample Application on Docker                          | [Docker Lab](./activities/)                                                                                                  | 30 min |
+**Dockerfile**
 
-Once you have completed these tasks, you should have a base understanding of containers and how to use Docker.
+- It is a text document that contains all the instructions that are necessary to build a docker image.
+- It is written in an easy-to-understand syntax.
+- It specifies the operating system.
+- It also includes things like environmental variables, ports, file locations etc.
+
+If you want to try building docker images, try this course on [Katacoda](https://www.katacoda.com/) (Interactive Learning Platform).
+
+- [Building Container Images](https://www.katacoda.com/courses/docker/2) -  Estimated Time: 10 minutes.
+
+### Docker Container
+
+The standard unit where the application service is located or transported. It packages up all code and its dependencies so that the application runs quickly and reliably from one computing environment to another.
+
+If you want to try deploying a docker container, try this course on [Katacoda](https://www.katacoda.com/) (Interactive Learning Platform).
+
+- [Deploying Your First Docker Container](https://www.katacoda.com/courses/docker/deploying-first-container) -  Estimated Time: 10 minutes.
+
+### Docker Engine
+
+Docker Engine is a program that creates, ships, and runs application containers. The engine runs on any physical or virtual machine or server locally, in private or public cloud. The client communicates with the engine to run commands.
+
+### Docker Registry
+
+The registry stores, distributes, and shares container images. It is available in software as a service (SaaS) or in an enterprise to deploy anywhere you that you choose.
+
+**Docker Hub** is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub [here](https://hub.docker.com/search?q=&type=image).
+
+
+<iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+If you are interested, check this [course](https://www.ibm.com/cloud/garage/content/course/containers-and-docker/0) out on Containers and Docker.
+
+## References
+
+- [Docker resources](https://www.docker.com/resources)
+- [Docker tutorial](https://docs.docker.com/get-started/)
+- [The Evolution of Linux Containers and Their Future](https://dzone.com/articles/evolution-of-linux-containers-future)
+- [Open Container Initiative (OCI)](https://www.opencontainers.org)
+- [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io)
+- [Demystifying the Open Container Initiative (OCI) Specifications](https://blog.docker.com/2017/07/demystifying-open-container-initiative-oci-specifications)
