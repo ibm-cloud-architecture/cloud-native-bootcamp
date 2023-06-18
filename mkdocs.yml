@@ -97,7 +97,7 @@ nav:
   - DevOps/GitOps:
     - devops/index.md
     - <div class="header">Continuous Integration</div>:
-      - devops/argocd/index.md
+      - devops/tekton/index.md
       - Tekton: devops/tekton/index.md
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
