@@ -120,6 +120,6 @@ nav:
       - Lab 10: labs/kubernetes/lab10/index.md
     - DevOps/GitOps:
       - labs/index.md
-      - Tekton: devops/tekton/labs/iks.md
-      - Jenkins: labs/devops/jenkins/iks.md
-      - IBM Cloud: devops/ibm-toolchain/index.md
+      - Tekton: labs/tekton/index.md
+      - Jenkins: labs/devops/jenkins/index.md
+      - IBM Cloud: labs/devops/ibm-toolchain/index.md
