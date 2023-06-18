@@ -58,6 +58,7 @@ nav:
   - Home: 
     - index.md
     - Course Agenda: agenda.md
+    - Prerequisites: prerequisites.md
     - Cloud Native Challenge: cloudnative-challenge.md
   - Cloud Native:
     - cloud-native/index.md

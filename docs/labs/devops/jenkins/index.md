@@ -1,3 +1,4 @@
+# Jenkins Lab
 === "OpenShift"
 
     ## Introduction
@@ -23,49 +24,49 @@
 
     - Open the IBM Cloud Openshift cluster.
 
-    ![OC Cluster](../../images/ibmcloud_oc_cluster.png)
+    ![OC Cluster](../images/ibmcloud_oc_cluster.png)
 
     - Click on the `OpenShift web console` tab and this will take you to openshift UI.
 
-    ![OC Cluster](../../images/openshift_console.png)
+    ![OC Cluster](../images/openshift_console.png)
 
     - Create a new project.
 
-    ![OC Cluster](../../images/create_project_oc.png)
+    ![OC Cluster](../images/create_project_oc.png)
 
     - Search for `Jenkins`.
 
-    ![Search Jenkins](../../images/search_jenkins.png)
+    ![Search Jenkins](../images/search_jenkins.png)
 
     - Choose `Jenkins (Ephemeral)`.
 
-    ![OC Cluster](../../images/Jenkins_ephemeral.png)
+    ![OC Cluster](../images/Jenkins_ephemeral.png)
 
     - Install it.
 
-    ![OC Cluster](../../images/Jenkins_ephemeral_details_one.png)
+    ![OC Cluster](../images/Jenkins_ephemeral_details_one.png)
 
-    ![OC Cluster](../../images/Jenkins_ephemeral_details_two.png)
+    ![OC Cluster](../images/Jenkins_ephemeral_details_two.png)
 
-    ![OC Cluster](../../images/Jenkins_ephemeral_details_three.png)
+    ![OC Cluster](../images/Jenkins_ephemeral_details_three.png)
 
     - Wait till the Jenkins installs and the pods are ready.
 
-    ![OC Cluster](../../images/Jenkins_oc_url.png)
+    ![OC Cluster](../images/Jenkins_oc_url.png)
 
     - Once, it is ready you can access the Jenkins by clicking the link.
 
-    ![OC Cluster](../../images/Jenkins_oc_login.png)
+    ![OC Cluster](../images/Jenkins_oc_login.png)
 
     Now, click on `Log in with OpenShift`.
 
     - When you gets logged in, you will see the below screen. Click `Allow selected permissions`.
 
-    ![OC Cluster](../../images/Jenkins_oc_permissions.png)
+    ![OC Cluster](../images/Jenkins_oc_permissions.png)
 
     - You will be able to access the Jenkins UI now.
 
-    ![OC Cluster](../../images/Jenkins_oc_ui.png)
+    ![OC Cluster](../images/Jenkins_oc_ui.png)
 
     ### Get the Sample App
 
@@ -124,20 +125,20 @@
 
     - In the Jenkins home page, click on `Credentials`.
 
-    ![OC Cluster](../../images/Jenkins_Credentials.png)
+    ![OC Cluster](../images/Jenkins_Credentials.png)
 
     - In the Credentials page, click on `Jenkins`.
 
-    ![OC Cluster](../../images/Jenkins_creds_global.png)
+    ![OC Cluster](../images/Jenkins_creds_global.png)
 
     - Now, click on `Global Credentials (UnRestricted)`.
 
-    ![OC Cluster](../../images/Jenkins_global_cred_creation.png)
+    ![OC Cluster](../images/Jenkins_global_cred_creation.png)
 
     - Click on `Add Credentials` to create the ones required for this lab.
 
     image::Jenkins_add_creds.png[align="center"]
-    ![OC Cluster](../../images/Jenkins_add_creds.png)
+    ![OC Cluster](../images/Jenkins_add_creds.png)
 
     - Now create a secrets as follows.
 
@@ -145,11 +146,11 @@
     Secret: (Your container registry url, for eg., us.icr.io)
     ID: registry_url
 
-    ![OC Cluster](../../images/Jenkins_secret_creation.png)
+    ![OC Cluster](../images/Jenkins_secret_creation.png)
 
     Once created, you will see something like below.
 
-    ![OC Cluster](../../images/Jenkins_secrets.png)
+    ![OC Cluster](../images/Jenkins_secrets.png)
 
     Similarly create the rest of the credentials as well.
 
@@ -177,17 +178,17 @@
 
     Once all of them are created, you will have the list as follows.
 
-    ![OC Cluster](../../images/Jenkins_all_secrets.png)
+    ![OC Cluster](../images/Jenkins_all_secrets.png)
 
     ### Jenkins Pipeline
 
     - Create a new pieline. Go to Jenkins ) Click on `New Item`.
 
-    ![OC Cluster](../../images/Jenkins_pipeline_creation.png)
+    ![OC Cluster](../images/Jenkins_pipeline_creation.png)
 
     - Enter the name of the application, choose `Pipeline` and click `OK`.
 
-    ![OC Cluster](../../images/Jenkins_pipeline_app_details.png)
+    ![OC Cluster](../images/Jenkins_pipeline_app_details.png)
 
     - Now go to the `Pipeline` tab and enter the details of the repository.
 
@@ -197,19 +198,19 @@
     * Specify `master` as the branch to build.
     * `Save` this information.
 
-    ![OC Cluster](../../images/Jenkins_Pipeline_setup.png)
+    ![OC Cluster](../images/Jenkins_Pipeline_setup.png)
 
     - To initiate a build, click `Build Now`.
 
-    ![OC Cluster](../../images/Jenkins_Pipeline_BuildNow.png)
+    ![OC Cluster](../images/Jenkins_Pipeline_BuildNow.png)
 
     - Once the build is successful, you will see something like below.
 
-    ![OC Cluster](../../images/Jenkins_Pipeline_Build.png)
+    ![OC Cluster](../images/Jenkins_Pipeline_Build.png)
 
     After this build is done, your deploy repository will be updated by the Jenkins.
 
-    ![OC Cluster](../../images/Jenkins_modify_deploy_repo.png)
+    ![OC Cluster](../images/Jenkins_modify_deploy_repo.png)
 
 === "Kubernetes"
 
@@ -339,7 +340,7 @@
 
     - Now, let us login into the Jenkins.
 
-    ![OC Cluster](../../images/Jenkins_ephemeral_details_two.png)
+    ![OC Cluster](../images/Jenkins_ephemeral_details_two.png)
 
     The user name will be `admin` and to get the password, run the below command.
 
@@ -356,7 +357,7 @@
 
     - Once, successfully logged in you will see the Jenkins home page which is as follows.
 
-    ![OC Cluster](../../images/Jenkins_IKS_home.png)
+    ![OC Cluster](../images/Jenkins_IKS_home.png)
 
     ### Get the Sample App
 
@@ -414,19 +415,19 @@
 
     - In the Jenkins home page, click on `Credentials`.
 
-    ![OC Cluster](../../images/Jenkins_IKS_credentials.png)
+    ![OC Cluster](../images/Jenkins_IKS_credentials.png)
 
     - In the Credentials page, click on `Jenkins`.
 
-    ![OC Cluster](../../images/Jenkins_creds_global.png)
+    ![OC Cluster](../images/Jenkins_creds_global.png)
 
     - Now, click on `Global Credentials (UnRestricted)`.
 
-    ![OC Cluster](../../images/Jenkins_global_cred_creation.png)
+    ![OC Cluster](../images/Jenkins_global_cred_creation.png)
 
     - Click on `Add Credentials` to create the ones required for this lab.
 
-    ![OC Cluster](../../images/Jenkins_add_creds.png)
+    ![OC Cluster](../images/Jenkins_add_creds.png)
 
     - Now create a secrets as follows.
 
@@ -436,11 +437,11 @@
     ID: registry_url
     ----
 
-    ![OC Cluster](../../images/Jenkins_secret_creation.png)
+    ![OC Cluster](../images/Jenkins_secret_creation.png)
 
     Once created, you will see something like below.
 
-    ![OC Cluster](../../images/Jenkins_secrets.png)
+    ![OC Cluster](../images/Jenkins_secrets.png)
 
     Similarly create the rest of the credentials as well.
 
@@ -468,21 +469,21 @@
 
     Once all of them are created, you will have the list as follows.
 
-    ![OC Cluster](../../images/Jenkins_all_secrets.png)
+    ![OC Cluster](../images/Jenkins_all_secrets.png)
 
     ### Jenkins Pipeline
 
     - Create a new pieline. Go to Jenkins ) Click on `New Item`.
 
-    ![OC Cluster](../../images/Jenkins_IKS_pipeline_creation.png)
+    ![OC Cluster](../images/Jenkins_IKS_pipeline_creation.png)
 
     - Enter the name of your application, select `Pipeline` and then click `OK`.
 
-    ![OC Cluster](../../images/Jenkins_IKS_newitem.png)
+    ![OC Cluster](../images/Jenkins_IKS_newitem.png)
 
     - In `General`, check `This project is parameterized`. Create a string parameter with name `CLOUD` and Default value `kubernetes`.
 
-    ![OC Cluster](../../images/Jenkins_IKS_parameter.png)
+    ![OC Cluster](../images/Jenkins_IKS_parameter.png)
 
     - Now go to the `Pipeline` tab and enter the details of the repository.
 
@@ -492,16 +493,16 @@
     * Specify `master` as the branch to build.
     * `Save` this information.
 
-    ![OC Cluster](../../images/Jenkins_IKS_Pipeline_details.png)
+    ![OC Cluster](../images/Jenkins_IKS_Pipeline_details.png)
 
     - To initiate a build, click `Build with Parameters`.
 
-    ![OC Cluster](../../images/Jenkins_IKS_Pipeline_BuildNow.png)
+    ![OC Cluster](../images/Jenkins_IKS_Pipeline_BuildNow.png)
 
     - Once the build is successful, you will see something like below.
 
-    ![OC Cluster](../../images/Jenkins_IKS_Pipeline_Build.png)
+    ![OC Cluster](../images/Jenkins_IKS_Pipeline_Build.png)
 
     After this build is done, your deploy repository will be updated by the Jenkins.
 
-    ![OC Cluster](../../images/Jenkins_modify_deploy_repo.png)
+    ![OC Cluster](../images/Jenkins_modify_deploy_repo.png)
