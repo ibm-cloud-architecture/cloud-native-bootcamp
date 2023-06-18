@@ -61,6 +61,7 @@ nav:
     - Cloud Native Challenge: cloudnative-challenge.md
   - Cloud Native:
     - cloud-native/index.md
+    - App Development: cloud-native/app-dev.md
   - Containers:
     - containers/index.md
     - Image Registries: containers/imageregistry.md
@@ -94,7 +95,7 @@ nav:
       - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
       - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
   - DevOps/GitOps:
-    - devops/tekton/index.md
+    - devops/index.md
     - <div class="header">Continuous Integration</div>:
       - devops/argocd/index.md
       - Tekton: devops/tekton/index.md
