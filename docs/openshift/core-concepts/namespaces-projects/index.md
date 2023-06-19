@@ -12,13 +12,15 @@ It is not necessary to use multiple namespaces just to separate slightly differe
 
 === "OpenShift"
 
-    [Working with Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/working-with-projects.html){ .md-button }
-    [Creating Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/getting-started-cli.html#creating-a-project){ .md-button }
-    [Configure Project Creation :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/configuring-project-creation.html){ .md-button }
+    [Working with Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/working-with-projects.html){ .md-button target="_blank"}
+
+    [Creating Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/getting-started-cli.html#creating-a-project){ .md-button target="_blank" }
+    
+    [Configure Project Creation :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/configuring-project-creation.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Namespaces :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/){ .md-button }
+    [Namespaces :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/){ .md-button target="_blank"}
 
 ## References
 

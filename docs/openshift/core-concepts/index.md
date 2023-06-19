@@ -16,15 +16,17 @@ Two primary members
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Pods](https://docs.openshift.com/container-platform/4.13/nodes/pods/nodes-pods-using.html){:target="_blank"}
-- [Nodes](https://docs.openshift.com/container-platform/4.13/nodes/nodes/nodes-nodes-viewing.html){:target="_blank"}
+     [Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
 
-**IKS**
+     [Nodes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/nodes/nodes-nodes-viewing.html){ .md-button target="_blank"}
 
-- [Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/){:target="_blank"}
-- [Kube Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/){:target="_blank"}
+=== "Kubernetes"
+
+     [Objects :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/){ .md-button target="_blank"}
+     
+     [Kube Basics :fontawesome-solid-globe:](https://kubernetes.io/docs/tutorials/kubernetes-basics/){ .md-button target="_blank"}
 
 
 ## References
