@@ -8,17 +8,19 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
 === "OpenShift"
 
-    [About Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ .md-button }
+    [About Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
     
-    [Cluster Configuration for Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ .md-button }
+    [Cluster Configuration for Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ .md-button target="_blank"}
     
-    [Pod Autoscaling :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ .md-button }
+    [Pod Autoscaling :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Pod Overview :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ .md-button }
-    [Pod Lifecycle :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ .md-button }
-    [Pod Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ .md-button }
+    [Pod Overview :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ .md-button target="_blank"}
+
+    [Pod Lifecycle :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ .md-button target="_blank"}
+
+    [Pod Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ .md-button target="_blank"}
 
 ## References
 

@@ -8,14 +8,15 @@ You can use either labels or annotations to attach metadata to Kubernetes object
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [CLI Label Commands](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
+    [CLI Label Commands :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){.md-button target="_blank"}
 
-**IKS**
+=== "Kubernetes"
 
-- [Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){:target="_blank"}
-- [Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){:target="_blank"}
+    [Labels :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){.md-button target="_blank"}
+    
+    [Annotations :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){.md-button target="_blank"}
 
 
 ## References

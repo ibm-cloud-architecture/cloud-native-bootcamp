@@ -17,12 +17,16 @@ The kubelet can optionally perform and react to three kinds of probes on running
 ### Resources
 
 === "OpenShift"
-    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/applications/application-health.html){ .md-button }
-    [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button }
+
+    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/applications/application-health.html){ .md-button target="_blank"}
+
+    [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
 
 === "Kubernetes"
-    - [Container Probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-    - [Configure Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
+
+    [Container Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes){ .md-button target="_blank"}
+
+    [Configure Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
 
 ### References
 

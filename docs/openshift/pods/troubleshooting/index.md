@@ -6,20 +6,22 @@ Usually is getting familiar with how primitives objects interact with each other
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Debugging with ODO](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){:target="_blank"}
+     [Debugging with ODO :fontawesome-solid-globe:](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){.md-button target="_blank"}
 
-**IKS**
+=== "Kubernetes"
 
-- [Debugging Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){:target="_blank"}
-- [Debugging Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){:target="_blank"}
-- [Debugging Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){:target="_blank"}
+     [Debugging Applications :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){.md-button target="_blank"}
+
+     [Debugging Services :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){.md-button target="_blank"}
+
+     [Debugging Replication Controllers :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){.md-button target="_blank"}
 
 
 ## References
 
-=== "Openshift"
+=== "OpenShift"
     ** MacOS/Linux/Windows command: **
     ```bash
     oc apply -f https://gist.githubusercontent.com/csantanapr/e823b1bfab24186a26ae4f9ec1ff6091/raw/1e2a0cca964c7b54ce3df2fc3fbf33a232511877/debugk8s-bad.yaml
