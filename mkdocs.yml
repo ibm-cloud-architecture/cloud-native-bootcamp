@@ -118,6 +118,7 @@ nav:
       - Lab 8 - Creating Services: labs/kubernetes/lab8/index.md
       - Lab 9 - Network Policies: labs/kubernetes/lab9/index.md
       - Lab 10 - Persistent Volumes: labs/kubernetes/lab10/index.md
+      - Lab 11 - Ingress IKS: labs/kubernetes/ingress-iks/index.md
       - Solutions: labs/kubernetes/lab-solutions.md
     - DevOps/GitOps:
       - labs/index.md
