@@ -69,3 +69,10 @@ spec:
     ```
     curl hello-world.info --resolve hello-world.info:80:<ADDRESS>
     ```
+
+## Activities
+
+| Task                            | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| *** Try It Yourself ***                         |         |         | 
+| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |

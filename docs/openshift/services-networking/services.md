@@ -127,4 +127,3 @@ spec:
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         | 
 | Creating Services | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab8/index.md) |
-| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
