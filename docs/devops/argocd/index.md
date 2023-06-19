@@ -6,7 +6,6 @@ Continuous Integration, Delivery, and Deployment are important devOps practices 
 - **Continuous Delivery** comes after Continuous Integration. It prepares the code for release. It automates the steps that are needed to deploy a build.
 - **Continuous Deployment** is the final step which succeeds Continuous Delivery. It automatically deploys the code whenever a code change is done. Entire process of deployment is automated.
 
-
 ## What is GitOps?
 GitOps in short is a set of practices to use Git pull requests to manage infrastructure and application configurations. Git repository in GitOps is considered the only source of truth and contains the entire state of the system so that the trail of changes to the system state are visible and auditable.
 
@@ -40,7 +39,4 @@ These tasks assume that you have:
 | *** Try It Yourself ***                         |         |         |     |
 | ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../continuous-deployment/activities/openshift/) | 30 min |
 
-
-
 Once you have completed these tasks, you will have created an ArgoCD deployment and have an understanding of Continuous Deployment.
-
