@@ -33,13 +33,13 @@ Here is a course for learning (or brushing up) on working from the linux command
     Using `wget`:
 
     ```
-    wget -O - https://cloudnative101.dev/scripts/setup/system-check.sh | sh
+    wget -O - https://cloudbootcamp.dev/scripts/system-check.sh | sh
     ```
 
     Using `curl`:
 
     ```
-    curl -s https://cloudnative101.dev/scripts/setup/system-check.sh | sh
+    curl -s https://cloudbootcamp.dev/scripts/system-check.sh | sh
     ```
 
     After the script is run, make sure to install any missing tools.
@@ -167,12 +167,12 @@ Here is a course for learning (or brushing up) on working from the linux command
 
     Using wget:
     ```
-    wget -O - https://cloudnative101.dev/scripts/setup/system-check.sh | sh
+    wget -O - https://cloudbootcamp.dev/scripts/system-check.sh | sh
     ```
 
     Using curl:
     ```
-    curl -s https://cloudnative101.dev/scripts/setup/system-check.sh | sh
+    curl -s https://cloudbootcamp.dev/scripts/system-check.sh | sh
     ```
 
     After the script is run, make sure to install any missing tools.
