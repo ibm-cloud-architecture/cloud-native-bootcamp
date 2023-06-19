@@ -25,7 +25,7 @@ After you create the cluster and the toolchain, you change your app's code and p
 1. Open the IBM Cloud Catalog
 2. Search for `delivery`
 3. Click on `Continuous Delivery`
-    ![Continuous Delivery](./images/Continuous_Delivery.png)
+    ![Continuous Delivery](../images/Continuous_Delivery.png)
 4. Select **Dallas** Region, as the Tutorial will be using Managed Tekton Worker available in Dallas only.
 5. Select a **Plan**
 6. Click Create
@@ -35,23 +35,23 @@ After you create the cluster and the toolchain, you change your app's code and p
 In this task, you create a toolchain and add the tools that you need for this tutorial. Before you begin, you need your API key and Kubernetes cluster name.
 
 1.  Open the menu in the upper-left corner and click **DevOps**. Click **ToolChains**. Click **Create a toolchain**. Type in the search box `toolchain`. Click **Build Your Own Toolchain**. 
-    ![Build your own toolchain](./images/Blank_Template.png)
+    ![Build your own toolchain](../images/Blank_Template.png)
 2. On the "Build your own toolchain" page, review the default information for the toolchain settings. The toolchain's name identifies it in IBM Cloud. Each toolchain is associated with a specific region and resource group. From the menus on the page, select the region **Dallas** since we are going to use the Beta Managed Tekton Worker, if you use Private Workers you can use any Region.
-    ![Select_Region](./images/Region_Select.png)
+    ![Select_Region](../images/Region_Select.png)
 3. Click **Create**. The blank toolchain is created.
 4. Click **Add a Tool** and click **Git Repos and Issue Tracking**. 
-    ![Git Repos tile](./images/Add_Tool_Git.png)
+    ![Git Repos tile](../images/Add_Tool_Git.png)
     - From the **Repository type** list, select **Clone**. 
     - In the **Source repository URL** field, type `https://github.com/csantanapr/hello-tekton.git`.
     - Make sure to uncheck the **Make this repository private** checkbox and that the **Track deployment of code changes** checkbox is selected.
-    ![Git window](./images/Tekton_Git_Setup.png)
+    ![Git window](../images/Tekton_Git_Setup.png)
     - Click **Create Integration**. Tiles for Git Issues and Git Code are added to your toolchain.
 5. Return to your toolchain's overview page.
 6. Click **Add a Tool**. Type `pipeline` in seach box and click **Delivery Pipeline**.
-    ![Add Tool Delivery Pipeline](./images/Add_Tool_DP.png)
+    ![Add Tool Delivery Pipeline](../images/Add_Tool_DP.png)
     - Type a name for your new pipeline.
     - Click **Tekton**. 
-    ![Pipeline type](./images/Tekton_Select.png)
+    ![Pipeline type](../images/Tekton_Select.png)
     - Make sure that the **Show apps in the View app menu** checkbox is selected. All the apps that your pipeline creates are shown in the **View App** list on the toolchain's Overview page.
     - Click **Create Integration** to add the Delivery Pipeline to your toolchain.
 7. Click **Delivery Pipeline** to open the Tekton Delivery Pipeline dashboard. Click the **Definitions** tab and complete these tasks:
@@ -59,20 +59,20 @@ In this task, you create a toolchain and add the tools that you need for this tu
   - Specify the Git repo and URL that contains the Tekton pipeline definition and related artifacts. From the list, select the Git repo that you created earlier.
   - Select the branch in your Git repo that you want to use. For this tutorial, use the default value.
   - Specify the directory path to your pipeline definition within the Git repo. You can reference a specific definition within the same repo. For this tutorial, use the default value.
-  ![Pipeline window](./images/Tekton_Repo_Definition.png)
+  ![Pipeline window](../images/Tekton_Repo_Definition.png)
   - Click **Add**, then click **Save**
 8. Click the **Worker** tab and select the private worker that you want to use to run your Tekton pipeline on the associated cluster. Either select the private worker you set up in the previous steps, or select the **IBM Managed workers in DALLAS** option.
-  ![Worker tab](./images/Tekton_Worker.png)
+  ![Worker tab](../images/Tekton_Worker.png)
    - Click **Save**
 9. Click the **Triggers** tab, click **Add trigger**, and click **Git Repository**. Associate the trigger with an event listener: 
 - From the **Repository** list, select your repo.
 - Select the **When a commit is pushed** checkbox, and in the **EventListener** field, make sure that **listener** is selected.
-![Git Repository trigger](./images/Tekton_Trigger.png)
+![Git Repository trigger](../images/Tekton_Trigger.png)
 - Click **Save**
 10. On the **Triggers** tab, click **Add trigger** and click **Manual**. Associate that trigger with an event listener:
   - In the **EventListener** field, make sure that **listener** is selected.
   - Click **Save**.
-  ![Manual trigger](./images/Tekton_Manual_Trigger.png)
+  ![Manual trigger](../images/Tekton_Manual_Trigger.png)
    **Note:** Manual triggers run when you click **Run pipeline** and select the trigger. Git repository triggers run when the specified Git event type occurs for the specified Git repo and branch. The list of available event listeners is populated with the listeners that are defined in the pipeline code repo. 
 11. Click the **Environment properties** tab and define the environment properties for this tutorial. To add each property, click **Add property** and click **Text property**. Add these properties:
 
@@ -89,7 +89,7 @@ In this task, you create a toolchain and add the tools that you need for this tu
 | registryRegion | Optional (us-south) | The region where your Image registry is located. To find your registry region, use the CLI and run `ibmcloud cr region`. |
 
 
-  ![Environment properties](./images/Tekton_Environment.png)
+  ![Environment properties](../images/Tekton_Environment.png)
 12. Click **Save**
 
 
@@ -105,10 +105,10 @@ To run the manual trigger that you set up in the previous task, click **Run pipe
 - Running: The PipelineRun definition is running in the cluster.
 - Succeeded: The PipelineRun definition was successfully completed in the cluster.
 - Failed: The PipelineRun definition run failed. Review the log file for the run to determine the cause.
-    ![Pipeline dashboard](./images/Pipeline_Dashboard.png)
+    ![Pipeline dashboard](../images/Pipeline_Dashboard.png)
   
 - For more information about a selected run, click any row in the table. You view the Task definition and the steps in each PipelineRun definition. You can also view the status, logs, and details of each Task definition and step, and the overall status of the PipelineRun definition.
-    ![Pipeline Log](./images/Pipeline_Details.png)
+    ![Pipeline Log](../images/Pipeline_Details.png)
   
 - The pipeline definition is stored in the `pipeline.yaml` file in the `.tekton` folder of your Git repository. Each task has a separate section of this file. The steps for each task are defined in the `tasks.yaml` file.
 
@@ -121,11 +121,11 @@ To run the manual trigger that you set up in the previous task, click **Run pipe
     - pre-deploy-check: This step checks whether the IBM Container Service cluster is ready and has a namespace that is configured with access to the private image registry by using an IBM Cloud API Key. 
     - deploy-to-kubernetes: This step updates the `deployment.yml` manifest file with the image url and deploys the application using `kubectl apply`
 4. After all the steps in the pipeline are completed, a green status is shown for each task. Click the **deploy-to-kubernetes** step and click the **Logs** tab to see the successful completion of this step.
-    ![Pipeline success](./images/Tekton_Success.png)
+    ![Pipeline success](../images/Tekton_Success.png)
 5. Scroll to the end of the log. The `DEPLOYMENT SUCCEEDED` message is shown at the end of the log.
-    ![Deployment succeeded](./images/Tekton_Deployment_Success.png)
+    ![Deployment succeeded](../images/Tekton_Deployment_Success.png)
 6. Click the URL to see the running application.
-    ![Running app](./images/Tekton_App.png)
+    ![Running app](../images/Tekton_App.png)
 
 ## Modify the App Code 
 
@@ -134,13 +134,13 @@ In this task, you modify the application and redeploy it. You can see how your T
 1. On the toolchain's Overview page, click the Git tile for your application. 
     - **Tip:** You can also use the built-in Eclipse Orion-based Web IDE, a local IDE, or your favorite editor to change the files in your repo.
 2. In the repository directory tree, open the `app.js` file.
-    ![File browser](./images/Tekton_Files.png)
+    ![File browser](../images/Tekton_Files.png)
 3. Edit the text message code to change the welcome message. 
-    ![Edit file](./images/Tekton_Commit.png)
+    ![Edit file](../images/Tekton_Commit.png)
 4. Commit the updated file by typing a commit message and clicking **Commit changes** to push the change to the project's remote repository. 
 5. Return to the toolchain's Overview page by clicking the back arrow.
 6. Click **Delivery Pipeline**. The pipeline is running because the commit automatically started a build. Over the next few minutes, watch your change as it is built, tested, and deployed. 
-    ![Dashboard redeployment](./images/Tekton_Redeploy.png)
+    ![Dashboard redeployment](../images/Tekton_Redeploy.png)
 7. After the deploy-to-kubernetes step is completed, refresh your application URL. The updated message is shown.
 
 
