@@ -108,16 +108,16 @@ nav:
     - Containers: labs/containers/index.md
     - Kubernetes/OpenShift:
       - labs/index.md
-      - Lab 1: labs/kubernetes/lab1/index.md
-      - Lab 2: labs/kubernetes/lab2/index.md
-      - Lab 3: labs/kubernetes/lab3/index.md
-      - Lab 4: labs/kubernetes/lab4/index.md
-      - Lab 5: labs/kubernetes/lab5/index.md
-      - Lab 6: labs/kubernetes/lab6/index.md
-      - Lab 7: labs/kubernetes/lab7/index.md
-      - Lab 8: labs/kubernetes/lab8/index.md
-      - Lab 9: labs/kubernetes/lab9/index.md
-      - Lab 10: labs/kubernetes/lab10/index.md
+      - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
+      - Lab 2 - Pod Configuration: labs/kubernetes/lab2/index.md
+      - Lab 3 - Multiple Containers: labs/kubernetes/lab3/index.md
+      - Lab 4 - Probes: labs/kubernetes/lab4/index.md
+      - Lab 5 - Debugging: labs/kubernetes/lab5/index.md
+      - Lab 6 - Rolling Updates: labs/kubernetes/lab6/index.md
+      - Lab 7 - Cron Jobs: labs/kubernetes/lab7/index.md
+      - Lab 8 - Creating Services: labs/kubernetes/lab8/index.md
+      - Lab 9 - Network Policies: labs/kubernetes/lab9/index.md
+      - Lab 10 - Persistent Volumes: labs/kubernetes/lab10/index.md
       - Solutions: labs/kubernetes/lab-solutions.md
     - DevOps/GitOps:
       - labs/index.md
