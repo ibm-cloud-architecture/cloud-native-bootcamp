@@ -127,5 +127,5 @@ spec:
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         | 
-| Creating Services | Create two services with certain requirements. | [Setting up Services](../kube-overview/activities/labs/lab8) |
-| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../kube-overview/activities/labs/ingress-iks) |
+| Creating Services | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab8/index.md) |
+| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
