@@ -81,21 +81,21 @@ These images are build from the `Dockerfile`.
 - It specifies the operating system.
 - It also includes things like environmental variables, ports, file locations etc.
 
-If you want to try building docker images, try this course on [Katacoda](https://www.katacoda.com/) (Interactive Learning Platform).
+If you want to try building docker images, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/) (Interactive Learning Platform).
 
-- [Building Container Images](https://www.katacoda.com/courses/docker/2) -  Estimated Time: 10 minutes.
+- [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/) -  Estimated Time: 12 minutes.
 
 ### Docker Container
 
 The standard unit where the application service is located or transported. It packages up all code and its dependencies so that the application runs quickly and reliably from one computing environment to another.
 
-If you want to try deploying a docker container, try this course on [Katacoda](https://www.katacoda.com/) (Interactive Learning Platform).
-
-- [Deploying Your First Docker Container](https://www.katacoda.com/courses/docker/deploying-first-container) -  Estimated Time: 10 minutes.
+If you want to try deploying a docker container, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/#t11m27s) (Interactive Learning Platform).
 
 ### Docker Engine
 
 Docker Engine is a program that creates, ships, and runs application containers. The engine runs on any physical or virtual machine or server locally, in private or public cloud. The client communicates with the engine to run commands.
+
+If you want to learn more about docker engines, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video7_1/)
 
 ### Docker Registry
 
@@ -105,8 +105,6 @@ The registry stores, distributes, and shares container images. It is available i
 
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-If you are interested, check this [course](https://www.ibm.com/cloud/garage/content/course/containers-and-docker/0) out on Containers and Docker.
 
 ## References
 
