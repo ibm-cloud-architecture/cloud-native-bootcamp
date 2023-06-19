@@ -16,6 +16,10 @@ For example, Docker created standard way to create images for Linux Containers.
 
 <iframe width="1206" height="678" src="https://www.youtube.com/embed/0qotVMX-J5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Resources
+
+[Container Basics :fontawesome-regular-file-pdf:](./materials/02-Containers-Basics.pdf){ .md-button }
+
 ## Why containers ?
 
 - We can run them anywhere.

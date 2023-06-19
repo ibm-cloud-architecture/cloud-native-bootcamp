@@ -4,10 +4,6 @@ Containers are a standard way to package an application and all its dependencies
 
 For example, Docker created standard way to create images for Linux Containers.
 
-## Resources
-
-[Container Basics :fontawesome-regular-file-pdf:](../containers/materials/02-Containers-Basics.pdf){ .md-button }
-
 ## Basic Docker Commands
 
 | Action                      | Command                                     |
@@ -34,7 +30,7 @@ For example, Docker created standard way to create images for Linux Containers.
     2. Test it out
 
 === "IBM Cloud"
-    
+
     1. Install ibmcloud CLI
     ``` bash
     curl -fsSL https://clis.cloud.ibm.com/install/osx | sh
