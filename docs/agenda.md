@@ -63,12 +63,12 @@ The following table lists the topics and coding activities for the week. Click o
 
     | Topic                                                                  | Type of Activity             | Duration |
     | :--------------------------------------------------------------------- | :--------------------------- | :----------- |
-    | [Containers](../lectures/containers/)                                         | Presentation                 |  1 Hour  |
-    | [Container Activities](../lectures/containers#activities)                     | Activity                     |  30 mins |
-    | [Kubernetes](../lectures/kube-overview)                                         | Presentation                 |  6 Hours |
-    | [Kubernetes Activities](../lectures/kube-overview#activities)                   | Activity                     |  4 Hours |
-    | [Continuous Integration](../lectures/continuous-integration/)                 | Presentation                 |  1 Hour  |
-    | [Continuous Integration Lab](../lectures/continuous-integration#activities)   | Activity                     |  1 Hour  |
-    | [Continuous Deployment](../lectures/continuous-deployment/)                   | Presentation                 |  1 Hour  |
-    | [Continuous Deployment Lab](../lectures/continuous-deployment#activities)     | Activity                     |  1 Hour  |
-    | [Project Work](../projects/project-cicd)                            | Activity                     |  2 Hours |
+    | [Containers](./containers/index.md)                                         | Presentation                 |  1 Hour  |
+    | [Container Activities](./labs/containers/index.md)                     | Activity                     |  30 mins |
+    | [Kubernetes](./openshift/index.md)                                         | Presentation                 |  6 Hours |
+    | [Kubernetes Activities](./labs/index.md#kubernetes)                   | Activity                     |  4 Hours |
+    | [Continuous Integration](./devops/tekton/index.md)                 | Presentation                 |  1 Hour  |
+    | [Continuous Integration Lab](./labs/index.md#continuous-integration)   | Activity                     |  1 Hour  |
+    | [Continuous Deployment](./devops/argocd/index.md)                   | Presentation                 |  1 Hour  |
+    | [Continuous Deployment Lab](./labs/index.md#continuous-deployment)     | Activity                     |  1 Hour  |
+    | [Project Work](./labs/index.md#projects)                            | Activity                     |  2 Hours |

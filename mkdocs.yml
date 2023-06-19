@@ -103,10 +103,12 @@ nav:
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
       - ArgoCD: devops/argocd/index.md
-  - Activities/Labs:
+  - Main:
     - labs/index.md
-    - Containers: labs/containers/index.md
-    - Container Registries: labs/containers/container-registry/index.md
+    - Containers:
+      - labs/index.md 
+      - Docker: labs/containers/index.md
+      - Container Registries: labs/containers/container-registry/index.md
     - Kubernetes/OpenShift:
       - labs/index.md
       - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
@@ -126,3 +128,4 @@ nav:
       - Tekton: labs/devops/tekton/index.md
       - Jenkins: labs/devops/jenkins/index.md
       - IBM Cloud: labs/devops/ibm-toolchain/index.md
+      - ArgoCD: labs/devops/argocd/index.md
