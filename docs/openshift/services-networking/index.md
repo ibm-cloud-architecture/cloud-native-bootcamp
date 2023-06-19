@@ -15,10 +15,11 @@ For non-native applications, Kubernetes offers ways to place a network port or l
 
 ## Resources
 
-**IKS & OpenShift**
+=== "OpenShift & Kubernetes"
 
-- [Services](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank"}
-- [Exposing Services](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){:target="_blank"}
+    [Services :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/service/){ .md-button target="_blank"}
+
+    [Exposing Services :fontawesome-solid-globe:](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){ .md-button target="_blank"}
 
 ## References
 
@@ -82,40 +83,42 @@ spec:
     stern . -n default
     ```
 
+```
+```
+
 === "OpenShift"
 
-    ** Get Service **
-    ```
+    ``` Bash title="Get Service"
     oc get svc
     ```
-    ** Get Service Description **
-    ```
+
+    ``` Bash title="Get Service Description"
     oc describe svc my-service
     ```
-    ** Expose a service **
-    ```
+
+    ``` Bash title="Expose a Service"
     oc expose service <service_name>
     ```
-    ** Get Route for the Service **
-    ```  
+
+    ``` Bash title="Get Route for the Service"
     oc get route
     ```
+
 === "Kubernetes"
 
-    ** Get Service **
-    ```
+    ``` Bash title="Get Service"
     kubectl get svc
     ```
-    ** Get Service Description **
-    ```
+
+    ``` Bash title="Get Service Description"
     kubectl describe svc my-service
     ```
-    ** Get Service Endpoints **
-    ```
+
+    ``` Bash title="Get Service Endpoints"
     kubectl get ep my-service
     ```
-    ** Expose a Deployment via a Service **
-    ```
+
+    ``` Bash title="Expose a Deployment via a Service"
     kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
     ```
 

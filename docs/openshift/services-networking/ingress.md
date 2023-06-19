@@ -8,16 +8,19 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services withi
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Ingress Operator](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){:target="_blank"}
-- [Using Ingress Controllers](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){:target="_blank"}
+    [Ingress Operator :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){ .md-button target="_blank"}
 
-**IKS**
+    [Using Ingress Controllers :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){ .md-button target="_blank"}
 
-- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/){:target="_blank"}
-- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/){:target="_blank"}
-- [Minikube Ingress](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/){:target="_blank"}
+=== "Kubernetes"
+
+    [Ingress :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/ingress/){ .md-button target="_blank"}
+
+    [Ingress Controllers :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/){ .md-button target="_blank"}
+
+    [Minikube Ingress :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/){ .md-button target="_blank"}
 
 ## References
 

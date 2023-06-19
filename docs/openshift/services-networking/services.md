@@ -15,10 +15,11 @@ For non-native applications, Kubernetes offers ways to place a network port or l
 
 ## Resources
 
-**IKS & OpenShift**
+=== "OpenShift & Kubernetes"
 
-- [Services](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank"}
-- [Exposing Services](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){:target="_blank"}
+    [Services :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/service/){ .md-button target="_blank"}
+
+    [Exposing Services :fontawesome-solid-globe:](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){ .md-button target="_blank"}
 
 ## References
 

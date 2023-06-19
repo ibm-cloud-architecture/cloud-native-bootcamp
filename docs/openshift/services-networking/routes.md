@@ -10,11 +10,13 @@ The new route inherits the name from the service unless you specify one using th
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Routes](https://docs.openshift.com/online/pro/dev_guide/routes.html){:target="_blank"}
-- [Route Configuration](https://docs.openshift.com/container-platform/4.13/networking/routes/route-configuration.html){:target="_blank"}
-- [Secured Routes](https://docs.openshift.com/container-platform/4.13/networking/routes/secured-routes.html){:target="_blank"}
+    [Routes :fontawesome-solid-globe:](https://docs.openshift.com/online/pro/dev_guide/routes.html){ .md-button target="_blank"}
+
+    [Route Configuration :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/routes/route-configuration.html){ .md-button target="_blank"}
+
+    [Secured Routes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/routes/secured-routes.html){ .md-button target="_blank"}
 
 ## References
 
