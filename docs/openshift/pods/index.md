@@ -112,7 +112,7 @@ spec:
     kubectl delete pod myapp-pod
     ```
 
-## Try it Out
+## Activities
 
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
