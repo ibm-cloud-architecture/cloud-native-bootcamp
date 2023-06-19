@@ -103,7 +103,7 @@ nav:
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
       - ArgoCD: devops/argocd/index.md
-  - Main:
+  - Activities/Labs:
     - labs/index.md
     - Containers:
       - labs/index.md 
