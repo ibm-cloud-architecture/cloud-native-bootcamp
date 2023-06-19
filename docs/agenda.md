@@ -12,9 +12,9 @@ The following table lists the topics and coding activities for the week. Click o
     | Introductions                                                          | Activity                     |
     | [Introduction Cloud Native](cloud-native/index.md)                  | Presentation                 |
     | [Containers](./containers/index.md)                                         | Presentation                 |
-    | [Container Activities](./labs/containers/index.md)                     | Activity                     |
+    | [Container Activities](./labs/index.md#containers)                     | Activity                     |
     | Lunch                                                                  | Activity                     |
-    | [Container Activities](./labs/containers/index.md) (Cont.)             | Activity                     |
+    | [Container Activities](./labs/index.md#containers) (Cont.)             | Activity                     |
     | [Kubernetes](./openshift/index.md)                                         | Presentation                 |
     | Wrap up                                                                |                              |
 
@@ -23,7 +23,7 @@ The following table lists the topics and coding activities for the week. Click o
     | Topic                                                                  | Type of Activity             |
     | --------------------------------------------------------------------- | --------------------------- |
     | Recap and review from Monday; Q&A                                      | Presentation                 |
-    | [Kubernetes Activities](./labs/containers/index.md)                                         | Activity                     |
+    | [Kubernetes Activities](./labs/index.md#kubernetes)                                         | Activity                     |
     | Lunch                                                                  | Activity                     |
     | [Kubernetes](./openshift/index.md)                                         | Presentation                 |
     |  Wrap up                                                               |                              |
@@ -33,11 +33,11 @@ The following table lists the topics and coding activities for the week. Click o
     | Topic                                           | Type of Activity            |
     | :---------------------------------------------- | :--------------------------- |
     | Recap and review from Tuesday; Q&A              | Presentation                 |
-    | [Kubernetes Activities](../lectures/kube-overview#activities)                  | Activity     |
-    | [Continuous Integration](../lectures/continuous-integration/)  | Activity      |
+    | [Kubernetes Activities](./labs/index.md#kubernetes)                  | Activity     |
+    | [Continuous Integration](./devops/tekton/index.md)  | Presentation      |
     | Lunch                                           | Activity                              |
-    | [Continuous Integration Lab](../lectures/continuous-integration#activities)  | Presentation        |
-    | [Continuous Deployment](../lectures/continuous-deployment/)  | Activity        |
+    | [Continuous Integration Lab](./labs/index.md#continuous-integration)  | Activity        |
+    | [Continuous Deployment](./devops/argocd/index.md)  | Presentation       |
     | Wrap up                                         |           |
 
     ## Day 4
@@ -45,16 +45,16 @@ The following table lists the topics and coding activities for the week. Click o
     | Topic                                              | Type of Activity            |
     | :------------------------------------------------- | :--------------------------- |
     | Recap and review from Wednesday; Q&A               | Presentation                 |
-    | [Continuous Deployment Lab](../lectures/continuous-deployment#activities)  | Activity      |
+    | [Continuous Deployment Lab](./labs/index.md#continuous-deployment)  | Activity      |
     | Lunch                                              |                              |
-    | [Project Work](../projects/project-cicd)                 | Activity                     |
+    | [Project Work](./labs/index.md#projects)                 | Activity                     |
 
     ## Day 5
 
     | Topic                                           | Type of Activity            |
     | :---------------------------------------------- | :--------------------------- |
     | Recap and review from Thursday ; Q&A            | Presentation                 |
-    | [Project Work](../projects/project-cicd)              | Activity                     |
+    | [Project Work](./labs/index.md#projects)              | Activity                     |
     | Retrospective       | Activity        |
 
 === "Self Paced"
