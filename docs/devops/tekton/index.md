@@ -10,7 +10,7 @@ Continuous Integration, Delivery, and Deployment are important devOps practices 
 
 Tekton is a cloud-native solution for building CI/CD systems. It consists of Tekton Pipelines, which provides the building blocks, and of supporting components, such as Tekton CLI and Tekton Catalog, that make Tekton a complete ecosystem.
 
-## Resources
+## Presentations
 
 [Tekton Overview :fontawesome-regular-file-pdf:](../materials/04-Tekton-Overview.pdf){ .md-button target=_blank}
 [IBM Cloud DevOps with Tekton :fontawesome-regular-file-pdf:](../materials/10-IBM-Cloud-DevOps.pdf ){ .md-button target=_blank}

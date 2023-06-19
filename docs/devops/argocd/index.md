@@ -17,7 +17,7 @@ configuration so that teams can benefit from the same assurance as they do for t
   - Git push reconciled with the state of the running system with the state in the Git repository
 
 ## ArgoCD Overview
-## Resources
+## Presentations
 
 [GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
 
