@@ -9,4 +9,4 @@
 5. **Continuous Deployment (CD)** – open [Continuous Deployment](../devops/index.md) to read more.
 
 ## Test your Knowledge
-After taking the virual bootcamp with an instructor from IBM Garage or learning on your own self paced you can take the quizzes and even get a Badge to show off your Cloud Native street cred.
+After taking the virtual bootcamp with an instructor from IBM Garage or learning on your own self paced you can take the quizzes and even get a Badge to show off your Cloud Native street cred.

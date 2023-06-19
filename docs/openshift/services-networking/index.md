@@ -82,50 +82,42 @@ spec:
     stern . -n default
     ```
 
-<Tabs>
-<Tab label="OpenShift">
+=== "OpenShift"
 
-** Get Service **
-```
-oc get svc
-```
-** Get Service Description **
-```
-oc describe svc my-service
-```
-** Expose a service **
-```
-oc expose service <service_name>
-```
-** Get Route for the Service **
-```  
-oc get route
-```
+    ** Get Service **
+    ```
+    oc get svc
+    ```
+    ** Get Service Description **
+    ```
+    oc describe svc my-service
+    ```
+    ** Expose a service **
+    ```
+    oc expose service <service_name>
+    ```
+    ** Get Route for the Service **
+    ```  
+    oc get route
+    ```
+=== "Kubernetes"
 
-</Tab>
-
-<Tab label="IKS">
-
-** Get Service **
-```
-kubectl get svc
-```
-** Get Service Description **
-```
-kubectl describe svc my-service
-```
-** Get Service Endpoints **
-```
-kubectl get ep my-service
-```
-** Expose a Deployment via a Service **
-```
-kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
-```
-
-</Tab>
-
-</Tabs>
+    ** Get Service **
+    ```
+    kubectl get svc
+    ```
+    ** Get Service Description **
+    ```
+    kubectl describe svc my-service
+    ```
+    ** Get Service Endpoints **
+    ```
+    kubectl get ep my-service
+    ```
+    ** Expose a Deployment via a Service **
+    ```
+    kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
+    ```
 
 ## Activities
 
