@@ -105,3 +105,10 @@ spec:
     ``` Bash title="Delete Deployment"
     kubectl delete deployment my-deployment
     ```
+
+## Activities
+
+| Task                            | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| *** Try It Yourself ***                         |         |         | 
+| Rolling Updates Lab | Create a Rolling Update for your application | [Rolling Updates](../../labs/kubernetes/lab6/index.md) |
