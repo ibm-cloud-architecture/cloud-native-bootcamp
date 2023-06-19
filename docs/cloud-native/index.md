@@ -11,7 +11,7 @@ advantages of the cloud.
 
 ## Resources
 
-[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./cloud-native/materials/01-What-Is-Cloud-Native.pdf){ .md-button }
+[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./materials/01-What-Is-Cloud-Native.pdf){ .md-button }
 
 ## What is Cloud-Native?
 
