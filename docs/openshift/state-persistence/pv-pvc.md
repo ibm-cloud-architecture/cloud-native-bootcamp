@@ -15,17 +15,21 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
 
 ## Resources
-**OpenShift**
+=== "OpenShift"
 
-- [Persistent Storage](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){:target="_blank"}
-- [Persistent Volume Types](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){:target="_blank"}
-- [Expanding Peristent Volumes](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){:target="_blank"}
+    [Persistent Storage :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){ .md-button target="_blank"}
 
-**IKS**
+    [Persistent Volume Types :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){ .md-button target="_blank"}
 
-- [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){:target="_blank"}
-- [Writing Portable Configurations](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){:target="_blank"}
-- [Configuring Persistent Volume Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){:target="_blank"}
+    [Expanding Peristent Volumes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){ .md-button target="_blank"}
+
+=== "Kubernetes"
+
+    [Persistent Volumes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){ .md-button target="_blank"}
+
+    [Writing Portable Configurations :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){ .md-button target="_blank"}
+
+    [Configuring Persistent Volume Storage :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){ .md-button target="_blank"}
 
 ## References
 

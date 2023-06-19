@@ -8,13 +8,13 @@ A Kubernetes volume, on the other hand, has an explicit lifetime - the same as t
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Volume Lifecycle](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){:target="_blank"}
+    [Volume Lifecycle :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){ .md-button target="_blank"}
 
-**IKS**
+=== "Kubernetes"
 
-- [Volumes](https://kubernetes.io/docs/concepts/storage/volumes/){:target="_blank"}
+    [Volumes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/volumes/){ .md-button target="_blank"}
 
 
 ## References
