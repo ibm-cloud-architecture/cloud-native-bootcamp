@@ -51,5 +51,4 @@
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         |
-| OpenShift Project | Building a Devops Pipeline with Openshift and Tekton | [CICD Project](../projects/project-cicd/) |
-| Microservices Project | Cloud Native Starter | [MicroProfile Project](../projects/project-cn-starter/) |
+| Cloud Native Challenge | Deploy your own app using what we have learned | [CN Challenge](../cloudnative-challenge.md) |
