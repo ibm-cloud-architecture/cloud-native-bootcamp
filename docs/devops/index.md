@@ -20,6 +20,8 @@ Adopting DevOps allows enterprises to create, maintain and improve their applica
 
 [Tekton Overview :fontawesome-regular-file-pdf:](./materials/04-Tekton-Overview.pdf){ .md-button }
 
+[GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button }
+
 ## Benefits of DevOps
 
 - Continuous software delivery
