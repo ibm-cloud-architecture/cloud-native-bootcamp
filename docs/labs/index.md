@@ -1,46 +1,30 @@
----
-title: Course Activities
-description: Course Activities
----
-
-## Main Activities
-
-<Accordion>
-  <AccordionItem title="Containers">
-
-  | Task                            | Description         | Link        |
-  | --------------------------------| ------------------  |:----------- |
-  | *** Walkthroughs ***                         |         |         |     |
-  | What is a Container? | A look under the the covers at what is a Linux Container? | <a href="https://www.katacoda.com/courses/container-runtimes/what-is-a-container" target="_blank">Understand Containers</a> |
-  | What is an Image? | A look under the the covers at what is a Linux Container Image? | <a href="https://www.katacoda.com/courses/container-runtimes/what-is-a-container-image" target="_blank">Container Images</a> |
-  | Docker Basics | Set of walkthroughs that cover docker basics | <a href="https://www.katacoda.com/courses/docker" target="_blank">Docker Basics</a> |
-  | *** Try It Yourself ***                         |         |         |
-  | IBM Container Registry | Build and Deploy Run using IBM Container Registry  | [IBM Container Registry](../lectures/containers/activities/ibmcloud-cr) |
-  | Docker Lab | Running a Sample Application on Docker | [Docker Lab](../lectures/containers/activities) |
-
-  </AccordionItem>
-
-  <AccordionItem title="Kubernetes">
+## Containers
 
   | Task                            | Description         | Link        |
   | --------------------------------| ------------------  |:----------- |
   | *** Try It Yourself ***                         |         |         |
-  | Pod Creation | Challenge yourself to create a Pod YAML file to meet certain parameters. | [Pod Creation](../lectures/kube-overview/activities/labs/lab1) |
-  | Pod Configuration | Configure a pod to meet compute resource requirements. | [Pod Configuration](../lectures/kube-overview/activities/labs/lab2) |
-  | Multiple Containers | Build a container using legacy container image.| [Multiple Containers](../lectures/kube-overview/activities/labs/lab3) |
-  | Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](../lectures/kube-overview/activities/labs/lab4) |
-  | Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](../lectures/kube-overview/activities/labs/lab6) |
-  | Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](../lectures/kube-overview/activities/labs/lab7) |
-  | Creating Services | Create two services with certain requirements. | [Setting up Services](../lectures/kube-overview/activities/labs/lab8) |
-  | Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](../lectures/kube-overview/activities/labs/lab10) |
-  | Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](../lectures/kube-overview/activities/labs/lab5) |
+  | IBM Container Registry | Build and Deploy Run using IBM Container Registry  | [IBM Container Registry](containers/container-registry/index.md) |
+  | Docker Lab | Running a Sample Application on Docker | [Docker Lab](containers/index.md) |
+
+## Kubernetes
+
+  | Task                            | Description         | Link        |
+  | --------------------------------| ------------------  |:----------- |
+  | *** Try It Yourself ***                         |         |         |
+  | Pod Creation | Challenge yourself to create a Pod YAML file to meet certain parameters. | [Pod Creation](kubernetes/lab1/index.md) |
+  | Pod Configuration | Configure a pod to meet compute resource requirements. | [Pod Configuration](kubernetes/lab2/index.md) |
+  | Multiple Containers | Build a container using legacy container image.| [Multiple Containers](kubernetes/lab3/index.md) |
+  | Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](kubernetes/lab4/index.md) |
+  | Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](kubernetes/lab6/index.md) |
+  | Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](kubernetes/lab7/index.md) |
+  | Creating Services | Create two services with certain requirements. | [Setting up Services](kubernetes/lab8/index.md) |
+  | Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](kubernetes/lab10/index.md) |
+  | Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](kubernetes/lab5/index.md) |
   | IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../lectures/kube-overview/activities/labs/ingress-iks) |
   | *** Solutions ***                         |         |         |
   | Lab Solutions | Solutions for the Kubernetes Labs  | [Solutions](../lectures/kube-overview/activities/labs/solutions) |
 
-  </AccordionItem>
-
-  <AccordionItem title="Continuous Integration">
+## Continuous Integration
 
   | Task                            | Description         | Link        |
   | --------------------------------| ------------------  |:----------- |
@@ -51,9 +35,7 @@ description: Course Activities
   | IBM Cloud DevOps | Using IBM Cloud ToolChain with Tekton | [Tekton on IBM Cloud](../lectures/continuous-integration/activities/ibm-toolchain/) |
   | Jenkins Lab | Using Jenkins to test new versions of applications. | [Jenkins](../lectures/continuous-integration/activities/jenkins/openshift/) |
 
-  </AccordionItem>
-
-  <AccordionItem title="Continuous Deployment">
+## Continuous Deployment
 
   | Task                            | Description         | Link        |
   | --------------------------------| ------------------  |:----------- |

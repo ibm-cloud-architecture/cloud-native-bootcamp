@@ -106,6 +106,7 @@ nav:
   - Activities/Labs:
     - labs/index.md
     - Containers: labs/containers/index.md
+    - Container Registries: labs/containers/container-registry/index.md
     - Kubernetes/OpenShift:
       - labs/index.md
       - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md

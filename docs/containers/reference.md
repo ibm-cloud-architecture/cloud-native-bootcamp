@@ -116,7 +116,7 @@ For example, Docker created standard way to create images for Linux Containers.
 
 | Task                    | Description                                                     | Link                                                                                                                         | Time   |
 | ----------------------- | --------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- | ------ |                                                       |                                                                                                                              |        |
-| IBM Container Registry  | Build and Deploy Run using IBM Container Registry               | [IBM Container Registry](./activities/ibmcloud-cr)                                                                           | 30 min |
-| Docker Lab              | Running a Sample Application on Docker                          | [Docker Lab](./labs/containers/index.md)                                                                                                  | 30 min |
+| IBM Container Registry  | Build and Deploy Run using IBM Container Registry               | [IBM Container Registry](../labs/containers/container-registry/index.md)                                                                           | 30 min |
+| Docker Lab              | Running a Sample Application on Docker                          | [Docker Lab](../labs/containers/index.md)                                                                                                  | 30 min |
 
 Once you have completed these tasks, you should have a base understanding of containers and how to use Docker.
