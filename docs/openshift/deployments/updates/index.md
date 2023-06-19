@@ -15,15 +15,17 @@ A Deployment’s revision is created when a Deployment’s rollout is triggered.
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Rollouts](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){:target="_blank"}
-- [Rolling Back](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){:target="_blank"}
+    [Rollouts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){ .md-button target="_blank"}
 
-**IKS**
+    [Rolling Back :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){ .md-button target="_blank"}
 
-- [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment){:target="_blank"}
-- [Rolling Back a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment){:target="_blank"}
+=== "Kubernetes"
+
+    [Updating a Deployment :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment){ .md-button target="_blank"}
+
+    [Rolling Back a Deployment :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment){ .md-button target="_blank"}
 
 
 ## References
