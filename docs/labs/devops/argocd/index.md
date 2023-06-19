@@ -1,14 +1,15 @@
 # ArgoCD Lab
 
 === "OpenShift"
+    ## OpenShift
 
-    ## Pre-requisites
+    ### Pre-requisites
 
     Make sure your environment is setup properly for the lab.
 
     Check the [Environment Setup](../prerequisites/#environment-setup) page for your setup.
 
-    ## ArgoCD Installation
+    ### ArgoCD Installation
 
     - Create the namespace `argocd` to install argocd
         ```bash
@@ -50,7 +51,7 @@
         echo ARGOCD_SERVER=$ARGOCD_SERVER
         ```
 
-    ## Deploying the app
+    ### Deploying the app
 
     - Login into the UI.
         ```bash
@@ -104,7 +105,7 @@
 
     ![sample app full deployment](../images/sample_app_full_deployment.png)
 
-    ## Verifying the deployment
+    ### Verifying the deployment
 
     - Access the app to verify if it is correctly deployed.
     - List the cloudnativesampleapp-service route
@@ -129,7 +130,7 @@
         {"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, Carlos :)"}
         ```
 
-    ## Using the ArgoCD CLI
+    ### Using the ArgoCD CLI
 
     - Login using the cli.
     - Use `admin` as the username and get the password with the following command
@@ -186,19 +187,21 @@
         ID  DATE                           REVISION
         0   2020-02-12 21:10:32 -0500 EST  HEAD (9684037)
         ```
-    ## References
+    ### References
 
     - [ArgoCD](https://argoproj.github.io/argo-cd/)
 
 === "Kubernetes"
-
-    ## Pre-requisites
+    
+    ## Kubernetes
+    
+    ### Pre-requisites
 
     Make sure your environment is setup properly for the lab.
 
     Check the [Environment Setup](../prerequisites/#environment-setup) page for your setup.
 
-    ## ArgoCD Installation
+    ### ArgoCD Installation
 
     - Create the namespace `argocd` to install argocd
         ```bash
@@ -285,7 +288,7 @@
         ```
         Then you can access the argocd server locally on port 8080 [http://localhost:8080](http://localhost:8080)
 
-    ## Deploying the app
+    ### Deploying the app
 
     - Login using the Browser into the UI using `$ARGOCD_URL` or `localhost:8080` if using port-forward
     - Use `admin` as the username and get the password with the following command
@@ -336,7 +339,7 @@
 
     ![sample app full deployment](../images/sample_app_full_deployment.png)
 
-    ## Verifying the deployment
+    ### Verifying the deployment
 
     - Access the app to verify if it is correctly deployed.
     - List the cloudnativesampleapp-service service
@@ -362,6 +365,6 @@
         {"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, Carlos :)"}
         ```
 
-    ## References
+    ### References
 
     - [ArgoCD](https://argoproj.github.io/argo-cd/)
