@@ -19,10 +19,7 @@ configuration so that teams can benefit from the same assurance as they do for t
 ## ArgoCD Overview
 ## Resources
 
-<CardGroup>
-<MiniCard title="Understanding GitOps" href="/slides/05-Understanding-GitOps.pdf">
-</MiniCard>
-</CardGroup>
+[GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
 
 ## Activities
 

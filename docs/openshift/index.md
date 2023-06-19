@@ -17,6 +17,9 @@ https://www.ibm.com/cloud/learn/kubernetes
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aSrqRSk43lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Presentations
+
+[Kubernetes Overview :fontawesome-regular-file-pdf:](./materials/02-Containers-Basics.pdf){ .md-button target=_blank}
 
 ## Predictable Demands Pattern
 

@@ -111,3 +111,10 @@ spec:
     ```
     kubectl delete pod myapp-pod
     ```
+
+## Try it Out
+
+| Task                            | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| *** Try It Yourself ***                         |         |         | 
+| Creating Pods | Create a Pod YAML file to meet certain parameters | [Pod Creation](../../labs/kubernetes/lab1/index.md) |
