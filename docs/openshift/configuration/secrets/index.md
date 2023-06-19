@@ -7,15 +7,17 @@ A Secret is an object that contains a small amount of sensitive data such as a p
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Image Pull Secrets](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html){:target="_blank"}
-- [Secret Commands](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic){:target="_blank"}
+    [Image Pull Secrets :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html){ .md-button target="_blank"}
 
-**IKS**
+    [Secret Commands :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic){ .md-button target="_blank"}
 
-- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){:target="_blank"}
-- [Secret Distribution](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/){:target="_blank"}
+=== "Kubernetes"
+
+    [Secrets :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/configuration/secret/){ .md-button target="_blank"}
+
+    [Secret Distribution :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/){ .md-button target="_blank"}
 
 ## References
 
