@@ -119,6 +119,7 @@ nav:
       - Lab 8: labs/kubernetes/lab8/index.md
       - Lab 9: labs/kubernetes/lab9/index.md
       - Lab 10: labs/kubernetes/lab10/index.md
+      - Lab Solutions: labs/kubernetes/lab-solutions.md
     - DevOps/GitOps:
       - labs/index.md
       - Tekton: labs/devops/tekton/index.md

@@ -141,7 +141,3 @@ The continuous integration activities focus around Tekton the integration platfo
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         | 
 | Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](../../../labs/kubernetes/lab5/index.md) | 30 min |
-
-### Solution
-- [Solution](https://gist.github.com/csantanapr/e823b1bfab24186a26ae4f9ec1ff6091#file-debugk8s-yaml)
-
