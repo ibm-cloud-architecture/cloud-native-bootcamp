@@ -16,17 +16,21 @@ The following are typical use cases for Deployments:
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Deployments](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html){:target="_blank"}
-- [Managing Deployment Processes](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html){:target="_blank"}
-- [DeploymentConfig Strategies](https://docs.openshift.com/container-platform/4.13/applications/deployments/deployment-strategies.html){:target="_blank"}
-- [Route Based Deployment Strategies](https://docs.openshift.com/container-platform/4.13/applications/deployments/route-based-deployment-strategies.html){:target="_blank"}
+    [Deployments :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html){ .md-button target="_blank"}
 
-**IKS**
+    [Managing Deployment Processes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html){ .md-button target="_blank"}
 
-- [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){:target="_blank"}
-- [Scaling Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment){:target="_blank"}
+    [DeploymentConfig Strategies :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/deployment-strategies.html){ .md-button target="_blank"}
+
+    [Route Based Deployment Strategies :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/route-based-deployment-strategies.html){ .md-button target="_blank"}
+
+=== "Kubernetes"
+
+    [Deployments :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){ .md-button target="_blank"}
+
+    [Scaling Deployments :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment){ .md-button target="_blank"}
 
 ## References
 

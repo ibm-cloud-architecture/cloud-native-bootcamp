@@ -6,13 +6,13 @@ To specify security settings for a Pod, include the securityContext field in the
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Managing Security Contexts](https://docs.openshift.com/container-platform/4.13/authentication/managing-security-context-constraints.html){:target="_blank"}
+    [Managing Security Contexts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/managing-security-context-constraints.html){ .md-button target="_blank"}
 
-**IKS**
+=== "Kubernetes"
 
-- [Security Contexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/){:target="_blank"}
+    [Security Contexts :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/){ .md-button target="_blank"}
 
 
 ## References

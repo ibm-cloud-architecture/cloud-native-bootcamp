@@ -9,13 +9,13 @@ You can data from a ConfigMap in 3 different ways.
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Mapping Volumes](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){:target="_blank"}
+    [Mapping Volumes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){ .md-button target="_blank"}
 
-**IKS**
+=== "Kubernetes"
 
-- [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"}
+    [ConfigMaps :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){ .md-button target="_blank"}
 
 ## References
 

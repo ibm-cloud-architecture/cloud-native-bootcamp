@@ -22,10 +22,13 @@ A Pod can use environment variables to expose information about itself to Contai
 
 ### Resources
 
-**IKS & OpenShift**
-- [Container Commands](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
-- [Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
-- [Pod Exposing](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#exposing-pods-to-the-cluster)
+=== "OpenShift & Kubernetes"
+
+    [Container Commands :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/){ .md-button target="_blank"}
+
+    [Environment Variables :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/){ .md-button target="_blank"}
+
+    [Pod Exposing :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#exposing-pods-to-the-cluster){ .md-button target="_blank"}
 
 ### References
 
@@ -126,9 +129,11 @@ CPU and memory are each a resource type. A resource type has a base unit. CPU is
 
 ### Resources
 
-**IKS & OpenShift**
-- [Compute Resources](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container)
-- [Memory Management](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/)
+=== "OpenShift & Kubernetes"
+
+    [Compute Resources :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container){ .md-button target="_blank"}
+
+    [Memory Management :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/){ .md-button target="_blank"}
 
 ### References
 

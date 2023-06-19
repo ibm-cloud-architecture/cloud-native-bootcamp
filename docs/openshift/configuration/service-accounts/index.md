@@ -10,15 +10,17 @@ User accounts are intended to be global. Names must be unique across all namespa
 
 ## Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Service Accounts](https://docs.openshift.com/container-platform/4.13/authentication/understanding-and-creating-service-accounts.html){:target="_blank"}
-- [Using Service Accounts](https://docs.openshift.com/container-platform/4.13/authentication/using-service-accounts-in-applications.html){:target="_blank"}
+    [Service Accounts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/understanding-and-creating-service-accounts.html){ .md-button target="_blank"}
 
-**IKS**
+    [Using Service Accounts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/using-service-accounts-in-applications.html){ .md-button target="_blank"}
 
-- [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/){:target="_blank"}
-- [Service Account Configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/){:target="_blank"}
+=== "Kubernetes"
+
+    [Service Accounts :fontawesome-solid-globe:](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/){ .md-button target="_blank"}
+
+    [Service Account Configuration :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/){ .md-button target="_blank"}
 
 ## References
 
