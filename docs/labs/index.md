@@ -23,7 +23,7 @@
   | Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](kubernetes/lab10/index.md) |
   | IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](kubernetes/ingress-iks/index.md) |
   | *** Solutions ***                         |         |         |
-  | Lab Solutions | Solutions for the Kubernetes Labs  | [Solutions](kubernetes/solutions/lab-solutions.md) |
+  | Lab Solutions | Solutions for the Kubernetes Labs  | [Solutions](kubernetes/lab-solutions.md) |
 
 ## Continuous Integration
 
