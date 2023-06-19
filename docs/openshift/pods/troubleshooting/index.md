@@ -7,12 +7,14 @@ Usually is getting familiar with how primitives objects interact with each other
 ## Resources
 
 **OpenShift**
-- [Debugging with ODO](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit)
+
+- [Debugging with ODO](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){:target="_blank"}
 
 **IKS**
-- [Debugging Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/)
-- [Debugging Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/)
-- [Debugging Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/)
+
+- [Debugging Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){:target="_blank"}
+- [Debugging Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){:target="_blank"}
+- [Debugging Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){:target="_blank"}
 
 
 ## References
@@ -138,7 +140,7 @@ The continuous integration activities focus around Tekton the integration platfo
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         | 
-| Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](../kube-overview/activities/labs/lab5) | 30 min |
+| Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](../../../labs/kubernetes/lab5/index.md) | 30 min |
 
 ### Solution
 - [Solution](https://gist.github.com/csantanapr/e823b1bfab24186a26ae4f9ec1ff6091#file-debugk8s-yaml)

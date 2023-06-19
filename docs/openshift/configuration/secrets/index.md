@@ -8,12 +8,14 @@ A Secret is an object that contains a small amount of sensitive data such as a p
 ## Resources
 
 **OpenShift**
-- [Image Pull Secrets](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html)
-- [Secret Commands](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic)
+
+- [Image Pull Secrets](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html){:target="_blank"}
+- [Secret Commands](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic){:target="_blank"}
 
 **IKS**
-- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-- [Secret Distribution](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/)
+
+- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){:target="_blank"}
+- [Secret Distribution](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/){:target="_blank"}
 
 ## References
 

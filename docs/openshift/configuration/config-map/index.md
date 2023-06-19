@@ -10,10 +10,12 @@ You can data from a ConfigMap in 3 different ways.
 ## Resources
 
 **OpenShift**
-- [Mapping Volumes](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html)
+
+- [Mapping Volumes](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){:target="_blank"}
 
 **IKS**
-- [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+- [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){:target="_blank"}
 
 ## References
 

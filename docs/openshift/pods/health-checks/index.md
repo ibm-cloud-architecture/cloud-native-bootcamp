@@ -73,12 +73,14 @@ Kubernetes provides no native storage solution for log data, but you can integra
 ### Resources
 
 **OpenShift**
-- [Logs Command](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html)
-- [Cluster Logging](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html)
-- [Logging Collector](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html)
+
+- [Logs Command](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
+- [Cluster Logging](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
+- [Logging Collector](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
 
 **IKS**
-- [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
+
+- [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
 
 ### References
 
@@ -126,11 +128,13 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 ### Resources
 
 **OpenShift**
-- [Monitoring Application Health](https://docs.openshift.com/container-platform/4.13/applications/application-health.html)
+
+- [Monitoring Application Health](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
 
 **IKS**
-- [Monitoring Resource Usage](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
-- [Resource Metrics](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/)
+
+- [Monitoring Resource Usage](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
+- [Resource Metrics](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
 
 ### References
 
@@ -207,4 +211,4 @@ spec:
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         |
-| Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](../kube-overview/activities/labs/lab4) |
+| Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](../../../labs/kubernetes/lab4/index.md) |

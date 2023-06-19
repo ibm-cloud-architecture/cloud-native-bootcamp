@@ -7,10 +7,11 @@ Container images solve many real-world problems with existing packaging and depl
 **OpenShift**
 
 **IKS**
-- [Sidecar Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent)
-- [Shared Volume Communication](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/)
-- [Toolkit Patterns](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/)
-- [Brendan Burns Paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf)
+
+- [Sidecar Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent){:target="_blank"}
+- [Shared Volume Communication](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/){:target="_blank"}
+- [Toolkit Patterns](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/){:target="_blank"}
+- [Brendan Burns Paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf){:target="_blank"}
 
 ## References
 
@@ -98,4 +99,4 @@ spec:
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | *** Try It Yourself ***                         |         |         |   
-| Multiple Containers | Build a container using legacy container image.| [Multiple Containers](../kube-overview/activities/labs/lab3) |
+| Multiple Containers | Build a container using legacy container image.| [Multiple Containers](../../../labs/kubernetes/lab3/index.md) |
