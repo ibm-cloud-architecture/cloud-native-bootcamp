@@ -12,7 +12,7 @@ Tekton is a cloud-native solution for building CI/CD systems. It consists of Tek
 
 ## Resources
 
-[Tekton Overview :fontawesome-regular-file-pdf:](../materials/04-Tekton-Overview.pdf){ .md-button }
+[Tekton Overview :fontawesome-regular-file-pdf:](../materials/04-Tekton-Overview.pdf){ .md-button target=_blank}
 [IBM Cloud DevOps with Tekton :fontawesome-regular-file-pdf:](../materials/10-IBM-Cloud-DevOps.pdf ){ .md-button target=_blank}
 
 ## Activities

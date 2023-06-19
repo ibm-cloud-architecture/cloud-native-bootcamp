@@ -67,7 +67,6 @@ nav:
     - containers/index.md
     - References: containers/reference.md
     - Image Registries: containers/imageregistry.md
-    - Lab: labs/containers/index.md
   - <div class="header">Kubernetes/OpenShift</div>:
     - openshift/index.md
     - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
@@ -106,7 +105,7 @@ nav:
       - ArgoCD: devops/argocd/index.md
   - Activities/Labs:
     - labs/index.md
-    - Containers: /labs/containers/
+    - Containers: labs/containers/index.md
     - Kubernetes/OpenShift:
       - labs/index.md
       - Lab 1: labs/kubernetes/lab1/index.md

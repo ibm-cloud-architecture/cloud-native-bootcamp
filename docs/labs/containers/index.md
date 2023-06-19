@@ -1,7 +1,9 @@
 # Docker Lab
 ## Introduction
 
-In this lab, you will learn about how to use docker and how to run applications using docker. This lab will not explicitly give you the commands to progress through these exercises, but will show you a similar expected output. It's your goal to develop the commands (shown as < command > at each step) to finish the lab.
+In this lab, you will learn about how to use docker and how to run applications using docker. This lab will not explicitly give you the commands to progress through these exercises, but will show you a similar expected output.
+
+**It's your goal to create the commands needed (shown as < command > at each step) to complete the lab.**
 
 ## Prerequisites
 
