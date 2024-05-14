@@ -34,6 +34,6 @@ These tasks assume that you have:
 | GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/){:target="_blank"} | 20 min |
 | GitOps Multi-cluster | Multi-cluster GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/){:target="_blank"} | 20 min |
 | *** Try It Yourself ***                         |         |         |     |
-| ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../continuous-deployment/activities/openshift/) | 30 min |
+| ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../../labs/devops/argocd/) | 30 min |
 
 Once you have completed these tasks, you will have created an ArgoCD deployment and have an understanding of Continuous Deployment.
