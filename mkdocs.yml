@@ -75,7 +75,7 @@ nav:
       - openshift/pods/index.md
       - <div class="sub-section">Labels-Selectors</div>: openshift/pods/tagging/index.md
       - <div class="sub-section">Multi-Container</div>: openshift/pods/multi-container/index.md
-      - <div class="sub-section">Health Checks</div>: openshift/pods/health-checks/index.md
+      - <div class="sub-section">Health and Monitoring</div>: openshift/pods/health-checks/index.md
       - <div class="sub-section">Troubleshooting</div>: openshift/pods/troubleshooting/index.md
     - <div class="header">Configuration</div>: 
       - openshift/configuration/index.md

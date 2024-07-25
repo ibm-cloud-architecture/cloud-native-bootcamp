@@ -1,4 +1,6 @@
-# Liveness and Readiness Probes
+# Health and Monitoring
+
+## Liveness and Readiness Probes
 
 A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. There are three types of handlers:
 
@@ -14,13 +16,13 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
 ***readinessProbe***: Indicates whether the Container is ready to service requests. Only runs at start.
 
-## Resources
+### Resources
 
 === "OpenShift"
 
-    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/applications/application-health.html){ .md-button target="_blank"}
+    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ .md-button target="_blank"}
 
-    [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.12/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
+    [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.14/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -28,7 +30,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
     [Configure Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
 
-## References
+### References
 
 ```yaml
 apiVersion: v1
@@ -190,17 +192,18 @@ spec:
     ```
 
 === "Kubernetes"
-    ** Verify Metrics is enabled**
+
+    **Verify Metrics is enabled**
     ```
     kubectl get --raw /apis/metrics.k8s.io/
     ```
 
-    ** Get Node Description **
+    **Get Node Description**
     ```
     kubectl describe node
     ```
 
-    ** Check Resource Useage **
+    **Check Resource Usage**
     ```
     kubectl top pods
     kubectl top nodes
@@ -214,5 +217,5 @@ spec:
 
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         |
+| ***Try It Yourself***                         |         |         |
 | Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](../../../labs/kubernetes/lab4/index.md) |
