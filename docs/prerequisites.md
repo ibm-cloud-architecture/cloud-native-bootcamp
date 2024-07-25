@@ -338,4 +338,4 @@ Here is a course for learning (or brushing up) on working from the linux command
 
 
 ## Next Steps
-Once Setup is complete, you can now begin reading our about [Cloud Native](../cloud-native) by clicking the link, or the `Next` button below.
+Once Setup is complete, you can now begin reading our about [Cloud Native](./cloud-native/index.md by clicking the link, or the `Next` button below.

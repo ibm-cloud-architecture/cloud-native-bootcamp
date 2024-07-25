@@ -199,7 +199,7 @@
 
     - Create a Task to build a container image and push to the registry
     - This task will be later used by the pipeline.
-    - Download the task file [task-buildah.yaml](/yamls/tekton-lab/task-buildah.yaml) to build the image, push the image to the registy:
+    - Download the task file [task-buildah.yaml](https://hub.tekton.dev/tekton/task/buildah) to build the image, push the image to the registy:
     - Create the `buildah` Task using the file and the command:
         ```
         oc apply -f task-buildah.yaml -n $NAMESPACE
@@ -663,7 +663,7 @@
 
     - Create a Task to build a container image and push to the registry
     - This task will be later used by the pipeline.
-    - Download the task file [task-buildah.yaml](/yamls/tekton-lab/task-buildah.yaml) to build the image, push the image to the registy:
+    - Download the task file [task-buildah.yaml](https://hub.tekton.dev/tekton/task/buildah) to build the image, push the image to the registy:
     - Create task buildah
     - Create the `buildah` Task using the file and the command:
         ```bash

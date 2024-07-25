@@ -367,5 +367,3 @@ You have successfully completed this lab! Let's take a look at what you learned 
 - Ran the Greetings service on Docker.
 
 Congratulations !!!
-
-Check out the [Solution](./solution/)

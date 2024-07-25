@@ -1,1 +1,0 @@
-# Openshift Install IBM Cloud
