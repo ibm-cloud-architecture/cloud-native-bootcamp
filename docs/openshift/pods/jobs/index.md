@@ -154,5 +154,5 @@ spec:
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
 | ***Try It Yourself***                         |         |         |
-| Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](../kube-overview/activities/labs/lab6) |
-| Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](../kube-overview/activities/labs/lab7) |
+| Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](../../../labs/kubernetes/lab6/index.md) |
+| Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](../../../labs/kubernetes/lab7/index.md) |

@@ -1,3 +1,3 @@
 # Operators
 
-## Coming Soon
+Operators in Openshift are...

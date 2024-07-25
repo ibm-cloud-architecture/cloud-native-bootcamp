@@ -37,10 +37,12 @@ extra_css:
 
 markdown_extensions:
   - attr_list
+  - admonition
+  - pymdownx.details
   - footnotes
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -67,6 +69,10 @@ nav:
     - containers/index.md
     - References: containers/reference.md
     - Image Registries: containers/imageregistry.md
+    - Activities/Labs: 
+      - labs/index.md
+      - Docker: labs/containers/index.md
+      - Container Registries: labs/containers/container-registry/index.md
   - <div class="header">Kubernetes/OpenShift</div>:
     - openshift/index.md
     - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
@@ -96,11 +102,15 @@ nav:
       - openshift/state-persistence/index.md
       - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
       - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
+    - <div class="header">Operators</div>: 
+      - openshift/operators/operators.md
+
   - DevOps/GitOps:
     - devops/index.md
     - <div class="header">Continuous Integration</div>:
       - devops/tekton/index.md
-      - Tekton: devops/tekton/index.md
+      - <div class="sub-section">Tekton</div>: devops/tekton/index.md
+      - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
     - <div class="header">Continuous Deployment</div>:
       - devops/argocd/index.md
       - ArgoCD: devops/argocd/index.md

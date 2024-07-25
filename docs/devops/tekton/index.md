@@ -29,8 +29,8 @@ These tasks assume that you have:
 | ***Walkthroughs***                         |         |         |     |
 | Deploying Applications From Source |  Using OpenShift 4 | [S2I](https://learn.openshift.com/introduction/deploying-python/){:target="_blank"} | 30 min |
 | ***Try It Yourself***                         |         |         |     |
-| Tekton Lab | Using Tekton to build container images | [Tekton](labs/openshift.md) | 1 hour |
-| IBM Cloud DevOps | Using IBM Cloud ToolChain with Tekton | [Tekton on IBM Cloud](../continuous-integration/activities/ibm-toolchain){:target="_blank"} | 1 hour |
-| Jenkins Lab | Using Jenkins to build and deploy applications. | [Jenkins](../continuous-integration/activities/jenkins/openshift){:target="_blank"} | 1 hour |
+| Tekton Lab | Using Tekton to build container images | [Tekton](../../labs/devops/tekton/index.md) | 1 hour |
+| IBM Cloud DevOps | Using IBM Cloud ToolChain with Tekton | [Tekton on IBM Cloud](../../labs/devops/ibm-toolchain/index.md){:target="_blank"} | 1 hour |
+| Jenkins Lab | Using Jenkins to build and deploy applications. | [Jenkins](../../labs/devops/jenkins/index.md){:target="_blank"} | 1 hour |
 
 Once you have completed these tasks, you will have an understanding of continuous integration and how to use Tekton to build a pipeline.

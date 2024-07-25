@@ -1,7 +1,4 @@
----
-title: IBM Cloud DevOps with Tekton
-description: Lab for continuous integration using Tekton on IBM Cloud DevOps
----
+# IBM ToolChain
 
 By following this tutorial, you create an open toolchain that includes a Tekton-based delivery pipeline. You then use the toolchain and DevOps practices to develop a simple "Hello World" web application (app) that you deploy to the IBM Cloud Kubernetes Service. 
 

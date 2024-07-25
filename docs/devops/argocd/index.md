@@ -19,21 +19,20 @@ configuration so that teams can benefit from the same assurance as they do for t
 ## ArgoCD Overview
 ## Presentations
 
-[GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
+[GitOps Overview :fontawesome-regular-file-pdf:](../materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
 
 ## Activities
 
-These activites give you a chance to walkthrough building CD pipelines using ArgoCD.
+These activities give you a chance to walkthrough building CD pipelines using ArgoCD.
 
 These tasks assume that you have:
  - Reviewed the Continuous Deployment concept page.
 
 | Task                            | Description         | Link        | Time    |
 | --------------------------------| ------------------  |:----------- |---------|
-| *** Walkthroughs ***                         |         |         |     |
-| GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/){:target="_blank"} | 20 min |
-| GitOps Multi-cluster | Multi-cluster GitOps with OpenShift | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/){:target="_blank"} | 20 min |
-| *** Try It Yourself ***                         |         |         |     |
-| ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../../labs/devops/argocd/) | 30 min |
+| ***Walkthroughs***                         |         |         |     |
+| GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift GitOps](https://docs.openshift.com/gitops/1.13/understanding_openshift_gitops/about-redhat-openshift-gitops.html){:target="_blank"} | 20 min |
+| ***Try It Yourself***                         |         |         |     |
+| ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../../labs/devops/argocd/index.md) | 30 min |
 
 Once you have completed these tasks, you will have created an ArgoCD deployment and have an understanding of Continuous Deployment.

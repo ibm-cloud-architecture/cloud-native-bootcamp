@@ -2,7 +2,7 @@
 
 ## Required skills
 
-This activites contained here require you to be proficient in working from the command line with a linux shell (Bash, Zsh, etc.) Below is a partial list of activites you should be able to perform. 
+This activities contained here require you to be proficient in working from the command line with a linux shell (Bash, Zsh, etc.) Below is a partial list of activities you should be able to perform. 
 
 - Copy, move, and rename files
 - Understand linux file permissions
@@ -56,14 +56,10 @@ Here is a course for learning (or brushing up) on working from the linux command
         curl -sL https://ibm.biz/idt-installer | bash
         ```
 
-    <InlineNotification>
+    !!! Note
+        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
 
-    ** Note: ** If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-        You can also use this API key for [installing the Developer Tools environment](/admin/installation-ibm-cloud).
-
-    </InlineNotification>
-
-    - [Docker Desktop](https://www.docker.com/products/docker-desktop): Required for building and running docker images.
+    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
         - Installed and running on your local machine
 
     - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
@@ -79,14 +75,6 @@ Here is a course for learning (or brushing up) on working from the linux command
 
     - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html): _Optional_ installed on your local machine
         - Used for SpringBoot content
-
-    - [OpenShift CodeReady Containers (CRC)](https://code-ready.github.io/crc/#installing-codeready-containers_gsg)
-
-    <InlineNotification kind="warning">
-
-    **Warning:** Make sure you have Cisco VPN turned off when using CRC.
-
-    </InlineNotification>
 
 
 === "Openshift (Windows)"
@@ -121,14 +109,10 @@ Here is a course for learning (or brushing up) on working from the linux command
         curl -sL https://ibm.biz/idt-installer | bash
         ```
 
-    <InlineNotification>
+    !!! Note 
+        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
 
-    ** Note: ** If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-        You can also use this API key for [installing the Developer Tools environment](/admin/installation-ibm-cloud).
-
-    </InlineNotification>
-
-    - [Docker Desktop](https://www.docker.com/products/docker-desktop): Required for building and running docker images.
+    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
         - Installed and running on your local machine
 
     - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton pipelines from the command line.
@@ -189,14 +173,11 @@ Here is a course for learning (or brushing up) on working from the linux command
         curl -sL https://ibm.biz/idt-installer | bash
         ```
 
-    <InlineNotification>
+     !!! Note
+        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
+    
 
-    ** Note: ** If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-        You can also use this API key for [installing the Developer Tools environment](/admin/installation-ibm-cloud).
-
-    </InlineNotification>
-
-    - [Docker Desktop](https://www.docker.com/products/docker-desktop): Required for building and running docker images.
+    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
         - Installed and running on your local machine
 
     - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
@@ -251,14 +232,11 @@ Here is a course for learning (or brushing up) on working from the linux command
         curl -sL https://ibm.biz/idt-installer | bash
         ```
 
-    <InlineNotification>
+    !!! Note
+        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
 
-    ** Note: ** If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-        You can also use this API key for [installing the Developer Tools environment](/admin/installation-ibm-cloud).
 
-    </InlineNotification>
-
-    - [Docker Desktop](https://www.docker.com/products/docker-desktop): Required for building and running docker images.
+    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
         - Installed and running on your local machine
 
     - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
@@ -360,4 +338,4 @@ Here is a course for learning (or brushing up) on working from the linux command
 
 
 ## Next Steps
-Once Setup is complete, you can now begin reading our about [Cloud Native](../concepts/cloud-native) by clicking the link, or the `Next` button below.
+Once Setup is complete, you can now begin reading our about [Cloud Native](../cloud-native) by clicking the link, or the `Next` button below.

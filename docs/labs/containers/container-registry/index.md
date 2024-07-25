@@ -1,11 +1,8 @@
----
-title: Lab - IBM Cloud Container Registry
-description: Lab - IBM Cloud Container Registry
----
+# IBM Container Registries
 
 In this lab we are going to create a Container Image and store it in the [IBM Cloud Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overview)
 
-### Prerequisites
+## Prerequisites
 - IBM Cloud Account
 
 ### Login into IBM Cloud
@@ -20,7 +17,7 @@ In this lab we are going to create a Container Image and store it in the [IBM Cl
     ![ibm cloud shell prompt](../images/ibmcloud-shell-prompt.png)
 
 
-### Create a new Container Registry namespace
+## Create a new Container Registry namespace
 
 1. Ensure that you're targeting the correct IBM Cloud Container Registry region. For example for Dallas region use **us-south**
     ```
@@ -35,8 +32,8 @@ In this lab we are going to create a Container Image and store it in the [IBM Cl
     export NAMESPACE=<my_namespace>
     ```
 
-### Building and Pusing a Container Image
-1. Clone the folowwing git repository and change directory to `1-containers`
+## Building and Pushing a Container Image
+1. Clone the following git repository and change directory to `1-containers`
     ```
     git clone --depth 1 https://github.com/csantanapr/think2020-nodejs.git my-app
     cd my-app/1-containers/
@@ -89,7 +86,7 @@ In this lab we are going to create a Container Image and store it in the [IBM Cl
     ibmcloud cr build --tag us.icr.io/$NAMESPACE/my-app:1.0 ./
     ```
 
-### Explore the Container Registry on the IBM Cloud Console
+## Explore the Container Registry on the IBM Cloud Console
 1. Explore the container image details using the IBM Cloud Console. Go to the Main Menu->Kubernetes->Registry you can use the tabs `Namespaces`, `Repository`, `Images`
     ![cr namespace](../images/cr-namespaces.png)
     ![cr namespace](../images/cr-repositories.png)
@@ -97,7 +94,7 @@ In this lab we are going to create a Container Image and store it in the [IBM Cl
     ![cr namespace](../images/cr-settings.png)
 
 
-### Extra Credit (Run Imge on Kubernetes)
+## Extra Credit (Run Imge on Kubernetes)
 
 If you have a Kubernetes Cluster you can run your application image
 

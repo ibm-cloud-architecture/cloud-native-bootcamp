@@ -4,7 +4,7 @@
 
     Make sure your environment is properly setup.
 
-    Follow the instructions [here](../../prerequisites#environment-setup)
+    Follow the instructions [here](../../../prerequisites.md#environment-setup)
 
     ## SetUp
 
@@ -445,7 +445,7 @@
 
     Make sure your environment is properly setup.
 
-    Follow the instructions [here](../../prerequisites#environment-setup)
+    Follow the instructions [here](../../../prerequisites.md#environment-setup)
 
     ## SetUp
 

@@ -7,7 +7,7 @@
 
     Make sure your environment is setup properly for the lab.
 
-    Check the [Environment Setup](../prerequisites/#environment-setup) page for your setup.
+    Check the [Environment Setup](../../../prerequisites.md#environment-setup) page for your setup.
 
     ### ArgoCD Installation
 
@@ -199,7 +199,7 @@
 
     Make sure your environment is setup properly for the lab.
 
-    Check the [Environment Setup](../prerequisites/#environment-setup) page for your setup.
+    Check the [Environment Setup](../../../prerequisites.md#environment-setup) page for your setup.
 
     ### ArgoCD Installation
 
