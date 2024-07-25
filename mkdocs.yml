@@ -86,6 +86,7 @@ nav:
     - <div class="header">Deployments</div>: 
       - openshift/deployments/index.md
       - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
+      - <div class="sub-section">Jobs and CronJobs</div>: openshift/pods/jobs/index.md
     - <div class="header">Networking</div>: 
       - openshift/services-networking/index.md
       - <div class="sub-section">Services</div>: openshift/services-networking/services.md

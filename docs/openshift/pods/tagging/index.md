@@ -41,7 +41,7 @@ spec:
 
 === "OpenShift"
 
-    ** Change Labels on Objects **
+    **Change Labels on Objects**
     ```
     oc label pod my-pod boot=camp
     ```
@@ -77,7 +77,7 @@ spec:
 
 === "Kubernetes"
 
-    ** Change Labels on Objects **
+    **Change Labels on Objects**
     ```
     kubectl label pod my-pod boot=camp
     ```

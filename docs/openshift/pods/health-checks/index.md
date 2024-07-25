@@ -14,7 +14,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
 ***readinessProbe***: Indicates whether the Container is ready to service requests. Only runs at start.
 
-### Resources
+## Resources
 
 === "OpenShift"
 
@@ -28,7 +28,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
     [Configure Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
 
-### References
+## References
 
 ```yaml
 apiVersion: v1

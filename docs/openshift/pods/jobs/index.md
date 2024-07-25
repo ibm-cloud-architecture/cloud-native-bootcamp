@@ -79,89 +79,80 @@ spec:
           restartPolicy: OnFailure
 ```
 
-<Tabs>
-<Tab label="OpenShift">
+=== "OpenShift"
 
-** Gets Jobs **
-```
-oc get jobs
-```
-** Gets Job Description **
-```
-oc describe job pi
-```
-** Gets Pods from the Job **
-```
-oc get pods
-```
-** Deletes Job **
-```
-oc delete job pi
-```
+    **Gets Jobs**
+    ```
+    oc get jobs
+    ```
+    **Gets Job Description**
+    ```
+    oc describe job pi
+    ```
+    **Gets Pods from the Job**
+    ```
+    oc get pods
+    ```
+    **Deletes Job**
+    ```
+    oc delete job pi
+    ```
+    **Gets CronJob**
+    ```
+    oc get cronjobs
+    ```
+    **Describes CronJob**
+    ```
+    oc describe cronjobs pi
+    ```
+    **Gets Pods from CronJob**
+    ```
+    oc get pods
+    ```
+    **Deletes CronJob**
+    ```
+    oc delete cronjobs pi
+    ```
 
-** Gets CronJob **
-```
-oc get cronjobs
-```
-** Describes CronJob **
-```
-oc describe cronjobs pi
-```
-** Gets Pods from CronJob **
-```
-oc get pods
-```
-** Deletes CronJob **
-```
-oc delete cronjobs pi
-```
+=== "Kubernetes"
 
-</Tab>
-
-<Tab label="IKS">
-
-** Gets Jobs **
-```
-kubectl get jobs
-```
-** Gets Job Description **
-```
-kubectl describe job pi
-```
-** Gets Pods from the Job **
-```
-kubectl get pods
-```
-** Deletes Job **
-```
-kubectl delete job pi
-```
-
-** Gets CronJob **
-```
-kubectl get cronjobs
-```
-** Describes CronJob **
-```
-kubectl describe cronjobs pi
-```
-** Gets Pods from CronJob **
-```
-kubectl get pods
-```
-** Deletes CronJob **
-```
-kubectl delete cronjobs pi
-```
-
-</Tab>
-
-</Tabs>
+    **Gets Jobs**
+    ```
+    kubectl get jobs
+    ```
+    **Gets Job Description**
+    ```
+    kubectl describe job pi
+    ```
+    **Gets Pods from the Job**
+    ```
+    kubectl get pods
+    ```
+    **Deletes Job**
+    ```
+    kubectl delete job pi
+    ```
+    **Gets CronJob**
+    ```
+    kubectl get cronjobs
+    ```
+    **Describes CronJob**
+    ```
+    kubectl describe cronjobs pi
+    ```
+    **Gets Pods from CronJob**
+    ```
+    kubectl get pods
+    ```
+    **Deletes CronJob**
+    ```
+    kubectl delete cronjobs pi
+    ```
 
 ## Activities
 
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         |
+| ***Try It Yourself***                         |         |         |
 | Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](../kube-overview/activities/labs/lab6) |
 | Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](../kube-overview/activities/labs/lab7) |

@@ -65,7 +65,7 @@ spec:
 
 === "OpenShift"
 
-    ** Attach Pods Together **
+    **Attach Pods Together**
     ```
     oc attach -it my-pod -c sidecard
     ```
@@ -81,7 +81,7 @@ spec:
 
 === "Kubernetes"
 
-    ** Attach Pods Together **
+    **Attach Pods Together**
     ```
     kubectl attach -it my-pod -c sidecard
     ```
@@ -99,5 +99,5 @@ spec:
 
 | Task                            | Description         | Link        |
 | --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         |   
+| ***Try It Yourself***                         |         |         |   
 | Multiple Containers | Build a container using legacy container image.| [Multiple Containers](../../../labs/kubernetes/lab3/index.md) |
