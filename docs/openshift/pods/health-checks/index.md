@@ -20,15 +20,15 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
 === "OpenShift"
 
-    [Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ .md-button target="_blank"}
+    [Application Health :fontawesome-solid-heart-pulse:](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ .md-button target="_blank"}
 
-    [Virtual Machine Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.14/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
+    [Virtual Machine Health :fontawesome-solid-heart-pulse:](https://docs.openshift.com/container-platform/4.14/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Container Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes){ .md-button target="_blank"}
+    [Container Probes :fontawesome-solid-heart-pulse:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes){ .md-button target="_blank"}
 
-    [Configure Probes :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
+    [Configure Probes :fontawesome-solid-heart-pulse:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
 
 ### References
 
@@ -80,15 +80,15 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
 === "OpenShift"
 
-    [Logs Command :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
+    [Logs Command :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
 
-    [Cluster Logging :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
+    [Cluster Logging :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
 
-    [Logging Collector :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
+    [Logging Collector :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
 
 === "IBM Cloud Kubernetes Service"
 
-    [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
+    [Logging :fontawesome-solid-file-lines:](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
 
 ### References
 
@@ -141,13 +141,13 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 === "OpenShift"
 
-    [Monitoring Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
+    [Monitoring Application Health :fontawesome-brands-watchman-monitoring:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
 
 === "IBM Cloud Kubernetes Service"
 
-    [Monitoring Resource Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
+    [Monitoring Resource Usage :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
 
-    [Resource Metrics :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
+    [Resource Metrics :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
 
 ### References
 
@@ -198,7 +198,8 @@ spec:
 ```
 
 === "OpenShift"
-```
+
+````
 oc get projects
 oc api-resources -o wide
 oc api-resources -o name
@@ -236,3 +237,4 @@ oc api-resources -o name
 | --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
 | **_Try It Yourself_** |                                                                      |                                                  |
 | Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab4/index.md) |
+````
