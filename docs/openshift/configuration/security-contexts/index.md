@@ -8,22 +8,24 @@ To specify security settings for a Pod, include the securityContext field in the
 
 === "OpenShift"
 
-    [Managing Security Contexts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/managing-security-context-constraints.html){ .md-button target="_blank"}
+    [Managing Security Contexts :fontawesome-solid-shield-halved:](https://docs.openshift.com/container-platform/4.13/authentication/managing-security-context-constraints.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Security Contexts :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/){ .md-button target="_blank"}
-
+    [Security Contexts :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/){ .md-button target="_blank"}
 
 ## References
 
 Setup minikube VM with users
+
 ```
 minikube ssh
 ```
+
 ```
 su -
 ```
+
 ```
 echo "container-user-0:x:2000:2000:-:/home/container-user-0:/bin/bash" >> /etc/passwd
 echo "container-user-1:x:2001:2001:-:/home/container-user-1:/bin/bash" >> /etc/passwd
@@ -35,8 +37,8 @@ chown 2000:3000 /etc/message/message.txt
 chmod 640 /etc/message/message.txt
 ```
 
-
 Using the this `securityContext` the container will be able to read the file `/message/message.txt`
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -62,6 +64,7 @@ spec:
 ```
 
 Using the this `securityContext` the container should NOT be able to read the file `/message/message.txt`
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -85,7 +88,8 @@ spec:
       hostPath:
         path: /etc/message
 ```
-** Run to see the errors **
+
+**Run to see the errors**
 
 === "OpenShift"
 
