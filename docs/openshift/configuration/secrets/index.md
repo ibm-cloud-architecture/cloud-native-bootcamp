@@ -8,6 +8,27 @@ A Secret is an object that contains a small amount of sensitive data such as a p
 ## Resources
 
 === "OpenShift"
+    <div class="grid cards" markdown>
+
+      -   :material-clock-fast:{ .lg .middle } __Image Pull Secrets__
+
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up
+          and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](#)
+
+      -   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
+
+          ---
+
+          Focus on your content and generate a responsive and searchable static site
+
+          [:octicons-arrow-right-24: Reference](#)
+
+      </div>
+
 
     [Image Pull Secrets :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html){ .md-button target="_blank"}
 
