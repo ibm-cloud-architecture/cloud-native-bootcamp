@@ -75,31 +75,48 @@ spec:
 ```
 
 === "OpenShift"
-**Create files needed for rest of example.**
-`    echo -n 'admin' > ./username.txt
+
+    **Create files needed for rest of example**
+
+    ```
+    echo -n 'admin' > ./username.txt
     echo -n '1f2d1e2e67df' > ./password.txt
-   `
-**Creating Secret from files.**
-`    oc create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
-   `
-**Getting Secret**
-`    oc get secrets
-   `
-**Gets the Secret's Description.**
-`    oc describe secrets/db-user-pass
-   `
+    ```
+
+    **Creating Secret from files**
+
+    ```
+    oc create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+    ```
+
+    **Getting Secret**
+
+    ```
+    oc get secrets
+    ```
+
+    **Gets the Secret's Description**
+
+    ```
+    oc describe secrets/db-user-pass
+    ```
 
 === "Kubernetes"
-**Create files needed for rest of example**
-`    echo -n 'admin' > ./username.txt
+
+    **Create files needed for rest of example**
+    ```
+    echo -n 'admin' > ./username.txt
     echo -n '1f2d1e2e67df' > ./password.txt
-   `
-**Creates the Secret from the files**
-`    kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
-   `
-**Gets the Secret**
-`    kubectl get secrets
-   `
-**Gets the Secret's Description**
-`    kubectl describe secrets/db-user-pass
-   `
+    ```
+    **Creates the Secret from the files**
+    ```
+    kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+    ```
+    **Gets the Secret**
+    ```
+    kubectl get secrets
+    ```
+    **Gets the Secret's Description**
+    ```
+    kubectl describe secrets/db-user-pass
+    ```

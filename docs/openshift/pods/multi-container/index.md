@@ -6,7 +6,7 @@ Container images solve many real-world problems with existing packaging and depl
 
 === "Kubernetes"
 
-    [Sidecar Logging :fontawesome-solid-bxoes-stacked:](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent){.md-button target="_blank"}
+    [Sidecar Logging :fontawesome-solid-boxes-stacked:](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent){.md-button target="_blank"}
 
     [Shared Volume Communication :fontawesome-solid-boxes-stacked:](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/){.md-button target="_blank"}
 

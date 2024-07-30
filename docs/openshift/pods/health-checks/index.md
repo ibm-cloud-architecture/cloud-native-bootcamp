@@ -141,13 +141,13 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 === "OpenShift"
 
-    [Monitoring Application Health :fontawesome-brands-watchman-monitoring:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ .md-button target="_blank"}
+    [Monitoring Application Health :fontawesome-solid-binoculars:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Monitoring Resource Usage :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){ .md-button target="_blank"}
+    [Monitoring Resource Usage :fontawesome-solid-binoculars:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){ .md-button target="_blank"}
 
-    [Resource Metrics :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){ .md-button target="_blank"}
+    [Resource Metrics :fontawesome-solid-binoculars:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){ .md-button target="_blank"}
 
 ### References
 
@@ -199,10 +199,10 @@ spec:
 
 === "OpenShift"
 
-````
-oc get projects
-oc api-resources -o wide
-oc api-resources -o name
+    ```
+    oc get projects
+    oc api-resources -o wide
+    oc api-resources -o name
 
     oc get nodes,ns,po,deploy,svc
 
@@ -237,4 +237,3 @@ oc api-resources -o name
 | --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
 | **_Try It Yourself_** |                                                                      |                                                  |
 | Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab4/index.md) |
-````

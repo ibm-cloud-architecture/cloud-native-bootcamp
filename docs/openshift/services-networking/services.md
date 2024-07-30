@@ -83,9 +83,8 @@ spec:
     stern . -n default
     ```
 
-```
-
-```
+<Tab>
+</Tab>
 
 === "OpenShift"
 

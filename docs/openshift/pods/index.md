@@ -9,9 +9,9 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 === "OpenShift"
 
     [About Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
-    
+
     [Cluster Configuration for Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ .md-button target="_blank"}
-    
+
     [Pod Autoscaling :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
 
 === "Kubernetes"
@@ -116,7 +116,7 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         | 
-| Creating Pods | Create a Pod YAML file to meet certain parameters | [Pod Creation](../../labs/kubernetes/lab1/index.md) |
+| Task                  | Description                                       | Link                                                |
+| --------------------- | ------------------------------------------------- | :-------------------------------------------------- |
+| **_Try It Yourself_** |                                                   |                                                     |
+| Creating Pods         | Create a Pod YAML file to meet certain parameters | [Pod Creation](../../labs/kubernetes/lab1/index.md) |

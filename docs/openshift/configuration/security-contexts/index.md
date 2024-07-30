@@ -89,7 +89,7 @@ spec:
         path: /etc/message
 ```
 
-**Run to see the errors**
+**_Run to see the errors_**
 
 === "OpenShift"
 
