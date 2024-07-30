@@ -15,12 +15,15 @@ All CronJob schedule: times are based on the timezone of the master where the jo
 === "OpenShift"
 
     [Jobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html){ .md-button target="_blank"}
+
     [CronJobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html#nodes-nodes-jobs-creating-cron_nodes-nodes-jobs){ .md-button target="_blank"}
 
 === "Kubernetes"
 
     [Jobs to Completion :fontawesome-solid-briefcase:](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/){ .md-button target="_blank"}
+
     [Cron Jobs :fontawesome-solid-briefcase:](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/){ .md-button target="_blank"}
+
     [Automated Tasks with Cron :fontawesome-solid-briefcase:](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/){ .md-button target="_blank"}
 
 ## References
