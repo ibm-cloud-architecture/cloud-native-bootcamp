@@ -4,17 +4,17 @@
 
 A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. There are three types of handlers:
 
-***ExecAction***: Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0.
+**_ExecAction_**: Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0.
 
-***TCPSocketAction***: Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open.
+**_TCPSocketAction_**: Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open.
 
-***HTTPGetAction***: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
+**_HTTPGetAction_**: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
 
 The kubelet can optionally perform and react to three kinds of probes on running Containers:
 
-***livenessProbe***: Indicates whether the Container is running. Runs for the lifetime of the Container.
+**_livenessProbe_**: Indicates whether the Container is running. Runs for the lifetime of the Container.
 
-***readinessProbe***: Indicates whether the Container is ready to service requests. Only runs at start.
+**_readinessProbe_**: Indicates whether the Container is ready to service requests. Only runs at start.
 
 ### Resources
 
@@ -39,12 +39,12 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - name: app
-    image: busybox
-    command: ['sh', '-c', "echo Hello, Kubernetes! && sleep 3600"]
-    livenessProbe:
-      exec:
-        command: ['echo','alive']
+    - name: app
+      image: busybox
+      command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 3600"]
+      livenessProbe:
+        exec:
+          command: ["echo", "alive"]
 ```
 
 ```yaml
@@ -55,19 +55,19 @@ metadata:
 spec:
   shareProcessNamespace: true
   containers:
-  - name: app
-    image: bitnami/nginx
-    ports:
-    - containerPort: 8080
-    livenessProbe:
-      tcpSocket:
-        port: 8080
-      initialDelaySeconds: 10
-    readinessProbe:
-      httpGet:
-        path: /
-        port: 8080
-      periodSeconds: 10
+    - name: app
+      image: bitnami/nginx
+      ports:
+        - containerPort: 8080
+      livenessProbe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 10
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 8080
+        periodSeconds: 10
 ```
 
 ## Container Logging
@@ -78,18 +78,19 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
 ### Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Logs Command](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
-- [Cluster Logging](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
-- [Logging Collector](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
+    [Logs Command :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
 
-**IKS**
+    [Cluster Logging :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
 
-- [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
+    [Logging Collector :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
+
+=== "IBM Cloud Kubernetes Service"
+
+    [Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
 
 ### References
-
 
 ```yaml title="Pod Example"
 apiVersion: v1
@@ -98,9 +99,14 @@ metadata:
   name: counter
 spec:
   containers:
-  - name: count
-    image: busybox
-    command: ['sh','-c','i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 5; done']
+    - name: count
+      image: busybox
+      command:
+        [
+          "sh",
+          "-c",
+          'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 5; done',
+        ]
 ```
 
 === "OpenShift"
@@ -133,14 +139,15 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 ### Resources
 
-**OpenShift**
+=== "OpenShift"
 
-- [Monitoring Application Health](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
+    [Monitoring Application Health :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
 
-**IKS**
+=== "IBM Cloud Kubernetes Service"
 
-- [Monitoring Resource Usage](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
-- [Resource Metrics](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
+    [Monitoring Resource Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
+
+    [Resource Metrics :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
 
 ### References
 
@@ -151,15 +158,20 @@ metadata:
   name: 500m
 spec:
   containers:
-  - name: app
-    image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
-    resources:
-      requests:
-        cpu: 700m
-        memory: 128Mi
-  - name: busybox-sidecar
-    image: radial/busyboxplus:curl
-    command: [/bin/sh, -c, 'until curl localhost:8080/ConsumeCPU -d "millicores=500&durationSec=3600"; do sleep 5; done && sleep 3700']
+    - name: app
+      image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
+      resources:
+        requests:
+          cpu: 700m
+          memory: 128Mi
+    - name: busybox-sidecar
+      image: radial/busyboxplus:curl
+      command:
+        [
+          /bin/sh,
+          -c,
+          'until curl localhost:8080/ConsumeCPU -d "millicores=500&durationSec=3600"; do sleep 5; done && sleep 3700',
+        ]
 ```
 
 ```yaml
@@ -169,22 +181,27 @@ metadata:
   name: 200m
 spec:
   containers:
-  - name: app
-    image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
-    resources:
-      requests:
-        cpu: 300m
-        memory: 64Mi
-  - name: busybox-sidecar
-    image: radial/busyboxplus:curl
-    command: [/bin/sh, -c, 'until curl localhost:8080/ConsumeCPU -d "millicores=200&durationSec=3600"; do sleep 5; done && sleep 3700']
+    - name: app
+      image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
+      resources:
+        requests:
+          cpu: 300m
+          memory: 64Mi
+    - name: busybox-sidecar
+      image: radial/busyboxplus:curl
+      command:
+        [
+          /bin/sh,
+          -c,
+          'until curl localhost:8080/ConsumeCPU -d "millicores=200&durationSec=3600"; do sleep 5; done && sleep 3700',
+        ]
 ```
 
 === "OpenShift"
-    ```
-    oc get projects
-    oc api-resources -o wide
-    oc api-resources -o name
+```
+oc get projects
+oc api-resources -o wide
+oc api-resources -o name
 
     oc get nodes,ns,po,deploy,svc
 
@@ -215,7 +232,7 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| ***Try It Yourself***                         |         |         |
-| Probes | Create some Health & Startup Probes to find what's causing an issue.  | [Probes](../../../labs/kubernetes/lab4/index.md) |
+| Task                  | Description                                                          | Link                                             |
+| --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
+| **_Try It Yourself_** |                                                                      |                                                  |
+| Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab4/index.md) |
