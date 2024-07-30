@@ -3,6 +3,7 @@
 ConfigMaps allow you to decouple configuration artifacts from image content to keep containerized applications portable.
 
 You can data from a ConfigMap in 3 different ways.
+
 - As a single environment variable specific to a single key
 - As a set of environment variables from all keys
 - As a set of files, each key represented by a file on mounted volume
@@ -11,11 +12,11 @@ You can data from a ConfigMap in 3 different ways.
 
 === "OpenShift"
 
-    [Mapping Volumes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){ .md-button target="_blank"}
+    [Mapping Volumes :fontawesome-solid-map:](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [ConfigMaps :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){ .md-button target="_blank"}
+    [ConfigMaps :fontawesome-solid-map:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/){ .md-button target="_blank"}
 
 ## References
 
@@ -23,10 +24,10 @@ You can data from a ConfigMap in 3 different ways.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-   name: my-cm
+  name: my-cm
 data:
-   color: blue
-   location: naboo
+  color: blue
+  location: naboo
 ```
 
 ```yaml
