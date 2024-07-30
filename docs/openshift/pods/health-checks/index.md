@@ -80,15 +80,15 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
 === "OpenShift"
 
-    [Logs Command :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){:target="_blank"}
+    [Logs Command :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ .md-button target="_blank"}
 
-    [Cluster Logging :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){:target="_blank"}
+    [Cluster Logging :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){ .md-button target="_blank"}
 
-    [Logging Collector :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){:target="_blank"}
+    [Logging Collector :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){ .md-button target="_blank"}
 
-=== "IBM Cloud Kubernetes Service"
+=== "Kubernetes"
 
-    [Logging :fontawesome-solid-file-lines:](https://kubernetes.io/docs/concepts/cluster-administration/logging/){:target="_blank"}
+    [Logging :fontawesome-solid-file-lines:](https://kubernetes.io/docs/concepts/cluster-administration/logging/){ .md-button target="_blank"}
 
 ### References
 
@@ -141,13 +141,13 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 === "OpenShift"
 
-    [Monitoring Application Health :fontawesome-brands-watchman-monitoring:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){:target="_blank"}
+    [Monitoring Application Health :fontawesome-brands-watchman-monitoring:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ .md-button target="_blank"}
 
-=== "IBM Cloud Kubernetes Service"
+=== "Kubernetes"
 
-    [Monitoring Resource Usage :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){:target="_blank"}
+    [Monitoring Resource Usage :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){ .md-button target="_blank"}
 
-    [Resource Metrics :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){:target="_blank"}
+    [Resource Metrics :fontawesome-brands-watchman-monitoring:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){ .md-button target="_blank"}
 
 ### References
 
