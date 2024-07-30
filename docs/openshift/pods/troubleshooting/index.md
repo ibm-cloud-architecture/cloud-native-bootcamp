@@ -8,138 +8,101 @@ Usually is getting familiar with how primitives objects interact with each other
 
 === "OpenShift"
 
-     [Debugging with ODO :fontawesome-solid-globe:](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){.md-button target="_blank"}
+     [Debugging with ODO :fontawesome-solid-bug:](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){.md-button target="_blank"}
 
 === "Kubernetes"
 
-     [Debugging Applications :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){.md-button target="_blank"}
+     [Debugging Applications :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){.md-button target="_blank"}
 
-     [Debugging Services :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){.md-button target="_blank"}
+     [Debugging Services :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){.md-button target="_blank"}
 
-     [Debugging Replication Controllers :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){.md-button target="_blank"}
-
+     [Debugging Replication Controllers :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){.md-button target="_blank"}
 
 ## References
 
 === "OpenShift"
-    ** MacOS/Linux/Windows command: **
-    ```bash
+**MacOS/Linux/Windows command:**
+`bash
     oc apply -f https://gist.githubusercontent.com/csantanapr/e823b1bfab24186a26ae4f9ec1ff6091/raw/1e2a0cca964c7b54ce3df2fc3fbf33a232511877/debugk8s-bad.yaml
-    ```
-
-    ** Expose the service using port-forward **
-    ```
-    oc port-forward service/my-service 8080:80 -n debug
-    ```
-    ** Try to access the service **
-    ```
-    curl http://localhost:8080
-    ```
-
-    ** Try Out these Commands to Debug **
-    ```
-    oc get pods --all-namespaces
-    ```
-    ```
-    oc project debug
-    ```
-    ```
-    oc get deployments
-    ```
-    ```
-    oc describe pod
-    ```
-    ```
-    oc explain Pod.spec.containers.resources.requests
-    ```
-    ```
-    oc explain Pod.spec.containers.livenessProbe
-    ```
-    ```
-    oc edit deployment
-    ```
-    ```
-    oc logs
-    ```
-    ```
-    oc get service
-    ```
-    ```
-    oc get ep
-    ```
-    ```
-    oc describe service
-    ```
-    ```
-    oc get pods --show-labels
-    ```
-    ```
-    oc get deployment --show-labels
-    ```
+    `
+**Expose the service using port-forward**
+`  oc port-forward service/my-service 8080:80 -n debug
+ `
+**Try to access the service**
+`  curl http://localhost:8080
+ `
+**Try Out these Commands to Debug**
+`  oc get pods --all-namespaces
+ `
+`  oc project debug
+ `
+`  oc get deployments
+ `
+`  oc describe pod
+ `
+`  oc explain Pod.spec.containers.resources.requests
+ `
+`  oc explain Pod.spec.containers.livenessProbe
+ `
+`  oc edit deployment
+ `
+`  oc logs
+ `
+`  oc get service
+ `
+`  oc get ep
+ `
+`  oc describe service
+ `
+`  oc get pods --show-labels
+ `
+`  oc get deployment --show-labels
+ `
 
 === "Kubernetes"
-
-    ** MacOS/Linux/Windows command: **
-    ```bash
+**MacOS/Linux/Windows command:**
+`bash
     kubectl apply -f https://gist.githubusercontent.com/csantanapr/e823b1bfab24186a26ae4f9ec1ff6091/raw/1e2a0cca964c7b54ce3df2fc3fbf33a232511877/debugk8s-bad.yaml
-    ```
-
-    ** Expose the service using port-forward **
-    ```
-    kubectl port-forward service/my-service 8080:80 -n debug
-    ```
-    ** Try to access the service **
-    ```
-    curl http://localhost:8080
-    ```
-
-    ** Try Out these Commands to Debug **
-    ```
-    kubectl get pods --all-namespaces
-    ```
-    ```
-    kubectl config set-context --current --namespace=debug
-    ```
-    ```
-    kubectl get deployments
-    ```
-    ```
-    kubectl describe pod
-    ```
-    ```
-    kubectl explain Pod.spec.containers.resources.requests
-    ```
-    ```
-    kubectl explain Pod.spec.containers.livenessProbe
-    ```
-    ```
-    kubectl edit deployment
-    ```
-    ```
-    kubectl logs
-    ```
-    ```
-    kubectl get service
-    ```
-    ```
-    kubectl get ep
-    ```
-    ```
-    kubectl describe service
-    ```
-    ```
-    kubectl get pods --show-labels
-    ```
-    ```
-    kubectl get deployment --show-labels
-    ```
-
+    `
+**Expose the service using port-forward**
+`  kubectl port-forward service/my-service 8080:80 -n debug
+ `
+**Try to access the service**
+`  curl http://localhost:8080
+ `
+**Try Out these Commands to Debug**
+`  kubectl get pods --all-namespaces
+ `
+`  kubectl config set-context --current --namespace=debug
+ `
+`  kubectl get deployments
+ `
+`  kubectl describe pod
+ `
+`  kubectl explain Pod.spec.containers.resources.requests
+ `
+`  kubectl explain Pod.spec.containers.livenessProbe
+ `
+`  kubectl edit deployment
+ `
+`  kubectl logs
+ `
+`  kubectl get service
+ `
+`  kubectl get ep
+ `
+`  kubectl describe service
+ `
+`  kubectl get pods --show-labels
+ `
+`  kubectl get deployment --show-labels
+ `
 
 ## Activities
 
 The continuous integration activities focus around Tekton the integration platform. These labs will show you how to build pipelines and test your code before deployment.
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         | 
-| Debugging | Find which service is breaking in your cluster and find out why.  | [Debugging](../../../labs/kubernetes/lab5/index.md) | 30 min |
+| Task                  | Description                                                      | Link                                                | Est. Time |
+| --------------------- | ---------------------------------------------------------------- | :-------------------------------------------------- | --------- |
+| **_Try It Yourself_** |                                                                  |                                                     |
+| Debugging             | Find which service is breaking in your cluster and find out why. | [Debugging](../../../labs/kubernetes/lab5/index.md) | 30 min    |

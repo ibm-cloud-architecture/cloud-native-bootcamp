@@ -17,16 +17,15 @@ A Deployment’s revision is created when a Deployment’s rollout is triggered.
 
 === "OpenShift"
 
-    [Rollouts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){ .md-button target="_blank"}
+    [Rollouts :fontawesome-solid-rotate-right:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){ .md-button target="_blank"}
 
-    [Rolling Back :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){ .md-button target="_blank"}
+    [Rolling Back :fontawesome-solid-rotate-left:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Updating a Deployment :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment){ .md-button target="_blank"}
+    [Updating a Deployment :fontawesome-solid-rotate-right:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment){ .md-button target="_blank"}
 
-    [Rolling Back a Deployment :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment){ .md-button target="_blank"}
-
+    [Rolling Back a Deployment :fontawesome-solid-rotate-left:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment){ .md-button target="_blank"}
 
 ## References
 
@@ -48,10 +47,10 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: bitnami/nginx:1.16.0
-        ports:
-        - containerPort: 8080
+        - name: nginx
+          image: bitnami/nginx:1.16.0
+          ports:
+            - containerPort: 8080
 ```
 
 === "OpenShift"

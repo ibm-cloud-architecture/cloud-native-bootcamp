@@ -1,28 +1,32 @@
 # Jobs and CronJobs
 
 **Jobs**
+
 A Job creates one or more Pods and ensures that a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is complete. Deleting a Job will clean up the Pods it created.
 
-
 **CronJobs**
+
 One CronJob object is like one line of a crontab (cron table) file. It runs a job periodically on a given schedule, written in Cron format.
 
 All CronJob schedule: times are based on the timezone of the master where the job is initiated.
 
 ## Resources
 
-**OpenShift**
-- [Jobs](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html)
-- [CronJobs](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html#nodes-nodes-jobs-creating-cron_nodes-nodes-jobs)
+=== "OpenShift"
 
-**IKS**
-- [Jobs to Completion](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)
-- [Cron Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
-- [Automated Tasks with Cron](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)
+    [Jobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html){ .md-button target="_blank"}
+    [CronJobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.3/nodes/jobs/nodes-nodes-jobs.html#nodes-nodes-jobs-creating-cron_nodes-nodes-jobs){ .md-button target="_blank"}
+
+=== "Kubernetes"
+
+    [Jobs to Completion :fontawesome-solid-briefcase:](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/){ .md-button target="_blank"}
+    [Cron Jobs :fontawesome-solid-briefcase:](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/){ .md-button target="_blank"}
+    [Automated Tasks with Cron :fontawesome-solid-briefcase:](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/){ .md-button target="_blank"}
 
 ## References
 
-It computes π to 2000 places and prints it out
+_It computes π to 2000 places and prints it out_
+
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -32,14 +36,15 @@ spec:
   template:
     spec:
       containers:
-      - name: pi
-        image: perl
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        - name: pi
+          image: perl
+          command: ["perl", "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
   backoffLimit: 4
 ```
 
-Running in parallel
+_Running in parallel_
+
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -70,12 +75,12 @@ spec:
       template:
         spec:
           containers:
-          - name: hello
-            image: busybox
-            args:
-            - /bin/sh
-            - -c
-            - date; echo Hello from the Kubernetes cluster
+            - name: hello
+              image: busybox
+              args:
+                - /bin/sh
+                - -c
+                - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
 ```
 
@@ -151,8 +156,8 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| ***Try It Yourself***                         |         |         |
-| Rolling Updates Lab | Create a Rolling Update for your application.  | [Rolling Updates](../../../labs/kubernetes/lab6/index.md) |
-| Cron Jobs Lab | Using Tekton to test new versions of applications. | [Crons Jobs](../../../labs/kubernetes/lab7/index.md) |
+| Task                  | Description                                        | Link                                                      |
+| --------------------- | -------------------------------------------------- | :-------------------------------------------------------- |
+| **_Try It Yourself_** |                                                    |                                                           |
+| Rolling Updates Lab   | Create a Rolling Update for your application.      | [Rolling Updates](../../../labs/kubernetes/lab6/index.md) |
+| Cron Jobs Lab         | Using Tekton to test new versions of applications. | [Crons Jobs](../../../labs/kubernetes/lab7/index.md)      |

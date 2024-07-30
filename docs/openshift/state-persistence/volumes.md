@@ -10,12 +10,11 @@ A Kubernetes volume, on the other hand, has an explicit lifetime - the same as t
 
 === "OpenShift"
 
-    [Volume Lifecycle :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){ .md-button target="_blank"}
+    [Volume Lifecycle :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Volumes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/volumes/){ .md-button target="_blank"}
-
+    [Volumes :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/volumes/){ .md-button target="_blank"}
 
 ## References
 
@@ -26,15 +25,15 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - image: busybox
-    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
-    name: busybox
-    volumeMounts:
-    - mountPath: /cache
-      name: cache-volume
+    - image: busybox
+      command: ["sh", "-c", "echo Hello Kubernetes! && sleep 3600"]
+      name: busybox
+      volumeMounts:
+        - mountPath: /cache
+          name: cache-volume
   volumes:
-  - name: cache-volume
-    emptyDir: {}
+    - name: cache-volume
+      emptyDir: {}
 ```
 
 ```yaml
@@ -44,16 +43,16 @@ metadata:
   name: test-pd
 spec:
   containers:
-  - image: bitnami/nginx
-    name: test-container
-    volumeMounts:
-    - mountPath: /test-pd
-      name: test-volume
+    - image: bitnami/nginx
+      name: test-container
+      volumeMounts:
+        - mountPath: /test-pd
+          name: test-volume
   volumes:
-  - name: test-volume
-    hostPath:
-      # directory location on host
-      path: /data
-      # this field is optional
-      type: Directory
+    - name: test-volume
+      hostPath:
+        # directory location on host
+        path: /data
+        # this field is optional
+        type: Directory
 ```

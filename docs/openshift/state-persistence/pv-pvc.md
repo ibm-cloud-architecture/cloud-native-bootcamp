@@ -12,24 +12,23 @@ Pods access storage by using the claim as a volume. Claims must exist in the sam
 
 PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are namespaced objects, mounting claims with “Many” modes (ROX, RWX) is only possible within one namespace.
 
-
-
 ## Resources
+
 === "OpenShift"
 
-    [Persistent Storage :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){ .md-button target="_blank"}
+    [Persistent Storage :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){ .md-button target="_blank"}
 
-    [Persistent Volume Types :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){ .md-button target="_blank"}
+    [Persistent Volume Types :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Expanding Peristent Volumes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){ .md-button target="_blank"}
+    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Persistent Volumes :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){ .md-button target="_blank"}
+    [Persistent Volumes :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){ .md-button target="_blank"}
 
-    [Writing Portable Configurations :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){ .md-button target="_blank"}
+    [Writing Portable Configurations :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){ .md-button target="_blank"}
 
-    [Configuring Persistent Volume Storage :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){ .md-button target="_blank"}
+    [Configuring Persistent Volume Storage :fontawesome-solid-database:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){ .md-button target="_blank"}
 
 ## References
 
@@ -69,16 +68,21 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - name: nginx
-    image: busybox
-    command: ['sh', '-c', 'echo $(date):$HOSTNAME Hello Kubernetes! >> /mnt/data/message.txt && sleep 3600']
-    volumeMounts:
-    - mountPath: "/mnt/data"
-      name: my-data
+    - name: nginx
+      image: busybox
+      command:
+        [
+          "sh",
+          "-c",
+          "echo $(date):$HOSTNAME Hello Kubernetes! >> /mnt/data/message.txt && sleep 3600",
+        ]
+      volumeMounts:
+        - mountPath: "/mnt/data"
+          name: my-data
   volumes:
-  - name: my-data
-    persistentVolumeClaim:
-      claimName: my-pvc
+    - name: my-data
+      persistentVolumeClaim:
+        claimName: my-pvc
 ```
 
 === "OpenShift"

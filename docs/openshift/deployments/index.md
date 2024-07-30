@@ -5,6 +5,7 @@ A Deployment provides declarative updates for Pods and ReplicaSets.
 You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
 
 The following are typical use cases for Deployments:
+
 - Create a Deployment to rollout a ReplicaSet. The ReplicaSet creates Pods in the background. Check the status of the rollout to see if it succeeds or not.
 - Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment. A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate. Each new ReplicaSet updates the revision of the Deployment.
 - Rollback to an earlier Deployment revision if the current state of the Deployment is not stable. Each rollback updates the revision of the Deployment.
@@ -13,24 +14,23 @@ The following are typical use cases for Deployments:
 - Use the status of the Deployment as an indicator that a rollout has stuck.
 - Clean up older ReplicaSets that you don’t need anymore.
 
-
 ## Resources
 
 === "OpenShift"
 
-    [Deployments :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html){ .md-button target="_blank"}
+    [Deployments :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html){ .md-button target="_blank"}
 
-    [Managing Deployment Processes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html){ .md-button target="_blank"}
+    [Managing Deployment Processes :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html){ .md-button target="_blank"}
 
-    [DeploymentConfig Strategies :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/deployment-strategies.html){ .md-button target="_blank"}
+    [DeploymentConfig Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.13/applications/deployments/deployment-strategies.html){ .md-button target="_blank"}
 
-    [Route Based Deployment Strategies :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/deployments/route-based-deployment-strategies.html){ .md-button target="_blank"}
+    [Route Based Deployment Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.13/applications/deployments/route-based-deployment-strategies.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Deployments :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){ .md-button target="_blank"}
+    [Deployments :fontawesome-solid-cloud-arrow-up:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){ .md-button target="_blank"}
 
-    [Scaling Deployments :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment){ .md-button target="_blank"}
+    [Scaling Deployments :fontawesome-solid-cloud-arrow-up:](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment){ .md-button target="_blank"}
 
 ## References
 
@@ -52,10 +52,10 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: bitnami/nginx:1.16.0
-        ports:
-        - containerPort: 8080
+        - name: nginx
+          image: bitnami/nginx:1.16.0
+          ports:
+            - containerPort: 8080
 ```
 
 === "Openshift"
@@ -112,7 +112,7 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         | 
-| Rolling Updates Lab | Create a Rolling Update for your application | [Rolling Updates](../../labs/kubernetes/lab6/index.md) |
+| Task                  | Description                                  | Link                                                   |
+| --------------------- | -------------------------------------------- | :----------------------------------------------------- |
+| **_Try It Yourself_** |                                              |                                                        |
+| Rolling Updates Lab   | Create a Rolling Update for your application | [Rolling Updates](../../labs/kubernetes/lab6/index.md) |

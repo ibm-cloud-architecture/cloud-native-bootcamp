@@ -10,14 +10,13 @@ You can use either labels or annotations to attach metadata to Kubernetes object
 
 === "OpenShift"
 
-    [CLI Label Commands :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){.md-button target="_blank"}
+    [CLI Label Commands :fontawesome-solid-tags:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){.md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Labels :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){.md-button target="_blank"}
-    
-    [Annotations :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){.md-button target="_blank"}
+    [Labels :fontawesome-solid-tags:](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){.md-button target="_blank"}
 
+    [Annotations :fontawesome-solid-tags:](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){.md-button target="_blank"}
 
 ## References
 
@@ -35,8 +34,8 @@ metadata:
     gitrepo: "https://github.com/csantanapr/knative"
 spec:
   containers:
-  - name: app
-    image: bitnami/nginx
+    - name: app
+      image: bitnami/nginx
 ```
 
 === "OpenShift"

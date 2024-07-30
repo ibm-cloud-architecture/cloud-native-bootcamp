@@ -12,15 +12,15 @@ User accounts are intended to be global. Names must be unique across all namespa
 
 === "OpenShift"
 
-    [Service Accounts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/understanding-and-creating-service-accounts.html){ .md-button target="_blank"}
+    [Service Accounts :fontawesome-solid-id-card:](https://docs.openshift.com/container-platform/4.13/authentication/understanding-and-creating-service-accounts.html){ .md-button target="_blank"}
 
-    [Using Service Accounts :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/authentication/using-service-accounts-in-applications.html){ .md-button target="_blank"}
+    [Using Service Accounts :fontawesome-solid-id-card:](https://docs.openshift.com/container-platform/4.13/authentication/using-service-accounts-in-applications.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Service Accounts :fontawesome-solid-globe:](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/){ .md-button target="_blank"}
+    [Service Accounts :fontawesome-solid-id-card:](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/){ .md-button target="_blank"}
 
-    [Service Account Configuration :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/){ .md-button target="_blank"}
+    [Service Account Configuration :fontawesome-solid-id-card:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/){ .md-button target="_blank"}
 
 ## References
 
@@ -39,10 +39,10 @@ metadata:
 spec:
   serviceAccountName: my-service-account
   containers:
-  - name: my-app
-    image: bitnami/nginx
-    ports:
-      - containerPort: 8080
+    - name: my-app
+      image: bitnami/nginx
+      ports:
+        - containerPort: 8080
 ```
 
 ```yaml

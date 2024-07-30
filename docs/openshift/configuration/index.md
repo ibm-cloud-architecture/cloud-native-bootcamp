@@ -6,9 +6,9 @@ When you create a Pod, you can define a command and arguments for the containers
 
 The command and arguments that you define in the configuration file override the default command and arguments provided by the container image
 
-Dockerfile vs Kubernetes
-Dockerfile Entrypoint -> k8s command
-Dockerfile CMD -> k8s args
+- Dockerfile vs Kubernetes
+- Dockerfile Entrypoint -> k8s command
+- Dockerfile CMD -> k8s args
 
 ### Ports
 
@@ -24,11 +24,11 @@ A Pod can use environment variables to expose information about itself to Contai
 
 === "OpenShift & Kubernetes"
 
-    [Container Commands :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/){ .md-button target="_blank"}
+    [Container Commands :fontawesome-solid-gear:](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/){ .md-button target="_blank"}
 
-    [Environment Variables :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/){ .md-button target="_blank"}
+    [Environment Variables :fontawesome-solid-gear:](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/){ .md-button target="_blank"}
 
-    [Pod Exposing :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#exposing-pods-to-the-cluster){ .md-button target="_blank"}
+    [Pod Exposing :fontawesome-solid-gear:](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#exposing-pods-to-the-cluster){ .md-button target="_blank"}
 
 ### References
 
@@ -39,9 +39,9 @@ metadata:
   name: my-cmd-pod
 spec:
   containers:
-  - name: myapp-container
-    image: busybox
-    command: ['echo']
+    - name: myapp-container
+      image: busybox
+      command: ["echo"]
   restartPolicy: Never
 ```
 
@@ -52,10 +52,10 @@ metadata:
   name: my-arg-pod
 spec:
   containers:
-  - name: myapp-container
-    image: busybox
-    command: ['echo']
-    args: ['Hello World']
+    - name: myapp-container
+      image: busybox
+      command: ["echo"]
+      args: ["Hello World"]
   restartPolicy: Never
 ```
 
@@ -66,10 +66,10 @@ metadata:
   name: my-port-pod
 spec:
   containers:
-  - name: myapp-container
-    image: bitnami/nginx
-    ports:
-    - containerPort: 8080
+    - name: myapp-container
+      image: bitnami/nginx
+      ports:
+        - containerPort: 8080
 ```
 
 ```yaml
@@ -80,13 +80,13 @@ metadata:
 spec:
   restartPolicy: Never
   containers:
-  - name: c
-    image: busybox
-    env:
-    - name: DEMO_GREETING
-      value: "Hello from the environment"
-    command: ["echo"]
-    args: ["$(DEMO_GREETING)"]
+    - name: c
+      image: busybox
+      env:
+        - name: DEMO_GREETING
+          value: "Hello from the environment"
+      command: ["echo"]
+      args: ["$(DEMO_GREETING)"]
 ```
 
 ```yaml
@@ -131,9 +131,9 @@ CPU and memory are each a resource type. A resource type has a base unit. CPU is
 
 === "OpenShift & Kubernetes"
 
-    [Compute Resources :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container){ .md-button target="_blank"}
+    [Compute Resources :fontawesome-solid-screwdriver-wrench:](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container){ .md-button target="_blank"}
 
-    [Memory Management :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/){ .md-button target="_blank"}
+    [Memory Management :fontawesome-solid-screwdriver-wrench:](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/){ .md-button target="_blank"}
 
 ### References
 
@@ -144,21 +144,21 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - name: my-app
-    image: bitnami/nginx
-    ports:
-      - containerPort: 8080
-    resources:
-      requests:
-        memory: "64Mi"
-        cpu: "250m"
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
+    - name: my-app
+      image: bitnami/nginx
+      ports:
+        - containerPort: 8080
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
 ```
 
+_Namespaced defaults mem_
 
-Namespaced defaults mem
 ```yaml
 apiVersion: v1
 kind: LimitRange
@@ -166,14 +166,15 @@ metadata:
   name: mem-limit-range
 spec:
   limits:
-  - default:
-      memory: 512Mi
-    defaultRequest:
-      memory: 256Mi
-    type: Container
+    - default:
+        memory: 512Mi
+      defaultRequest:
+        memory: 256Mi
+      type: Container
 ```
 
-Namespaced defaults mem
+_Namespaced defaults mem_
+
 ```yaml
 apiVersion: v1
 kind: LimitRange
@@ -181,16 +182,16 @@ metadata:
   name: cpu-limit-range
 spec:
   limits:
-  - default:
-      cpu: 1
-    defaultRequest:
-      cpu: 0.5
-    type: Container
+    - default:
+        cpu: 1
+      defaultRequest:
+        cpu: 0.5
+      type: Container
 ```
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         |
-| Pod Configuration | Configure a pod to meet compute resource requirements. | [Pod Configuration](../../labs/kubernetes/lab2/index.md) |
+| Task                  | Description                                            | Link                                                     |
+| --------------------- | ------------------------------------------------------ | :------------------------------------------------------- |
+| **_Try It Yourself_** |                                                        |                                                          |
+| Pod Configuration     | Configure a pod to meet compute resource requirements. | [Pod Configuration](../../labs/kubernetes/lab2/index.md) |

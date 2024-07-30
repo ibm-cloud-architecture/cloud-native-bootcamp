@@ -10,17 +10,17 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services withi
 
 === "OpenShift"
 
-    [Ingress Operator :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){ .md-button target="_blank"}
+    [Ingress Operator :fontawesome-solid-door-open:](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){ .md-button target="_blank"}
 
-    [Using Ingress Controllers :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){ .md-button target="_blank"}
+    [Using Ingress Controllers :fontawesome-solid-door-open:](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    [Ingress :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/ingress/){ .md-button target="_blank"}
+    [Ingress :fontawesome-solid-door-open:](https://kubernetes.io/docs/concepts/services-networking/ingress/){ .md-button target="_blank"}
 
-    [Ingress Controllers :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/){ .md-button target="_blank"}
+    [Ingress Controllers :fontawesome-solid-door-open:](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/){ .md-button target="_blank"}
 
-    [Minikube Ingress :fontawesome-solid-globe:](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/){ .md-button target="_blank"}
+    [Minikube Ingress :fontawesome-solid-door-open:](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/){ .md-button target="_blank"}
 
 ## References
 
@@ -31,14 +31,15 @@ metadata:
   name: example-ingress
 spec:
   rules:
-  - host: hello-world.info
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: web
-          servicePort: 8080
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: web
+              servicePort: 8080
 ```
+
 === "OpenShift"
 
     ``` Bash title="View Ingress Status"
@@ -75,7 +76,7 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         | 
+| Task                   | Description                           | Link                                                              |
+| ---------------------- | ------------------------------------- | :---------------------------------------------------------------- |
+| **_Try It Yourself_**  |                                       |                                                                   |
 | IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
