@@ -12,14 +12,13 @@ If you’re able to use Kubernetes APIs for service discovery in your applicatio
 
 For non-native applications, Kubernetes offers ways to place a network port or load balancer in between your application and the backend Pods.
 
-
 ## Resources
 
 === "OpenShift & Kubernetes"
 
-    [Services :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/services-networking/service/){ .md-button target="_blank"}
+    [Services :fontawesome-solid-wrench:](https://kubernetes.io/docs/concepts/services-networking/service/){ .md-button target="_blank"}
 
-    [Exposing Services :fontawesome-solid-globe:](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){ .md-button target="_blank"}
+    [Exposing Services :fontawesome-solid-wrench:](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){ .md-button target="_blank"}
 
 ## References
 
@@ -43,11 +42,11 @@ spec:
         version: v1
     spec:
       containers:
-      - name: nginx
-        image: bitnami/nginx
-        ports:
-        - containerPort: 8080
-          name: http
+        - name: nginx
+          image: bitnami/nginx
+          ports:
+            - containerPort: 8080
+              name: http
 ---
 apiVersion: v1
 kind: Service
@@ -61,6 +60,7 @@ spec:
       port: 80
       targetPort: http
 ```
+
 === "OpenShift"
 
     ```Bash title="Get Logs"
@@ -84,6 +84,7 @@ spec:
     ```
 
 ```
+
 ```
 
 === "OpenShift"
@@ -124,8 +125,8 @@ spec:
 
 ## Activities
 
-| Task                            | Description         | Link        |
-| --------------------------------| ------------------  |:----------- |
-| *** Try It Yourself ***                         |         |         | 
-| Creating Services | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab8/index.md) |
-| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
+| Task                   | Description                                    | Link                                                              |
+| ---------------------- | ---------------------------------------------- | :---------------------------------------------------------------- |
+| **_Try It Yourself_**  |                                                |                                                                   |
+| Creating Services      | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab8/index.md)        |
+| IKS Ingress Controller | Configure Ingress on Free IKS Cluster          | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
