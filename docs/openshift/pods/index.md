@@ -8,19 +8,63 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
 === "OpenShift"
 
-    [About Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Cluster Configuration for Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ .md-button target="_blank"}
+      -   :fontawesome-solid-globe:{ .lg .middle } __About Pods__
 
-    [Pod Autoscaling :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Cluster Configuration for Pods__
+
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Autoscaling__
+
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Pod Overview :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Pod Lifecycle :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ .md-button target="_blank"}
+      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Overview__
 
-    [Pod Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ .md-button target="_blank"}
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Lifecycle__
+
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Usage__
+
+          ---
+
+          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ target="_blank"}
+
+    </div>
 
 ## References
 
