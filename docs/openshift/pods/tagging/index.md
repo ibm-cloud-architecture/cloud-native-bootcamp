@@ -10,13 +10,39 @@ You can use either labels or annotations to attach metadata to Kubernetes object
 
 === "OpenShift"
 
-    [CLI Label Commands :fontawesome-solid-tags:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){.md-button target="_blank"}
+    <div class="grid cards" markdown>
+
+      -   :fontawesome-solid-comment-dots:{ .lg .middle } __CLI Label Commands__
+
+          ---
+
+          Read about the descriptions and example commands for OpenShift CLI (`oc`) developer commands.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Labels :fontawesome-solid-tags:](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){.md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Annotations :fontawesome-solid-tags:](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){.md-button target="_blank"}
+      -   :fontawesome-solid-tags:{ .lg .middle } __Labels__
+
+          ---
+
+          Labels can be used to organize and to select subsets of objects.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){ target="_blank"}
+
+      -   :fontawesome-solid-note-sticky:{ .lg .middle } __Annotations__
+
+          ---
+
+          You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){ target="_blank"}
+
+    </div>
 
 ## References
 

@@ -10,11 +10,11 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
     <div class="grid cards" markdown>
 
-      -   :fontawesome-solid-globe:{ .lg .middle } __About Pods__
+      -   :fontawesome-solid-book:{ .lg .middle } __About Pods__
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          Learn more about the basics of _pods_ and how they work.
 
           [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ target="_blank"}
 
@@ -22,17 +22,17 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          Configure your cluster to work for your specific needs.
 
-          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
 
-      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Autoscaling__
+      -   :fontawesome-solid-up-right-and-down-left-from-center:{ .lg .middle } __Pod Autoscaling__
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          Use a horizontal pod autoscaler (HPA) to specify how OCP should automatically scale up or down your deployment.
 
-          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
 
     </div>
 
@@ -40,29 +40,29 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
     <div class="grid cards" markdown>
 
-      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Overview__
+      -   :fontawesome-solid-book:{ .lg .middle } __Pod Overview__
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          Learn more about the basics of _pods_ and how they work.
 
           [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ target="_blank"}
 
-      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Lifecycle__
+      -   :fontawesome-solid-arrows-spin:{ .lg .middle } __Pod Lifecycle__
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          Read about the lifecycle process for pods and what each phase means.
 
-          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ target="_blank"}
 
       -   :fontawesome-solid-globe:{ .lg .middle } __Pod Usage__
 
           ---
 
-          Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+          How do you use pods? Read about it here.
 
-          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ target="_blank"}
 
     </div>
 

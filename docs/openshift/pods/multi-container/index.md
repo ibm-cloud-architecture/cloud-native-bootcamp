@@ -6,13 +6,41 @@ Container images solve many real-world problems with existing packaging and depl
 
 === "Kubernetes"
 
-    [Sidecar Logging :fontawesome-solid-boxes-stacked:](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent){.md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Shared Volume Communication :fontawesome-solid-boxes-stacked:](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/){.md-button target="_blank"}
+      -   :fontawesome-solid-file-lines:{ .lg .middle } __Sidecar Logging__
 
-    [Toolkit Patterns :fontawesome-solid-boxes-stacked:](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/){.md-button target="_blank"}
+          ---
 
-    [Brendan Burns Paper :fontawesome-solid-boxes-stacked:](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf){.md-button target="_blank"}
+          Application logs can help you understand what is happening inside your application.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-sidecar-container-with-the-logging-agent){ target="_blank"}
+
+      -   :fontawesome-solid-circle-nodes:{ .lg .middle } __Shared Volume Communication__
+
+          ---
+
+          Read about how to use a Volume to communicate between two Containers running in the same Pod.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/){ target="_blank"}
+
+      -   :fontawesome-solid-blog:{ .lg .middle } __Toolkit Patterns__
+
+          ---
+
+          Read Brendan Burns' blog post about "The Distributed System ToolKit: Patterns for Composite Containers".
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/){ target="_blank"}
+
+      -   :fontawesome-solid-user:{ .lg .middle } __Brendan Burns Paper__
+
+          ---
+
+          Read Brendan Burns' paper about design patterns for container-based distributed systems.
+
+          [:octicons-arrow-right-24: Learn more](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf){ target="_blank"}
+
+    </div>
 
 ## References
 
