@@ -20,15 +20,47 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
 === "OpenShift"
 
-    [Application Health :fontawesome-solid-heart-pulse:](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Virtual Machine Health :fontawesome-solid-heart-pulse:](https://docs.openshift.com/container-platform/4.14/virt/logging_events_monitoring/virt-monitoring-vm-health.html){ .md-button target="_blank"}
+      -   :fontawesome-solid-heart-pulse:{ .lg .middle } __Application Health__
+
+          ---
+
+          A health check periodically performs diagnostics on a running container using any combination of the readiness, liveness, and startup health checks.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ target="_blank"}
+
+      -   :fontawesome-solid-vr-cardboard:{ .lg .middle } __Virtual Machine Health__
+
+          ---
+
+          Use readiness and liveness probes to detect and handle unhealthy virtual machines (VMs).
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/virt/monitoring/virt-monitoring-vm-health.html){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Container Probes :fontawesome-solid-heart-pulse:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Configure Probes :fontawesome-solid-heart-pulse:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ .md-button target="_blank"}
+      -   :fontawesome-solid-stethoscope:{ .lg .middle } __Container Probes__
+
+          ---
+
+          To perform a diagnostic, the kubelet either executes code within the container, or makes a network request.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes){ target="_blank"}
+
+      -   :fontawesome-solid-pen-to-square:{ .lg .middle } __Configure Probes__
+
+          ---
+
+          Read about how to configure liveness, readiness and startup probes for containers.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){ target="_blank"}
+
+    </div>
 
 ### References
 
@@ -80,15 +112,47 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
 === "OpenShift"
 
-    [Logs Command :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Cluster Logging :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){ .md-button target="_blank"}
+      -   :fontawesome-solid-terminal:{ .lg .middle } __Logs Command__
 
-    [Logging Collector :fontawesome-solid-file-lines:](https://docs.openshift.com/container-platform/4.13/logging/config/cluster-logging-collector.html){ .md-button target="_blank"}
+          ---
+
+          Read about the descriptions and example commands for OpenShift CLI (`oc`) developer commands.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ target="_blank"}
+
+      -   :fontawesome-solid-circle-nodes:{ .lg .middle } __Cluster Logging__
+
+          ---
+
+          As a cluster administrator, you can deploy logging on an OpenShift Container Platform cluster, and use it to collect and aggregate node system audit logs, application container logs, and infrastructure logs.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){ target="_blank"}
+
+      -   :fontawesome-solid-file-lines:{ .lg .middle } __Logging Collector__
+
+          ---
+
+          The collector collects log data from each node, transforms the data, and forwards it to configured outputs.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/observability/logging/cluster-logging.html#logging-architecture-overview_cluster-logging){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Logging :fontawesome-solid-file-lines:](https://kubernetes.io/docs/concepts/cluster-administration/logging/){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
+
+      -   :fontawesome-solid-file-lines:{ .lg .middle } __Logging__
+
+          ---
+
+          Application logs can help you understand what is happening inside your application and are particularly useful for debugging problems and monitoring cluster activity.
+
+          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/cluster-administration/logging/){ target="_blank"}
+
+    </div>
 
 ### References
 
@@ -141,13 +205,39 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 === "OpenShift"
 
-    [Monitoring Application Health :fontawesome-solid-binoculars:](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
+
+      -   :fontawesome-solid-binoculars:{ .lg .middle } __Monitoring Application Health__
+
+          ---
+
+          OpenShift Container Platform applications have a number of options to detect and handle unhealthy containers.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Monitoring Resource Usage :fontawesome-solid-binoculars:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Resource Metrics :fontawesome-solid-binoculars:](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){ .md-button target="_blank"}
+      -   :fontawesome-solid-magnifying-glass:{ .lg .middle } __Monitoring Resource Usage__
+
+          ---
+
+          You can examine application performance in a Kubernetes cluster by examining the containers, pods, services, and the characteristics of the overall cluster.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/){ target="_blank"}
+
+      -   :fontawesome-brands-sourcetree:{ .lg .middle } __Resource Metrics__
+
+          ---
+
+          For Kubernetes, the Metrics API offers a basic set of metrics to support automatic scaling and similar use cases.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/){ target="_blank"}
+
+    </div>
 
 ### References
 

@@ -8,15 +8,47 @@ Usually is getting familiar with how primitives objects interact with each other
 
 === "OpenShift"
 
-     [Debugging with ODO :fontawesome-solid-bug:](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){.md-button target="_blank"}
+    <div class="grid cards" markdown>
+
+      -   :fontawesome-solid-bug:{ .lg .middle } __Debugging ODO__
+
+          ---
+
+          OpenShift Toolkit is an IDE plugin available on VS Code and JetBrains IDEs, that allows you to do all things that [`odo`](https://odo.dev/docs/introduction){ target="_blank"} does, i.e. create, test, debug and deploy cloud-native applications on a cloud-native environment in simple steps.
+
+          [:octicons-arrow-right-24: Getting started](https://odo.dev/docs/user-guides/advanced/debugging-with-openshift-toolkit){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-     [Debugging Applications :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){.md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-     [Debugging Services :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){.md-button target="_blank"}
+      -   :fontawesome-solid-bug:{ .lg .middle } __Debugging Applications__
 
-     [Debugging Replication Controllers :fontawesome-solid-bug:](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/){.md-button target="_blank"}
+          ---
+
+          Read about how to debug applications that are deployed into Kubernetes and not behaving correctly.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/){ target="_blank"}
+
+      -   :fontawesome-solid-bug:{ .lg .middle } __Debugging Services__
+
+          ---
+
+          You've run your Pods through a Deployment and created a Service, but you get no response when you try to access it. What do you do?
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/){ target="_blank"}
+
+      -   :fontawesome-solid-bug:{ .lg .middle } __Debugging Replication Controllers__
+
+          ---
+
+          Read about how to debug replication controllers that are deployed into Kubernetes and not behaving correctly.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#debugging-replication-controllers){ target="_blank"}
+
+    </div>
 
 ## References
 

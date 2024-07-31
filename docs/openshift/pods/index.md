@@ -8,19 +8,63 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
 === "OpenShift"
 
-    [About Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Cluster Configuration for Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ .md-button target="_blank"}
+      -   :fontawesome-solid-book:{ .lg .middle } __About Pods__
 
-    [Pod Autoscaling :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
+          ---
+
+          Learn more about the basics of _pods_ and how they work.
+
+          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Cluster Configuration for Pods__
+
+          ---
+
+          Configure your cluster to work for your specific needs.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
+
+      -   :fontawesome-solid-up-right-and-down-left-from-center:{ .lg .middle } __Pod Autoscaling__
+
+          ---
+
+          Use a horizontal pod autoscaler (HPA) to specify how OCP should automatically scale up or down your deployment.
+
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
+
+    </div>
 
 === "Kubernetes"
 
-    [Pod Overview :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ .md-button target="_blank"}
+    <div class="grid cards" markdown>
 
-    [Pod Lifecycle :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ .md-button target="_blank"}
+      -   :fontawesome-solid-book:{ .lg .middle } __Pod Overview__
 
-    [Pod Usage :fontawesome-solid-globe:](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ .md-button target="_blank"}
+          ---
+
+          Learn more about the basics of _pods_ and how they work.
+
+          [:octicons-arrow-right-24: Getting started](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/){ target="_blank"}
+
+      -   :fontawesome-solid-arrows-spin:{ .lg .middle } __Pod Lifecycle__
+
+          ---
+
+          Read about the lifecycle process for pods and what each phase means.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/){ target="_blank"}
+
+      -   :fontawesome-solid-globe:{ .lg .middle } __Pod Usage__
+
+          ---
+
+          How do you use pods? Read about it here.
+
+          [:octicons-arrow-right-24: Learn more](https://kubernetes.io/docs/concepts/workloads/pods/pod/){ target="_blank"}
+
+    </div>
 
 ## References
 
