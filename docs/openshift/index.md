@@ -13,7 +13,18 @@ It is a descendant of ‘Borg,’ a container orchestration platform used intern
 Today, Kubernetes and the broader container ecosystem are maturing into a general-purpose computing platform and ecosystem that rivals—if not surpasses—virtual machines (VMs) as the basic building blocks of modern cloud infrastructure and applications.
 This ecosystem enables organizations to deliver a high-productivity [Platform-as-a-Service (PaaS)](https://www.ibm.com/cloud/learn/paas) that addresses multiple infrastructure- and operations-related tasks and issues surrounding [cloud native](https://www.ibm.com/cloud/learn/cloud-native) development so that development teams can focus solely on coding and innovation.     
 
-https://www.ibm.com/cloud/learn/kubernetes
+<div class="grid cards" markdown>
+
+-   :material-clock-fast:{ .lg .middle } __Learning Kubernetes__
+
+    ---
+
+    Learning Kubernetes through IBM Learning
+
+    [:octicons-arrow-right-24: Getting started](https://www.ibm.com/cloud/learn/kubernetes){ .md-button target=_blank}
+
+
+</div>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aSrqRSk43lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
