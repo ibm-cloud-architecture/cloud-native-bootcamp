@@ -40,9 +40,9 @@ There are many different container standards available today. Some of them are a
 
 Among them, Docker was one of the most popular mainstream container software tools.
 
-***Open Container Initiative (OCI)***
+!!! info "Open Container Initiative (OCI)"
 
-A Linux Foundation project developing a governed container standard. Docker and Rocket are OCI-compliant. But, Garden is not.
+    A Linux Foundation project developing a governed container standard. **Docker** and **Rocket** are OCI-compliant. But, **Garden** is not.
 
 ## Benefits
 
@@ -83,7 +83,7 @@ These images are build from the `Dockerfile`.
 
 If you want to try building docker images, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/) (Interactive Learning Platform).
 
-- [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/) -  Estimated Time: 12 minutes.
+- [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/) - Estimated Time: 12 minutes.
 
 ### Docker Container
 
@@ -102,7 +102,6 @@ If you want to learn more about docker engines, try this course on [O'Reilly](ht
 The registry stores, distributes, and shares container images. It is available in software as a service (SaaS) or in an enterprise to deploy anywhere you that you choose.
 
 **Docker Hub** is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub [here](https://hub.docker.com/search?q=&type=image).
-
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

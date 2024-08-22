@@ -82,18 +82,18 @@ If you keep deploying new services without cleaning up the old ones which are in
 
 ## Twelve factor design methodology
 
-- *Code base* - One code base tracked in revision control, many deploys.
-- *Dependencies* - Explicitly declare and isolate dependencies.
-- *Config* - Store config in the environment.
-- *Backing services* - Treat backing services as attached resources.
-- *Build, release, run* - Strictly separate build and run stages.
-- *Processes* - Execute the app as one (or more) stateless process(es).
-- *Port binding* - Export services through port binding.
-- *Concurrency* - Scale-out through the process model.
-- *Disposability* - Maximize robustness with fast startup and graceful shutdown.
-- *Dev/prod parity* - Keep development, staging, and production as similar as possible.
-- *Logs* - Treat logs as event streams.
-- *Admin processes* - Run admin/management tasks as one-off processes.
+- _Code base_ - One code base tracked in revision control, many deploys.
+- _Dependencies_ - Explicitly declare and isolate dependencies.
+- _Config_ - Store config in the environment.
+- _Backing services_ - Treat backing services as attached resources.
+- _Build, release, run_ - Strictly separate build and run stages.
+- _Processes_ - Execute the app as one (or more) stateless process(es).
+- _Port binding_ - Export services through port binding.
+- _Concurrency_ - Scale-out through the process model.
+- _Disposability_ - Maximize robustness with fast startup and graceful shutdown.
+- _Dev/prod parity_ - Keep development, staging, and production as similar as possible.
+- _Logs_ - Treat logs as event streams.
+- _Admin processes_ - Run admin/management tasks as one-off processes.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jufe_sHejXc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -151,6 +151,6 @@ We discussed the cloud-native application design, implementations of cloud nativ
 
 ## References
 
-- https://learning.oreilly.com/library/view/managing-cloud-native/9781492037071/[Justin Garrison, Kris Nova, (2018). Managing cloud native applications. Publisher: O'Reilly Media, Inc.]
-- https://learning.oreilly.com/library/view/cloud-native-architectures/9781787280540/[Piyum Zonooz, Erik Farr, Kamal Arora, Tom Laszewski, (2018). Cloud Native Architectures. Publisher: Packt Publishing]
-- https://12factor.net/codebase[12factor.net]
+- [Justin Garrison, Kris Nova, (2018). Managing cloud native applications. Publisher: O'Reilly Media, Inc.](https://learning.oreilly.com/library/view/managing-cloud-native/9781492037071)
+- [Piyum Zonooz, Erik Farr, Kamal Arora, Tom Laszewski, (2018). Cloud Native Architectures. Publisher: Packt Publishing](https://learning.oreilly.com/library/view/cloud-native-architectures/9781787280540)
+- [12factor.net](https://12factor.net/codebase)
