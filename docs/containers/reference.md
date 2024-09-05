@@ -12,14 +12,14 @@ For example, Docker created standard way to create images for Linux Containers.
 | Run `hello-world` Container | `docker run hello-world`                    |
 | List Running Containers     | `docker ps`                                 |
 | Stop a container            | `docker stop <container-name/container-id>` |
-| List Docker Images          | `docker images`                            |
+| List Docker Images          | `docker images`                             |
 | Login into registry         | `docker login`                              |
 | Build an image              | `docker build -t <image_name>:<tag> .`      |
-| Inspect a docker object     | `docker inspect <name/id>`                 |
-| Inspect a docker image      | `docker inspect image <name/id>`           |
-| Pull an image               | `docker pull <image_name>:<tag>`           |
-| Push an Image               | `docker push <image_name>:<tag>`           |
-| Remove a container          | `docker rm <container-name/container-id>`  |
+| Inspect a docker object     | `docker inspect <name/id>`                  |
+| Inspect a docker image      | `docker inspect image <name/id>`            |
+| Pull an image               | `docker pull <image_name>:<tag>`            |
+| Push an Image               | `docker push <image_name>:<tag>`            |
+| Remove a container          | `docker rm <container-name/container-id>`   |
 
 ## Running Docker
 
@@ -50,6 +50,7 @@ For example, Docker created standard way to create images for Linux Containers.
     ``` bash
     ibmcloud cr login --client docker
     ```
+
 <!---
 === "Docker on Kubernetes/OpenShift"
 
@@ -74,7 +75,7 @@ For example, Docker created standard way to create images for Linux Containers.
         ``` bash
         docker version
         ```
-    
+
     === "Kubernetes"
 
         1. If you have already configured your Kubernetes, skip to step 5. First, add a user by setting credentials. Feel free to change the credential name, username and password to whatever you like.
@@ -112,11 +113,12 @@ For example, Docker created standard way to create images for Linux Containers.
         docker version
         ```
 --->
+
 ## Activities
 
-| Task                    | Description                                                     | Link                                                                                                                         | Time   |
-| ----------------------- | --------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- | ------ |                                                       |                                                                                                                              |        |
-| IBM Container Registry  | Build and Deploy Run using IBM Container Registry               | [IBM Container Registry](../labs/containers/container-registry/index.md)                                                                           | 30 min |
-| Docker Lab              | Running a Sample Application on Docker                          | [Docker Lab](../labs/containers/index.md)                                                                                                  | 30 min |
+| Task                   | Description                                       | Link                                                                     | Time   |
+| ---------------------- | ------------------------------------------------- | ------------------------------------------------------------------------ | ------ |
+| IBM Container Registry | Build and Deploy Run using IBM Container Registry | [IBM Container Registry](../labs/containers/container-registry/index.md) | 30 min |
+| Docker Lab             | Running a Sample Application on Docker            | [Docker Lab](../labs/containers/index.md)                                | 30 min |
 
 Once you have completed these tasks, you should have a base understanding of containers and how to use Docker.
