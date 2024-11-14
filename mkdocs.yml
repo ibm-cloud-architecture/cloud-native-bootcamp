@@ -34,7 +34,6 @@ plugins:
 extra_css:
   - stylesheets/index.css
 
-
 markdown_extensions:
   - attr_list
   - admonition
