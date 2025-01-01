@@ -23,7 +23,7 @@ theme:
   logo: images/watson-white-logo.png
   favicon: images/watson-white-logo.png
   font:
-    text: IBM Plex Sans
+    text: IBM Plex Sans Light
 plugins:
   - search
   - git-revision-date-localized:
@@ -101,8 +101,7 @@ nav:
       - openshift/state-persistence/index.md
       - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
       - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
-    - <div class="header">Operators</div>: 
-      - openshift/operators/operators.md
+    - <div class="header">Operators</div>: openshift/operators/index.md
 
   - DevOps/GitOps:
     - devops/index.md

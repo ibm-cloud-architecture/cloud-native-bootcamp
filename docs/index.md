@@ -1,4 +1,7 @@
-# IBM Cloud Native Bootcamp
+# IBM CE Containers Bootcamp
+
+
+
 
 ## Concepts Covered
 
@@ -10,4 +13,3 @@
       - *[Continuous Deployment (CD)](./devops/argocd/index.md)*
 
 ## Test your Knowledge
-After taking the virtual bootcamp with an instructor from IBM Garage or learning on your own self paced you can take the quizzes and even get a Badge to show off your Cloud Native street cred.
