@@ -1,7 +1,7 @@
 {
-    "name": "Cloud Native Bootcamp",
+    "name": "Containers Bootcamp",
     "version": "1.0.0",
-    "description": "Cloud Native Bootcamp",
+    "description": "Containers Bootcamp",
     "main": "index.js",
     "directories": {
       "doc": "docs"
