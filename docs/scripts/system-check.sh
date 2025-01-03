@@ -53,7 +53,18 @@ else
     printf 'For Mac: https://docs.docker.com/docker-for-mac/install/ \n'
     printf 'For Linux Users: https://docs.docker.com/engine/install/ubuntu/ \n'
     printf 'For Windows: https://docs.docker.com/docker-for-windows/install/ \n \n'
+fi
 
+if hash podman 2>/dev/null
+then
+    printf '\xE2\x9C\x85 Podman CLI \n'
+else
+    printf '\xE2\x9D\x8C Podman CLI \n \n'
+
+    printf 'Download the Podman CLI using the links below: \n'
+    printf 'For Mac: https://podman.io/docs/installation#macos \n'
+    printf 'For Linux Users: https://podman.io/docs/installation#linux-distributions \n'
+    printf 'For Windows: https://podman.io/docs/installation#windows \n \n'
 fi
 
 if hash kubectl 2>/dev/null
@@ -93,5 +104,7 @@ else
     printf '\xE2\x9D\x8C Argo CLI \n \n'
 
     printf 'Download the Argo CLI using the links below: \n'
-    printf 'For All Users: https://argoproj.github.io/argo-cd/cli_installation/ \n \n'
+    printf 'For All Users: https://argo-cd.readthedocs.io/en/stable/cli_installation/ \n \n'
 fi
+
+printf " \nInstall either Docker or Podman, it's not necessary to install both\n"

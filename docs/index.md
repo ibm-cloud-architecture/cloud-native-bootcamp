@@ -1,13 +1,45 @@
 # IBM Cloud Native Bootcamp
 
+## Bootcamp Overview
+
+This Cloud Native Bootcamp has been created to teach and guide IBMers, Business Partners, and clients what it takes to move to the cloud.
+
+
 ## Concepts Covered
 
-1. **Cloud Native** - open *[Cloud Native](./cloud-native/index.md)* to read more.
-2. **Containers** - open *[Containers](./containers/index.md)* to read more.
-3. **Kubernetes** - open *[Kubernetes](./openshift/index.md)* to read more.
-4. **DevOps** - open *[Devops](./devops/index.md)* to read more.
-      - *[Continuous Integration (CI)](./devops/tekton/index.md)*
-      - *[Continuous Deployment (CD)](./devops/argocd/index.md)*
+<div class="grid cards" markdown>
 
-## Test your Knowledge
-After taking the virtual bootcamp with an instructor from IBM Garage or learning on your own self paced you can take the quizzes and even get a Badge to show off your Cloud Native street cred.
+-   :octicons-cloud-24:{ .lg .middle } __Cloud Native__
+
+    ---
+
+    Moving to the cloud comes with some new concepts and standards that should be understood before starting your journey to cloud. Learn about them by clicking the link below.
+
+    [:octicons-arrow-right-24: Getting started](./cloud-native/index.md)
+
+-   :octicons-container-24:{ .lg .middle } __Containers__
+
+    ---
+
+    The first task when moving to the cloud is getting your applications running in containers. Get your hands on with containers by clicking the link below.
+
+    [:octicons-arrow-right-24: Containerization](./containers/index.md)
+
+-   :simple-redhatopenshift:{ .lg .middle } __Kubernetes/OpenShift__
+
+    ---
+
+    Managing hundreds of containers is chaos to manage on your own. Learn how container orchestration can make it easy using Kubernetes or OpenShift.
+
+    [:octicons-arrow-right-24: Container Orchestration](./openshift/index.md)
+
+-   :octicons-git-compare-24:{ .lg .middle } __DevOps/GitOps__
+
+    ---
+
+    DevOps/GitOps adds standards and reliability to your development lifecycle. Learn how to use it by clicking below.
+
+    [:octicons-arrow-right-24: DevOps](./devops/index.md)
+
+</div>
+

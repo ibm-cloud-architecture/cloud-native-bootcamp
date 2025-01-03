@@ -285,9 +285,9 @@ Here is a course for learning (or brushing up) on working from the linux command
         kubectl version
         ```
 
-=== "CRC (MiniShift)"
+=== "OpenShift Local"
 
-    Make sure CRC is installed. Check out the [CRC Page](https://access.redhat.com/documentation/en-us/red_hat_codeready_containers/1.0/html/getting_started_guide/getting-started-with-codeready-containers_gsg) 
+    Make sure OpenShift Local is installed. Check out the [OpenShift Local](https://docs.redhat.com/en/documentation/red_hat_openshift_local/2.44/html/getting_started_guide/index){target="_blank"} Page.
 
     ** Setup CRC **
     ```
