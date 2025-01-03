@@ -51,6 +51,46 @@ For example, Docker created standard way to create images for Linux Containers.
     ibmcloud cr login --client docker
     ```
 
+## Basic Podman Commands
+
+| Action                    | Command                                                    |
+| ------------------------- | ---------------------------------------------------------- |
+| Check Podman version      | `podman --version`                                         |
+| Check host information    | `podman info`                                              |
+| List images               | `podman images`                                            |
+| Pull image                | `podman pull <container-name/container-id>`                |
+| Run image                 | `podman run <container-name/container-id>`                 |
+| List running containers   | `podman ps`                                                |
+| Inspect a container       | `podman inspect <container-id>`                            |
+| Stop a running container  | `podman stop <container-id>`                               |
+| Kill a running container  | `podman kill <container-id"`                               |
+| Build Podman image        | `podman build -t <image_name>:<tag> -f containerfile .`    |
+| Push image                | `podman push <image_name>:<tag>`                           |
+| Remove stopped containers | `podman rm <container-id>`                                 |
+| Remove image              | `podman rmi -f <image-name>` or `podman rmi -f <image-id>` |
+
+## Running Podman
+
+=== "Local Podman"
+
+    1. a. RECOMMENDED: Download Podman [here](https://podman.io/){target="\_blank"}
+
+        b. NOT RECOMMENDED: Brew Installation
+        ```
+        brew install podman
+        ```
+
+    2. Create and start your first podman machine
+    ``` bash
+    podman machine init
+    podman machine start
+    ```
+
+    3. Verify Podman installation
+    ```
+    podman info
+    ```
+
 <!---
 === "Docker on Kubernetes/OpenShift"
 
