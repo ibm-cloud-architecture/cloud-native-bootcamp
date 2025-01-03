@@ -40,9 +40,9 @@ There are many different container standards available today. Some of them are a
 
 Among them, Docker was one of the most popular mainstream container software tools.
 
-***Open Container Initiative (OCI)***
+!!! info "Open Container Initiative (OCI)"
 
-A Linux Foundation project developing a governed container standard. Docker and Rocket are OCI-compliant. But, Garden is not.
+    A Linux Foundation project developing a governed container standard. **Docker** and **Rocket** are OCI-compliant. But, **Garden** is not.
 
 ## Benefits
 
@@ -52,10 +52,12 @@ A Linux Foundation project developing a governed container standard. Docker and 
 - Portable
 - Supports agile development
 
-To know more about Containerization, we have couple of guides. Feel free to check them out.
+???+ note "Containerization Guides"
 
-- [Containerization: A Complete Guide](https://www.ibm.com/cloud/learn/containerization).
-- [Containers: A Complete Guide](https://www.ibm.com/cloud/learn/containers).
+    To know more about Containerization, we have couple of guides. Feel free to check them out.
+
+    - [Containerization: A Complete Guide](https://www.ibm.com/cloud/learn/containerization).
+    - [Containers: A Complete Guide](https://www.ibm.com/cloud/learn/containers).
 
 ## Docker
 
@@ -81,28 +83,37 @@ These images are build from the `Dockerfile`.
 - It specifies the operating system.
 - It also includes things like environmental variables, ports, file locations etc.
 
-If you want to try building docker images, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/) (Interactive Learning Platform).
+???+ note "Interactive Learning"
 
-- [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/) -  Estimated Time: 12 minutes.
+    If you want to try building docker images, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
+
+    - [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/){target="_blank"} - Estimated Time: 12 minutes.
 
 ### Docker Container
 
 The standard unit where the application service is located or transported. It packages up all code and its dependencies so that the application runs quickly and reliably from one computing environment to another.
 
-If you want to try deploying a docker container, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/#t11m27s) (Interactive Learning Platform).
+???+ note "Interactive Learning"
+
+    If you want to try deploying a docker container, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
+
+    - [Deploying a Docker Container](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/#t11m27s){target="_blank"}
 
 ### Docker Engine
 
 Docker Engine is a program that creates, ships, and runs application containers. The engine runs on any physical or virtual machine or server locally, in private or public cloud. The client communicates with the engine to run commands.
 
-If you want to learn more about docker engines, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video7_1/)
+???+ note "Interactive Learning"
+
+    If you want to learn more about docker engines, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
+
+    - [Docker Networking](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video7_1/){target="\_blank"}
 
 ### Docker Registry
 
 The registry stores, distributes, and shares container images. It is available in software as a service (SaaS) or in an enterprise to deploy anywhere you that you choose.
 
-**Docker Hub** is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub [here](https://hub.docker.com/search?q=&type=image).
-
+**Docker Hub** is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub [here](https://hub.docker.com/search?q=&type=image){target="\_blank"}.
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

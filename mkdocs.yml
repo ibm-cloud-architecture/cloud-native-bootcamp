@@ -40,7 +40,7 @@ markdown_extensions:
   - pymdownx.details
   - footnotes
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
   - pymdownx.superfences
@@ -56,85 +56,85 @@ markdown_extensions:
   - tables
 
 nav:
-  - Home: 
-    - index.md
-    - Course Agenda: agenda.md
-    - Prerequisites: prerequisites.md
-    - Cloud Native Challenge: cloudnative-challenge.md
+  - Home:
+      - index.md
+      - Course Agenda: agenda.md
+      - Prerequisites: prerequisites.md
+      - Cloud Native Challenge: cloudnative-challenge.md
   - Cloud Native:
-    - cloud-native/index.md
-    - App Development: cloud-native/app-dev.md
+      - cloud-native/index.md
+      - App Development: cloud-native/app-dev.md
   - Containers:
-    - containers/index.md
-    - References: containers/reference.md
-    - Image Registries: containers/imageregistry.md
-    - Activities/Labs: 
-      - labs/index.md
-      - Docker: labs/containers/index.md
-      - Container Registries: labs/containers/container-registry/index.md
+      - containers/index.md
+      - References: containers/reference.md
+      - Image Registries: containers/imageregistry.md
+      - Activities/Labs:
+          - labs/index.md
+          - Docker: labs/containers/index.md
+          - Container Registries: labs/containers/container-registry/index.md
   - <div class="header">Kubernetes/OpenShift</div>:
-    - openshift/index.md
-    - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
-    - <div class="sub-section">Namespaces/Projects</div>: openshift/core-concepts/namespaces-projects/index.md
-    - <div class="header">Pods</div>:
-      - openshift/pods/index.md
-      - <div class="sub-section">Labels-Selectors</div>: openshift/pods/tagging/index.md
-      - <div class="sub-section">Multi-Container</div>: openshift/pods/multi-container/index.md
-      - <div class="sub-section">Health and Monitoring</div>: openshift/pods/health-checks/index.md
-      - <div class="sub-section">Troubleshooting</div>: openshift/pods/troubleshooting/index.md
-    - <div class="header">Configuration</div>: 
-      - openshift/configuration/index.md
-      - <div class="sub-section">Config Maps</div>: openshift/configuration/config-map/index.md
-      - <div class="sub-section">Secrets</div>: openshift/configuration/secrets/index.md
-      - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
-      - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
-    - <div class="header">Deployments</div>: 
-      - openshift/deployments/index.md
-      - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
-      - <div class="sub-section">Jobs and CronJobs</div>: openshift/pods/jobs/index.md
-    - <div class="header">Networking</div>: 
-      - openshift/services-networking/index.md
-      - <div class="sub-section">Services</div>: openshift/services-networking/services.md
-      - <div class="sub-section">Routes</div>: openshift/services-networking/routes.md
-      - <div class="sub-section">Ingresses</div>: openshift/services-networking/ingress.md
-    - <div class="header">State Persistence</div>: 
-      - openshift/state-persistence/index.md
-      - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
-      - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
-    - <div class="header">Operators</div>: openshift/operators/index.md
-
+      - openshift/index.md
+      - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
+      - <div class="sub-section">Namespaces/Projects</div>: openshift/core-concepts/namespaces-projects/index.md
+      - <div class="header">Pods</div>:
+          - openshift/pods/index.md
+          - <div class="sub-section">Labels-Selectors</div>: openshift/pods/tagging/index.md
+          - <div class="sub-section">Multi-Container</div>: openshift/pods/multi-container/index.md
+          - <div class="sub-section">Health and Monitoring</div>: openshift/pods/health-checks/index.md
+          - <div class="sub-section">Troubleshooting</div>: openshift/pods/troubleshooting/index.md
+      - <div class="header">Configuration</div>:
+          - openshift/configuration/index.md
+          - <div class="sub-section">Config Maps</div>: openshift/configuration/config-map/index.md
+          - <div class="sub-section">Secrets</div>: openshift/configuration/secrets/index.md
+          - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
+          - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
+      - <div class="header">Deployments</div>:
+          - openshift/deployments/index.md
+          - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
+          - <div class="sub-section">Jobs and CronJobs</div>: openshift/pods/jobs/index.md
+      - <div class="header">Networking</div>:
+          - openshift/services-networking/index.md
+          - <div class="sub-section">Services</div>: openshift/services-networking/services.md
+          - <div class="sub-section">Routes</div>: openshift/services-networking/routes.md
+          - <div class="sub-section">Ingresses</div>: openshift/services-networking/ingress.md
+      - <div class="header">State Persistence</div>:
+          - openshift/state-persistence/index.md
+          - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
+          - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
+      - <div class="header">Operators</div>:
+          - openshift/operators/operators.md
   - DevOps/GitOps:
-    - devops/index.md
-    - <div class="header">Continuous Integration</div>:
-      - devops/tekton/index.md
-      - <div class="sub-section">Tekton</div>: devops/tekton/index.md
-      - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
-    - <div class="header">Continuous Deployment</div>:
-      - devops/argocd/index.md
-      - ArgoCD: devops/argocd/index.md
+      - devops/index.md
+      - <div class="header">Continuous Integration</div>:
+          - devops/tekton/index.md
+          - <div class="sub-section">Tekton</div>: devops/tekton/index.md
+          - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
+      - <div class="header">Continuous Deployment</div>:
+          - devops/argocd/index.md
+          - ArgoCD: devops/argocd/index.md
   - Activities/Labs:
-    - labs/index.md
-    - Containers:
-      - labs/index.md 
-      - Docker: labs/containers/index.md
-      - Container Registries: labs/containers/container-registry/index.md
-    - Kubernetes/OpenShift:
       - labs/index.md
-      - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
-      - Lab 2 - Pod Configuration: labs/kubernetes/lab2/index.md
-      - Lab 3 - Multiple Containers: labs/kubernetes/lab3/index.md
-      - Lab 4 - Probes: labs/kubernetes/lab4/index.md
-      - Lab 5 - Debugging: labs/kubernetes/lab5/index.md
-      - Lab 6 - Rolling Updates: labs/kubernetes/lab6/index.md
-      - Lab 7 - Cron Jobs: labs/kubernetes/lab7/index.md
-      - Lab 8 - Creating Services: labs/kubernetes/lab8/index.md
-      - Lab 9 - Network Policies: labs/kubernetes/lab9/index.md
-      - Lab 10 - Persistent Volumes: labs/kubernetes/lab10/index.md
-      - Lab 11 - Ingress IKS: labs/kubernetes/ingress-iks/index.md
-      - Solutions: labs/kubernetes/lab-solutions.md
-    - DevOps/GitOps:
-      - labs/index.md
-      - Tekton: labs/devops/tekton/index.md
-      - Jenkins: labs/devops/jenkins/index.md
-      - IBM Cloud: labs/devops/ibm-toolchain/index.md
-      - ArgoCD: labs/devops/argocd/index.md
+      - Containers:
+          - labs/index.md
+          - Docker: labs/containers/index.md
+          - Container Registries: labs/containers/container-registry/index.md
+      - Kubernetes/OpenShift:
+          - labs/index.md
+          - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
+          - Lab 2 - Pod Configuration: labs/kubernetes/lab2/index.md
+          - Lab 3 - Multiple Containers: labs/kubernetes/lab3/index.md
+          - Lab 4 - Probes: labs/kubernetes/lab4/index.md
+          - Lab 5 - Debugging: labs/kubernetes/lab5/index.md
+          - Lab 6 - Rolling Updates: labs/kubernetes/lab6/index.md
+          - Lab 7 - Cron Jobs: labs/kubernetes/lab7/index.md
+          - Lab 8 - Creating Services: labs/kubernetes/lab8/index.md
+          - Lab 9 - Network Policies: labs/kubernetes/lab9/index.md
+          - Lab 10 - Persistent Volumes: labs/kubernetes/lab10/index.md
+          - Lab 11 - Ingress IKS: labs/kubernetes/ingress-iks/index.md
+          - Solutions: labs/kubernetes/lab-solutions.md
+      - DevOps/GitOps:
+          - labs/index.md
+          - Tekton: labs/devops/tekton/index.md
+          - Jenkins: labs/devops/jenkins/index.md
+          - IBM Cloud: labs/devops/ibm-toolchain/index.md
+          - ArgoCD: labs/devops/argocd/index.md
