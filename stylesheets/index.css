@@ -1,0 +1,46 @@
+:root > * {
+  --md-primary-fg-color: #161616;
+  --md-footer-bg-color: #393939;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono Medium";
+  src: url("fonts/IBMPlexMono-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono Regular";
+  src: url("fonts/IBMPlexMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono Light";
+  src: url("fonts/IBMPlexMono-Light.ttf") format("truetype");
+}
+
+.header{
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.sub-section{
+  font-size: 15px;
+  text-indent: 10px;
+}
+
+h1 {
+  font-family: "IBM Plex Mono Medium";
+  font-size: 15px;
+}
+
+h2 {
+  font-family: "IBM Plex Mono Regular";
+  font-size: 15px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: "IBM Plex Mono Thin";
+  font-size: 15px;
+  text-indent: 10px;
+}
