@@ -23,7 +23,7 @@ theme:
   logo: images/watson-white-logo.png
   favicon: images/watson-white-logo.png
   font:
-    text: IBM Plex Sans Light
+    text: IBM Plex Sans 
 plugins:
   - search
   - git-revision-date-localized:
