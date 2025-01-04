@@ -1,91 +1,4 @@
-# Cloud-Native
-
-## Introduction
-
-Cloud is everywhere. Today, many companies want to migrate their
-applications on to cloud. For this migration to be done, the
-applications must be re-architected in a way that they fully utilize the
-advantages of the cloud.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fp9_ubiKqFU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Presentations
-
-[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./materials/01-What-Is-Cloud-Native.pdf){ .md-button target=_blank}
-
-## What is Cloud-Native?
-
-
-Cloud-native is about how we build and run applications taking full
-advantage of cloud computing rather than worrying about where we deploy
-it.
-
-Cloud-native refers less to where an application resides and more to how
-it is built and deployed.
-
--   A cloud-native application consists of discrete, reusable components
-    known as microservices that are designed to integrate into any cloud
-    environment.
-
--   These microservices act as building blocks and are often packaged in
-    containers.
-
--   Microservices work together as a whole to comprise an application,
-    yet each can be independently scaled, continuously improved, and
-    quickly iterated through automation and orchestration processes.
-
--   The flexibility of each microservice adds to the agility and
-    continuous improvement of cloud-native applications.
-
-**CNCF Cloud Native Definition**
-
-Cloud native technologies empower organizations to build and run
-scalable applications in modern, dynamic environments such as public,
-private, and hybrid clouds. Containers, service meshes, microservices,
-immutable infrastructure, and declarative APIs exemplify this approach.
-
-These techniques enable loosely coupled systems that are resilient,
-manageable, and observable. Combined with robust automation, they allow
-engineers to make high-impact changes frequently and predictably with
-minimal toil.
-
-The Cloud Native Computing Foundation seeks to drive adoption of this
-paradigm by fostering and sustaining an ecosystem of open source,
-vendor-neutral projects. We democratize state-of-the-art patterns to
-make these innovations accessible for everyone.
-
-## Why Cloud-Native?
-
-Cloud-native applications are different from the traditional
-applications that run in your data centres. The applications that are
-designed in the traditional way are not built keeping cloud
-compatibility in mind. They may have strong ties with the internal
-systems. Also, they cannot take advantage of all the benefits of the
-cloud.
-
-So, we need a new architecture for our applications to utilize the
-benefits of cloud. There is a need to design the applications keeping
-cloud in mind and take advantage of several cloud services like storage,
-queuing, caching etc.
-
--   Speed, safety, and scalability comes with cloud-native applications.
-
--   Helps you to quickly deliver the advancements.
-
--   Allows you to have loose ties into the corporate IT where it most
-    certainly would destabilize legacy architectures.
-
--   Helps you to continuously deliver your applications with zero
-    downtime.
-
--   Infrastructure is less predictable.
-
--   Service instances are all disposable.
-
--   Deployments are immutable.
-
--   To meet the expectations of the today’s world customers, these
-    systems are architected for elastic scalability.
+# Cloud Concepts
 
 ## Cloud-native concepts
 
@@ -289,6 +202,10 @@ practice, you can conduct experimentation. Based on the feedback from
 business, you can quickly and safely deliver your applications that can
 scale.
 
+## Presentations
+
+[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./materials/01-What-Is-Cloud-Native.pdf){ .md-button target=_blank}
+
 ## Cloud-native Roadmap
 
 You can define your cloud native road map in many ways. You can get
@@ -365,8 +282,6 @@ Complete Guide](https://www.ibm.com/cloud/learn/cloud-native). Feel free
 to check this out.
 
 ## References
-
--   [Learn Cloud-native](https://www.ibm.com/cloud/learn/cloud-native)
 
 -   [John Gilbert, (2018). Cloud Native Development Patterns and Best
     Practices. Publisher: Packt

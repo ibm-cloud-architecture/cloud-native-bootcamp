@@ -23,7 +23,7 @@ theme:
   logo: images/watson-white-logo.png
   favicon: images/watson-white-logo.png
   font:
-    text: IBM Plex Sans 
+    text: IBM Plex Sans Light
 plugins:
   - search
   - git-revision-date-localized:
@@ -61,9 +61,11 @@ nav:
       - Course Agenda: agenda.md
       - Prerequisites: prerequisites.md
       - Cloud Native Challenge: cloudnative-challenge.md
-  - Cloud Native:
-      - cloud-native/index.md
-      - App Development: cloud-native/app-dev.md
+  - Cloud:
+      - cloud/index.md
+      - Benefits of Cloud: cloud/benefits.md
+      - Cloud Concepts: cloud/cn-concepts.md
+      - Cloud Applications: cloud/cn-apps.md
   - Containers:
       - containers/index.md
       - References: containers/reference.md
