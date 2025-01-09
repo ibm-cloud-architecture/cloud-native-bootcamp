@@ -6,7 +6,7 @@ For example, Podman and Docker have created a standard way to create images for 
 
 ## Basic CLI Commands
 
-=== "Podman Commands"
+=== "Podman"
 
     | Action                    | Command                                                    |
     | ------------------------- | ---------------------------------------------------------- |
@@ -24,7 +24,7 @@ For example, Podman and Docker have created a standard way to create images for 
     | Remove stopped containers | `podman rm <container-id>`                                 |
     | Remove image              | `podman rmi -f <image-name>` or `podman rmi -f <image-id>` |
 
-=== "Docker Commands"
+=== "Docker"
 
     | Action                      | Command                                     |
     | --------------------------- | ------------------------------------------- |
