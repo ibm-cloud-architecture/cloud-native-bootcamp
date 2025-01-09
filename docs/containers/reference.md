@@ -63,11 +63,13 @@ For example, Podman and Docker have created a standard way to create images for 
     podman info
     ```
 
+    4. Test it out: [Podman Introduction](https://docs.podman.io/en/latest/Introduction.html){terget="_blank"}
+
 === "Local Docker"
 
     1. Install Docker Desktop [here](https://docs.docker.com/desktop/){target="_blank"}
 
-    2. Test it out
+    2. Test it out: [Getting Started with Docker](https://docs.docker.com/get-started/introduction/){target="_blank"}
 
 === "IBM Cloud"
 
