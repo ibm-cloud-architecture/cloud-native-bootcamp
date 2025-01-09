@@ -10,7 +10,7 @@ The following table lists the topics and coding activities for the week. Click o
     | --------------------------------------------------------------------- | --------------------------- |
     | Kickoff                                                    | Activity                     |
     | Introductions                                                          | Activity                     |
-    | [Introduction Cloud Native](cloud-native/index.md)                  | Presentation                 |
+    | [Introduction Cloud Native](cloud/index.md)                  | Presentation                 |
     | [Containers](./containers/index.md)                                         | Presentation                 |
     | [Container Activities](./labs/index.md#containers)                     | Activity                     |
     | Lunch                                                                  | Activity                     |
