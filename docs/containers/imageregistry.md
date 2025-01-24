@@ -8,7 +8,7 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
 
 [Learn More :fontawesome-solid-globe:](https://www.redhat.com/en/topics/cloud-native-apps/what-is-a-container-registry){ .md-button target="\_blank"}
 
-## Tutorial
+## Quay Tutorial
 
 === "Podman"
 
@@ -70,6 +70,12 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
       podman push quay.io/your_username/image_registry_name
       ```
 
+      Your respository has now been pushed to Quay Container Registry!
+
+      To view your repository, click on the button below:
+
+      [Repositories](https://quay.io/repository/){ .md-button target="_blank"}
+
 === "Docker"
 
       Make sure you have Docker Desktop installed and up and running.
@@ -107,6 +113,46 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
 
       [Repositories](https://quay.io/repository/){ .md-button target="_blank"}
 
-[Learn More about Quay :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3.5/html/deploy_red_hat_quay_for_proof-of-concept_non-production_purposes/pr01){ .md-button target="\_blank"}
+## IBM Cloud Registry Tutorial
 
-[Learn More about ICR :fontawesome-solid-cloud:](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started&interface=ui){ .md-button target="\_blank"}
+=== "Podman"
+
+=== "Docker"
+
+      Before you begin, you need to install the IBM Cloud CLI so that you can run the IBM Cloud ***ibmcloud*** commands.
+      ``` Bash title="Install the container-registry CLI"
+      ibmcloud plugin install container-registry
+      ```
+
+      Then, you need to create a namespace. The namespace is created in the resource group that you specify so that you can configure access to resources within the namespace at the resource group level. If you don't specify a resource group, then the default is used.
+      ``` Bash title="Log in to IBM Cloud"
+      ibmcloud login
+      ```
+
+      ``` Bash title="Create namespace"
+      ibmcloud cr namespace-add my_namespace
+      ```
+      Make sure to replace "my_namespace" with your preferred namespace.
+
+      If you want to create the namespace in a specific resource group, use the following code **before** creating the namespace.
+      ``` Bash title="Specify a resource group"
+      ibmcloud target -g resource_group
+      ```
+      Replace "resource_group" with the resource group you want to create the namespace in.
+
+      ``` Bash title="Validate namespace is created"
+      ibmcloud cr namespace-list -v
+      ```
+
+      Next, you can pull images from IBM Cloud Registry to your local computer. Make sure [Docker](https://www.docker.com/products/container-runtime/#/download){target="_blank"} is installed and up and running.
+
+      ``` Bash title="Pull image to local computer"
+      docker pull source_image:tag
+      ```
+      Replace "source_image" with ther respository of the image and "tag" with the tag of the image that you want to use. Below is an example.
+
+      ```
+      docker pull hello-world:latest
+      ```
+
+[Learn More about Quay :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3.5/html/deploy_red_hat_quay_for_proof-of-concept_non-production_purposes/pr01){ .md-button target="\_blank"} [Learn More about ICR :fontawesome-solid-cloud:](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started&interface=ui){ .md-button target="\_blank"}
