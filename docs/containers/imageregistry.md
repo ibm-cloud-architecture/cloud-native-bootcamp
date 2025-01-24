@@ -68,6 +68,8 @@ Container registries save developers valuable time in the creation and delivery 
       podman push quay.io/your_username/image_registry_name
       ```
 
+      [Learn More about Podman :fontawesome-solid-info:](https://podman.io/docs){ .md-button target="\_blank"}
+
 === "Docker"
 
       Make sure you have Docker Desktop installed and up and running.
@@ -104,3 +106,5 @@ Container registries save developers valuable time in the creation and delivery 
       To view your repository, click on the button below:
 
       [Repositories](https://quay.io/repository/){ .md-button target="_blank"}
+
+      [Learn More about Docker :fontawesome-brands-docker:](https://docs.docker.com/get-started/introduction/){ .md-button target="\_blank"}
