@@ -4,6 +4,8 @@ A registry is a repository used to store and access container images. Container 
 
 Container registries save developers valuable time in the creation and delivery of cloud-native applications, acting as the intermediary for sharing container images between systems. They essentially act as a place for developers to store container images and share them out via a process of uploading (pushing) to the registry and downloading (pulling) into another system, like a Kubernetes cluster.
 
+Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry**.
+
 [Learn More :fontawesome-solid-globe:](https://www.redhat.com/en/topics/cloud-native-apps/what-is-a-container-registry){ .md-button target="\_blank"}
 
 ## Tutorial
@@ -68,8 +70,6 @@ Container registries save developers valuable time in the creation and delivery 
       podman push quay.io/your_username/image_registry_name
       ```
 
-      [Learn More about Podman :fontawesome-solid-info:](https://podman.io/docs){ .md-button target="\_blank"}
-
 === "Docker"
 
       Make sure you have Docker Desktop installed and up and running.
@@ -107,4 +107,6 @@ Container registries save developers valuable time in the creation and delivery 
 
       [Repositories](https://quay.io/repository/){ .md-button target="_blank"}
 
-      [Learn More about Docker :fontawesome-brands-docker:](https://docs.docker.com/get-started/introduction/){ .md-button target="\_blank"}
+[Learn More about Quay :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3.5/html/deploy_red_hat_quay_for_proof-of-concept_non-production_purposes/pr01){ .md-button target="\_blank"}
+
+[Learn More about ICR :fontawesome-solid-cloud:](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started&interface=ui){ .md-button target="\_blank"}
