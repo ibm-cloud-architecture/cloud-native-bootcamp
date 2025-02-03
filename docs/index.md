@@ -2,7 +2,7 @@
 
 ## Bootcamp Overview
 
-This Cloud Native Bootcamp has been created to teach and guide IBMers, Business Partners, and clients what it takes to move to the cloud. We want to provide a way for 
+This Cloud Native Bootcamp has been created to teach and guide IBMers, Business Partners, and clients what it takes to move to the cloud. We want to provide a way for anyone using this site to come away with some hands-on experience in each of the different technologies listed below. 
 
 
 ## Concepts Covered

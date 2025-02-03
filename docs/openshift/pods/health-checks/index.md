@@ -10,7 +10,7 @@ A Probe is a diagnostic performed periodically by the kubelet on a Container. To
 
 **_HTTPGetAction_**: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
 
-<br></br>
+
 The kubelet can optionally perform and react to three kinds of probes on running Containers:
 
 **_livenessProbe_**: Indicates whether the Container is running. Runs for the lifetime of the Container.
