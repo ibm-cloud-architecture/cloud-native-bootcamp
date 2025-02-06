@@ -43,3 +43,6 @@ This Cloud Native Bootcamp has been created to teach and guide IBMers, Business 
 
 </div>
 
+## How to approach the Bootcamp
+
+This bootcamp has been designed with a 

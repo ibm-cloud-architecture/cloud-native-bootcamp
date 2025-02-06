@@ -197,9 +197,3 @@ If you are new to Twelve factor methodology, have a look [here](https://12factor
 For a cloud native implementation, the reference architecture will be as follows.
 
 ![devops](./images/devops_architecture_cn.png)
-
-## References
-
-- [Michael Hüttermann (2012). DevOps for Developers. Publisher: Apress] (https://learning.oreilly.com/library/view/devops-for-developers/9781430245698/)
-- [Sricharan Vadapalli (2018). DevOps: Continuous Delivery, Integration, and Deployment with DevOps. Publisher: Packt Publishing] (https://learning.oreilly.com/library/view/devops-continuous-delivery/9781789132991/)
-- [DevOps Architecture] (https://www.ibm.com/cloud/garage/architectures/devOpsArchitecture/0_1)
