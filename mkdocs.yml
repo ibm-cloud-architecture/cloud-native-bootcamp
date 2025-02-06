@@ -90,6 +90,7 @@ nav:
           - <div class="sub-section">Secrets</div>: openshift/configuration/secrets/index.md
           - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
           - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
+          - <div class="sub-section">Limit Ranges</div>: openshift/configuration/limit-ranges/index.md
       - <div class="header">Deployments</div>:
           - openshift/deployments/index.md
           - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
