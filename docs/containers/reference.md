@@ -1,8 +1,4 @@
-# Containers
-
-Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change. They work by hiding the differences between applications inside the container so that everything outside the container can be standardized.
-
-For example, Podman and Docker have created a standard way to create images for Linux Containers.
+# Container References
 
 ## Basic CLI Commands
 

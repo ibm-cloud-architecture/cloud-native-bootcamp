@@ -1,4 +1,4 @@
-# OpenShift Operators
+# What are OpenShift Operators
 
 ## Overview
 Operators and Red Hat OpenShift Container Platform

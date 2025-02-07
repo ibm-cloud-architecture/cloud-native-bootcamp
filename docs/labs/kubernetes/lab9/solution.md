@@ -1,24 +1,33 @@
----
-title: Kubernetes Lab 9 - Network Policies
----
+# Kubernetes Lab 9 - Services
 
 ## Solution
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: jedi-svc
+spec:
+  type: NodePort
+  selector:
+    app: jedi
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+```
 
 ```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
+apiVersion: v1
+kind: Service
 metadata:
-  name: my-network-policy
+  name: yoda-svc
 spec:
-  podSelector:
-    matchLabels:
-      app: secure-app
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          allow-access: "true"
+  type: ClusterIP
+  selector:
+    app: yoda
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```

@@ -1,14 +1,27 @@
----
-title: Kubernetes Lab 6 - Rolling Updates
----
+# Kubernetes Lab 6 - Pod Configuration
 
 ## Problem
 
-Your company's developers have just finished developing a new version of their jedi-themed mobile game. They are ready to update the backend services that are running in your Kubernetes cluster. There is a deployment in the cluster managing the replicas for this application. The deployment is called `jedi-deployment`. You have been asked to update the image for the container named `jedi-ws` in this deployment template to a new version, `bitnamy/nginx:1.18.1`.
+- Create a pod definition named `yoda-service-pod.yml`, and then create a pod in the cluster using this definition to make sure it works.
 
-After you have updated the image using a rolling update, check on the status of the update to make sure it is working. If it is not working, perform a rollback to the previous state.
+The specifications are as follows:
 
-Setup environment
+- The current image for the container is `bitnami/nginx`. You do not need a custom command or args.
+- There is some configuration data the container will need:
+  - `yoda.baby.power=100000000`
+  - `yoda.strength=10`
+- It will expect to find this data in a file at `/etc/yoda-service/yoda.cfg`. Store the configuration data in a ConfigMap called `yoda-service-config` and provide it to the container as a mounted volume.
+- The container should expect to use `64Mi` of memory and `250m` CPU (use resource requests).
+- The container should be limited to `128Mi` of memory and `500m` CPU (use resource limits).
+- The container needs access to a database password in order to authenticate with a backend database server. The password is `0penSh1ftRul3s!`. It should be stored as a Kubernetes secret called `yoda-db-password` and passed to the container as an _environment variable_ called `DB_PASSWORD`.
+- The container will need to access the Kubernetes API using the ServiceAccount `yoda-svc`. Create the service account if it doesn't already exist, and configure the pod to use it.
+
+## Verification
+
+To verify your setup is complete, check `/etc/yoda-service` for the `yoda.cfg` file and use the `cat` command to check it's contents.
+
 ```
-kubectl apply -f https://gist.githubusercontent.com/csantanapr/87df4292e94441617707dae5de488cf4/raw/cb515f7bae77a3f0e76fdc7f6aa0f4e89cc5fec7/lab-6-rolling-updates-setup.yaml
+kubectl exec -it yoda-service /bin/bash
+cd /etc/yoda-service
+cat yoda.cfg
 ```

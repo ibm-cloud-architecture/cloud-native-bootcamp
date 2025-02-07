@@ -1,4 +1,4 @@
-# Image Registries
+# What are Image Registries
 
 A registry is a repository used to store and access container images. Container registries can support container-based application development, often as part of DevOps processes.
 
