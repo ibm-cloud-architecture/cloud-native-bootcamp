@@ -1,30 +1,25 @@
----
-title: Kubernetes Lab 8 - Services
----
+# Kubernetes Lab 8 - Cron Jobs
 
 ## Problem
 
-We have a `jedi-deployment` and `yoda-deployment` that need to communicate with others.  The `jedi` needs to talk to the world(outside the cluster), while `yoda` only needs to talk to jedi council(others in the cluster).
+Your commander has a simple data process that is run periodically to check status. They would like to stop doing this manually in order to save time, so you have been asked to implement a cron job in the Kubernetes cluster to run this process.
 
-## Your Task
+- Create a cron job called xwing-cronjob using the `ibmcase/xwing-status:1.0` image.
+- Have the job run every second minute with the following cron expression: `*/2 * * * *`.
+- Pass the argument `/usr/sbin/xwing-status.sh` to the container.
 
-- Examine the two deployments, and create two services that meet the following criteria:
+## Verification
 
-**jedi-svc**
- - The service name is `jedi-svc`.
- - The service exposes the pod replicas managed by the deployment named `jedi-deployment`.
- - The service listens on port `80` and its targetPort matches the port exposed by the pods.
- - The service type is `NodePort`.
+- Run `kubectl get cronjobs.batch` and `LAST-SCHEDULE` to see last time it ran
+- From a bash shell, run the following to see the logs for all jobs:
 
-**yoda-svc**
- - The service name is `yoda-svc`.
- - The service exposes the pod replicas managed by the deployment named `yoda-deployment`.
- - The service listens on port `80` and its targetPort matches the port exposed by the pods.
- - The service type is `ClusterIP`.
-
-### Setup environment:
 ```
-kubectl apply -f https://gist.githubusercontent.com/csantanapr/87df4292e94441617707dae5de488cf4/raw/cb515f7bae77a3f0e76fdc7f6aa0f4e89cc5fec7/lab-8-service-setup.yaml
+jobs=( $(kubectl get jobs --no-headers -o custom-columns=":metadata.name") )
+echo -e "Job \t\t\t\t Pod \t\t\t\t\tLog"
+for job in "${jobs[@]}"
+do
+   pod=$(kubectl get pods -l job-name=$job --no-headers -o custom-columns=":metadata.name")
+   echo -en "$job \t $pod \t"
+   kubectl logs $pod
+done
 ```
-
-

@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 7 - Rolling Updates
----
+# Kubernetes Lab 7 - Rolling Updates
 
 ## Problem
 
@@ -9,6 +7,7 @@ Your company's developers have just finished developing a new version of their j
 After you have updated the image using a rolling update, check on the status of the update to make sure it is working. If it is not working, perform a rollback to the previous state.
 
 Setup environment
+
 ```
 kubectl apply -f https://gist.githubusercontent.com/csantanapr/87df4292e94441617707dae5de488cf4/raw/cb515f7bae77a3f0e76fdc7f6aa0f4e89cc5fec7/lab-6-rolling-updates-setup.yaml
 ```

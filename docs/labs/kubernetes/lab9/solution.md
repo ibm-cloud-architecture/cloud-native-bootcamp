@@ -1,29 +1,35 @@
 ---
-title: Kubernetes Lab 7 - Cron Jobs
+title: Kubernetes Lab 8 - Services
 ---
 
 ## Solution
 
-```
-apiVersion: batch/v1beta1
-kind: CronJob
+```yaml
+apiVersion: v1
+kind: Service
 metadata:
-  name: xwing-cronjob
+  name: jedi-svc
 spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: xwing-status
-            image: ibmcase/xwing-status:1.0
-            args:
-            - /usr/sbin/xwing-status.sh
-          restartPolicy: OnFailure
+  type: NodePort
+  selector:
+    app: jedi
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```
 
-
-```
-kubectl get cronjob xwing-cronjob
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: yoda-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: yoda
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 ```

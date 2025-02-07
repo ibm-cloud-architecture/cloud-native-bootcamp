@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 3 - Debugging
----
+# Kubernetes Lab 3 - Debugging
 
 ## Problem
 
@@ -16,12 +14,14 @@ Here are some tips to help you solve the Hyper Drive:
 - To fix the deployment, save then modify the yaml file for redeployment.
 
 Reset the environment:
+
 ```
 minikube delete
 minikube start
 ```
 
 Setup the environment:
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/lab-setup/lab-5-debug-k8s-setup.yaml
 ```

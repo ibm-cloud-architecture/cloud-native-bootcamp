@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 5 - Persistent Volumes
----
+# Kubernetes Lab 5 - Persistent Volumes
 
 ## Problem
 
@@ -29,6 +27,7 @@ Create a `PersistentVolumeClaim`:
 - Use the same storageClassName and accessModes as the PersistentVolume so that this claim can bind to the PersistentVolume.
 
 Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
+
 - The Pod should be named `postgresql-pod`.
 
 - Use the image `bitnami/postgresql`.
@@ -38,5 +37,3 @@ Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
 - Set an `environment variable` called `MYSQL_ROOT_PASSWORD` with the value `password`.
 
 - Add the `PersistentVolumeClaim` as a volume and mount it to the container at the path `/bitnami/postgresql/`.
-
-
