@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 4 - Probes
----
+# Kubernetes Lab 2 - Probes
 
 ## Solution 
 

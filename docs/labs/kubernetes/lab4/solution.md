@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 3 - Manage Multiple Containers
----
+# Kubernetes Lab 4 - Manage Multiple Containers
 
 ## Solution
 

@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 10 - Persistent Volumes
----
+# Kubernetes Lab 5 - Persistent Volumes
 
 ## Solution
 

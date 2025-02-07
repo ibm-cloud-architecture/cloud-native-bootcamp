@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 9 - Network Policies
----
+# Kubernetes Lab 10 - Network Policies
 
 ## Solution
 

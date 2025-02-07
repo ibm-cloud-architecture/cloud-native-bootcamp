@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 5 - Debugging
----
+# Kubernetes Lab 3 - Debugging
 
 ## Solution
    Check `STATUS` column for not Ready

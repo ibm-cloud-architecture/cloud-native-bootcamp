@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 8 - Services
----
+# Kubernetes Lab 9 - Services
 
 ## Solution
 

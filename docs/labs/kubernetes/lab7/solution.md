@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 6 - Rolling Updates
----
+# Kubernetes Lab 7 - Rolling Updates
 
 ## Solution
 

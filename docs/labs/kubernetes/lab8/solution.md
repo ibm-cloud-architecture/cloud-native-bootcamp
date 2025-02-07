@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 7 - Cron Jobs
----
+# Kubernetes Lab 9 - Cron Jobs
 
 ## Solution
 

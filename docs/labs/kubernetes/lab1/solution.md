@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 1 - Pod Creation
----
+# Kubernetes Lab 1 - Pod Creation
 
 ## Solution
 

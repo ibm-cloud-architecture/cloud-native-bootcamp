@@ -1,6 +1,4 @@
----
-title: Kubernetes Lab 2 - Pod Configuration
----
+# Kubernetes Lab 6 - Pod Configuration
 
 ## Solution
 
