@@ -13,7 +13,6 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.prune
-    - navigation.indexes
     - navigation.footer
     - toc.follow
     - search.suggest
@@ -63,36 +62,44 @@ nav:
       - Cloud Native Challenge: cloudnative-challenge.md
   - Cloud:
       - cloud/index.md
-      - Benefits of Cloud: cloud/benefits.md
       - Cloud Concepts: cloud/cn-concepts.md
+      - Benefits of Cloud: cloud/benefits.md
       - Cloud Applications: cloud/cn-apps.md
   - Containers:
       - containers/index.md
-      - References: containers/reference.md
+      - Benefits of Container: containers/benefitsContainers.md
       - Image Registries: containers/imageregistry.md
+      - References: containers/reference.md
       - Activities/Labs:
           - labs/index.md
-          - Docker: labs/containers/index.md
-          - Container Registries: labs/containers/container-registry/index.md
+          - Containers Lab: labs/containers/index.md
+          - Image Registries Lab: labs/containers/container-registry/index.md
   - <div class="header">Kubernetes/OpenShift</div>:
       - openshift/index.md
-      - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
-      - <div class="sub-section">Namespaces/Projects</div>: openshift/core-concepts/namespaces-projects/index.md
+      - Container Orchestration Concepts: openshift/orchestrationConcepts.md
+      - <div class="header">OpenShift Objects</div>:
+        - <div class="sub-section">API Primatives</div>: openshift/core-concepts/index.md
+        - <div class="sub-section">Namespaces/Projects</div>: openshift/core-concepts/namespaces-projects/index.md
+        - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
+        - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
       - <div class="header">Pods</div>:
-          - openshift/pods/index.md
-          - <div class="sub-section">Labels-Selectors</div>: openshift/pods/tagging/index.md
-          - <div class="sub-section">Multi-Container</div>: openshift/pods/multi-container/index.md
-          - <div class="sub-section">Health and Monitoring</div>: openshift/pods/health-checks/index.md
-          - <div class="sub-section">Troubleshooting</div>: openshift/pods/troubleshooting/index.md
+          - Pod Basics: openshift/pods/index.md
+          - <div class="sub-section">Lab 1 - Pod Creation</div>: labs/kubernetes/lab1/index.md
+          - Labels-Selectors: openshift/pods/tagging/index.md
+          - Health and Monitoring: openshift/pods/health-checks/index.md
+          - Troubleshooting: openshift/pods/troubleshooting/index.md
+          - Multi-Container: openshift/pods/multi-container/index.md
+      - <div class="header">Storage/State Persistence</div>:
+          - openshift/state-persistence/index.md
+          - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
+          - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
       - <div class="header">Configuration</div>:
           - openshift/configuration/index.md
           - <div class="sub-section">Config Maps</div>: openshift/configuration/config-map/index.md
           - <div class="sub-section">Secrets</div>: openshift/configuration/secrets/index.md
-          - <div class="sub-section">Security Contexts</div>: openshift/configuration/security-contexts/index.md
-          - <div class="sub-section">Service Accounts</div>: openshift/configuration/service-accounts/index.md
-          - <div class="sub-section">Limit Ranges</div>: openshift/configuration/limit-ranges/index.md
+          - <div class="sub-section">Resource Limiting</div>: openshift/configuration/limit-ranges/index.md
       - <div class="header">Deployments</div>:
-          - openshift/deployments/index.md
+          -  Deployments: openshift/deployments/index.md
           - <div class="sub-section">Rolling Updates</div>: openshift/deployments/updates/index.md
           - <div class="sub-section">Jobs and CronJobs</div>: openshift/pods/jobs/index.md
       - <div class="header">Networking</div>:
@@ -100,21 +107,17 @@ nav:
           - <div class="sub-section">Services</div>: openshift/services-networking/services.md
           - <div class="sub-section">Routes</div>: openshift/services-networking/routes.md
           - <div class="sub-section">Ingresses</div>: openshift/services-networking/ingress.md
-      - <div class="header">State Persistence</div>:
-          - openshift/state-persistence/index.md
-          - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
-          - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
       - <div class="header">Operators</div>:
-          - openshift/operators/operators.md
+          - openshift/operators/index.md
+          - Operator Catalog: openshift/operators/operatorCatalog.md
+          - How to use Operators: openshift/operators/operatorUsage.md
   - DevOps/GitOps:
       - devops/index.md
-      - <div class="header">Continuous Integration</div>:
-          - devops/tekton/index.md
-          - <div class="sub-section">Tekton</div>: devops/tekton/index.md
-          - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
-      - <div class="header">Continuous Deployment</div>:
-          - devops/argocd/index.md
-          - ArgoCD: devops/argocd/index.md
+      - DevOps Tools: devops/devopsTools.md
+      - <div class="sub-section">Tekton</div>: devops/tekton/index.md
+      - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
+      - What is GitOps?: devops/gitops.md
+      - <div class="sub-section">ArgoCD</div>: devops/argocd/index.md
   - Activities/Labs:
       - labs/index.md
       - Containers:

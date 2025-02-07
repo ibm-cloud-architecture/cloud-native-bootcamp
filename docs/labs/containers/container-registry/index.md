@@ -1,5 +1,18 @@
 # IBM Container Registries
 
+
+=== "Quay.io"
+
+    ### Introduction
+
+    In this lab you will learn how to use podman.
+
+=== "IBM Container Registry"
+
+    ### Introduction
+
+=== "Docker Hub"
+
 In this lab we are going to create a Container Image and store it in the [IBM Cloud Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overview)
 
 ## Prerequisites

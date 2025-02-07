@@ -1,8 +1,6 @@
-# DevOps Introduction
+# What is DevOps?
 
 DevOps has recently become a popular buzzword in the Cloud World. It varies from business to business and it means a lot different things to different people. In traditional IT, organizations have separate teams for Development and Operations. The development team is responsible for coding and operations team is responsible for releasing it to production. When it comes to this two different teams, there will always be some sort of differences. It may be due to the usage of different system environments, software libraries etc. In order to level this up, DevOps came into play.
-
-## What is DevOps ?
 
 “DevOps is a philosophy, a cultural shift that merges operations with development and demands a linked toolchain of technologies to facilitate collaborative change. DevOps toolchains … can include dozens of non-collaborative tools, making the task of automation a technically complex and arduous one.” - Gartner
 
