@@ -1,4 +1,4 @@
-# Activities
+# Labs
 
 ## Containers
 
@@ -32,7 +32,7 @@
 | Task                               | Description                                         | Link                                                              |
 | ---------------------------------- | --------------------------------------------------- | :---------------------------------------------------------------- |
 | **_Walkthroughs_**                 |                                                     |                                                                   |
-| Deploying Applications From Source | Using OpenShift 4                                   | [S2I](https://learn.openshift.com/introduction/deploying-python/) |
+| Deploying Applications From Source | Using OpenShift 4 | [S2I](https://docs.openshift.com/container-platform/4.17/openshift_images/using_images/using-s21-images.html) |
 | **_Try It Yourself_**              |                                                     |                                                                   |
 | Tekton Lab                         | Using Tekton to test new versions of applications.  | [Tekton](devops/tekton/index.md)                                  |
 | IBM Cloud DevOps                   | Using IBM Cloud ToolChain with Tekton               | [Tekton on IBM Cloud](devops/ibm-toolchain/index.md)              |
@@ -41,10 +41,9 @@
 ## GitOps
 
 | Task                  | Description                                      | Link                                                                             |
-| --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- | --- |
+| --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- |
 | **_Walkthroughs_**    |                                                  |                                                                                  |     |
 | GitOps                | Introduction to GitOps with OpenShift            | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/) |
-| GitOps Multi-cluster  | Multi-cluster GitOps with OpenShift              | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/) |
 | **_Try It Yourself_** |                                                  |                                                                                  |
 | ArgoCD Lab            | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](devops/argocd/index.md)                                                 |
 
