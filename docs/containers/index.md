@@ -1,4 +1,4 @@
-# What are Containers
+# What are Containers?
 
 You wanted to run your application on different computing environments. It may be your laptop, test environment, staging environment or production environment.
 
@@ -20,7 +20,7 @@ For example, Docker created standard way to create images for Linux Containers.
 
 [Container Basics :fontawesome-regular-file-pdf:](./materials/02-Containers-Basics.pdf){ .md-button }
 
-## Why containers ?
+## Why Containers?
 
 - We can run them anywhere.
 - They are lightweight .

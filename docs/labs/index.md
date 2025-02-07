@@ -1,4 +1,4 @@
-# Activities
+# Labs
 
 ## Containers
 
