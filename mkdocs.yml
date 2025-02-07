@@ -89,11 +89,14 @@ nav:
           - Health and Monitoring: openshift/pods/health-checks/index.md
           - <div class="sub-section">Lab 2 - Probes</div>: labs/kubernetes/lab2/index.md
           - Troubleshooting: openshift/pods/troubleshooting/index.md
+          - <div class="sub-section">Lab 3 - Debugging</div>: labs/kubernetes/lab3/index.md
           - Multi-Container: openshift/pods/multi-container/index.md
+          - <div class="sub-section">Lab 4 - Multi-Container</div>: labs/kubernetes/lab4/index.md
       - <div class="header">Storage/State Persistence</div>:
           - openshift/state-persistence/index.md
           - <div class="sub-section">Volumes</div>: openshift/state-persistence/volumes.md
           - <div class="sub-section">Persistent Volumes & Claims</div>: openshift/state-persistence/pv-pvc.md
+          
       - <div class="header">Configuration</div>:
           - openshift/configuration/index.md
           - <div class="sub-section">Config Maps</div>: openshift/configuration/config-map/index.md
