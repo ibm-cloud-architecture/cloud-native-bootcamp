@@ -41,10 +41,9 @@
 ## GitOps
 
 | Task                  | Description                                      | Link                                                                             |
-| --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- | --- |
+| --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- |
 | **_Walkthroughs_**    |                                                  |                                                                                  |     |
 | GitOps                | Introduction to GitOps with OpenShift            | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/) |
-| GitOps Multi-cluster  | Multi-cluster GitOps with OpenShift              | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-multicluster/) |
 | **_Try It Yourself_** |                                                  |                                                                                  |
 | ArgoCD Lab            | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](devops/argocd/index.md)                                                 |
 
