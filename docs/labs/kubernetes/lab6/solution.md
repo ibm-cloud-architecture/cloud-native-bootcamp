@@ -1,35 +1,65 @@
 ---
-title: Kubernetes Lab 6 - Rolling Updates
+title: Kubernetes Lab 2 - Pod Configuration
 ---
 
 ## Solution
 
-Update the deployment to the new version like so:
-```
-kubectl set image deployment/jedi-deployment jedi-ws=bitnamy/nginx:1.18.1 --record
-```
-
-Check the progress of the rolling update:
-```
-kubectl rollout status deployment/jedi-deployment
-```
-
-In another terminal window
-```
-kubectl get pods -w
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yoda-service-config
+data:
+  yoda.cfg: |-
+    yoda.baby.power=100000000
+    yoda.strength=10
 ```
 
-Get a list of previous revisions.
-```
-kubectl rollout history deployment/jedi-deployment
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: yoda-svc
+
 ```
 
-Undo the last revision.
-```
-kubectl rollout undo deployment/jedi-deployment
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: yoda-db-password
+stringData:
+  password: 0penSh1ftRul3s!
 ```
 
-Check the status of the rollout.
-```
-kubectl rollout status deployment/jedi-deployment
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: yoda-service
+spec:
+  serviceAccountName: yoda-svc
+  containers:
+  - name: yoda-service
+    image: bitnami/nginx
+    volumeMounts:
+      - name: config-volume
+        mountPath: /etc/yoda-service
+    env:
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: yoda-db-password
+          key: password
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+  volumes:
+  - name: config-volume
+    configMap:
+      name: yoda-service-config
 ```

@@ -1,24 +1,29 @@
 ---
-title: Kubernetes Lab 9 - Network Policies
+title: Kubernetes Lab 7 - Cron Jobs
 ---
 
 ## Solution
 
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
+```
+apiVersion: batch/v1beta1
+kind: CronJob
 metadata:
-  name: my-network-policy
+  name: xwing-cronjob
 spec:
-  podSelector:
-    matchLabels:
-      app: secure-app
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          allow-access: "true"
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: xwing-status
+            image: ibmcase/xwing-status:1.0
+            args:
+            - /usr/sbin/xwing-status.sh
+          restartPolicy: OnFailure
+```
+
+
+```
+kubectl get cronjob xwing-cronjob
 ```

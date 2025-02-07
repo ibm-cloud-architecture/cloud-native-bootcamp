@@ -87,6 +87,7 @@ nav:
           - <div class="sub-section">Lab 1 - Pod Creation</div>: labs/kubernetes/lab1/index.md
           - Labels-Selectors: openshift/pods/tagging/index.md
           - Health and Monitoring: openshift/pods/health-checks/index.md
+          - <div class="sub-section">Lab 2 - Probes</div>: labs/kubernetes/lab2/index.md
           - Troubleshooting: openshift/pods/troubleshooting/index.md
           - Multi-Container: openshift/pods/multi-container/index.md
       - <div class="header">Storage/State Persistence</div>:
@@ -120,27 +121,5 @@ nav:
       - <div class="sub-section">ArgoCD</div>: devops/argocd/index.md
   - Activities/Labs:
       - labs/index.md
-      - Containers:
-          - labs/index.md
-          - Docker: labs/containers/index.md
-          - Container Registries: labs/containers/container-registry/index.md
-      - Kubernetes/OpenShift:
-          - labs/index.md
-          - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
-          - Lab 2 - Pod Configuration: labs/kubernetes/lab2/index.md
-          - Lab 3 - Multiple Containers: labs/kubernetes/lab3/index.md
-          - Lab 4 - Probes: labs/kubernetes/lab4/index.md
-          - Lab 5 - Debugging: labs/kubernetes/lab5/index.md
-          - Lab 6 - Rolling Updates: labs/kubernetes/lab6/index.md
-          - Lab 7 - Cron Jobs: labs/kubernetes/lab7/index.md
-          - Lab 8 - Creating Services: labs/kubernetes/lab8/index.md
-          - Lab 9 - Network Policies: labs/kubernetes/lab9/index.md
-          - Lab 10 - Persistent Volumes: labs/kubernetes/lab10/index.md
-          - Lab 11 - Ingress IKS: labs/kubernetes/ingress-iks/index.md
-          - Solutions: labs/kubernetes/lab-solutions.md
-      - DevOps/GitOps:
-          - labs/index.md
-          - Tekton: labs/devops/tekton/index.md
-          - Jenkins: labs/devops/jenkins/index.md
-          - IBM Cloud: labs/devops/ibm-toolchain/index.md
-          - ArgoCD: labs/devops/argocd/index.md
+      - Solutions: labs/kubernetes/lab-solutions.md
+

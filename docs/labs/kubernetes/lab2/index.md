@@ -1,29 +1,31 @@
 ---
-title: Kubernetes Lab 2 - Pod Configuration
+title: Kubernetes Lab 2 - Probes
 ---
 
-## Problem
+### Container Health Issues
 
-- Create a pod definition named `yoda-service-pod.yml`, and then create a pod in the cluster using this definition to make sure it works.
+The first issue is caused by application instances entering an unhealthy state and responding to user requests with error messages. Unfortunately, this state does not cause the container to stop, so the Kubernetes cluster is not able to detect this state and restart the container. Luckily, the application has an internal endpoint that can be used to detect whether or not it is healthy. This endpoint is `/healthz` on port `8080`.
 
-The specifications are as follows:
+- Your first task will be to *create a probe* to check this endpoint periodically.
+  - If the endpoint returns an **error** or **fails** to respond, the probe will detect this and the cluster will restart the container.
 
- - The current image for the container is `bitnami/nginx`. You do not need a custom command or args.
- - There is some configuration data the container will need:
-    - `yoda.baby.power=100000000`
-    - `yoda.strength=10`
- - It will expect to find this data in a file at `/etc/yoda-service/yoda.cfg`. Store the configuration data in a ConfigMap called `yoda-service-config` and provide it to the container as a mounted volume.
- - The container should expect to use `64Mi` of memory and `250m` CPU (use resource requests).
- - The container should be limited to `128Mi` of memory and `500m` CPU (use resource limits).
- - The container needs access to a database password in order to authenticate with a backend database server. The password is `0penSh1ftRul3s!`. It should be stored as a Kubernetes secret called `yoda-db-password` and passed to the container as an *environment variable* called `DB_PASSWORD`.
- - The container will need to access the Kubernetes API using the ServiceAccount `yoda-svc`. Create the service account if it doesn't already exist, and configure the pod to use it.
+### Container Startup Issues
 
-## Verification
+Another issue is caused by new pods when they are starting up. The application takes a few seconds after startup before it is ready to service requests. As a result, some users are getting error message during this brief time.
 
-To verify your setup is complete, check `/etc/yoda-service` for the `yoda.cfg` file and use the `cat` command to check it's contents.
+ - To fix this, you will need to *create another probe*. To detect whether the application is `ready`, the probe should simply make a request to the root endpoint, *`/ready`, on port `8080`*. If this request succeeds, then the application is ready.
 
-```
-kubectl exec -it yoda-service /bin/bash
-cd /etc/yoda-service
-cat yoda.cfg
+- Also set a `initial delay` of `5 seconds` for the probes.
+
+Here is the Pod yaml file,  **add** the probes, then **create** the pod in the cluster to test it.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: energy-shield-service
+spec:
+  containers:
+  - name: energy-shield
+    image: ibmcase/energy-shield:1
 ```

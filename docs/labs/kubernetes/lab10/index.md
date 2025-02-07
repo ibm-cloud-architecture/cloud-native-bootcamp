@@ -1,42 +1,46 @@
 ---
-title: Kubernetes Lab 10 - Persistent Volumes
+title: Kubernetes Lab 10 - Network Policies
 ---
 
 ## Problem
 
-The death star plans can't be lost no matter what happens so we need to make sure we protect them at all costs.
+Setup minikube
 
-In order to do that you will need to do the following:
+```
+minikube start --network-plugin=cni
+kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+kubectl -n kube-system set env daemonset/calico-node FELIX_IGNORELOOSERPF=true
+kubectl -n kube-system get pods | grep calico-node
+```
 
-Create a `PersistentVolume`:
+Create secured pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: network-policy-secure-pod
+  labels:
+    app: secure-app
+spec:
+  containers:
+  - name: nginx
+    image: bitnami/nginx
+    ports:
+    - containerPort: 8080
+```
 
-- The PersistentVolume should be named `postgresql-pv`.
+Create client pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: network-policy-client-pod
+spec:
+  containers:
+  - name: busybox
+    image: radial/busyboxplus:curl
+    command: ["/bin/sh", "-c", "while true; do sleep 3600; done"]
+```
 
-- The volume needs a capacity of `1Gi`.
-
-- Use a storageClassName of `localdisk`.
-
-- Use the accessMode `ReadWriteOnce`.
-
-- Store the data locally on the node using a `hostPath` volume at the location `/mnt/data`.
-
-Create a `PersistentVolumeClaim`:
-
-- The PersistentVolumeClaim should be named `postgresql-pv-claim`.
-
-- Set a resource request on the claim for `500Mi` of storage.
-
-- Use the same storageClassName and accessModes as the PersistentVolume so that this claim can bind to the PersistentVolume.
-
-Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
-- The Pod should be named `postgresql-pod`.
-
-- Use the image `bitnami/postgresql`.
-
-- Expose the containerPort `5432`.
-
-- Set an `environment variable` called `MYSQL_ROOT_PASSWORD` with the value `password`.
-
-- Add the `PersistentVolumeClaim` as a volume and mount it to the container at the path `/bitnami/postgresql/`.
-
-
+Create a policy to allow only client pods with label `allow-access: "true"` to access secure pod
+ 

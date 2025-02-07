@@ -1,43 +1,59 @@
 ---
-title: Kubernetes Lab 5 - Debugging
+title: Kubernetes Lab 10 - Persistent Volumes
 ---
 
 ## Solution
-   Check `STATUS` column for not Ready
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgresql-pv
+spec:
+  storageClassName: localdisk
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
 ```
-    kubectl get pods --all-namespaces
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgresql-pv-claim
+spec:
+  storageClassName: localdisk
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
 ```
 
-   Check the description of the deployment
-    ```
-    kubectl describe deployment hyper-drive
-    ```
-   Save logs for a broken pod
-    
-    kubectl logs <pod name> -n <namespace> > /home/cloud_user/debug/broken-pod-logs.log
-    
-   In the description you will see the following is wrong:
-- Selector and Label names do not match.
-- The Probe is TCP instead of HTTP Get.
-- The Service Port is 80 instead of 8080.
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgresql-pod
+spec:
+  containers:
+  - name: postgresql
+    image: bitnami/postgresql
+    ports:
+    - containerPort: 5432
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: password
+    volumeMounts:
+    - name: sql-storage
+      mountPath: /bitnami/postgresql/
+  volumes:
+  - name: sql-storage
+    persistentVolumeClaim:
+      claimName: postgresql-pv-claim
+```
 
-   To fix probe, can't kubectl edit, need to delete and recreate the deployment
-    ```
-    kubectl get deployment <deployment name> -n <namespace> -o yaml --export > hyper-drive.yml
-    ```
-
-   Delete pod
-    ```
-    kubectl delete deployment <deployment name> -n <namespace>
-    ```
-   Can also use `kubectl replace`
-
-   Edit yaml, and apply
-    ```
-    kubectl apply -f hyper-drive.yml -n <namespace>
-    ```
-
-   Verify
-    ```
-    kubectl get deployment <deployment name> -n <namespace>
-    ```
+verify via `ls /mnt/data` on node

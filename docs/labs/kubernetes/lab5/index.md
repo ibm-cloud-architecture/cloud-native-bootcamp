@@ -1,35 +1,42 @@
 ---
-title: Kubernetes Lab 5 - Debugging
+title: Kubernetes Lab 5 - Persistent Volumes
 ---
 
 ## Problem
 
-The Hyper Drive isn't working and we need to find out why. Let's debug the `hyper-drive` deployment so that we can reach light speed again.
+The death star plans can't be lost no matter what happens so we need to make sure we protect them at all costs.
 
-Here are some tips to help you solve the Hyper Drive:
+In order to do that you will need to do the following:
 
-- Check the description of the `deployment`.
-- Get and save the logs of one of the broken `pods`.
-- Are the correct `ports` assigned.
-- Make sure your `labels` and `selectors` are correct.
-- Check to see if the `Probes` are correctly working.
-- To fix the deployment, save then modify the yaml file for redeployment.
+Create a `PersistentVolume`:
 
-Reset the environment:
-```
-minikube delete
-minikube start
-```
+- The PersistentVolume should be named `postgresql-pv`.
 
-Setup the environment:
-```
-kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/lab-setup/lab-5-debug-k8s-setup.yaml
-```
+- The volume needs a capacity of `1Gi`.
 
-## Validate
+- Use a storageClassName of `localdisk`.
 
-Once you get the Hyper Drive working again. Verify it by checking the endpoints.
+- Use the accessMode `ReadWriteOnce`.
 
-```
-kubectl get ep hyper-drive
-```
+- Store the data locally on the node using a `hostPath` volume at the location `/mnt/data`.
+
+Create a `PersistentVolumeClaim`:
+
+- The PersistentVolumeClaim should be named `postgresql-pv-claim`.
+
+- Set a resource request on the claim for `500Mi` of storage.
+
+- Use the same storageClassName and accessModes as the PersistentVolume so that this claim can bind to the PersistentVolume.
+
+Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
+- The Pod should be named `postgresql-pod`.
+
+- Use the image `bitnami/postgresql`.
+
+- Expose the containerPort `5432`.
+
+- Set an `environment variable` called `MYSQL_ROOT_PASSWORD` with the value `password`.
+
+- Add the `PersistentVolumeClaim` as a volume and mount it to the container at the path `/bitnami/postgresql/`.
+
+

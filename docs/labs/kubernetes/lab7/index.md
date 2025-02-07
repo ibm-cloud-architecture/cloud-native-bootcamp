@@ -1,26 +1,14 @@
 ---
-title: Kubernetes Lab 7 - Cron Jobs
+title: Kubernetes Lab 7 - Rolling Updates
 ---
 
 ## Problem
 
-Your commander has a simple data process that is run periodically to check status. They would like to stop doing this manually in order to save time, so you have been asked to implement a cron job in the Kubernetes cluster to run this process. 
- - Create a cron job called xwing-cronjob using the `ibmcase/xwing-status:1.0` image. 
- - Have the job run every second minute with the following cron expression: `*/2 * * * *`.
- - Pass the argument `/usr/sbin/xwing-status.sh` to the container.
+Your company's developers have just finished developing a new version of their jedi-themed mobile game. They are ready to update the backend services that are running in your Kubernetes cluster. There is a deployment in the cluster managing the replicas for this application. The deployment is called `jedi-deployment`. You have been asked to update the image for the container named `jedi-ws` in this deployment template to a new version, `bitnamy/nginx:1.18.1`.
 
-## Verification
+After you have updated the image using a rolling update, check on the status of the update to make sure it is working. If it is not working, perform a rollback to the previous state.
 
-- Run `kubectl get cronjobs.batch` and `LAST-SCHEDULE` to see last time it ran
-- From a bash shell, run the following to see the logs for all jobs:
-
+Setup environment
 ```
-jobs=( $(kubectl get jobs --no-headers -o custom-columns=":metadata.name") )
-echo -e "Job \t\t\t\t Pod \t\t\t\t\tLog"
-for job in "${jobs[@]}"
-do
-   pod=$(kubectl get pods -l job-name=$job --no-headers -o custom-columns=":metadata.name")
-   echo -en "$job \t $pod \t"
-   kubectl logs $pod
-done
+kubectl apply -f https://gist.githubusercontent.com/csantanapr/87df4292e94441617707dae5de488cf4/raw/cb515f7bae77a3f0e76fdc7f6aa0f4e89cc5fec7/lab-6-rolling-updates-setup.yaml
 ```

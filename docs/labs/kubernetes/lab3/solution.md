@@ -1,65 +1,43 @@
 ---
-title: Kubernetes Lab 3 - Manage Multiple Containers
+title: Kubernetes Lab 5 - Debugging
 ---
 
 ## Solution
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: vader-service-ambassador-config
-data:
-  haproxy.cfg: |-
-    global
-        daemon
-        maxconn 256
-
-    defaults
-        mode http
-        timeout connect 5000ms
-        timeout client 50000ms
-        timeout server 50000ms
-
-    listen http-in
-        bind *:80
-        server server1 127.0.0.1:8775 maxconn 32
+   Check `STATUS` column for not Ready
+```
+    kubectl get pods --all-namespaces
 ```
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: vader-service
-spec:
-  containers:
-  - name: millennium-falcon
-    image: ibmcase/millennium-falcon:1
-  - name: haproxy-ambassador
-    image: haproxy:1.7
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: config-volume
-      mountPath: /usr/local/etc/haproxy
-  volumes:
-  - name: config-volume
-    configMap:
-      name: vader-service-ambassador-config
-``` 
+   Check the description of the deployment
+    ```
+    kubectl describe deployment hyper-drive
+    ```
+   Save logs for a broken pod
+    
+    kubectl logs <pod name> -n <namespace> > /home/cloud_user/debug/broken-pod-logs.log
+    
+   In the description you will see the following is wrong:
+- Selector and Label names do not match.
+- The Probe is TCP instead of HTTP Get.
+- The Service Port is 80 instead of 8080.
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: busybox
-spec:
-  containers:
-  - name: myapp-container
-    image: radial/busyboxplus:curl
-    command: ['sh', '-c', 'while true; do sleep 3600; done']
-```
+   To fix probe, can't kubectl edit, need to delete and recreate the deployment
+    ```
+    kubectl get deployment <deployment name> -n <namespace> -o yaml --export > hyper-drive.yml
+    ```
 
-```bash
-kubectl exec busybox -- curl $(kubectl get pod vader-service -o=jsonpath='{.status.podIP}'):80
-```
+   Delete pod
+    ```
+    kubectl delete deployment <deployment name> -n <namespace>
+    ```
+   Can also use `kubectl replace`
+
+   Edit yaml, and apply
+    ```
+    kubectl apply -f hyper-drive.yml -n <namespace>
+    ```
+
+   Verify
+    ```
+    kubectl get deployment <deployment name> -n <namespace>
+    ```

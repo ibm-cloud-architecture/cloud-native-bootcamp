@@ -25,7 +25,7 @@
   | ***Solutions***                         |         |         |
   | Lab Solutions | Solutions for the Kubernetes Labs  | [Solutions](kubernetes/lab-solutions.md) |
 
-## Continuous Integration
+## DevOps
 
   | Task                            | Description         | Link        |
   | --------------------------------| ------------------  |:----------- |
@@ -36,7 +36,7 @@
   | IBM Cloud DevOps | Using IBM Cloud ToolChain with Tekton | [Tekton on IBM Cloud](devops/ibm-toolchain/index.md) |
   | Jenkins Lab | Using Jenkins to test new versions of applications. | [Jenkins](devops/jenkins/index.md) |
 
-## Continuous Deployment
+## GitOps
 
   | Task                            | Description         | Link        |
   | --------------------------------| ------------------  |:----------- |
