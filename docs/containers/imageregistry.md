@@ -117,10 +117,13 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
 
 === "Podman"
 
+      **1. Install the Container Registry CLI**
+
       Before you begin, you need to install the IBM Cloud CLI so that you can run the IBM Cloud ***ibmcloud*** commands.
       ``` Bash title="Install the container-registry CLI"
       ibmcloud plugin install container-registry
       ```
+      **2. Set up a namespace**
 
       Then, you need to create a namespace. The namespace is created in the resource group that you specify so that you can configure access to resources within the namespace at the resource group level. If you don't specify a resource group, then the default is used.
       ``` Bash title="Log in to IBM Cloud"
@@ -142,15 +145,34 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
       ``` Bash title="Validate namespace is created"
       ibmcloud cr namespace-list -v
       ```
+
+      **3. Pull images from a registry to your local computer**
 
       Next, you can pull images from IBM Cloud Registry to your local computer. Make sure [Podman](https://podman.io/docs/installation){target="_blank"} is installed and up and running.
 
+      ``` Bash title="Pull image to local computer"
+      podman pull source_image:tag
+      ```
+      Replace "source_image" with the respository of the image and "tag" with the tag of the image that you want to use.
+
+      Below is an example where "source_image" is "hello-world" and "tag" is "latest".
+
+      ```
+      docker pull hello-world:latest
+      ```
+
+      **4. Tag the image**
+
 === "Docker"
+
+      **1. Install the Container Registry CLI**
 
       Before you begin, you need to install the IBM Cloud CLI so that you can run the IBM Cloud ***ibmcloud*** commands.
       ``` Bash title="Install the container-registry CLI"
       ibmcloud plugin install container-registry
       ```
+
+      **2. Set up a namespace**
 
       Then, you need to create a namespace. The namespace is created in the resource group that you specify so that you can configure access to resources within the namespace at the resource group level. If you don't specify a resource group, then the default is used.
       ``` Bash title="Log in to IBM Cloud"
@@ -172,16 +194,20 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
       ``` Bash title="Validate namespace is created"
       ibmcloud cr namespace-list -v
       ```
+
+      **3. Pull images from a registry to your local computer**
 
       Next, you can pull images from IBM Cloud Registry to your local computer. Make sure [Docker](https://www.docker.com/products/container-runtime/#/download){target="_blank"} is installed and up and running.
 
       ``` Bash title="Pull image to local computer"
       docker pull source_image:tag
       ```
-      Replace "source_image" with ther respository of the image and "tag" with the tag of the image that you want to use. Below is an example.
+      Replace "source_image" with the respository of the image and "tag" with the tag of the image that you want to use. Below is an example.
 
       ```
       docker pull hello-world:latest
       ```
+
+      **4. Tag the image**
 
 [Learn More about Quay :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3.5/html/deploy_red_hat_quay_for_proof-of-concept_non-production_purposes/pr01){ .md-button target="\_blank"} [Learn More about ICR :fontawesome-solid-cloud:](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started&interface=ui){ .md-button target="\_blank"}
