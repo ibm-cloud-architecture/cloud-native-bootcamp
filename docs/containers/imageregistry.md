@@ -117,6 +117,34 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
 
 === "Podman"
 
+      Before you begin, you need to install the IBM Cloud CLI so that you can run the IBM Cloud ***ibmcloud*** commands.
+      ``` Bash title="Install the container-registry CLI"
+      ibmcloud plugin install container-registry
+      ```
+
+      Then, you need to create a namespace. The namespace is created in the resource group that you specify so that you can configure access to resources within the namespace at the resource group level. If you don't specify a resource group, then the default is used.
+      ``` Bash title="Log in to IBM Cloud"
+      ibmcloud login
+      ```
+
+      ``` Bash title="Create namespace"
+      ibmcloud cr namespace-add my_namespace
+      ```
+      Make sure to replace "my_namespace" with your preferred namespace.
+
+      If you want to create the namespace in a specific resource group, use the following code **before** creating the namespace.
+      ``` Bash title="Specify a resource group"
+      ibmcloud target -g resource_group
+      ```
+      Replace "resource_group" with the resource group you want to create the namespace in.
+
+      To validate the namespace was created, run the following command.
+      ``` Bash title="Validate namespace is created"
+      ibmcloud cr namespace-list -v
+      ```
+
+      Next, you can pull images from IBM Cloud Registry to your local computer. Make sure [Podman](https://podman.io/docs/installation){target="_blank"} is installed and up and running.
+
 === "Docker"
 
       Before you begin, you need to install the IBM Cloud CLI so that you can run the IBM Cloud ***ibmcloud*** commands.
@@ -140,6 +168,7 @@ Some examples of an image registry are **Red Hat Quay** and **IBM Cloud Registry
       ```
       Replace "resource_group" with the resource group you want to create the namespace in.
 
+      To validate the namespace was created, run the following command.
       ``` Bash title="Validate namespace is created"
       ibmcloud cr namespace-list -v
       ```
