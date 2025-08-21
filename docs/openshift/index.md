@@ -6,6 +6,12 @@ Kubernetes is an open source container orchestration platform that automates dep
 
 ## What is OpenShift?
 
+Red Hat OpenShift is an open-source container platform that runs on the Red Hat enterprise Linux operating system and Kubernetes. It is typically referred to as a "Platform as a Service" (PaaS) due to its combination of services for enterprise businesses, including the Kubernetes platform and Docker container images. OpenShift offers additional features exclusive to its enterprise platform. It allows for deploying apps on highly available clusters and securing hybrid workloads with developer-focused tools and seamless integration of IBM, CloudPak, and Red Hat content.
+
+Red Hat OpenShift provides a uniform platform across public and private clouds for full portability, standardization, and ease of adoption. It offers various forms to meet customer needs, such as Red Hat OpenShift Container Platform (OCP), Red Hat OpenShift Dedicated (OSD), Microsoft Azure Red Hat OpenShift, and Red Hat OpenShift Online.
+
+In summary, Red Hat OpenShift is an enterprise-ready Kubernetes container platform with full-stack automated operations for managing hybrid cloud and multi-cloud deployments. It offers multiple offerings to cater to diverse customer requirements and ensures a consistent experience across public and private clouds.
+
 ## What is Kubernetes?
 
 Kubernetes—also known as ‘k8s’ or ‘kube’—is a container orchestration platform for scheduling and automating the deployment, management, and scaling of containerized applications.

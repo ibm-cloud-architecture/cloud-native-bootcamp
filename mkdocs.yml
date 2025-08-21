@@ -22,7 +22,7 @@ theme:
   logo: images/watson-white-logo.png
   favicon: images/watson-white-logo.png
   font:
-    text: IBM Plex Sans Light
+    text: IBM Plex Sans
 plugins:
   - search
   - git-revision-date-localized:
@@ -74,7 +74,7 @@ nav:
           - labs/index.md
           - Containers Lab: labs/containers/index.md
           - Image Registries Lab: labs/containers/container-registry/index.md
-  - <div class="header">Kubernetes/OpenShift</div>:
+  - Kubernetes/OpenShift:
       - openshift/index.md
       - Container Orchestration Concepts: openshift/orchestrationConcepts.md
       - <div class="header">OpenShift Objects</div>:
