@@ -1,0 +1,1491 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../benefits/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/watson-white-logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Cloud Concepts - Cloud Native Bootcamp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/index.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cloud-concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud Native Bootcamp" class="md-header__button md-logo" aria-label="Cloud Native Bootcamp" data-md-component="logo">
+      
+  <img src="../../images/watson-white-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Native Bootcamp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cloud Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibm-cloud-architecture/cloud-native-bootcamp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../containers/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Containers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../openshift/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Kubernetes/OpenShift
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devops/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  DevOps/GitOps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Activities/Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud Native Bootcamp" class="md-nav__button md-logo" aria-label="Cloud Native Bootcamp" data-md-component="logo">
+      
+  <img src="../../images/watson-white-logo.png" alt="logo">
+
+    </a>
+    Cloud Native Bootcamp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibm-cloud-architecture/cloud-native-bootcamp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Concepts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-native-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud-native concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-native-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud-native Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benefits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benefits of Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cn-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../containers/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../openshift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes/OpenShift
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../devops/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevOps/GitOps
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../labs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Activities/Labs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-native-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud-native concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presentations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-native-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud-native Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cloud-concepts">Cloud Concepts</h1>
+<h2 id="cloud-native-concepts">Cloud-native concepts</h2>
+<p>Some of the important characteristics of cloud-native applications are
+as follows.</p>
+<ul>
+<li>
+<p>Disposable Infrastructure</p>
+</li>
+<li>
+<p>Isolation</p>
+</li>
+<li>
+<p>Scalability</p>
+</li>
+<li>
+<p>Disposable architecture</p>
+</li>
+<li>
+<p>Value added cloud services</p>
+</li>
+<li>
+<p>Polyglot cloud</p>
+</li>
+<li>
+<p>Self-sufficient, full-stack teams</p>
+</li>
+<li>
+<p>Cultural Change</p>
+</li>
+</ul>
+<p><strong>Disposable Infrastructure</strong></p>
+<p>While creating applications on cloud, you need several cloud resources
+as part of it. We often hear how easy it is to create all these
+resources. But did you ever think how easy is it to dispose them. It is
+definitely not that easy to dispose them and that is why you don’t hear
+a lot about it.</p>
+<p>In traditional or legacy applications, we have all these resources
+residing on machines. If these go down, we need to redo them again and
+most of this is handled by the operations team manually. So, when we are
+creating applications on cloud, we bring those resources like load
+balancers, databases, gateways, etc on to cloud as well along with
+machine images and containers.</p>
+<p>While creating these applications, you should always keep in mind that
+if you are creating a resource when required, you should also be able to
+destroy it when not required. Without this, we cannot achieve the
+factors speed, safety and scalability. If you want this to happen, we
+need automation.</p>
+<p>Automation allows you to</p>
+<ul>
+<li>
+<p>Deliver new features at any time.</p>
+</li>
+<li>
+<p>Deliver patches faster.</p>
+</li>
+<li>
+<p>Improves the system quality.</p>
+</li>
+<li>
+<p>Facilitates team scale and efficiency.</p>
+</li>
+</ul>
+<p>Now you know what we are talking about. Disposable infrastructure is
+nothing but <code>Infrastructure as Code</code>.</p>
+<p><strong><em>Infrastructure as Code</em></strong></p>
+<p>Here, you develop the code for automation exactly as same as the you do
+for the rest of the application using agile methodologies.</p>
+<ul>
+<li>
+<p>Automation code is driven by a story.</p>
+</li>
+<li>
+<p>Versioned in the same repository as rest of the code.</p>
+</li>
+<li>
+<p>Continuously tested as part of CI/CD pipeline.</p>
+</li>
+<li>
+<p>Test environments are created and destroyed along with test runs.</p>
+</li>
+</ul>
+<p>Thus, disposable infrastructure lays the ground work for scalability and
+elasticity.</p>
+<p><strong>Isolation</strong></p>
+<p>In traditional or legacy applications, the applications are monoliths.
+So, when there is bug or error in the application, you need to fix it.
+Once you changed the code, the entire application should be redeployed.
+Also, there may be side effects which you can never predict. New changes
+may break any components in the application as they are all inter
+related.</p>
+<p>In cloud-native applications, to avoid the above scenario, the system is
+decomposed into bounded isolated components. Each service will be
+defined as one component and they are all independent of each other. So,
+in this case, when there is a bug or error in the application, you know
+which component to fix and this also avoids any side effects as the
+components are all unrelated pieces of code.</p>
+<p>Thus, cloud-native systems must be resilient to man made errors. To
+achieve this we need isolation and this avoids a problem in one
+component affecting the entire system. Also, it helps you to introduce
+changes quickly in the application with confidence.</p>
+<p><strong>Scalability</strong></p>
+<p>Simply deploying your application on cloud does not make it
+cloud-native. To be cloud native it should be able to take full benefits
+of the cloud. One of the key features is Scalability.</p>
+<p>In today’s world, once your business starts growing, the number of users
+keep increasing and they may be from different locations. Your
+application should be able to support more number of devices and it
+should also be able to maintain its responsiveness. Moreover, this
+should be efficient and cost-effective.</p>
+<p>To achieve this, cloud native application runs in multiple runtimes
+spread across multiple hosts. The applications should be designed and
+architected in a way that they support multi regional, active-active
+deployments. This helps you to increase the availability and avoids
+single point of failures.</p>
+<p><strong>Disposable architecture</strong></p>
+<p>Leveraging the disposable infrastructure and scaling isolated components
+is important for cloud native applications. Disposable architecture is
+based on this and it takes the idea of disposability and replacement to
+the next level.</p>
+<p>Most of us think in a monolithic way because we got used to traditional
+or legacy applications a lot. This may lead us to take decisions in
+monolithic way rather than in cloud native way. In monoliths, we tend to
+be safe and don’t do a lot of experimentation. But Disposable
+architecture is exactly opposite to monolithic thinking. In this
+approach, we develop small pieces of the component and keep
+experimenting with it to find an optimal solution.</p>
+<p>When there is a breakthrough in the application, you can’t simply take
+decisions based on the available information which may be incomplete or
+inaccurate. So, with disposable architecture, you start with small
+increments, and invest time to find the optimal solution. Sometimes,
+there may be a need to completely replace the component, but that
+initial work was just the cost of getting the information that caused
+the breakthrough. This helps you to minimize waste allowing you to use
+your resources on controlled experiments efficiently and get good value
+out of it in the end.</p>
+<p><strong>Value added cloud services</strong></p>
+<p>When you are defining an application, there are many things you need to
+care of. Each and every service will be associated with many things like
+databases, storage, redundancy, monitoring, etc. For your application,
+along with your components, you also need to scale the data. You can
+reduce the operational risk and also get all such things at greater
+velocity by leveraging the value-added services that are available on
+cloud. Sometimes, you may need third party services if they are not
+available on your cloud. You can externally hook them up with your
+application as needed.</p>
+<p>By using the value added services provided by your cloud provider, you
+will get to know all the available options on your cloud and you can
+also learn about all the new services. This will help you to take good
+long-termed decisions. You can definitely exit the service if you find
+something more suitable for your component and hook that up with your
+application based on the requirements.</p>
+<p><strong>Polyglot cloud</strong></p>
+<p>Most of you are familiar with Polyglot programming. For your
+application, based on the component, you can choose the programming
+languages that best suits it. You need not stick to a single programming
+language for the entire application. If you consider Polyglot
+persistence, the idea is choose the storage mechanism that suits better
+on a component by component basis. It allows a better global scale.</p>
+<p>Similarly, the next thing will be Polyglot cloud. Like above, here you
+choose a cloud provider that better suits on a component by component
+basis. For majority of your components, you may have a go to cloud
+provider. But, this does not stop you from choosing a different one if
+it suits well for any of your application components. So, you can run
+different components of your cloud native system on different cloud
+providers based on your requirements.</p>
+<p><strong>Self-sufficient, full-stack teams</strong></p>
+<p>In a traditional set up, many organizations have teams based on skill
+set like backend, user interface, database, operations etc. Such a
+structure will not allow you to build cloud native systems.</p>
+<p>In cloud native systems, the system is composed of bounded isolated
+components. They have their own resources. Each of such component must
+be owned by self-sufficient, full stack team. That team is entirely
+responsible for all the resources that belong to that particular
+component. In this set up, team tends to build quality up front in as
+they are the ones who deploy it and they will be taking care of it if
+the component is broken. It is more like you build it and then you run
+it. So, the team can continuously deliver advancements to the components
+at their own pace. Also, they are completely responsible for delivering
+it safely.</p>
+<p><strong>Cultural Change</strong></p>
+<p>Cloud native is different way of thinking. We need to first make up our
+minds, not just the systems, to utilize the full benefits of cloud.
+Compared to the traditional systems, there will be lots of things we do
+differently in cloud-native systems.</p>
+<p>To make that happen, cultural change is really important. To change the
+thinking at high level, we just to first prove that the low level
+practices can truly deliver and encourage lean thinking. With this
+practice, you can conduct experimentation. Based on the feedback from
+business, you can quickly and safely deliver your applications that can
+scale.</p>
+<h2 id="presentations">Presentations</h2>
+<p><a class="md-button" href="../materials/01-What-Is-Cloud-Native.pdf" target="_blank">Cloud-Native Presentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M208 48H96c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16h80v48H96c-35.3 0-64-28.7-64-64V64C32 28.7 60.7 0 96 0h133.5c17 0 33.3 6.7 45.3 18.7l122.5 122.6c12 12 18.7 28.3 18.7 45.3v149.5h-48v-128h-88c-39.8 0-72-32.2-72-72v-88zm140.1 112L256 67.9V136c0 13.3 10.7 24 24 24zM240 380h32c33.1 0 60 26.9 60 60s-26.9 60-60 60h-12v28c0 11-9 20-20 20s-20-9-20-20V400c0-11 9-20 20-20m32 80c11 0 20-9 20-20s-9-20-20-20h-12v40zm96-80h32c28.7 0 52 23.3 52 52v64c0 28.7-23.3 52-52 52h-32c-11 0-20-9-20-20V400c0-11 9-20 20-20m32 128c6.6 0 12-5.4 12-12v-64c0-6.6-5.4-12-12-12h-12v88zm76-108c0-11 9-20 20-20h48c11 0 20 9 20 20s-9 20-20 20h-28v24h28c11 0 20 9 20 20s-9 20-20 20h-28v44c0 11-9 20-20 20s-20-9-20-20z"/></svg></span></a></p>
+<h2 id="cloud-native-roadmap">Cloud-native Roadmap</h2>
+<p>You can define your cloud native road map in many ways. You can get
+there by choosing different paths. Let us see the trail map defined by
+CNCF.</p>
+<p>CNCF defined the Cloud Native Trail Map providing an overview for
+enterprises starting their cloud native journey as follows.</p>
+<p>This cloud map gives us various steps that an engineering team may use
+while considering the cloud native technologies and exploring them. The
+most common ones among them are Containerization, CI/CD, and
+Orchestration. Next crucial pieces will be Observability &amp; Analysis and
+Service Mesh. And later comes the rest of them like Networking,
+Distributed Database, Messaging, Container runtime, and software
+distribution based on your requirements.</p>
+<p><img alt="CNCF_TrailMap_latest.png" src="../images/CNCF_TrailMap_latest.png" /></p>
+<ul>
+<li>
+<p>With out Containerization, you cannot build cloud native
+    applications. This helps your application to run in any computing
+    environment. Basically, all your code and dependencies are packaged
+    up together in to a single unit here. Among different container
+    platforms available, Docker is a preferred one.</p>
+</li>
+<li>
+<p>To bring all the changes in the code to container automatically, it
+    is nice to set up a CI/CD pipeline which does that. There are many
+    tools available like jenkins, travis, etc.</p>
+</li>
+<li>
+<p>Since we have containers, we need container orchestration to manage
+    the container lifecycles. Currently, Kubernetes is one solution
+    which is popular.</p>
+</li>
+<li>
+<p>Monitoring and Observability plays a very important role. It is good
+    to set up some of them like logging, tracing, metrics etc.</p>
+</li>
+<li>
+<p>To enable more complex operational requirements, you can use a
+    service mesh. It helps you out with several things like service
+    discovery, health, routing, A/B testing etc. Istio is one of the
+    examples of service mesh.</p>
+</li>
+<li>
+<p>Networking plays a crucial role. You should define flexible
+    networking layers based on your requirements. For this, you can use
+    Calico, Weave Net etc.</p>
+</li>
+<li>
+<p>Sometimes, you may need distributed databases. Based on your
+    requirements, if you need more scalability and resiliency, these are
+    required.</p>
+</li>
+<li>
+<p>Messaging may be required sometimes too. Go with different messaging
+    queues like Kafka, RabbitMQ etc available when you need them.</p>
+</li>
+<li>
+<p>Container Registry helps you to store all your containers. You can
+    also enable image scanning and signing if required.</p>
+</li>
+<li>
+<p>As a part of your application, sometimes you may need a secure
+    software distribution.</p>
+</li>
+</ul>
+<p>Also, if you want to see the cloud native landscape, check it out
+<a href="https://landscape.cncf.io/images/landscape.png">here</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>In this, we covered the fundamentals of cloud native systems. You now
+know what cloud native is, why we need it and how it is important. Cloud
+native is not just deploying your application on cloud but it is more of
+taking full advantages of cloud. Also, from cloud-native roadmap, you
+will get an idea on how to design and architect your cloud-native
+system. You can also get the idea of different tools, frameworks,
+platforms etc from the cloud-native landscapes.</p>
+<p>Also, if you are interesting in knowing more, we have <a href="https://www.ibm.com/cloud/learn/cloud-native">Cloud-Native: A
+Complete Guide</a>. Feel free
+to check this out.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/cloud-native-development/9781788473927/">John Gilbert, (2018). Cloud Native Development Patterns and Best
+    Practices. Publisher: Packt
+    Publishing</a></p>
+</li>
+<li>
+<p><a href="https://github.com/cncf/landscape">CNCF landscape</a></p>
+</li>
+<li>
+<p><a href="https://github.com/cncf/toc/blob/master/DEFINITION.md">CNCF
+    Definition</a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 15, 2026 20:30:05 UTC">January 15, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Journey to the Cloud">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Journey to the Cloud
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../benefits/" class="md-footer__link md-footer__link--next" aria-label="Next: Benefits of Cloud">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Benefits of Cloud
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.prune", "navigation.footer", "navigation.indexes", "toc.follow", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
