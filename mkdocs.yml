@@ -69,6 +69,7 @@ nav:
       - containers/index.md
       - Benefits of Container: containers/benefitsContainers.md
       - Image Registries: containers/imageregistry.md
+      - Registry Tutorials: containers/registry-tutorials.md
       - References: containers/reference.md
       - Activities/Labs:
           - labs/index.md
@@ -123,10 +124,25 @@ nav:
   - DevOps/GitOps:
       - devops/index.md
       - DevOps Tools: devops/devopsTools.md
-      - <div class="sub-section">Tekton</div>: devops/tekton/index.md
-      - <div class="sub-section">IBM ToolChain</div>: devops/ibm-toolchain/index.md
+      - <div class="header">Continuous Integration</div>:
+          - <div class="sub-section">Tekton Lab</div>: labs/devops/tekton/index.md
+          - <div class="sub-section">IBM ToolChain Lab</div>: labs/devops/ibm-toolchain/index.md
+          - <div class="sub-section">Jenkins Lab</div>: labs/devops/jenkins/index.md
       - What is GitOps?: devops/gitops.md
-      - <div class="sub-section">ArgoCD</div>: devops/argocd/index.md
+      - <div class="header">Continuous Deployment</div>:
+          - <div class="sub-section">ArgoCD Lab</div>: labs/devops/argocd/index.md
   - Activities/Labs:
       - labs/index.md
-      - Solutions: labs/kubernetes/lab-solutions.md
+      - <div class="header">Kubernetes Lab Solutions</div>:
+          - Solutions Overview: labs/kubernetes/lab-solutions.md
+          - Lab 1 Solution: labs/kubernetes/lab1/solution.md
+          - Lab 2 Solution: labs/kubernetes/lab2/solution.md
+          - Lab 3 Solution: labs/kubernetes/lab3/solution.md
+          - Lab 4 Solution: labs/kubernetes/lab4/solution.md
+          - Lab 5 Solution: labs/kubernetes/lab5/solution.md
+          - Lab 6 Solution: labs/kubernetes/lab6/solution.md
+          - Lab 7 Solution: labs/kubernetes/lab7/solution.md
+          - Lab 8 Solution: labs/kubernetes/lab8/solution.md
+          - Lab 9 Solution: labs/kubernetes/lab9/solution.md
+          - Lab 10 Solution: labs/kubernetes/lab10/solution.md
+      - IKS Ingress Lab: labs/kubernetes/ingress-iks/index.md

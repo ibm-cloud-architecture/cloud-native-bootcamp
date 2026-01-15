@@ -24,13 +24,13 @@ fi
 
 if hash crc 2>/dev/null
 then
-    printf '\xE2\x9C\x85 CRC \n'
+    printf '\xE2\x9C\x85 OpenShift Local (crc) \n'
 else
-    printf '\xE2\x9D\x8C CRC \n \n'
+    printf '\xE2\x9D\x8C OpenShift Local (crc) \n \n'
 
     printf '* A RedHat Account is Required * \n'
-    printf 'Download CRC using the links below: \n'
-    printf 'For All Users: https://cloud.redhat.com/openshift/install/crc/installer-provisioned \n \n'
+    printf 'Download OpenShift Local using the links below: \n'
+    printf 'For All Users: https://developers.redhat.com/products/openshift-local/overview \n \n'
 fi
 
 if hash minikube 2>/dev/null

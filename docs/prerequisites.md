@@ -18,31 +18,13 @@ Here is a course for learning (or brushing up) on working from the linux command
 
     You'll need these accounts to use the Developer Tools environment.
 
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one aleady. If you have not logged in for a while, make sure your login is working.
+    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
 
     - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
 
     - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
 
-    - [RedHat Account](https://www.redhat.com/en): Needed for CodeReady Containers.
-
-    ## Run System Check Script
-
-    Run the following command in your terminal to check which tools need to be installed.
-
-    Using `wget`:
-
-    ```
-    wget -O - https://cloudbootcamp.dev/scripts/system-check.sh | sh
-    ```
-
-    Using `curl`:
-
-    ```
-    curl -s https://cloudbootcamp.dev/scripts/system-check.sh | sh
-    ```
-
-    After the script is run, make sure to install any missing tools.
+    - [RedHat Account](https://www.redhat.com/en): Needed for OpenShift Local.
 
     ## Install CLIs and tools
 
@@ -73,7 +55,7 @@ Here is a course for learning (or brushing up) on working from the linux command
         - You will be required to edit some files, having a good quality editor is always best practice
         - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
-    - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html): _Optional_ installed on your local machine
+    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
         - Used for SpringBoot content
 
 
@@ -83,13 +65,13 @@ Here is a course for learning (or brushing up) on working from the linux command
 
     You'll need these accounts to use the Developer Tools environment.
 
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one aleady. If you have not logged in for a while, make sure your login is working.
+    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
 
     - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
 
     - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
 
-    - [RedHat Account](https://www.redhat.com/en): Needed for CodeReady Containers.
+    - [RedHat Account](https://www.redhat.com/en): Needed for OpenShift Local.
 
     ## Cloud Native VM
 
@@ -122,44 +104,24 @@ Here is a course for learning (or brushing up) on working from the linux command
         - You will be required to edit some files, having a good quality editor is always best practice
         - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
-    - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html): _Optional_ installed on your local machine
+    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
         - Used for SpringBoot content
 
-    - [OpenShift CodeReady Containers (CRC)](https://code-ready.github.io/crc/#installing-codeready-containers_gsg)
+    - [OpenShift Local](https://docs.redhat.com/en/documentation/red_hat_openshift_local/): For running a local OpenShift cluster
 
-    <InlineNotification kind="warning">
-
-    **Warning:** Make sure you have Cisco VPN turned off when using CRC.
-
-    </InlineNotification>
+    !!! warning
+        Make sure you have Cisco VPN turned off when using OpenShift Local.
 
 === "Kubernetes (MacOS/Linux)"
     ## Create accounts
 
     You'll need these accounts to use the Developer Tools environment.
 
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one aleady. If you have not logged in for a while, make sure your login is working.
+    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
 
     - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
 
     - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
-
-
-    ## Run System Check Script
-
-    Run the following command in your terminal to check which tools need to be installed.
-
-    Using wget:
-    ```
-    wget -O - https://cloudbootcamp.dev/scripts/system-check.sh | sh
-    ```
-
-    Using curl:
-    ```
-    curl -s https://cloudbootcamp.dev/scripts/system-check.sh | sh
-    ```
-
-    After the script is run, make sure to install any missing tools.
 
     ## Install CLIs and tools
 
@@ -191,16 +153,13 @@ Here is a course for learning (or brushing up) on working from the linux command
         - You will be required to edit some files, having a good quality editor is always best practice
         - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
-    - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html): _Optional_ installed on your local machine
+    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
         - Used for SpringBoot content
 
     - [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/): Follow the instructions for your Operating System.
 
-    <InlineNotification kind="warning">
-
-    **Warning:** Make sure you have Cisco VPN turned off when using minikube.
-
-    </InlineNotification>
+    !!! warning
+        Make sure you have Cisco VPN turned off when using minikube.
 
 === "Kubernetes (Windows)"
 
@@ -208,7 +167,7 @@ Here is a course for learning (or brushing up) on working from the linux command
 
     You'll need these accounts to use the Developer Tools environment.
 
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one aleady. If you have not logged in for a while, make sure your login is working.
+    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
 
     - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
 
@@ -250,37 +209,48 @@ Here is a course for learning (or brushing up) on working from the linux command
         - You will be required to edit some files, having a good quality editor is always best practice
         - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
-    - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html): _Optional_ installed on your local machine
+    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
         - Used for SpringBoot content
 
     - [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/): Follow the instructions for your Operating System.
 
-    <InlineNotification kind="warning">
-
-    **Warning:** Make sure you have Cisco VPN turned off when using minikube.
-
-    </InlineNotification>
+    !!! warning
+        Make sure you have Cisco VPN turned off when using minikube.
 
 
-## Environment Setup 
+## Check Your Setup
+
+After installing the required CLIs and tools, you can run a system check script to verify which dependencies you have installed and which ones are missing.
+
+[Download System Check Script :fontawesome-solid-download:](scripts/system-check.sh){ .md-button download }
+
+**Run the script after downloading:**
+
+    chmod +x system-check.sh
+    ./system-check.sh
+
+!!! tip
+    The script checks for: IBM Cloud CLI, Git, OpenShift Local (crc), Minikube, Docker, Podman, kubectl, oc, Tekton CLI, and ArgoCD CLI. You don't need all of these - just the ones relevant to the labs you plan to complete.
+
+## Environment Setup
 === "MiniKube"
 
-    - Verify your cluster has 4GB+ memory, and kubernetes 1.16+
+    - Verify your cluster has 4GB+ memory and Kubernetes 1.28+
         ```
         minikube config view
         ```
-    - Verify your `vm-driver` is set for `hyperkit`
+    - Set the driver (use `docker` for most systems, or `qemu` for Apple Silicon Macs)
         ```
-        minikube config set vm-driver hyperkit
+        minikube config set driver docker
         ```
     - In case memory is not set, or need to increase set the memory and recreate the VM
         ```
         minikube config set memory 4096
-        minikube config set kubernetes-version v1.16.6
+        minikube config set kubernetes-version v1.31.0
         minikube delete
         minikube start
         ```
-    - Kubernetes should be v1.15+
+    - Kubernetes should be v1.28+
         ```
         kubectl version
         ```
@@ -338,4 +308,4 @@ Here is a course for learning (or brushing up) on working from the linux command
 
 
 ## Next Steps
-Once Setup is complete, you can now begin reading our about [Cloud Native](./cloud-native/index.md by clicking the link, or the `Next` button below.
+Once Setup is complete, you can now begin reading about [Cloud Native](./cloud/index.md) by clicking the link, or the `Next` button below.

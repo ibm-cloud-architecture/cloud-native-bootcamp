@@ -41,7 +41,7 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It auto
 
 ## Presentations
 
-[GitOps Overview :fontawesome-regular-file-pdf:](../materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
+[GitOps Overview :fontawesome-regular-file-pdf:](../materials/05-Understanding-GitOps.pdf){ .md-button target="_blank"}
 
 ## Activities
 

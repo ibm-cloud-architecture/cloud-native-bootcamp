@@ -204,7 +204,7 @@ scale.
 
 ## Presentations
 
-[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./materials/01-What-Is-Cloud-Native.pdf){ .md-button target=_blank}
+[Cloud-Native Presentation :fontawesome-regular-file-pdf:](./materials/01-What-Is-Cloud-Native.pdf){ .md-button target="_blank"}
 
 ## Cloud-native Roadmap
 

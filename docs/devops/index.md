@@ -16,9 +16,9 @@ Adopting DevOps allows enterprises to create, maintain and improve their applica
 
 ## Presentations
 
-[Tekton Overview :fontawesome-regular-file-pdf:](./materials/04-Tekton-Overview.pdf){ .md-button target=_blank}
+[Tekton Overview :fontawesome-regular-file-pdf:](./materials/04-Tekton-Overview.pdf){ .md-button target="_blank"}
 
-[GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}
+[GitOps Overview :fontawesome-regular-file-pdf:](./materials/05-Understanding-GitOps.pdf){ .md-button target="_blank"}
 
 ## Benefits of DevOps
 
@@ -106,7 +106,7 @@ This helps to analyze the impact on the systems due to configurations. It makes 
 
 **Build Management**
 
-Build Management helps to assmble the build environment by packaging all the required components such as the source code, dependencies, etc of the software application together in to a workable unit. Builds can be done manually, on-demand or automated.
+Build Management helps to assemble the build environment by packaging all the required components such as the source code, dependencies, etc of the software application together in to a workable unit. Builds can be done manually, on-demand or automated.
 
 It ensures that the software is stable and it is reusable. It improves the quality of the software and makes sure it is reliable. It also increases the efficiency.
 
@@ -166,7 +166,7 @@ DevOps is all about measuring the metrics and feedback, with continuous improvem
 
 ![devops](./images/devops_twelvefactor.png)
 
-If you are new to Twelve factor methodology, have a look [here](https://12factor.net/). For more details, checkout [Cloud-Native module](https://github.ibm.com/CASE/cloudnative-bootcamp/tree/master/Cloud_Native_Module).
+If you are new to Twelve factor methodology, have a look [here](https://12factor.net/).
 
 ## DevOps Reference Architecture
 

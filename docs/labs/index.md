@@ -20,29 +20,29 @@
 | Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod.             | [Setting up Persistent Volumes](kubernetes/lab5/index.md) |
 | Pod Configuration             | Configure a pod to meet compute resource requirements.                   | [Pod Configuration](kubernetes/lab6/index.md)             |
 | Rolling Updates Lab           | Create a Rolling Update for your application.                            | [Rolling Updates](kubernetes/lab7/index.md)               |
-| Cron Jobs Lab                 | Using Tekton to test new versions of applications.                       | [Crons Jobs](kubernetes/lab8/index.md)                    |
+| Cron Jobs Lab                 | Create a CronJob to run periodic tasks in your cluster.                  | [Cron Jobs](kubernetes/lab8/index.md)                     |
 | Creating Services             | Create two services with certain requirements.                           | [Setting up Services](kubernetes/lab9/index.md)           |
 | Network Policies              | Create a policy to allow client pods with labels to access secure pod.   | [Network Policies](kubernetes/lab10/index.md)             |
 | IKS Ingress Controller        | Configure Ingress on Free IKS Cluster                                    | [Setting IKS Ingress](kubernetes/ingress-iks/index.md)    |
 | **_Solutions_**               |                                                                          |                                                           |
 | Lab Solutions                 | Solutions for the Kubernetes Labs                                        | [Solutions](kubernetes/lab-solutions.md)                  |
 
-## DevOps
+## Continuous Integration
 
-| Task                               | Description                                         | Link                                                              |
-| ---------------------------------- | --------------------------------------------------- | :---------------------------------------------------------------- |
-| **_Walkthroughs_**                 |                                                     |                                                                   |
-| Deploying Applications From Source | Using OpenShift 4 | [S2I](https://docs.openshift.com/container-platform/4.17/openshift_images/using_images/using-s21-images.html) |
-| **_Try It Yourself_**              |                                                     |                                                                   |
-| Tekton Lab                         | Using Tekton to test new versions of applications.  | [Tekton](devops/tekton/index.md)                                  |
-| IBM Cloud DevOps                   | Using IBM Cloud ToolChain with Tekton               | [Tekton on IBM Cloud](devops/ibm-toolchain/index.md)              |
-| Jenkins Lab                        | Using Jenkins to test new versions of applications. | [Jenkins](devops/jenkins/index.md)                                |
+| Task                               | Description                                         | Link                                                                                                           |
+| ---------------------------------- | --------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
+| **_Walkthroughs_**                 |                                                     |                                                                                                                |
+| Deploying Applications From Source | Using OpenShift 4 Source-to-Image                   | [S2I](https://docs.openshift.com/container-platform/4.17/openshift_images/using_images/using-s21-images.html)  |
+| **_Try It Yourself_**              |                                                     |                                                                                                                |
+| Tekton Lab                         | Using Tekton to test new versions of applications.  | [Tekton](devops/tekton/index.md)                                                                               |
+| IBM Cloud DevOps                   | Using IBM Cloud ToolChain with Tekton               | [Tekton on IBM Cloud](devops/ibm-toolchain/index.md)                                                           |
+| Jenkins Lab                        | Using Jenkins to test new versions of applications. | [Jenkins](devops/jenkins/index.md)                                                                             |
 
-## GitOps
+## Continuous Deployment
 
 | Task                  | Description                                      | Link                                                                             |
 | --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- |
-| **_Walkthroughs_**    |                                                  |                                                                                  |     |
+| **_Walkthroughs_**    |                                                  |                                                                                  |
 | GitOps                | Introduction to GitOps with OpenShift            | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/) |
 | **_Try It Yourself_** |                                                  |                                                                                  |
 | ArgoCD Lab            | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](devops/argocd/index.md)                                                 |

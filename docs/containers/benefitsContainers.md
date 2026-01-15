@@ -54,18 +54,12 @@ Containers are the foundation of microservices architecture, enabling:
 - **Fault isolation** - Failures in one service don't cascade to others
 - **Horizontal scaling** - Scale individual services based on demand
 
-```text
-┌─────────────────────────────────────────────────────────┐
-│                      Application                         │
-├──────────┬──────────┬──────────┬──────────┬────────────┤
-│   Auth   │   API    │  Search  │  Payment │   Email    │
-│ Service  │ Gateway  │ Service  │ Service  │  Service   │
-│   🐳     │    🐳    │    🐳    │    🐳    │     🐳     │
-└──────────┴──────────┴──────────┴──────────┴────────────┘
-     ↕           ↕          ↕          ↕           ↕
-  Scale       Scale      Scale      Scale       Scale
-Independently
-```
+| Auth Service | API Gateway | Search Service | Payment Service | Email Service |
+| :----------: | :---------: | :------------: | :-------------: | :-----------: |
+|  Container   |  Container  |   Container    |    Container    |   Container   |
+|   ↕ Scale    |   ↕ Scale   |    ↕ Scale     |     ↕ Scale     |    ↕ Scale    |
+
+Each service can be deployed, updated, and scaled independently.
 
 ## Portability
 

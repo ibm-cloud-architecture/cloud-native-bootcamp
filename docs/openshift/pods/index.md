@@ -16,7 +16,7 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
           Learn more about the basics of _pods_ and how they work.
 
-          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-using.html){ target="_blank"}
+          [:octicons-arrow-right-24: Getting started](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-using.html){ target="_blank"}
 
       -   :fontawesome-solid-globe:{ .lg .middle } __Cluster Configuration for Pods__
 
@@ -24,7 +24,7 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
           Configure your cluster to work for your specific needs.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-configuring.html){ target="_blank"}
 
       -   :fontawesome-solid-up-right-and-down-left-from-center:{ .lg .middle } __Pod Autoscaling__
 
@@ -32,7 +32,7 @@ A Pod encapsulates an application’s container (or, in some cases, multiple con
 
           Use a horizontal pod autoscaler (HPA) to specify how OCP should automatically scale up or down your deployment.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.3/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-autoscaling.html){ target="_blank"}
 
     </div>
 

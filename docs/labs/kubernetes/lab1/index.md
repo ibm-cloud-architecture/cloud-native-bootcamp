@@ -4,7 +4,7 @@
 
 - Write a pod definition named `yoda-service-pod.yml` Then create a pod in the cluster using this definition to make sure it works.
 
-The specificationsof this pod are as follows:
+The specifications of this pod are as follows:
 
 - Use the `bitnami/nginx` container image.
 - The container needs a containerPort of `80`.

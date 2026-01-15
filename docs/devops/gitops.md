@@ -27,7 +27,20 @@ The typical GitOps workflow follows these steps:
 5. The agent applies the changes to the target environment
 6. The agent continuously monitors and ensures the running state matches Git
 
-![GitOps Flow](./images/gitops_flow.png)
+```text
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  Developer   │───▶│     Git      │───▶│  GitOps      │
+│  makes       │    │  Repository  │    │  Agent       │
+│  changes     │    │  (PR/Merge)  │    │  (ArgoCD)    │
+└──────────────┘    └──────────────┘    └──────┬───────┘
+                                               │
+                                               ▼
+                                        ┌──────────────┐
+                                        │  Kubernetes  │
+                                        │  Cluster     │
+                                        │  (Deployed)  │
+                                        └──────────────┘
+```
 
 ## GitOps vs Traditional CI/CD
 
