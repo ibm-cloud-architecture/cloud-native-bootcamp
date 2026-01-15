@@ -327,4 +327,4 @@ spec:
 | Task                  | Description                                                          | Link                                             |
 | --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
 | **_Try It Yourself_** |                                                                      |                                                  |
-| Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab4/index.md) |
+| Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab2/index.md) |

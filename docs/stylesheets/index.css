@@ -33,16 +33,7 @@
   src: url("fonts/IBMPlexSans-Regular.otf") format("truetype");
 }
 
-.header{
-  font-size: 16px;
-  pointer-events: none;
-  font-weight: bold;
-}
-
-.sub-section{
-  font-size: 14px;
-  text-indent: 10px;
-}
+/* Navigation styling */
 
 h1 {
   font-family: "IBM Plex Sans Medium";

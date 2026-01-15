@@ -133,4 +133,4 @@ spec:
 | Task                  | Description                                     | Link                                                          |
 | --------------------- | ----------------------------------------------- | :------------------------------------------------------------ |
 | **_Try It Yourself_** |                                                 |                                                               |
-| Multiple Containers   | Build a container using legacy container image. | [Multiple Containers](../../../labs/kubernetes/lab3/index.md) |
+| Multiple Containers   | Build a container using legacy container image. | [Multiple Containers](../../../labs/kubernetes/lab4/index.md) |

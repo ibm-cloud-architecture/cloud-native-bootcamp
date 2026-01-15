@@ -170,9 +170,7 @@ Usually is getting familiar with how primitives objects interact with each other
 
 ## Activities
 
-The continuous integration activities focus around Tekton the integration platform. These labs will show you how to build pipelines and test your code before deployment.
-
-| Task                  | Description                                                      | Link                                                | Est. Time |
-| --------------------- | ---------------------------------------------------------------- | :-------------------------------------------------- | --------- |
+| Task                  | Description                                                      | Link                                                |
+| --------------------- | ---------------------------------------------------------------- | :-------------------------------------------------- |
 | **_Try It Yourself_** |                                                                  |                                                     |
-| Debugging             | Find which service is breaking in your cluster and find out why. | [Debugging](../../../labs/kubernetes/lab5/index.md) | 30 min    |
+| Debugging             | Find which service is breaking in your cluster and find out why. | [Debugging](../../../labs/kubernetes/lab3/index.md) |

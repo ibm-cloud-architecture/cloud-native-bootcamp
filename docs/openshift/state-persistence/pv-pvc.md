@@ -108,3 +108,10 @@ spec:
     ``` Bash title="Get the Persistent Volume Claims"
     kubectl get pvc
     ```
+
+## Activities
+
+| Task                  | Description                                              | Link                                                            |
+| --------------------- | -------------------------------------------------------- | :-------------------------------------------------------------- |
+| **_Try It Yourself_** |                                                          |                                                                 |
+| Persistent Volumes    | Create a Persistent Volume that's accessible from a Pod. | [Persistent Volumes](../../labs/kubernetes/lab5/index.md)       |

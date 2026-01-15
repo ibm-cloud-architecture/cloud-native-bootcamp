@@ -194,4 +194,4 @@ spec:
 | Task                  | Description                                            | Link                                                     |
 | --------------------- | ------------------------------------------------------ | :------------------------------------------------------- |
 | **_Try It Yourself_** |                                                        |                                                          |
-| Pod Configuration     | Configure a pod to meet compute resource requirements. | [Pod Configuration](../../labs/kubernetes/lab2/index.md) |
+| Pod Configuration     | Configure a pod to meet compute resource requirements. | [Pod Configuration](../../labs/kubernetes/lab6/index.md) |

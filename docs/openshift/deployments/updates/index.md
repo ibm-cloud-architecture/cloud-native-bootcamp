@@ -100,3 +100,10 @@ spec:
     ``` Bash title="Setting Namespace in Context"
     kubectl config set-context --current --namespace=dev
     ```
+
+## Activities
+
+| Task                  | Description                                  | Link                                                      |
+| --------------------- | -------------------------------------------- | :-------------------------------------------------------- |
+| **_Try It Yourself_** |                                              |                                                           |
+| Rolling Updates Lab   | Create a Rolling Update for your application | [Rolling Updates](../../../labs/kubernetes/lab7/index.md) |

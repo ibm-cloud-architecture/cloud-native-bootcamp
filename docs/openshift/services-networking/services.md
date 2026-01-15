@@ -127,4 +127,4 @@ spec:
 | Task                  | Description                                    | Link                                                       |
 | --------------------- | ---------------------------------------------- | :--------------------------------------------------------- |
 | **_Try It Yourself_** |                                                |                                                            |
-| Creating Services     | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab8/index.md) |
+| Creating Services     | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab9/index.md) |

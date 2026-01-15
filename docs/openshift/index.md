@@ -62,13 +62,16 @@ Every application needs to have a specified minimum and maximum amount of resour
 
 Different levels of Quality of Service (QoS) are offered based on the specified requests and limits.
 
-3. Quality of Service Levels
-Best Effort;;
-    Lowest priority pod with no requests or limits set for it's containers. These pods will be the first of any pods killed if resources run low.
-Burstable;;
-    Limits and requests are defined but they are not equal.  The pod will use the minimum amount of resources, but will consume more if needed up to the limit.  If the needed resources become scarce then these pods will be killed if no Best Effort pods are left.
-Guaranteed;;
-    Highest priority pods with an equal amount of requests and limits. These pods will be the last to be killed if resources run low and no Best Effort or Burstable pods are left. 
+### Quality of Service Levels
+
+**Best Effort**
+:   Lowest priority pod with no requests or limits set for its containers. These pods will be the first of any pods killed if resources run low.
+
+**Burstable**
+:   Limits and requests are defined but they are not equal. The pod will use the minimum amount of resources, but will consume more if needed up to the limit. If the needed resources become scarce then these pods will be killed if no Best Effort pods are left.
+
+**Guaranteed**
+:   Highest priority pods with an equal amount of requests and limits. These pods will be the last to be killed if resources run low and no Best Effort or Burstable pods are left. 
 
 ### Pod Priority
 
@@ -80,4 +83,11 @@ Pod Priority should be used with caution for this gives users the ability to con
 
 ## Benefits of Container Orchestration
 
-...
+- **Simplified Operations** - Automates deployment, scaling, and management of containerized applications
+- **High Availability** - Automatically restarts failed containers and reschedules them on healthy nodes
+- **Scalability** - Easily scale applications up or down based on demand
+- **Resource Optimization** - Efficiently allocates resources across the cluster to maximize utilization
+- **Service Discovery and Load Balancing** - Built-in DNS and load balancing for container communication
+- **Self-Healing** - Automatically replaces and reschedules containers when nodes fail
+- **Rolling Updates and Rollbacks** - Deploy new versions with zero downtime and easily rollback if issues arise
+- **Secret and Configuration Management** - Securely manage sensitive information and application configuration
