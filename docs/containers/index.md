@@ -2,17 +2,17 @@
 
 You wanted to run your application on different computing environments. It may be your laptop, test environment, staging environment or production environment.
 
-So, when you run it on these different environments, will your application work reliably ?
+So, when you run it on these different environments, will your application work reliably?
 
-What if some underlying software changes ? What if the security policies are different ? or something else changes ?
+What if some underlying software changes? What if the security policies are different? Or something else changes?
 
-To solve this problems, we need Containers.
+To solve these problems, we need Containers.
 
 ## Containers
 
 Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change. They work by hiding the differences between applications inside the container so that everything outside the container can be standardized.
 
-For example, Docker created standard way to create images for Linux Containers.
+For example, Docker created a standard way to create images for Linux Containers.
 
 <iframe width="1206" height="678" src="https://www.youtube.com/embed/0qotVMX-J5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -22,106 +22,375 @@ For example, Docker created standard way to create images for Linux Containers.
 
 ## Why Containers?
 
-- We can run them anywhere.
-- They are lightweight .
-- Isolate your application from others.
+- **Run anywhere** - Containers run consistently on any platform that supports a container runtime
+- **Lightweight** - Share the host OS kernel, using fewer resources than virtual machines
+- **Fast startup** - Start in seconds rather than minutes
+- **Isolation** - Applications run in isolated environments without interfering with each other
+- **Scalable** - Easily scale up or down based on demand
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/muTkqVewJMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Different Container Standards
+## How Containers Work
 
-There are many different container standards available today. Some of them are as follows.
+Containers leverage Linux kernel features to provide isolation and resource management:
 
-**Docker** - The most common standard, made Linux containers usable by the masses.
+### Linux Namespaces
 
-**Rocket (rkt)** - An emerging container standard from CoreOS, the company that developed etcd.
+Namespaces provide isolation for system resources, making each container appear to have its own:
 
-**Garden** - The format Cloud Foundry builds using buildpacks.
+- **PID namespace** - Isolated process tree
+- **Network namespace** - Isolated network stack (interfaces, routing tables, firewall rules)
+- **Mount namespace** - Isolated filesystem mount points
+- **User namespace** - Isolated user and group IDs
+- **UTS namespace** - Isolated hostname and domain name
 
-Among them, Docker was one of the most popular mainstream container software tools.
+### Control Groups (cgroups)
 
-!!! info "Open Container Initiative (OCI)"
+Cgroups limit and account for resource usage:
 
-    A Linux Foundation project developing a governed container standard. **Docker** and **Rocket** are OCI-compliant. But, **Garden** is not.
+- CPU time and cores
+- Memory limits
+- Disk I/O bandwidth
+- Network bandwidth
 
-## Benefits
+### Union Filesystems
 
-- Lightweight
-- Scalable
-- Efficient
-- Portable
-- Supports agile development
+Container images use layered filesystems (like OverlayFS) that allow:
 
-???+ note "Containerization Guides"
+- Efficient storage through shared base layers
+- Copy-on-write for container modifications
+- Fast image distribution
 
-    To know more about Containerization, we have couple of guides. Feel free to check them out.
+## Container Runtimes and Standards
 
-    - [Containerization: A Complete Guide](https://www.ibm.com/cloud/learn/containerization).
-    - [Containers: A Complete Guide](https://www.ibm.com/cloud/learn/containers).
+The container ecosystem has evolved around open standards managed by the **Open Container Initiative (OCI)**, a Linux Foundation project.
+
+### OCI Specifications
+
+| Specification | Purpose |
+| ------------- | ------- |
+| **Runtime Spec** | Defines how to run a container (filesystem bundle, lifecycle, configuration) |
+| **Image Spec** | Defines container image format (layers, manifests, configuration) |
+| **Distribution Spec** | Defines how images are distributed via registries |
+
+### Container Runtimes
+
+**Low-level runtimes** (OCI-compliant):
+
+- **runc** - The reference implementation, created by Docker and donated to OCI
+- **crun** - A fast, lightweight runtime written in C (used by Podman)
+- **youki** - A runtime written in Rust for improved safety
+
+**High-level runtimes**:
+
+- **containerd** - Industry standard runtime used by Docker and Kubernetes, manages the complete container lifecycle
+- **CRI-O** - Lightweight runtime built specifically for Kubernetes, implements the Container Runtime Interface (CRI)
+
+### Container Engines
+
+Container engines provide user-friendly tools for building, running, and managing containers:
+
+| Engine | Description |
+| ------ | ----------- |
+| **Docker** | The most widely adopted container platform, includes Docker Engine, CLI, and Desktop |
+| **Podman** | Daemonless, rootless container engine, drop-in replacement for Docker CLI |
+| **Buildah** | Specialized tool for building OCI-compliant container images |
+| **nerdctl** | Docker-compatible CLI for containerd |
+
+!!! tip "Docker vs Podman"
+    Both Docker and Podman use OCI-compliant images and can run the same containers. Key differences:
+
+    - **Docker** uses a daemon (dockerd) that runs as root
+    - **Podman** is daemonless and runs rootless by default (more secure)
+    - Commands are nearly identical: `docker run` = `podman run`
 
 ## Docker
 
-Docker is one of the most popular Containerization platforms which allows you to develop, deploy, and run application inside containers.
+Docker is the most popular containerization platform, providing tools to develop, deploy, and run applications inside containers.
 
-- It is an open source project.
-- Can run it anywhere.
+- Open source project (Moby)
+- Available on Linux, macOS, and Windows
+- Extensive ecosystem and community
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/wFNWl-QwPfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-An installation of Docker includes an engine. This comes with a daemon, REST APIs, and CLI. Users can use CLI to interact with the docker using commands. These commands are sent to the daemon which listens for the Docker Rest APIs which in turn manages images and containers. The engine runs a container by retrieving its image from the local system or registry. A running container starts one or more processes in the Linux kernel.
+### Docker Architecture
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│                      Docker Client                       │
+│                  (docker CLI commands)                   │
+└─────────────────────────┬───────────────────────────────┘
+                          │ REST API
+┌─────────────────────────▼───────────────────────────────┐
+│                     Docker Daemon                        │
+│                       (dockerd)                          │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
+│  │   Images    │  │ Containers  │  │    Networks     │  │
+│  └─────────────┘  └─────────────┘  └─────────────────┘  │
+└─────────────────────────┬───────────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────────┐
+│                      containerd                          │
+│              (container runtime manager)                 │
+└─────────────────────────┬───────────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────────┐
+│                         runc                             │
+│                 (OCI container runtime)                  │
+└─────────────────────────────────────────────────────────┘
+```
 
 ### Docker Image
 
-A read-only snapshot of a container that is stored in Docker Hub or in private repository. You use an image as a template for building containers.
+A read-only template containing instructions for creating a container. Images are built from a `Dockerfile` and stored in registries.
 
-These images are build from the `Dockerfile`.
+Images are composed of **layers**:
 
-**Dockerfile**
+- Each instruction in a Dockerfile creates a new layer
+- Layers are cached and reused across images
+- Only changed layers need to be transferred when pulling/pushing
 
-- It is a text document that contains all the instructions that are necessary to build a docker image.
-- It is written in an easy-to-understand syntax.
-- It specifies the operating system.
-- It also includes things like environmental variables, ports, file locations etc.
+### Dockerfile
 
-???+ note "Interactive Learning"
+A text file containing instructions to build a Docker image.
 
-    If you want to try building docker images, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
+```dockerfile
+# Base image
+FROM node:20-alpine
 
-    - [Building Container Images](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/){target="_blank"} - Estimated Time: 12 minutes.
+# Set working directory
+WORKDIR /app
+
+# Copy dependency files first (for better caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy application code
+COPY . .
+
+# Create non-root user for security
+RUN addgroup -g 1001 appgroup && \
+    adduser -u 1001 -G appgroup -s /bin/sh -D appuser
+USER appuser
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD wget --quiet --tries=1 --spider http://localhost:3000/health || exit 1
+
+# Start command
+CMD ["node", "server.js"]
+```
+
+### Multi-stage Builds
+
+Multi-stage builds reduce image size by separating build and runtime environments:
+
+```dockerfile
+# Build stage
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine
+WORKDIR /app
+# Copy only production dependencies and built files
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+USER node
+CMD ["node", "dist/server.js"]
+```
 
 ### Docker Container
 
-The standard unit where the application service is located or transported. It packages up all code and its dependencies so that the application runs quickly and reliably from one computing environment to another.
+A runnable instance of an image. Containers are isolated from each other and the host system.
 
-???+ note "Interactive Learning"
+```bash
+# Run a container
+docker run -d --name myapp -p 8080:3000 myimage:latest
 
-    If you want to try deploying a docker container, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
+# View running containers
+docker ps
 
-    - [Deploying a Docker Container](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video4_2/#t11m27s){target="_blank"}
+# View logs
+docker logs myapp
 
-### Docker Engine
+# Execute command in running container
+docker exec -it myapp /bin/sh
 
-Docker Engine is a program that creates, ships, and runs application containers. The engine runs on any physical or virtual machine or server locally, in private or public cloud. The client communicates with the engine to run commands.
-
-???+ note "Interactive Learning"
-
-    If you want to learn more about docker engines, try this course on [O'Reilly](https://learning.oreilly.com/videos/docker-for-the/9781788991315/){target="_blank"} (Interactive Learning Platform).
-
-    - [Docker Networking](https://learning.oreilly.com/videos/docker-for-the/9781788991315/9781788991315-video7_1/){target="\_blank"}
+# Stop and remove
+docker stop myapp && docker rm myapp
+```
 
 ### Docker Registry
 
-The registry stores, distributes, and shares container images. It is available in software as a service (SaaS) or in an enterprise to deploy anywhere you that you choose.
+A service that stores and distributes container images:
 
-**Docker Hub** is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub [here](https://hub.docker.com/search?q=&type=image){target="\_blank"}.
+- **Docker Hub** - Public registry with official and community images ([hub.docker.com](https://hub.docker.com))
+- **Red Hat Quay** - Enterprise registry with security scanning
+- **IBM Cloud Container Registry** - IBM's managed registry service
+- **GitHub Container Registry** - GitHub's package registry for containers
+- **Amazon ECR / Google GCR / Azure ACR** - Cloud provider registries
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Dockerfile Best Practices
+
+### 1. Use Minimal Base Images
+
+Choose the smallest base image that meets your needs:
+
+| Image Type | Size | Use Case |
+| ---------- | ---- | -------- |
+| `scratch` | 0 MB | Statically compiled binaries (Go, Rust) |
+| `alpine` | ~5 MB | General purpose, includes shell |
+| `distroless` | ~20 MB | No shell, package manager, or unnecessary tools |
+| `slim` variants | ~50-100 MB | Reduced versions of full images |
+
+```dockerfile
+# Good - minimal image
+FROM node:20-alpine
+
+# Avoid - full image with unnecessary tools
+FROM node:20
+```
+
+### 2. Run as Non-root User
+
+Never run containers as root in production:
+
+```dockerfile
+# Create and switch to non-root user
+RUN addgroup -g 1001 appgroup && \
+    adduser -u 1001 -G appgroup -s /bin/sh -D appuser
+USER appuser
+```
+
+### 3. Optimize Layer Caching
+
+Order instructions from least to most frequently changing:
+
+```dockerfile
+# Good - dependencies cached separately from code
+COPY package*.json ./
+RUN npm ci
+COPY . .
+
+# Bad - cache invalidated on any code change
+COPY . .
+RUN npm ci
+```
+
+### 4. Use .dockerignore
+
+Exclude unnecessary files from the build context:
+
+```text
+# .dockerignore
+node_modules
+.git
+.env
+*.log
+Dockerfile
+.dockerignore
+```
+
+### 5. Pin Versions
+
+Always pin base image and dependency versions:
+
+```dockerfile
+# Good - pinned version
+FROM node:20.10.0-alpine3.19
+
+# Avoid - unpredictable updates
+FROM node:latest
+```
+
+### 6. Minimize Layers
+
+Combine related commands to reduce layers:
+
+```dockerfile
+# Good - single layer
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Bad - multiple layers, cached apt lists
+RUN apt-get update
+RUN apt-get install -y curl
+```
+
+### 7. Add Health Checks
+
+Enable orchestrators to monitor container health:
+
+```dockerfile
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
+```
+
+## Container Security
+
+### Image Security
+
+- **Scan images for vulnerabilities** - Use tools like Trivy, Grype, or Snyk
+- **Sign images** - Use Cosign/Sigstore for image verification
+- **Use trusted base images** - Prefer official images from verified publishers
+- **Keep images updated** - Regularly rebuild with security patches
+
+```bash
+# Scan image with Trivy
+trivy image myapp:latest
+
+# Sign image with Cosign
+cosign sign myregistry.io/myapp:latest
+```
+
+### Runtime Security
+
+- **Run as non-root** - Never run containers as root
+- **Read-only filesystem** - Use `--read-only` flag when possible
+- **Drop capabilities** - Remove unnecessary Linux capabilities
+- **Resource limits** - Set CPU and memory limits
+
+```bash
+# Secure container run
+docker run -d \
+  --read-only \
+  --user 1001:1001 \
+  --cap-drop ALL \
+  --memory 512m \
+  --cpus 0.5 \
+  myapp:latest
+```
+
+### Supply Chain Security
+
+- **Generate SBOMs** - Create Software Bill of Materials for images
+- **Verify signatures** - Validate image authenticity before deployment
+- **Use private registries** - Control access to your container images
+
+```bash
+# Generate SBOM with Syft
+syft myapp:latest -o spdx-json > sbom.json
+```
+
 ## References
 
-- [Docker resources](https://www.docker.com/resources)
-- [Docker tutorial](https://docs.docker.com/get-started/)
-- [The Evolution of Linux Containers and Their Future](https://dzone.com/articles/evolution-of-linux-containers-future)
-- [Open Container Initiative (OCI)](https://www.opencontainers.org)
-- [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io)
-- [Demystifying the Open Container Initiative (OCI) Specifications](https://blog.docker.com/2017/07/demystifying-open-container-initiative-oci-specifications)
+- [Docker Documentation](https://docs.docker.com/)
+- [Podman Documentation](https://docs.podman.io/)
+- [Open Container Initiative (OCI)](https://opencontainers.org/)
+- [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/)
+- [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [Container Security Guide - NIST](https://csrc.nist.gov/publications/detail/sp/800-190/final)
