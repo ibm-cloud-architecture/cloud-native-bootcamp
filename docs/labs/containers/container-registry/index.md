@@ -56,7 +56,7 @@ In this lab we are going to create a Container Image and store it in the [IBM Cl
     cat Dockerfile
     ```
     ```Dockerfile
-    FROM registry.access.redhat.com/ubi8/nodejs-12 as base
+    FROM registry.access.redhat.com/ubi8/nodejs-18 as base
 
     FROM base as builder
 

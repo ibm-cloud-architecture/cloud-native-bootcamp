@@ -2,32 +2,54 @@
 
 ## Solution
 
-Update the deployment to the new version like so:
-```
-kubectl set image deployment/jedi-deployment jedi-ws=bitnamy/nginx:1.18.1 --record
+### Step 1: Update the deployment to the new version
+
+```bash
+kubectl set image deployment/jedi-deployment jedi-ws=bitnami/nginx:1.19.0
 ```
 
-Check the progress of the rolling update:
-```
+### Step 2: Check the progress of the rolling update
+
+```bash
 kubectl rollout status deployment/jedi-deployment
 ```
 
-In another terminal window
-```
+In another terminal window, watch the pods:
+
+```bash
 kubectl get pods -w
 ```
 
-Get a list of previous revisions.
-```
+### Step 3: View the rollout history
+
+Get a list of previous revisions:
+
+```bash
 kubectl rollout history deployment/jedi-deployment
 ```
 
-Undo the last revision.
-```
+### Step 4: Rollback if needed
+
+If the update fails or you need to rollback, undo the last revision:
+
+```bash
 kubectl rollout undo deployment/jedi-deployment
 ```
 
-Check the status of the rollout.
-```
+Check the status of the rollback:
+
+```bash
 kubectl rollout status deployment/jedi-deployment
+```
+
+### Verify the current image
+
+```bash
+kubectl describe deployment jedi-deployment | grep Image
+```
+
+Expected output after successful update:
+
+```
+Image: bitnami/nginx:1.19.0
 ```

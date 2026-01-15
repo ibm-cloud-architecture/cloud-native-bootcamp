@@ -21,7 +21,7 @@ data:
 
     listen http-in
         bind *:80
-        server server1 127.0.0.1:8775 maxconn 32
+        server server1 127.0.0.1:8989 maxconn 32
 ```
 
 ```yaml
@@ -34,7 +34,7 @@ spec:
   - name: millennium-falcon
     image: ibmcase/millennium-falcon:1
   - name: haproxy-ambassador
-    image: haproxy:1.7
+    image: haproxy:2.8
     ports:
     - containerPort: 80
     volumeMounts:
@@ -54,7 +54,7 @@ metadata:
 spec:
   containers:
   - name: myapp-container
-    image: radial/busyboxplus:curl
+    image: curlimages/curl:8.5.0
     command: ['sh', '-c', 'while true; do sleep 3600; done']
 ```
 

@@ -43,7 +43,7 @@ spec:
     ports:
     - containerPort: 5432
     env:
-    - name: MYSQL_ROOT_PASSWORD
+    - name: POSTGRES_PASSWORD
       value: password
     volumeMounts:
     - name: sql-storage

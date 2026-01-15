@@ -17,6 +17,28 @@ configuration so that teams can benefit from the same assurance as they do for t
   - Git push reconciled with the state of the running system with the state in the Git repository
 
 ## ArgoCD Overview
+
+ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications by continuously monitoring Git repositories and synchronizing the desired application state with the live state in Kubernetes clusters.
+
+### Key Features
+
+- **Declarative and version controlled** - Application definitions, configurations, and environments are declarative and version controlled in Git
+- **Automated deployment** - Automatically syncs application state from Git to Kubernetes
+- **Multi-cluster support** - Manage deployments across multiple Kubernetes clusters
+- **SSO Integration** - Integrates with OIDC, OAuth2, LDAP, SAML 2.0, GitHub, GitLab, and Microsoft
+- **Rollback capabilities** - Roll back to any application state committed in the Git repository
+- **Health status analysis** - Real-time view of application deployment health
+- **Web UI and CLI** - Visualize and manage applications through a web interface or command line
+- **Webhook integration** - Trigger deployments automatically from Git events
+
+### How ArgoCD Works
+
+1. You define your application's desired state in a Git repository (Kubernetes manifests, Helm charts, or Kustomize)
+2. ArgoCD continuously monitors the Git repository for changes
+3. When changes are detected, ArgoCD compares the desired state with the live state
+4. ArgoCD automatically or manually syncs the cluster to match the desired state
+5. You can visualize the sync status and health of your applications in real-time
+
 ## Presentations
 
 [GitOps Overview :fontawesome-regular-file-pdf:](../materials/05-Understanding-GitOps.pdf){ .md-button target=_blank}

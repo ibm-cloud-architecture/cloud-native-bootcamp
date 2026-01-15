@@ -2,3 +2,4 @@
 site/
 .vscode/
 node_modules/
+workspace_config.yaml

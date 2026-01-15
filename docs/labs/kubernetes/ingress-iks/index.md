@@ -57,24 +57,30 @@ Using the following steps with a paid instance can cause issues. See the [IBM Cl
 1. Now create an Ingress resource
     ```bash
     cat <<EOF | kubectl apply -f -
-    apiVersion: networking.k8s.io/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: web
       labels:
         app: web
     spec:
+      ingressClassName: nginx
       rules:
         - host: web.$DOMAIN
           http:
             paths:
               - path: /
+                pathType: Prefix
                 backend:
-                  serviceName: web
-                  servicePort: 8080
+                  service:
+                    name: web
+                    port:
+                      number: 8080
     EOF
     echo "Access your web app at http://web.$DOMAIN"
     ```
+
+    > **Note:** The Ingress API moved from `networking.k8s.io/v1beta1` to `networking.k8s.io/v1` in Kubernetes 1.19 (stable in 1.22). The new API requires `pathType` and uses a different backend syntax.
 1. List the created ingress
     ```bash
     kubectl get ingress web

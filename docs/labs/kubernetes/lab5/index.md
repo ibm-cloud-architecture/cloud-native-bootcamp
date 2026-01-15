@@ -34,6 +34,6 @@ Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
 
 - Expose the containerPort `5432`.
 
-- Set an `environment variable` called `MYSQL_ROOT_PASSWORD` with the value `password`.
+- Set an `environment variable` called `POSTGRES_PASSWORD` with the value `password`.
 
 - Add the `PersistentVolumeClaim` as a volume and mount it to the container at the path `/bitnami/postgresql/`.

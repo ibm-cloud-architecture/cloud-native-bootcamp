@@ -12,7 +12,7 @@ This setup will need to meet the following specifications:
 
 - The pod should have the name `vader-service`.
 - The `vader-service` pod should have a container that runs the legacy vader service image: `ibmcase/millennium-falcon:1`.
-- The `vader-service` pod should have an ambassador container that runs the `haproxy:1.7` image and proxies incoming traffic on port `80` to the legacy service on port `8989` (the HAProxy configuration for this is provided below).
+- The `vader-service` pod should have an ambassador container that runs the `haproxy:2.8` image and proxies incoming traffic on port `80` to the legacy service on port `8989` (the HAProxy configuration for this is provided below).
 - Port `80` should be exposed as a `containerPort`.
 
 <InlineNotification>
@@ -53,7 +53,7 @@ metadata:
 spec:
   containers:
     - name: myapp-container
-      image: radial/busyboxplus:curl
+      image: curlimages/curl:8.5.0
       command: ["sh", "-c", "while true; do sleep 3600; done"]
 ```
 
