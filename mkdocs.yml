@@ -90,6 +90,7 @@ nav:
           - Health & Monitoring: openshift/pods/health-checks/index.md
           - Troubleshooting: openshift/pods/troubleshooting/index.md
           - Multi-Container Pods: openshift/pods/multi-container/index.md
+          - Scheduling (Taints & Affinity): openshift/pods/scheduling.md
       - State Persistence:
           - Overview: openshift/state-persistence/index.md
           - Volumes: openshift/state-persistence/volumes.md
@@ -99,15 +100,20 @@ nav:
           - Config Maps: openshift/configuration/config-map/index.md
           - Secrets: openshift/configuration/secrets/index.md
           - Resource Limits: openshift/configuration/limit-ranges/index.md
+          - RBAC: openshift/configuration/rbac.md
       - Deployments:
           - Deployment Basics: openshift/deployments/index.md
           - Rolling Updates: openshift/deployments/updates/index.md
+          - StatefulSets: openshift/deployments/statefulsets.md
+          - DaemonSets: openshift/deployments/daemonsets.md
           - Jobs & CronJobs: openshift/pods/jobs/index.md
+          - Horizontal Pod Autoscaler: openshift/deployments/hpa.md
       - Networking:
           - Overview: openshift/services-networking/index.md
           - Services: openshift/services-networking/services.md
           - Routes: openshift/services-networking/routes.md
           - Ingresses: openshift/services-networking/ingress.md
+          - Network Policies: openshift/services-networking/network-policies.md
       - Operators:
           - Overview: openshift/operators/index.md
           - Operator Catalog: openshift/operators/operatorCatalog.md
