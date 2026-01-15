@@ -138,8 +138,7 @@ nav:
           - IBM ToolChain Lab: labs/devops/ibm-toolchain/index.md
           - Jenkins Lab: labs/devops/jenkins/index.md
       - What is GitOps?: devops/gitops.md
-      - Continuous Deployment:
-          - ArgoCD Lab: labs/devops/argocd/index.md
+      - ArgoCD Lab: labs/devops/argocd/index.md
   - Activities/Labs:
       - labs/index.md
       - Kubernetes Lab Solutions:
