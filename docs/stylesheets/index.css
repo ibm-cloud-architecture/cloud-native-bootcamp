@@ -1,51 +1,39 @@
-:root > * {
+/* IBM Carbon-inspired palette used with `primary: custom` in mkdocs.yml */
+:root {
   --md-primary-fg-color: #161616;
-  --md-footer-bg-color: #393939;
+  --md-primary-fg-color--light: #393939;
+  --md-primary-fg-color--dark: #000000;
+  --md-footer-bg-color: #262626;
+  --md-footer-bg-color--dark: #161616;
 }
 
-@font-face {
-  font-family: "IBM Plex Mono Medium";
-  src: url("fonts/IBMPlexMono-Medium.ttf") format("truetype");
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #161616;
+  --md-default-bg-color: #1c1c1c;
 }
 
-@font-face {
-  font-family: "IBM Plex Mono Regular";
-  src: url("fonts/IBMPlexMono-Regular.ttf") format("truetype");
+/* Keep headings in the Plex family with a clear hierarchy */
+.md-typeset h1 {
+  font-weight: 600;
 }
 
-@font-face {
-  font-family: "IBM Plex Mono Light";
-  src: url("fonts/IBMPlexMono-Light.ttf") format("truetype");
+.md-typeset h2 {
+  font-weight: 500;
 }
 
-@font-face {
-  font-family: "IBM Plex Sans Light";
-  src: url("fonts/IBMPlexSans-Light.otf") format("truetype");
+/* Lab metadata badges, e.g. <span class="lab-badge">30 min</span> */
+.md-typeset .lab-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.25rem;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-typeset-color);
 }
 
-@font-face {
-  font-family: "IBM Plex Sans Bold";
-  src: url("fonts/IBMPlexSans-Bold.otf") format("truetype");
-}
-
-@font-face {
-  font-family: "IBM Plex Sans Regular";
-  src: url("fonts/IBMPlexSans-Regular.otf") format("truetype");
-}
-
-/* Navigation styling */
-
-h1 {
-  font-family: "IBM Plex Sans Medium";
-  font-size: 17px;
-}
-
-h2 {
-  font-family: "IBM Plex Sans Text";
-  font-size: 16px;
-}
-
-h3 {
-  font-family: "IBM Plex Sans Light";
-  font-size: 15px;
+/* Home page cards */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.4rem;
 }

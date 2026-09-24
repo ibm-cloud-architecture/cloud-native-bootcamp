@@ -1,12 +1,5 @@
-FROM squidfunk/mkdocs-material
+FROM docker.io/squidfunk/mkdocs-material:9
 
-RUN apk add --no-cache --update nodejs npm bash hugo curl
-
-WORKDIR /site
-COPY ./package*.json /site/
-COPY ./requirements.txt /site/
-
-# Python Dependencies
-RUN pip --no-cache-dir install -r requirements.txt
-# NodeJS Dependencies
-RUN npm install
+WORKDIR /docs
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
