@@ -79,4 +79,4 @@ spec:
 | Task                   | Description                           | Link                                                              |
 | ---------------------- | ------------------------------------- | :---------------------------------------------------------------- |
 | **_Try It Yourself_**  |                                       |                                                                   |
-| IKS Ingress Controller | Configure Ingress on Free IKS Cluster | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
+| Routes & Ingress | Publish an app with an OpenShift Route and a Kubernetes Ingress. | [Routes & Ingress Lab](../../labs/kubernetes/lab11/index.md) |

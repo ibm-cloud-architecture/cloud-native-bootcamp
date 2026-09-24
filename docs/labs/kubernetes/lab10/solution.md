@@ -1,72 +1,49 @@
-# Kubernetes Lab 10 - Network Policies
+# Lab 10 Solution - Network Policies
 
-## Solution
-
-### Step 1: Create the NetworkPolicy
-
-Save the following to `network-policy.yaml`:
-
-```yaml
+```yaml title="secure-app-policy.yaml"
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: my-network-policy
+  name: secure-app-policy
 spec:
   podSelector:
     matchLabels:
       app: secure-app
   policyTypes:
-  - Ingress
+    - Ingress
   ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          allow-access: "true"
+    - from:
+        - podSelector:
+            matchLabels:
+              allow-access: "true"
 ```
-
-Apply the policy:
 
 ```bash
-kubectl apply -f network-policy.yaml
+oc apply -f secure-app-policy.yaml
+oc describe networkpolicy secure-app-policy
 ```
 
-### Understanding the Policy
+## How the policy works
 
-- `podSelector.matchLabels.app: secure-app` - This policy applies to pods with the label `app: secure-app`
-- `policyTypes: [Ingress]` - This policy controls incoming traffic
-- `ingress.from.podSelector.matchLabels.allow-access: "true"` - Only allow traffic from pods with this label
+| Field | Meaning |
+| --- | --- |
+| `podSelector.matchLabels.app: secure-app` | The policy applies to pods labelled `app: secure-app`. |
+| `policyTypes: [Ingress]` | The policy controls **incoming** traffic to those pods. Outgoing traffic is unaffected. |
+| `ingress[0].from[0].podSelector` | Only pods labelled `allow-access: "true"` **in the same namespace** may connect. |
 
-### Step 2: Test that access is blocked
-
-Get the secure pod IP:
+## Test it
 
 ```bash
-SECURE_POD_IP=$(kubectl get pod network-policy-secure-pod -o jsonpath='{.status.podIP}')
+SECURE_POD_IP=$(oc get pod network-policy-secure-pod -o jsonpath='{.status.podIP}')
+
+# Blocked
+oc exec network-policy-client-pod -- curl -s --max-time 5 "http://${SECURE_POD_IP}:8080" \
+  || echo "Connection blocked"
+
+# Allowed after labelling the client
+oc label pod network-policy-client-pod allow-access=true
+oc exec network-policy-client-pod -- curl -s --max-time 5 "http://${SECURE_POD_IP}:8080" | grep "<title>"
 ```
 
-Try to access from the client pod (should fail/timeout):
-
-```bash
-kubectl exec network-policy-client-pod -- curl -s --max-time 5 http://$SECURE_POD_IP:8080
-```
-
-### Step 3: Add the required label
-
-```bash
-kubectl label pod network-policy-client-pod allow-access=true
-```
-
-### Step 4: Test that access is now allowed
-
-```bash
-kubectl exec network-policy-client-pod -- curl -s --max-time 5 http://$SECURE_POD_IP:8080
-```
-
-You should now see the nginx welcome page HTML.
-
-### Verify the network policy
-
-```bash
-kubectl get networkpolicy my-network-policy
-kubectl describe networkpolicy my-network-policy
-```
+!!! tip "Other namespaces"
+    To also allow clients from other namespaces, add a `namespaceSelector` to the same `from` entry, for example `kubernetes.io/metadata.name: frontend`. A `podSelector` and `namespaceSelector` in the **same** entry must both match. In **separate** entries, either one is enough.

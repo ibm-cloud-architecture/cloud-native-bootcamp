@@ -1,23 +1,35 @@
-# Kubernetes Lab 2 - Probes
+# Lab 2 - Probes
 
-### Container Health Issues
+<span class="lab-badge">20 min</span> <span class="lab-badge">Beginner</span>
 
-The first issue is caused by application instances entering an unhealthy state and responding to user requests with error messages. Unfortunately, this state does not cause the container to stop, so the Kubernetes cluster is not able to detect this state and restart the container. Luckily, the application has an internal endpoint that can be used to detect whether or not it is healthy. This endpoint is `/healthz` on port `8080`.
+## Problem
 
-- Your first task will be to _create a probe_ to check this endpoint periodically.
-  - If the endpoint returns an **error** or **fails** to respond, the probe will detect this and the cluster will restart the container.
+The `energy-shield` service has two problems in production.
 
-### Container Startup Issues
+### Container health issues
 
-Another issue is caused by new pods when they are starting up. The application takes a few seconds after startup before it is ready to service requests. As a result, some users are getting error message during this brief time.
+After running for a short while, the application goes into an unhealthy state and starts answering requests with errors. The process doesn't crash, so the container keeps running and OpenShift never restarts it.
 
-- To fix this, you will need to _create another probe_. To detect whether the application is `ready`, the probe should simply make a request to the root endpoint, _`/ready`, on port `8080`_. If this request succeeds, then the application is ready.
+The application has an internal health endpoint that reports whether it's healthy: `/healthz` on port `8080`.
 
-- Also set a `initial delay` of `5 seconds` for the probes.
+- **Add a liveness probe** that checks `/healthz` on port `8080`. If the endpoint returns an error, the cluster restarts the container.
 
-Here is the Pod yaml file, **add** the probes, then **create** the pod in the cluster to test it.
+### Container startup issues
 
-```yaml
+New Pods take a few seconds after startup before they can serve requests, and some users hit errors during that window.
+
+- **Add a readiness probe** that checks `/healthz` on port `8080`, so the Pod only receives traffic when it's ready.
+- On **both** probes, set an **initial delay of 5 seconds** and check **every 5 seconds**.
+
+## Setup
+
+```bash
+oc new-project lab2
+```
+
+Here is the Pod manifest. **Add** the probes, then **create** the Pod in the cluster:
+
+```yaml title="energy-shield-service.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -25,5 +37,41 @@ metadata:
 spec:
   containers:
     - name: energy-shield
-      image: ibmcase/energy-shield:1
+      image: registry.k8s.io/e2e-test-images/agnhost:2.56
+      args: ["liveness"] # (1)!
+      ports:
+        - containerPort: 8080
+```
+
+1. The `liveness` mode of this test image simulates our buggy service. `/healthz` returns `200 OK` for about 10 seconds, then returns `500` forever, while the process keeps running.
+
+## Verification
+
+Watch the Pod for about a minute:
+
+```bash
+oc get pod energy-shield-service -w
+```
+
+With working probes you should see:
+
+- `READY` shows `0/1` for the first few seconds, then `1/1` once the readiness probe passes.
+- About 20 seconds in, the app goes unhealthy. `READY` drops back to `0/1` (readiness probe), and a few seconds later the `RESTARTS` count goes up (liveness probe).
+- The cycle repeats. Each restart gives the app a fresh start, and it only gets traffic while it's healthy.
+
+Check the events to see the probes in action:
+
+```bash
+oc describe pod energy-shield-service | grep -A 10 Events
+```
+
+Look for `Liveness probe failed: HTTP probe failed with statuscode: 500` followed by `Container energy-shield failed liveness probe, will be restarted`.
+
+!!! question "Think about it"
+    Without the liveness probe, how long would this Pod keep serving errors? Try it: delete the Pod, recreate it without probes, and watch the `RESTARTS` column.
+
+## Cleanup
+
+```bash
+oc delete project lab2
 ```

@@ -11,7 +11,7 @@ Source for the [Cloud Native Bootcamp](https://ibm-cloud-architecture.github.io/
 
 ## Running the site locally
 
-Requires Python 3.9+.
+Requires Python 3.10 or later (3.9 works but is end-of-life).
 
 ```bash
 git clone https://github.com/ibm-cloud-architecture/cloud-native-bootcamp.git

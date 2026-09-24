@@ -1,59 +1,114 @@
 site_name: Cloud Native Bootcamp
+site_description: Hands-on bootcamp for cloud native development with containers, Kubernetes, OpenShift, Tekton and Argo CD.
+site_url: https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/
 repo_url: https://github.com/ibm-cloud-architecture/cloud-native-bootcamp
+repo_name: cloud-native-bootcamp
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; IBM Corporation
 
 theme:
   name: material
-  features:
-    - content.code.copy
-    - content.tabs.link
-    - navigation.top
-    - navigation.instant
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
-    - navigation.prune
-    - navigation.footer
-    - navigation.indexes
-    - toc.follow
-    - search.suggest
-    - search.share
-  icon:
-    repo: fontawesome/brands/github
   logo: images/watson-white-logo.png
   favicon: images/watson-white-logo.png
+  icon:
+    repo: fontawesome/brands/github
   font:
     text: IBM Plex Sans
+    code: IBM Plex Mono
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
 plugins:
   - search
   - git-revision-date-localized:
       type: date
+      enable_creation_date: false
       fallback_to_build_date: true
       strict: false
+  - minify:
+      minify_html: true
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
 
 extra_css:
   - stylesheets/index.css
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ibm-cloud-architecture/cloud-native-bootcamp
+
 markdown_extensions:
-  - attr_list
+  - abbr
   - admonition
+  - attr_list
   - def_list
-  - pymdownx.details
   - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - md_in_html
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - tables
+  - pymdownx.keys
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 nav:
   - Home:
@@ -68,14 +123,13 @@ nav:
       - Cloud Applications: cloud/cn-apps.md
   - Containers:
       - containers/index.md
-      - Benefits of Container: containers/benefitsContainers.md
+      - Benefits of Containers: containers/benefitsContainers.md
       - Image Registries: containers/imageregistry.md
       - Registry Tutorials: containers/registry-tutorials.md
       - References: containers/reference.md
-      - Activities/Labs:
-          - labs/index.md
+      - Labs:
           - Containers Lab: labs/containers/index.md
-          - Image Registries Lab: labs/containers/container-registry/index.md
+          - Image Registry Lab: labs/containers/container-registry/index.md
   - Kubernetes/OpenShift:
       - openshift/index.md
       - Container Orchestration Concepts: openshift/orchestrationConcepts.md
@@ -124,25 +178,27 @@ nav:
           - Lab 2 - Probes: labs/kubernetes/lab2/index.md
           - Lab 3 - Debugging: labs/kubernetes/lab3/index.md
           - Lab 4 - Multi-Container: labs/kubernetes/lab4/index.md
-          - Lab 5 - Persistent Volumes: labs/kubernetes/lab5/index.md
+          - Lab 5 - Persistent Storage: labs/kubernetes/lab5/index.md
           - Lab 6 - Pod Configuration: labs/kubernetes/lab6/index.md
           - Lab 7 - Rolling Updates: labs/kubernetes/lab7/index.md
           - Lab 8 - Cron Jobs: labs/kubernetes/lab8/index.md
           - Lab 9 - Services: labs/kubernetes/lab9/index.md
           - Lab 10 - Network Policies: labs/kubernetes/lab10/index.md
+          - Lab 11 - Routes & Ingress: labs/kubernetes/lab11/index.md
   - DevOps/GitOps:
       - devops/index.md
       - DevOps Tools: devops/devopsTools.md
       - Continuous Integration:
+          - Tekton Overview: devops/tekton/index.md
           - Tekton Lab: labs/devops/tekton/index.md
-          - IBM ToolChain Lab: labs/devops/ibm-toolchain/index.md
-          - Jenkins Lab: labs/devops/jenkins/index.md
-      - What is GitOps?: devops/gitops.md
-      - ArgoCD Lab: labs/devops/argocd/index.md
-  - Activities/Labs:
+      - Continuous Delivery:
+          - What is GitOps?: devops/gitops.md
+          - Argo CD Overview: devops/argocd/index.md
+          - Argo CD Lab: labs/devops/argocd/index.md
+  - Labs:
       - labs/index.md
       - Kubernetes Lab Solutions:
-          - Solutions Overview: labs/kubernetes/lab-solutions.md
+          - labs/kubernetes/lab-solutions.md
           - Lab 1 Solution: labs/kubernetes/lab1/solution.md
           - Lab 2 Solution: labs/kubernetes/lab2/solution.md
           - Lab 3 Solution: labs/kubernetes/lab3/solution.md
@@ -153,4 +209,4 @@ nav:
           - Lab 8 Solution: labs/kubernetes/lab8/solution.md
           - Lab 9 Solution: labs/kubernetes/lab9/solution.md
           - Lab 10 Solution: labs/kubernetes/lab10/solution.md
-      - IKS Ingress Lab: labs/kubernetes/ingress-iks/index.md
+          - Lab 11 Solution: labs/kubernetes/lab11/solution.md

@@ -1,39 +1,89 @@
-# Kubernetes Lab 5 - Persistent Volumes
+# Lab 5 - Persistent Storage
+
+<span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>
 
 ## Problem
 
-The death star plans can't be lost no matter what happens so we need to make sure we protect them at all costs.
+The Death Star plans can't be lost no matter what happens, so we need to store them in a database whose data survives Pod restarts.
 
-In order to do that you will need to do the following:
+A container's filesystem is thrown away when its Pod is deleted. To keep data, the Pod needs a **PersistentVolumeClaim** (PVC). On OpenShift you normally don't create PersistentVolumes by hand. The cluster's default **StorageClass** provisions one automatically when a PVC asks for storage.
 
-Create a `PersistentVolume`:
+### Create a PersistentVolumeClaim
 
-- The PersistentVolume should be named `postgresql-pv`.
+- The PVC is named `postgresql-pvc`.
+- It requests `1Gi` of storage.
+- It uses the access mode `ReadWriteOnce`.
+- It doesn't set a `storageClassName`, so the cluster's default StorageClass is used.
 
-- The volume needs a capacity of `1Gi`.
+### Create a PostgreSQL Pod that uses the claim
 
-- Use a storageClassName of `localdisk`.
+- The Pod is named `postgresql-pod` and has the label `app: postgresql`.
+- It uses the image `quay.io/sclorg/postgresql-16-c9s`. This is the upstream build of Red Hat's PostgreSQL image, and it runs as any non-root user.
+- It exposes `containerPort` `5432`.
+- It sets these environment variables:
 
-- Use the accessMode `ReadWriteOnce`.
+    | Name | Value |
+    | --- | --- |
+    | `POSTGRESQL_USER` | `rebel` |
+    | `POSTGRESQL_PASSWORD` | `password` |
+    | `POSTGRESQL_DATABASE` | `deathstar` |
 
-- Store the data locally on the node using a `hostPath` volume at the location `/mnt/data`.
+- It mounts the PVC at `/var/lib/pgsql/data`.
 
-Create a `PersistentVolumeClaim`:
+## Setup
 
-- The PersistentVolumeClaim should be named `postgresql-pv-claim`.
+```bash
+oc new-project lab5
+oc get storageclass
+```
 
-- Set a resource request on the claim for `500Mi` of storage.
+One StorageClass should be marked `(default)`.
 
-- Use the same storageClassName and accessModes as the PersistentVolume so that this claim can bind to the PersistentVolume.
+!!! note
+    If the default StorageClass uses `WaitForFirstConsumer` binding mode, the PVC shows `Pending` until a Pod uses it. That's expected.
 
-Create a `Postgresql` Pod configured to use the `PersistentVolumeClaim`:
+## Verification
 
-- The Pod should be named `postgresql-pod`.
+1. The PVC is `Bound` and the Pod is `Running`:
 
-- Use the image `bitnami/postgresql`.
+    ```bash
+    oc get pvc,pod
+    ```
 
-- Expose the containerPort `5432`.
+2. Save the plans to the database:
 
-- Set an `environment variable` called `POSTGRES_PASSWORD` with the value `password`.
+    ```bash
+    oc exec postgresql-pod -- psql -d deathstar -c "CREATE TABLE plans (weakness text); INSERT INTO plans VALUES ('thermal exhaust port');"
+    ```
 
-- Add the `PersistentVolumeClaim` as a volume and mount it to the container at the path `/bitnami/postgresql/`.
+3. Delete the Pod, then recreate it from the same manifest:
+
+    ```bash
+    oc delete pod postgresql-pod
+    oc apply -f postgresql-pod.yaml
+    oc wait --for=condition=Ready pod/postgresql-pod --timeout=120s
+    ```
+
+4. The plans survived:
+
+    ```bash
+    oc exec postgresql-pod -- psql -d deathstar -c "SELECT * FROM plans;"
+    ```
+
+    ```text
+          weakness
+    ----------------------
+     thermal exhaust port
+    (1 row)
+    ```
+
+## Going further
+
+- Look at the PersistentVolume that was created for you with `oc get pv`. You may need cluster-reader access. What is its `RECLAIM POLICY`, and what happens to the data when you delete the PVC?
+- A bare Pod is fine for learning, but real databases run as a StatefulSet with `volumeClaimTemplates`. See [StatefulSets](../../../openshift/deployments/statefulsets.md).
+
+## Cleanup
+
+```bash
+oc delete project lab5
+```

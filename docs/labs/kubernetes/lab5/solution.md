@@ -1,57 +1,64 @@
-# Kubernetes Lab 5 - Persistent Volumes
+# Lab 5 Solution - Persistent Storage
 
-## Solution
-
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgresql-pv
-spec:
-  storageClassName: localdisk
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
-```
-
-```yaml
+```yaml title="postgresql-pvc.yaml"
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgresql-pv-claim
+  name: postgresql-pvc
 spec:
-  storageClassName: localdisk
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 500Mi
+      storage: 1Gi
 ```
 
-```yaml
+```yaml title="postgresql-pod.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
   name: postgresql-pod
+  labels:
+    app: postgresql
 spec:
   containers:
-  - name: postgresql
-    image: bitnami/postgresql
-    ports:
-    - containerPort: 5432
-    env:
-    - name: POSTGRES_PASSWORD
-      value: password
-    volumeMounts:
-    - name: sql-storage
-      mountPath: /bitnami/postgresql/
+    - name: postgresql
+      image: quay.io/sclorg/postgresql-16-c9s
+      ports:
+        - containerPort: 5432
+      env:
+        - name: POSTGRESQL_USER
+          value: rebel
+        - name: POSTGRESQL_PASSWORD
+          value: password
+        - name: POSTGRESQL_DATABASE
+          value: deathstar
+      volumeMounts:
+        - name: data
+          mountPath: /var/lib/pgsql/data
   volumes:
-  - name: sql-storage
-    persistentVolumeClaim:
-      claimName: postgresql-pv-claim
+    - name: data
+      persistentVolumeClaim:
+        claimName: postgresql-pvc
 ```
 
-verify via `ls /mnt/data` on node
+```bash
+oc apply -f postgresql-pvc.yaml
+oc apply -f postgresql-pod.yaml
+oc get pvc,pod
+```
+
+```text title="Expected output"
+NAME                                   STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+persistentvolumeclaim/postgresql-pvc   Bound    pvc-3f6c1c2e-8a0e-4c8e-9a52-6f0d7f2b1c11   1Gi        RWO            gp3-csi        40s
+
+NAME                 READY   STATUS    RESTARTS   AGE
+pod/postgresql-pod   1/1     Running   0          40s
+```
+
+The `STORAGECLASS` column depends on your cluster: for example `gp3-csi` on AWS, `crc-csi-hostpath-provisioner` on OpenShift Local, or `standard` on kind.
+
+Then follow the verification steps in the lab to write data, delete the Pod, and read the data back.
+
+!!! info "Static provisioning"
+    Before dynamic provisioning, a cluster administrator created PersistentVolumes by hand, for example with `hostPath` or NFS, and PVCs bound to them by matching `storageClassName`, access mode and size. You'll still see this on bare-metal clusters. It requires cluster-admin rights, and `hostPath` volumes are blocked by OpenShift's default security context constraints. See [Persistent Volumes & Claims](../../../openshift/state-persistence/pv-pvc.md).

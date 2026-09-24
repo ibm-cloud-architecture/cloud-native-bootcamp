@@ -1,35 +1,98 @@
-# Kubernetes Lab 3 - Debugging
+# Lab 3 - Debugging
+
+<span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>
 
 ## Problem
 
-The Hyper Drive isn't working and we need to find out why. Let's debug the `hyper-drive` deployment so that we can reach light speed again.
+The Hyper Drive isn't working, and we need to find out why. Debug the `hyper-drive` deployment and its service so we can reach light speed again.
 
-Here are some tips to help you solve the Hyper Drive:
+Some tips to get you started:
 
-- Check the description of the `deployment`.
-- Get and save the logs of one of the broken `pods`.
-- Are the correct `ports` assigned.
-- Make sure your `labels` and `selectors` are correct.
-- Check to see if the `Probes` are correctly working.
-- To fix the deployment, save then modify the yaml file for redeployment.
+- Check the status and description of the `deployment` and its `pods`.
+- Get the logs of one of the broken pods and save them to a file.
+- Check that the correct `ports` are used everywhere.
+- Make sure your `labels` and `selectors` match.
+- Check that the `probes` are working.
 
-Reset the environment:
+The application listens on port `8080` and serves its health check on `/healthz`.
 
-```
-minikube delete
-minikube start
-```
+## Setup
 
-Setup the environment:
+Create a project, then apply the broken application:
 
-```
-kubectl apply -f https://raw.githubusercontent.com/ibm-cloud-architecture/learning-cloudnative-101/master/lab-setup/lab-5-debug-k8s-setup.yaml
+```bash
+oc new-project vader
 ```
 
-## Validate
-
-Once you get the Hyper Drive working again. Verify it by checking the endpoints.
-
+```bash
+oc apply -f - <<'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper-drive
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper-drive
+  template:
+    metadata:
+      labels:
+        app: hyper-drive
+    spec:
+      containers:
+        - name: hyper-drive
+          image: registry.k8s.io/e2e-test-images/agnhost:2.56
+          args: ["netexec", "--http-port=8080"]
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            tcpSocket:
+              port: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper-drive
+spec:
+  selector:
+    run: hyper-drive
+  ports:
+    - protocol: TCP
+      port: 80
+EOF
 ```
-kubectl get ep hyper-drive
+
+Wait a minute or two before you start. Some of the problems only show up after the pods have been running for a while.
+
+## Verification
+
+You're done when all of the following are true:
+
+1. All 3 `hyper-drive` pods are `Running`, `1/1` ready, and their `RESTARTS` count has stopped increasing:
+
+    ```bash
+    oc get pods -l app=hyper-drive
+    ```
+
+2. The service has 3 endpoints on port `8080`:
+
+    ```bash
+    oc get endpointslices -l kubernetes.io/service-name=hyper-drive
+    ```
+
+3. The service answers from inside the cluster. Start a client pod, then call the service by name:
+
+    ```bash
+    oc run client --image=registry.access.redhat.com/ubi9/ubi-minimal -- sleep infinity
+    oc wait --for=condition=Ready pod/client
+    oc exec client -- curl -s --max-time 5 hyper-drive/hostname
+    ```
+
+    This prints the name of one of the `hyper-drive` pods.
+
+## Cleanup
+
+```bash
+oc delete project vader
 ```
