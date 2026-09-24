@@ -8,12 +8,18 @@ Continuous Integration, Delivery, and Deployment are important devOps practices 
 
 ## Tekton Overview
 
-Tekton is a cloud-native solution for building CI/CD systems. It consists of Tekton Pipelines, which provides the building blocks, and of supporting components, such as Tekton CLI and Tekton Catalog, that make Tekton a complete ecosystem.
+[Tekton](https://tekton.dev/) is an open source, Kubernetes-native framework for building CI/CD systems, and a graduated project of the Continuous Delivery Foundation. Pipelines are defined as Kubernetes resources (`Task`, `Pipeline`, `PipelineRun`), and every step runs in its own container, so builds are reproducible and scale with the cluster.
+
+- **Tekton Pipelines**: the core building blocks: Steps, Tasks, Pipelines, Workspaces and Results
+- **Tekton Triggers**: start pipelines from events such as Git webhooks
+- **Tekton CLI (`tkn`)**: create, start and inspect pipelines from the terminal
+- **Resolvers**: reuse Tasks and Pipelines stored in the cluster, in Git, in OCI bundles or on [Artifact Hub](https://artifacthub.io/packages/search?kind=7)
+
+On OpenShift, Tekton is delivered as **[Red Hat OpenShift Pipelines](https://docs.redhat.com/en/documentation/red_hat_openshift_pipelines/)**. It adds a curated set of Tasks (such as `git-clone`, `buildah` and `openshift-client`), a pipeline builder and log viewer in the web console, and **[Pipelines as Code](https://pipelinesascode.com/)**, which runs the pipelines stored in your Git repository on every push and pull request.
 
 ## Presentations
 
 [Tekton Overview :fontawesome-regular-file-pdf:](../materials/04-Tekton-Overview.pdf){ .md-button target="_blank"}
-[IBM Cloud DevOps with Tekton :fontawesome-regular-file-pdf:](../materials/10-IBM-Cloud-DevOps.pdf){ .md-button target="_blank"}
 
 ## Activities
 
@@ -22,15 +28,12 @@ The continuous integration activities focus around Tekton the integration platfo
 These tasks assume that you have:
 
 - Reviewed the continuous integration concept page.
-- Installed Tekton into your cluster.
+- Access to an OpenShift cluster with OpenShift Pipelines installed (see the lab prerequisites).
 
-| Task                            | Description         | Link        | Time    |
-| --------------------------------| ------------------  |:----------- |---------|
-| ***Walkthroughs***                         |         |         |     |
-| Deploying Applications From Source |  Using OpenShift 4 | [S2I](https://learn.openshift.com/introduction/deploying-python/){:target="_blank"} | 30 min |
-| ***Try It Yourself***                         |         |         |     |
-| Tekton Lab | Using Tekton to build container images | [Tekton](../../labs/devops/tekton/index.md) | 1 hour |
-| IBM Cloud DevOps | Using IBM Cloud ToolChain with Tekton | [Tekton on IBM Cloud](../../labs/devops/ibm-toolchain/index.md){:target="_blank"} | 1 hour |
-| Jenkins Lab | Using Jenkins to build and deploy applications. | [Jenkins](../../labs/devops/jenkins/index.md){:target="_blank"} | 1 hour |
+| Task | Description | Link | Time |
+| ---- | ----------- | :--- | ---- |
+| ***Try It Yourself*** | | | |
+| In-cluster builds | Build an image inside OpenShift with a BuildConfig | [Image Registry Lab, Part 3](../../labs/containers/container-registry/index.md#part-3-build-inside-the-cluster) | 20 min |
+| Tekton Lab | Build and deploy an app with OpenShift Pipelines | [Tekton Lab](../../labs/devops/tekton/index.md) | 1 hour |
 
 Once you have completed these tasks, you will have an understanding of continuous integration and how to use Tekton to build a pipeline.
