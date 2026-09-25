@@ -17,7 +17,7 @@ Skip this section if OpenShift GitOps is already installed. Check with `oc get a
 
 === "Web console"
 
-    1. Log in as a cluster administrator and open **OperatorHub**.
+    1. Log in as a cluster administrator and open **Operators > OperatorHub** (**Ecosystem > Software Catalog** on OpenShift 4.20 and later).
     2. Search for **Red Hat OpenShift GitOps**, click **Install**, and accept the defaults.
     3. Wait for the operator to show **Succeeded**.
 

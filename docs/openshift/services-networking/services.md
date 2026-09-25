@@ -113,7 +113,7 @@ spec:
     ```
 
     ``` Bash title="Get Service Endpoints"
-    kubectl get ep my-service
+    kubectl get endpointslices -l kubernetes.io/service-name=my-service
     ```
 
     ``` Bash title="Expose a Deployment via a Service"

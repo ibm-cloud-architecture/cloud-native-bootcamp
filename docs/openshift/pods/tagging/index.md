@@ -57,7 +57,7 @@ metadata:
     env: dev
   annotations:
     imageregistry: "https://hub.docker.com/"
-    gitrepo: "https://github.com/csantanapr/knative"
+    gitrepo: "https://github.com/ibm-cloud-architecture/cloud-native-bootcamp"
 spec:
   containers:
     - name: app

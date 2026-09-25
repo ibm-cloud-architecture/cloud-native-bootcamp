@@ -31,7 +31,7 @@ RBAC authorization uses four kinds of Kubernetes objects:
 
     [RBAC Authorization :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){ .md-button target="_blank"}
 
-    [Using RBAC :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/admin/authorization/rbac/){ .md-button target="_blank"}
+    [Using RBAC :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){ .md-button target="_blank"}
 
 ## References
 

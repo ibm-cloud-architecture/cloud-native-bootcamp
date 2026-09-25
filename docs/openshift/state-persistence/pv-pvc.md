@@ -28,7 +28,7 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
     [Writing Portable Configurations :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){ .md-button target="_blank"}
 
-    [Configuring Persistent Volume Storage :fontawesome-solid-database:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){ .md-button target="_blank"}
+    [Persistent Volumes :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){ .md-button target="_blank"}
 
 ## References
 

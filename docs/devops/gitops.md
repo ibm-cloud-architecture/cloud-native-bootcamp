@@ -85,10 +85,12 @@ Adopting GitOps provides numerous advantages for development and operations team
 
 Several tools implement GitOps principles:
 
-- **ArgoCD** - A declarative, GitOps continuous delivery tool for Kubernetes
-- **Flux** - A set of continuous delivery solutions for Kubernetes
-- **Jenkins X** - CI/CD solution with built-in GitOps capabilities
-- **Tekton** - Kubernetes-native CI/CD building blocks that can be used in GitOps workflows
+- **[Argo CD](https://argo-cd.readthedocs.io/)** - A declarative, GitOps continuous delivery tool for Kubernetes, delivered on OpenShift as **Red Hat OpenShift GitOps**
+- **[Flux](https://fluxcd.io/)** - A set of continuous delivery controllers for Kubernetes
+- **[Kargo](https://kargo.io/)** - Promotes changes through environments (dev → test → prod) on top of Argo CD
+- **[Tekton](https://tekton.dev/)** - Kubernetes-native CI building blocks that build the images and update the Git repositories GitOps tools deploy from
+
+The principles themselves are defined by the CNCF [OpenGitOps](https://opengitops.dev/) project.
 
 ## Getting Started with GitOps
 
@@ -99,4 +101,4 @@ To begin your GitOps journey:
 3. Configure the agent to watch your Git repository
 4. Make changes through pull requests and let the agent handle deployments
 
-For hands-on experience with GitOps, check out the [ArgoCD Lab](../labs/devops/argocd/index.md) in this bootcamp.
+For hands-on experience with GitOps, check out the [Argo CD Lab](../labs/devops/argocd/index.md) in this bootcamp.

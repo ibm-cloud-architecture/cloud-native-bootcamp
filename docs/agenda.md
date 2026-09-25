@@ -1,6 +1,6 @@
 # Agenda
 
-The following table lists the topics and coding activities for the week. Click on the name of the topic to open a pdf of the material. Click on the link to the solution code to view the solution.
+The following tables list the topics and hands-on activities for an in-person week, or a suggested order for self-paced learning. Each topic links to its concept page, where you'll also find the presentation slides (PDF), and each activity links to its labs. Before you start, complete the [Prerequisites](prerequisites.md).
 
 === "In-Person"
 
@@ -64,9 +64,9 @@ The following table lists the topics and coding activities for the week. Click o
     | Topic                                                                  | Type of Activity             | Duration |
     | :--------------------------------------------------------------------- | :--------------------------- | :----------- |
     | [Containers](./containers/index.md)                                         | Presentation                 |  1 Hour  |
-    | [Container Activities](./labs/containers/index.md)                     | Activity                     |  30 mins |
+    | [Container Activities](./labs/index.md#containers)                     | Activity                     |  1.5 Hours |
     | [Kubernetes](./openshift/index.md)                                         | Presentation                 |  6 Hours |
-    | [Kubernetes Activities](./labs/index.md#kubernetes-openshift)                   | Activity                     |  4 Hours |
+    | [Kubernetes Activities](./labs/index.md#kubernetes-openshift)                   | Activity                     |  5 Hours |
     | [Continuous Integration](./devops/tekton/index.md)                 | Presentation                 |  1 Hour  |
     | [Continuous Integration Lab](./labs/index.md#continuous-integration)   | Activity                     |  1 Hour  |
     | [Continuous Deployment](./devops/argocd/index.md)                   | Presentation                 |  1 Hour  |
