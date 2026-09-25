@@ -1,110 +1,56 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Cloud Native Bootcamp - workstation check.
+# Reports which tools are installed and where to get the missing ones.
 
-echo 'Running System Checks'
+ok=$'\xE2\x9C\x85'
+missing=$'\xE2\x9D\x8C'
+optional=$'\xE2\x9E\x96'
+failures=0
 
-if hash ibmcloud 2>/dev/null
-then
-    printf '\xE2\x9C\x85 IBM Cloud CLI \n'
+# check <command> <display name> <required|optional> <install URL> <version command...>
+check() {
+  local cmd=$1 name=$2 level=$3 url=$4
+  shift 4
+  if command -v "$cmd" >/dev/null 2>&1; then
+    local version
+    version=$("$@" 2>/dev/null | head -n 1)
+    printf '%s %-24s %s\n' "$ok" "$name" "$version"
+  elif [ "$level" = "required" ]; then
+    printf '%s %-24s not found - install from %s\n' "$missing" "$name" "$url"
+    failures=$((failures + 1))
+  else
+    printf '%s %-24s not found (optional) - %s\n' "$optional" "$name" "$url"
+  fi
+}
+
+echo "Cloud Native Bootcamp - system check"
+echo
+
+# A container engine: Podman preferred, Docker accepted
+if command -v podman >/dev/null 2>&1; then
+  check podman "Podman" required "https://podman.io/docs/installation" podman --version
 else
-    printf '\xE2\x9D\x8C IBM Cloud CLI \n \n'
-
-    printf 'Download the IBM Cloud CLI using the links below: \n'
-    printf 'For All Users: https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli \n \n '
+  check docker "Docker (or Podman)" required "https://podman.io/docs/installation" docker --version
 fi
 
-if hash git 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Git CLI \n'
-else
-    printf '\xE2\x9D\x8C Git CLI \n \n'
+check git    "Git"                   required "https://git-scm.com/downloads"                              git --version
+check oc     "OpenShift CLI (oc)"    required "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/" oc version --client
+check tkn    "Tekton CLI (tkn)"      optional "https://tekton.dev/docs/cli/"                               tkn version --component client
+check argocd "Argo CD CLI (argocd)"  optional "https://argo-cd.readthedocs.io/en/stable/cli_installation/" argocd version --client --short
+check crc    "OpenShift Local (crc)" optional "https://developers.redhat.com/products/openshift-local/overview" crc version
+check kubectl "kubectl"              optional "https://kubernetes.io/docs/tasks/tools/"                    kubectl version --client
 
-    printf 'Download the Git CLI using the links below: \n'
-    printf 'For All Users: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git \n \n'
+echo
+if command -v oc >/dev/null 2>&1 && oc whoami >/dev/null 2>&1; then
+  printf '%s Logged in to %s as %s\n' "$ok" "$(oc whoami --show-server)" "$(oc whoami)"
+else
+  printf '%s Not logged in to a cluster yet (see "Get a cluster" on the Prerequisites page)\n' "$optional"
 fi
 
-if hash crc 2>/dev/null
-then
-    printf '\xE2\x9C\x85 OpenShift Local (crc) \n'
+echo
+if [ "$failures" -eq 0 ]; then
+  echo "All required tools are installed."
 else
-    printf '\xE2\x9D\x8C OpenShift Local (crc) \n \n'
-
-    printf '* A RedHat Account is Required * \n'
-    printf 'Download OpenShift Local using the links below: \n'
-    printf 'For All Users: https://developers.redhat.com/products/openshift-local/overview \n \n'
+  echo "$failures required tool(s) missing."
+  exit 1
 fi
-
-if hash minikube 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Minikube \n'
-else
-    printf '\xE2\x9D\x8C Minikube \n \n'
-
-    printf 'Download Minikube using the links below: \n'
-    printf 'For All Users: https://kubernetes.io/docs/tasks/tools/install-minikube/ \n \n'
-fi
-
-if hash docker 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Docker CLI \n'
-else
-    printf '\xE2\x9D\x8C Docker CLI \n \n'
-
-    printf 'Download the Docker CLI using the links below: \n'
-    printf 'For Mac: https://docs.docker.com/docker-for-mac/install/ \n'
-    printf 'For Linux Users: https://docs.docker.com/engine/install/ubuntu/ \n'
-    printf 'For Windows: https://docs.docker.com/docker-for-windows/install/ \n \n'
-fi
-
-if hash podman 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Podman CLI \n'
-else
-    printf '\xE2\x9D\x8C Podman CLI \n \n'
-
-    printf 'Download the Podman CLI using the links below: \n'
-    printf 'For Mac: https://podman.io/docs/installation#macos \n'
-    printf 'For Linux Users: https://podman.io/docs/installation#linux-distributions \n'
-    printf 'For Windows: https://podman.io/docs/installation#windows \n \n'
-fi
-
-if hash kubectl 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Kubernetes CLI \n'
-else
-    printf '\xE2\x9D\x8C Kubernetes CLI \n \n'
-
-    printf 'Download the Kubernetes CLI using the links below: \n'
-    printf 'For All Users: https://kubernetes.io/docs/tasks/tools/install-kubectl/ \n \n'
-fi
-
-if hash oc 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Openshift CLI \n'
-else
-    printf '\xE2\x9D\x8C Openshift CLI \n \n'
-
-    printf 'Download the Openshift CLI using the links below: \n'
-    printf 'For All Users: https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/ \n \n'
-fi
-
-if hash tkn 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Tekton CLI \n'
-else
-    printf '\xE2\x9D\x8C Tekton CLI \n \n'
-
-    printf 'Download the Tekton CLI using the links below: \n'
-    printf 'For All Users: https://github.com/tektoncd/cli#installing-tkn \n \n'
-fi
-
-if hash argocd 2>/dev/null
-then
-    printf '\xE2\x9C\x85 Argo CLI \n'
-else
-    printf '\xE2\x9D\x8C Argo CLI \n \n'
-
-    printf 'Download the Argo CLI using the links below: \n'
-    printf 'For All Users: https://argo-cd.readthedocs.io/en/stable/cli_installation/ \n \n'
-fi
-
-printf " \nInstall either Docker or Podman, it's not necessary to install both\n"
