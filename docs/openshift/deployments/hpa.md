@@ -152,7 +152,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
           resources:
             requests:
               cpu: 100m
@@ -161,13 +161,13 @@ spec:
               cpu: 500m
               memory: 512Mi
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 ```
 
 === "OpenShift"
 
     ``` Bash title="Create HPA Imperatively"
-    oc autoscale deployment web-app --min=2 --max=10 --cpu-percent=70
+    oc autoscale deployment web-app --name=web-app-hpa --min=2 --max=10 --cpu=70%
     ```
 
     ``` Bash title="Get HPAs"
@@ -187,13 +187,13 @@ spec:
     ```
 
     ``` Bash title="Check Metrics Server"
-    oc top pods
+    oc adm top pods
     ```
 
 === "Kubernetes"
 
     ``` Bash title="Create HPA Imperatively"
-    kubectl autoscale deployment web-app --min=2 --max=10 --cpu-percent=70
+    kubectl autoscale deployment web-app --name=web-app-hpa --min=2 --max=10 --cpu=70%
     ```
 
     ``` Bash title="Get HPAs"

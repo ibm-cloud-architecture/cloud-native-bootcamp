@@ -56,3 +56,6 @@ spec:
         # this field is optional
         type: Directory
 ```
+
+!!! warning "hostPath is blocked by default"
+    `hostPath` mounts a directory from the node into the pod, which gives the pod access to the host. OpenShift's default `restricted-v2` SCC and the Kubernetes `restricted` Pod Security level both reject it. It's meant for privileged node agents, such as log collectors or CSI drivers, that a cluster administrator has explicitly allowed. For application data, use a PersistentVolumeClaim.

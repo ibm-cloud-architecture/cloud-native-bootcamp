@@ -65,7 +65,12 @@ metadata:
 spec:
   containers:
     - name: cuda-app
-      image: nvidia/cuda:latest
+      image: nvidia/cuda:13.4.1-base-ubi9
+      command: ["nvidia-smi"]
+      resources:
+        limits:
+          nvidia.com/gpu: 1   # only schedulable on nodes with a GPU
+  restartPolicy: Never
   tolerations:
     - key: "dedicated"
       operator: "Equal"
@@ -83,7 +88,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   tolerations:
     - key: "dedicated"
       operator: "Exists"
@@ -100,7 +105,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   tolerations:
     - key: "node-role.kubernetes.io/control-plane"
       operator: "Exists"
@@ -119,7 +124,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -142,7 +147,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   affinity:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
@@ -181,7 +186,7 @@ spec:
     spec:
       containers:
         - name: cuda-app
-          image: nvidia/cuda:latest
+          image: nvidia/cuda:13.4.1-base-ubi9
           resources:
             limits:
               nvidia.com/gpu: 1
@@ -221,7 +226,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

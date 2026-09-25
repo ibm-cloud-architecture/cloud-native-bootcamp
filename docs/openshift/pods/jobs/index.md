@@ -8,7 +8,7 @@ A Job creates one or more Pods and ensures that a specified number of them succe
 
 One CronJob object is like one line of a crontab (cron table) file. It runs a job periodically on a given schedule, written in Cron format.
 
-All CronJob schedule: times are based on the timezone of the master where the job is initiated.
+CronJob schedules use the time zone of the kube-controller-manager, which is usually UTC. Set `spec.timeZone` (for example `America/Chicago`) to schedule in a specific time zone. Use `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` to control how many finished Jobs are kept, and `concurrencyPolicy` to decide whether runs may overlap.
 
 ## Resources
 
@@ -97,9 +97,10 @@ spec:
     ```
     oc describe job pi
     ```
-    **Gets Pods from the Job**
+    **Gets Pods and logs from the Job**
     ```
-    oc get pods
+    oc get pods -l job-name=pi
+    oc logs job/pi
     ```
     **Deletes Job**
     ```
@@ -111,15 +112,16 @@ spec:
     ```
     **Describes CronJob**
     ```
-    oc describe cronjobs pi
+    oc describe cronjob hello
     ```
-    **Gets Pods from CronJob**
+    **Runs the CronJob now, without waiting for the schedule**
     ```
-    oc get pods
+    oc create job hello-now --from=cronjob/hello
+    oc logs job/hello-now
     ```
     **Deletes CronJob**
     ```
-    oc delete cronjobs pi
+    oc delete cronjob hello
     ```
 
 === "Kubernetes"
@@ -132,9 +134,10 @@ spec:
     ```
     kubectl describe job pi
     ```
-    **Gets Pods from the Job**
+    **Gets Pods and logs from the Job**
     ```
-    kubectl get pods
+    kubectl get pods -l job-name=pi
+    kubectl logs job/pi
     ```
     **Deletes Job**
     ```
@@ -146,15 +149,16 @@ spec:
     ```
     **Describes CronJob**
     ```
-    kubectl describe cronjobs pi
+    kubectl describe cronjob hello
     ```
-    **Gets Pods from CronJob**
+    **Runs the CronJob now, without waiting for the schedule**
     ```
-    kubectl get pods
+    kubectl create job hello-now --from=cronjob/hello
+    kubectl logs job/hello-now
     ```
     **Deletes CronJob**
     ```
-    kubectl delete cronjobs pi
+    kubectl delete cronjob hello
     ```
 
 ## Activities
