@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0 # full history for git-revision-date-localized
       - uses: actions/setup-python@v7
         with:
-          python-version: "3.13"
+          python-version: "3.14"
           cache: pip
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
       - uses: actions/cache@v6

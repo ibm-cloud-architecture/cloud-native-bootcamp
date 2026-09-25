@@ -1,4 +1,4 @@
-FROM docker.io/squidfunk/mkdocs-material:9
+FROM docker.io/squidfunk/mkdocs-material:9.7
 
 WORKDIR /docs
 COPY requirements.txt /tmp/requirements.txt
