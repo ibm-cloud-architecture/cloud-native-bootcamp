@@ -97,7 +97,7 @@ spec:
 
     ``` Bash title="Pause and resume a rollout"
     oc rollout pause deployment/my-deployment
-oc rollout resume deployment/my-deployment
+    oc rollout resume deployment/my-deployment
     ```
 
     ``` Bash title="Restart all pods (for example, to pick up a changed Secret)"
@@ -152,7 +152,7 @@ oc rollout resume deployment/my-deployment
 
     ``` Bash title="Pause and resume a rollout"
     kubectl rollout pause deployment/my-deployment
-kubectl rollout resume deployment/my-deployment
+    kubectl rollout resume deployment/my-deployment
     ```
 
     ``` Bash title="Restart all pods (for example, to pick up a changed Secret)"
