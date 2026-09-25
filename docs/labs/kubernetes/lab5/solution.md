@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Storage
+---
+
 # Lab 5 Solution - Persistent Storage
 
 ```yaml title="postgresql-pvc.yaml"

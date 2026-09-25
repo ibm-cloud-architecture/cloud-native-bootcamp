@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Workloads
+  - Beginner
+---
+
 # Lab 8 - Cron Jobs
 
 <span class="lab-badge">20 min</span> <span class="lab-badge">Beginner</span>

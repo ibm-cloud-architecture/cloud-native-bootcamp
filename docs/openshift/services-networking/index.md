@@ -1,3 +1,8 @@
+---
+tags:
+  - Networking
+---
+
 # Networking Overview
 
 Kubernetes networking rests on a few simple rules, and OpenShift builds on them:

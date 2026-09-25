@@ -1,3 +1,8 @@
+---
+tags:
+  - Workloads
+---
+
 # Rolling Updates and Rollbacks
 
 **Updating a Deployment**

@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Networking
+  - Beginner
+---
+
 # Lab 9 - Services
 
 <span class="lab-badge">25 min</span> <span class="lab-badge">Beginner</span>

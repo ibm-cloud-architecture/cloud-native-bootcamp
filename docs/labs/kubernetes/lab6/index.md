@@ -1,3 +1,11 @@
+---
+tags:
+  - Lab
+  - Configuration
+  - Security
+  - Intermediate
+---
+
 # Lab 6 - Pod Configuration
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>

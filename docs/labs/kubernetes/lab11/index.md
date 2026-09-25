@@ -1,3 +1,11 @@
+---
+tags:
+  - Lab
+  - Networking
+  - OpenShift only
+  - Intermediate
+---
+
 # Lab 11 - Routes & Ingress
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span> <span class="lab-badge">OpenShift only</span>

@@ -1,3 +1,8 @@
+---
+tags:
+  - Containers
+---
+
 # Benefits of Containers
 
 ## Consistency Across Environments

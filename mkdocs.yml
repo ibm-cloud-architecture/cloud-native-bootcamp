@@ -41,8 +41,8 @@ theme:
     - content.tabs.link
     - content.tooltips
     - navigation.footer
-    - navigation.indexes
     - navigation.instant
+    - navigation.instant.preview
     - navigation.instant.progress
     - navigation.path
     - navigation.sections
@@ -59,6 +59,15 @@ plugins:
   # Downloads external assets (IBM Plex fonts) at build time and serves them
   # from the site, so fonts work on networks that block Google Fonts.
   - privacy
+  # Topic and level tags from each page's front matter; index on tags.md
+  - tags
+  # Keep old URLs working for pages that were removed or replaced
+  - redirects:
+      redirect_maps:
+        labs/kubernetes/ingress-iks/index.md: labs/kubernetes/lab11/index.md
+        labs/devops/jenkins/index.md: labs/devops/tekton/index.md
+        labs/devops/ibm-toolchain/index.md: labs/devops/tekton/index.md
+        devops/ibm-toolchain/index.md: devops/tekton/index.md
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
@@ -104,6 +113,9 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.snippets:
       check_paths: true
+      # Glossary tooltips for acronyms on every page
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -116,17 +128,18 @@ markdown_extensions:
 
 nav:
   - Home:
-      - index.md
+      - Welcome: index.md
       - Course Agenda: agenda.md
       - Prerequisites: prerequisites.md
       - Cloud Native Challenge: cloudnative-challenge.md
+      - Browse by Tag: tags.md
   - Cloud:
-      - cloud/index.md
+      - Overview: cloud/index.md
       - Cloud Concepts: cloud/cn-concepts.md
       - Benefits of Cloud: cloud/benefits.md
       - Cloud Applications: cloud/cn-apps.md
   - Containers:
-      - containers/index.md
+      - Overview: containers/index.md
       - Benefits of Containers: containers/benefitsContainers.md
       - Image Registries: containers/imageregistry.md
       - Registry Tutorials: containers/registry-tutorials.md
@@ -134,7 +147,7 @@ nav:
       - Containers Lab: labs/containers/index.md
       - Image Registry Lab: labs/containers/container-registry/index.md
   - Kubernetes/OpenShift:
-      - openshift/index.md
+      - Overview: openshift/index.md
       - Container Orchestration Concepts: openshift/orchestrationConcepts.md
       - Core Concepts:
           - API Primitives: openshift/core-concepts/index.md
@@ -176,7 +189,7 @@ nav:
           - Operator Catalog: openshift/operators/operatorCatalog.md
           - Using Operators: openshift/operators/operatorUsage.md
       - Labs:
-          - labs/kubernetes/index.md
+          - Labs Overview: labs/kubernetes/index.md
           - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
           - Lab 2 - Probes: labs/kubernetes/lab2/index.md
           - Lab 3 - Debugging: labs/kubernetes/lab3/index.md
@@ -189,7 +202,7 @@ nav:
           - Lab 10 - Network Policies: labs/kubernetes/lab10/index.md
           - Lab 11 - Routes & Ingress: labs/kubernetes/lab11/index.md
   - DevOps/GitOps:
-      - devops/index.md
+      - Overview: devops/index.md
       - DevOps Tools: devops/devopsTools.md
       - Continuous Integration:
           - Tekton Overview: devops/tekton/index.md
@@ -199,9 +212,9 @@ nav:
           - Argo CD Overview: devops/argocd/index.md
           - Argo CD Lab: labs/devops/argocd/index.md
   - Labs:
-      - labs/index.md
+      - All Labs: labs/index.md
       - Kubernetes Lab Solutions:
-          - labs/kubernetes/lab-solutions.md
+          - Solutions Overview: labs/kubernetes/lab-solutions.md
           - Lab 1 Solution: labs/kubernetes/lab1/solution.md
           - Lab 2 Solution: labs/kubernetes/lab2/solution.md
           - Lab 3 Solution: labs/kubernetes/lab3/solution.md

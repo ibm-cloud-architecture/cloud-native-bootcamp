@@ -1,3 +1,8 @@
+---
+tags:
+  - Getting started
+---
+
 # Prerequisites
 
 ## Required skills

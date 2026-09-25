@@ -1,3 +1,8 @@
+---
+tags:
+  - Kubernetes
+---
+
 # Lab Solutions
 
 Each solution shows one working answer. Other answers can be just as valid if they meet the lab's requirements and pass its verification steps.

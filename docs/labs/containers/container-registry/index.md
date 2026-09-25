@@ -1,3 +1,12 @@
+---
+tags:
+  - Lab
+  - Containers
+  - Registries
+  - OpenShift
+  - Intermediate
+---
+
 # Image Registry Lab
 
 <span class="lab-badge">40 min</span> <span class="lab-badge">Intermediate</span>

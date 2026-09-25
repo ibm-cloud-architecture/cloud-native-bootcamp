@@ -1,3 +1,8 @@
+---
+tags:
+  - GitOps
+---
+
 # What is GitOps
 
 GitOps is a modern approach to continuous deployment that uses Git as the single source of truth for declarative infrastructure and application configurations. It extends the principles that development teams already use for application source code—version control, code review, and collaboration—to infrastructure and operations.

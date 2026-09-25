@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Pods
+---
+
 # Lab 1 Solution - Pod Creation
 
 ```yaml title="yoda-service-pod.yaml"

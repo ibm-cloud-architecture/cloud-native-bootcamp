@@ -1,3 +1,11 @@
+---
+tags:
+  - Lab
+  - Pods
+  - Observability
+  - Beginner
+---
+
 # Lab 2 - Probes
 
 <span class="lab-badge">20 min</span> <span class="lab-badge">Beginner</span>

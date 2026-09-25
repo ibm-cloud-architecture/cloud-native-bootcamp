@@ -1,3 +1,9 @@
+---
+tags:
+  - Networking
+  - Security
+---
+
 # Network Policies
 
 Network Policies are Kubernetes resources that control traffic flow between pods and network endpoints. By default, pods are non-isolated and accept traffic from any source. Network Policies allow you to specify how pods can communicate with each other and with other network endpoints.

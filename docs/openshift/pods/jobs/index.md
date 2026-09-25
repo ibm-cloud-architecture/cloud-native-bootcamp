@@ -1,3 +1,8 @@
+---
+tags:
+  - Workloads
+---
+
 # Jobs and CronJobs
 
 **Jobs**

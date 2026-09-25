@@ -1,3 +1,12 @@
+---
+tags:
+  - Lab
+  - CI/CD
+  - Tekton
+  - OpenShift
+  - Intermediate
+---
+
 # Tekton Lab - OpenShift Pipelines
 
 <span class="lab-badge">60 min</span> <span class="lab-badge">Intermediate</span>
@@ -22,8 +31,10 @@ In this lab you'll use **Red Hat OpenShift Pipelines**, Red Hat's supported dist
 
     === "Windows"
 
+        With [Chocolatey](https://community.chocolatey.org/packages/tektoncd-cli):
+
         ```powershell
-        winget install --id TektonCD.Cli
+        choco install tektoncd-cli --confirm
         ```
 
     Check it works with `tkn version`.

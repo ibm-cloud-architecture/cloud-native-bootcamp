@@ -1,3 +1,8 @@
+---
+tags:
+  - Security
+---
+
 # Role-Based Access Control (RBAC)
 
 Role-Based Access Control (RBAC) is a method of regulating access to resources based on the roles of individual users. RBAC uses the `rbac.authorization.k8s.io` API group to drive authorization decisions, allowing you to dynamically configure policies through the Kubernetes API.

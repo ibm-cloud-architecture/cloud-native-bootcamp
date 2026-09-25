@@ -1,3 +1,9 @@
+---
+tags:
+  - GitOps
+  - Argo CD
+---
+
 # Continuous Deployment
 
 Continuous Integration, Delivery, and Deployment are important devOps practices and we often hear a lot about them. These processes are valuable and ensures that the software is up to date timely.

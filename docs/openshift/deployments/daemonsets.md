@@ -1,3 +1,8 @@
+---
+tags:
+  - Workloads
+---
+
 # DaemonSets
 
 A DaemonSet ensures that all (or some) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed from the cluster, those pods are garbage collected.

@@ -1,3 +1,9 @@
+---
+tags:
+  - Operators
+  - OpenShift
+---
+
 # How to use Operators
 
 Operators extend Kubernetes functionality by automating the deployment and management of complex applications. This guide walks you through the process of finding, installing, and using Operators in your OpenShift cluster.

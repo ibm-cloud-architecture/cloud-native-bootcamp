@@ -1,3 +1,9 @@
+---
+tags:
+  - Operators
+  - OpenShift
+---
+
 # What are OpenShift Operators
 
 ## Overview

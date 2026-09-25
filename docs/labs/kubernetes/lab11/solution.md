@@ -1,3 +1,10 @@
+---
+tags:
+  - Solution
+  - Networking
+  - OpenShift only
+---
+
 # Lab 11 Solution - Routes & Ingress
 
 ## 1. HTTP Route

@@ -1,3 +1,9 @@
+---
+tags:
+  - Pods
+  - Troubleshooting
+---
+
 # Debugging Applications
 
 Kubernetes provides tools to help troubleshoot and debug problems with applications.

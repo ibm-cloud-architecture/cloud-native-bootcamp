@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Troubleshooting
+  - Intermediate
+---
+
 # Lab 3 - Debugging
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>

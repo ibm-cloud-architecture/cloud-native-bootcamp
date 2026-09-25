@@ -1,3 +1,9 @@
+---
+tags:
+  - Containers
+  - Registries
+---
+
 # Registry Tutorials
 
 This page provides step-by-step tutorials for working with popular container registries. Select a registry below to get started.

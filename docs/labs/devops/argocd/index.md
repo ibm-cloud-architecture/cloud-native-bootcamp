@@ -1,3 +1,12 @@
+---
+tags:
+  - Lab
+  - GitOps
+  - Argo CD
+  - OpenShift
+  - Intermediate
+---
+
 # Argo CD Lab - OpenShift GitOps
 
 <span class="lab-badge">60 min</span> <span class="lab-badge">Intermediate</span>

@@ -358,3 +358,51 @@ body {
     padding-bottom: 0.2rem;
   }
 }
+
+/* ---------- Left navigation: clear section structure (Carbon side nav) ---------- */
+
+@media screen and (min-width: 76.25em) {
+  /* Top-level section title at the top of the sidebar */
+  .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    color: var(--md-default-fg-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Section headings inside it (Core Concepts, Pods, ...): divided, uppercase labels */
+  .md-nav--primary .md-nav__item--section .md-nav__item--section > .md-nav__link {
+    margin-top: 1.2em;
+    padding-top: 0.9em;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    color: var(--md-default-fg-color);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Links inside a section: indented behind a guide line */
+  .md-nav--primary .md-nav__item--section .md-nav__item--section > .md-nav {
+    margin-top: 0.3em;
+    margin-left: 0.1rem;
+    border-left: 1px solid var(--md-default-fg-color--lightest);
+  }
+
+  .md-nav--primary .md-nav__item--section .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item > .md-nav__link {
+    margin-top: 0;
+    padding: 0.3em 0 0.3em 0.7rem;
+    color: var(--md-default-fg-color--light);
+  }
+
+  .md-nav--primary .md-nav__item--section .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item > .md-nav__link:hover {
+    color: var(--md-default-fg-color);
+  }
+
+  /* Current page: blue marker on the guide line */
+  .md-nav--primary .md-nav__item--section .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item > .md-nav__link--active {
+    margin-left: -1px;
+    border-left: 2px solid var(--md-typeset-a-color);
+    padding-left: calc(0.7rem - 1px);
+    color: var(--md-typeset-a-color);
+  }
+}

@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  DISABLE_MKDOCS_2_WARNING: "true"
+
 concurrency:
   group: docs-${{ github.ref }}
   cancel-in-progress: true
@@ -37,6 +40,20 @@ jobs:
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: mkdocs gh-deploy --force
+
+  spelling:
+    runs-on: ubuntu-latest
+    # Non-blocking: reports typos without failing the build. Add real terms
+    # to cspell.json.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "lts/*"
+          cache: npm
+      - run: npm ci
+      - run: npm run spell
 
   links:
     runs-on: ubuntu-latest

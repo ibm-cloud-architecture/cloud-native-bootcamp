@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Workloads
+---
+
 # Lab 8 Solution - Cron Jobs
 
 ```yaml title="xwing-cronjob.yaml"

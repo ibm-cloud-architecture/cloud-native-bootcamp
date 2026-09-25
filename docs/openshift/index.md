@@ -1,3 +1,9 @@
+---
+tags:
+  - Kubernetes
+  - OpenShift
+---
+
 # What is Container Orchestration?
 
 ## Introduction

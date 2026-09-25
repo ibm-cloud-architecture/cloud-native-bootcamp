@@ -1,3 +1,9 @@
+---
+tags:
+  - Pods
+  - Observability
+---
+
 # Health and Monitoring
 
 ## Liveness and Readiness Probes

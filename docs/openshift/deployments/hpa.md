@@ -1,3 +1,9 @@
+---
+tags:
+  - Workloads
+  - Scaling
+---
+
 # Horizontal Pod Autoscaler (HPA)
 
 The Horizontal Pod Autoscaler automatically scales the number of pods in a deployment, replica set, or stateful set based on observed CPU utilization, memory usage, or custom metrics. This allows your applications to handle varying loads efficiently.

@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Troubleshooting
+---
+
 # Lab 3 Solution - Debugging
 
 There are three problems:

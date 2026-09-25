@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Pods
+  - Beginner
+---
+
 # Lab 1 - Pod Creation
 
 <span class="lab-badge">15 min</span> <span class="lab-badge">Beginner</span>

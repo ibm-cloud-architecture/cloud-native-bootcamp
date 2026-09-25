@@ -1,3 +1,9 @@
+---
+tags:
+  - Operators
+  - OpenShift
+---
+
 # What is the Operator Catalog
 
 The Operator Catalog, also known as OperatorHub, is a registry of Kubernetes Operators that have been packaged for easy discovery, installation, and lifecycle management. In Red Hat OpenShift, the Embedded OperatorHub provides a curated marketplace of Operators that have been verified to work with the platform.

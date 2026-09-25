@@ -1,3 +1,11 @@
+---
+tags:
+  - Lab
+  - Networking
+  - Security
+  - Intermediate
+---
+
 # Lab 10 - Network Policies
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>

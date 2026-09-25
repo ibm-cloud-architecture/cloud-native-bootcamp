@@ -1,3 +1,8 @@
+---
+tags:
+  - Storage
+---
+
 # State Persistence
 
 State persistence in the context of Kubernetes/OpenShift refers to the ability to maintain and retain the state or data of applications even when they are stopped, restarted, or moved between nodes.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Cloud native
+---
+
 # Journey to the Cloud
 
 ## Introduction
