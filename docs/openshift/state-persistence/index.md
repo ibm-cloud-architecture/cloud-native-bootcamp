@@ -34,7 +34,6 @@ In this example, we define a PVC named _my-pvc_ with the following specification
 
 ## Activities
 
-| Task                          | Description                                                  | Link                                                                  |
-| ----------------------------- | ------------------------------------------------------------ | :-------------------------------------------------------------------- |
-| **_Try It Yourself_**         |                                                              |
-| Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod. | [Setting up Persistent Volumes](../../labs/kubernetes/lab10/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 5 - Persistent Storage](../../labs/kubernetes/lab5/index.md) | Give a PostgreSQL pod storage that survives restarts |

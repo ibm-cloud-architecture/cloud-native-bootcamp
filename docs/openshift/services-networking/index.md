@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: bitnami/nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
           ports:
             - containerPort: 8080
               name: http
@@ -124,8 +124,7 @@ spec:
 
 ## Activities
 
-| Task                   | Description                                    | Link                                                              |
-| ---------------------- | ---------------------------------------------- | :---------------------------------------------------------------- |
-| **_Try It Yourself_**  |                                                |                                                                   |
-| Creating Services      | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab9/index.md)        |
-| Routes & Ingress | Publish an app with an OpenShift Route and a Kubernetes Ingress. | [Routes & Ingress Lab](../../labs/kubernetes/lab11/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 9 - Services](../../labs/kubernetes/lab9/index.md) | Expose deployments inside and outside the cluster |
+| [Lab 11 - Routes & Ingress](../../labs/kubernetes/lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress |

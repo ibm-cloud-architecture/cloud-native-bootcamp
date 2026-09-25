@@ -170,7 +170,6 @@ Usually is getting familiar with how primitives objects interact with each other
 
 ## Activities
 
-| Task                  | Description                                                      | Link                                                |
-| --------------------- | ---------------------------------------------------------------- | :-------------------------------------------------- |
-| **_Try It Yourself_** |                                                                  |                                                     |
-| Debugging             | Find which service is breaking in your cluster and find out why. | [Debugging](../../../labs/kubernetes/lab3/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 3 - Debugging](../../../labs/kubernetes/lab3/index.md) | Find and fix everything that's broken in a deployment |

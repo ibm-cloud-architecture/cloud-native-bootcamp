@@ -212,8 +212,9 @@ You can define your cloud native road map in many ways. You can get
 there by choosing different paths. Let us see the trail map defined by
 CNCF.
 
-CNCF defined the Cloud Native Trail Map providing an overview for
-enterprises starting their cloud native journey as follows.
+CNCF published the Cloud Native Trail Map as an overview for
+enterprises starting their cloud native journey. CNCF no longer maintains it,
+but the path it describes is still a useful way to think about adoption.
 
 This cloud map gives us various steps that an engineering team may use
 while considering the cloud native technologies and exploring them. The
@@ -228,12 +229,14 @@ distribution based on your requirements.
 -   With out Containerization, you cannot build cloud native
     applications. This helps your application to run in any computing
     environment. Basically, all your code and dependencies are packaged
-    up together in to a single unit here. Among different container
-    platforms available, Docker is a preferred one.
+    up together in to a single unit here. Images follow the open OCI
+    standard, so they can be built with Podman, Buildah or Docker and run
+    on any compliant runtime.
 
 -   To bring all the changes in the code to container automatically, it
     is nice to set up a CI/CD pipeline which does that. There are many
-    tools available like jenkins, travis, etc.
+    tools available like Tekton, GitHub Actions, GitLab CI and Jenkins,
+    with GitOps tools such as Argo CD and Flux handling deployment.
 
 -   Since we have containers, we need container orchestration to manage
     the container lifecycles. Currently, Kubernetes is one solution
@@ -249,7 +252,7 @@ distribution based on your requirements.
 
 -   Networking plays a crucial role. You should define flexible
     networking layers based on your requirements. For this, you can use
-    Calico, Weave Net etc.
+    CNI plugins such as OVN-Kubernetes (OpenShift's default), Cilium or Calico.
 
 -   Sometimes, you may need distributed databases. Based on your
     requirements, if you need more scalability and resiliency, these are
@@ -265,7 +268,7 @@ distribution based on your requirements.
     software distribution.
 
 Also, if you want to see the cloud native landscape, check it out
-[here](https://landscape.cncf.io/images/landscape.png).
+[here](https://landscape.cncf.io/).
 
 ## Summary
 
@@ -277,8 +280,8 @@ will get an idea on how to design and architect your cloud-native
 system. You can also get the idea of different tools, frameworks,
 platforms etc from the cloud-native landscapes.
 
-Also, if you are interesting in knowing more, we have [Cloud-Native: A
-Complete Guide](https://www.ibm.com/cloud/learn/cloud-native). Feel free
+Also, if you are interesting in knowing more, we have [What is cloud
+native?](https://www.ibm.com/think/topics/cloud-native). Feel free
 to check this out.
 
 ## References
@@ -290,4 +293,4 @@ to check this out.
 -   [CNCF landscape](https://github.com/cncf/landscape)
 
 -   [CNCF
-    Definition](https://github.com/cncf/toc/blob/master/DEFINITION.md)
+    Definition](https://github.com/cncf/toc/blob/main/DEFINITION.md)

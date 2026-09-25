@@ -29,9 +29,9 @@ A Secret is an object that contains a small amount of sensitive data such as a p
       </div>
 
 
-    [Image Pull Secrets :fontawesome-solid-key:](https://docs.openshift.com/container-platform/4.13/openshift_images/managing_images/using-image-pull-secrets.html){ .md-button target="_blank"}
+    [Image Pull Secrets :fontawesome-solid-key:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/images/managing-images#using-image-pull-secrets){ .md-button target="_blank"}
 
-    [Secret Commands :fontawesome-solid-key:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html#oc-create-secret-generic){ .md-button target="_blank"}
+    [Secret Commands :fontawesome-solid-key:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc#cli-developer-commands){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -74,7 +74,7 @@ metadata:
 spec:
   containers:
     - name: my-app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
       env:

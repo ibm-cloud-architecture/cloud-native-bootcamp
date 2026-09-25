@@ -10,9 +10,9 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services withi
 
 === "OpenShift"
 
-    [Ingress Operator :fontawesome-solid-door-open:](https://docs.openshift.com/container-platform/4.13/networking/ingress-operator.html){ .md-button target="_blank"}
+    [Ingress Operator :fontawesome-solid-door-open:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/ingress_and_load_balancing/index){ .md-button target="_blank"}
 
-    [Using Ingress Controllers :fontawesome-solid-door-open:](https://docs.openshift.com/container-platform/4.13/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html){ .md-button target="_blank"}
+    [Using Ingress Controllers :fontawesome-solid-door-open:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/ingress_and_load_balancing/configuring-ingress-cluster-traffic){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -56,7 +56,7 @@ spec:
     kubectl get pods -n kube-system | grep ingress
     ```
     ```
-    kubectl create deployment web --image=bitnami/nginx
+    kubectl create deployment web --image=quay.io/nginx/nginx-unprivileged:1.29
     ```
     ```
     kubectl expose deployment web --name=web --port 8080
@@ -76,7 +76,6 @@ spec:
 
 ## Activities
 
-| Task                   | Description                           | Link                                                              |
-| ---------------------- | ------------------------------------- | :---------------------------------------------------------------- |
-| **_Try It Yourself_**  |                                       |                                                                   |
-| Routes & Ingress | Publish an app with an OpenShift Route and a Kubernetes Ingress. | [Routes & Ingress Lab](../../labs/kubernetes/lab11/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 11 - Routes & Ingress](../../labs/kubernetes/lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress |

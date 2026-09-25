@@ -25,7 +25,7 @@ DaemonSets are typically used for cluster-wide services that need to run on ever
 
 === "OpenShift"
 
-    [DaemonSets :fontawesome-solid-server:](https://docs.openshift.com/container-platform/4.17/nodes/jobs/nodes-pods-daemonsets.html){ .md-button target="_blank"}
+    [DaemonSets :fontawesome-solid-server:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/using-jobs-and-daemon-sets#nodes-pods-daemonsets){ .md-button target="_blank"}
 
 === "Kubernetes"
 

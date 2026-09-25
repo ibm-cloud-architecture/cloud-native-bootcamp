@@ -8,15 +8,42 @@ A way to combat this issue in Kubernetes is through the use of Deployments.  The
 
 ### Rolling Deployment
 
-A Rolling Deployment ensures that there is no downtime during the update process.  Kubernetes creates a new ReplicaSet for the new version of the service to be rolled out.  From there Kubernetes creates set of pods of the new version while leaving the old pods running.  Once the new pods are all up and running they will replace the old pods and become the primary pods users access.
+A Rolling Deployment ensures that there is no downtime during the update process.  Kubernetes creates a new ReplicaSet for the new version of the service to be rolled out, then **incrementally** scales the new ReplicaSet up and the old one down. A new pod has to pass its readiness probe before an old pod is removed, so users are always served by ready pods. `maxSurge` (how many extra pods may be created) and `maxUnavailable` (how many pods may be missing) control the pace.
 
 ![Rolling Deployment](./images/rolling-deploy.png)
 
-The upside to this approach is that there is no downtime and the deployment is handled by kubernetes through a deployment like the one below. The downside is with two sets of pods running at one time there is a higher usage of resources that may lead to performance issues for users. 
+The upside to this approach is that there is no downtime and the whole process is handled by Kubernetes. `RollingUpdate` is the default strategy for Deployments:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # at most 5 pods during the update
+      maxUnavailable: 0  # never go below 4 ready pods
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: quay.io/nginx/nginx-unprivileged:1.29
+```
+
+The downside is that two versions run side by side during the rollout, so the application must tolerate that (for example, compatible database schemas and APIs), and extra pods temporarily use more resources.
 
 ### Fixed Deployment 
 
-A Fixed Deployment uses the Recreate strategy which sets the maxUnavailable setting to the number of declared replicas.  This in effect starts the versions of the pods as the old versions are being killed.  The starting and stopping of containers does create a little bit of downtime for customers while the starting and stopping is taking place, but the positive side is the users will only have to handle one version at a time.
+A Fixed Deployment uses the `Recreate` strategy (`spec.strategy.type: Recreate`). Kubernetes first terminates **all** pods of the old version, and only then starts the pods of the new version.  This creates downtime between the old pods stopping and the new pods becoming ready, but the positive side is that two versions never run at the same time, which some applications (for example, ones that hold an exclusive lock or migrate a database on startup) require.
 
 ![Fixed Deployment](./images/fixed-deploy.png)
 
@@ -37,7 +64,15 @@ A Canary Release involves only standing up one pod of the new application code a
 
 ## Health Probe Pattern
 
-The Health Probe pattern revolves the health of applications being communicated to Kubernetes. To be fully-automatable, cloud-applications must be highly observable in order for Kubernetes to know which applications are up and ready to receive traffic and which cannot. Kubernetes can use that information for traffic direction, self-healing, and to achieve the desired state of the application.
+The Health Probe pattern revolves around the health of applications being communicated to Kubernetes. To be fully-automatable, cloud-applications must be highly observable in order for Kubernetes to know which applications are up and ready to receive traffic and which cannot. Kubernetes can use that information for traffic direction, self-healing, and to achieve the desired state of the application.
+
+Kubernetes offers three kinds of probes, each of which can run an HTTP GET, TCP socket, gRPC or exec check:
+
+| Probe | Question it answers | Action on failure |
+| --- | --- | --- |
+| **Startup** | Has the app finished starting? | Keep waiting; liveness and readiness probes don't run until it succeeds. Restart after `failureThreshold` failures |
+| **Liveness** | Is the app still working? | Restart the container |
+| **Readiness** | Can the app take traffic right now? | Remove the pod from Service endpoints until it recovers |
 
 ### Process Health Checks
 
@@ -45,11 +80,12 @@ The simplest health check in kubernetes is the Process Health Check.  Kubernetes
 
 ### Liveness Probes
 
-A Liveness Probe is performed by the Kubernetes Kubelet agent and asks the container to confirm it's health.  A simple process check can return that the container is healthy, but the container to users may not be performing correctly.  The liveness probe addresses this issue but asking the container for its health from outside of the container itself. If a failure is found it may require that the container be restarted to get back to normal health.  A liveness probe can perform the following actions to check health:
+A Liveness Probe is performed by the Kubernetes Kubelet agent and asks the container to confirm its health.  A simple process check can return that the container is healthy, but the container to users may not be performing correctly.  The liveness probe addresses this issue by asking the container for its health from outside of the container itself. If a failure is found it may require that the container be restarted to get back to normal health.  A liveness probe can perform the following actions to check health:
 
 - HTTP GET and expects a success which is code 200-399.
 - A TCP Socket Probe and expects a successful connection.
-- A Exec Probe which executes a command and expects a successful exit code (0).
+- An Exec Probe which executes a command and expects a successful exit code (0).
+- A gRPC probe which calls the standard gRPC health checking service.
 
 The action chosen to be performed for testing depends on the nature of the application and which action fits best. Always keep in mind that a failing health check results in a restart of the container from Kubernetes, so make sure the right health check is in place if the underlying issue can't be fixed.
 
@@ -64,7 +100,7 @@ The Managed Lifecycle pattern describes how containers need to adapt their lifec
 
 ### SIGTERM
 
-The SIGTERM is a signal that is sent from the managing platform to a container or pod that instructs the pod or container to shutdown or restart.  This signal can be sent due to a failed liveness test or a failure inside the container.  SIGKILL allows the container to cleaning and properly shut itself down versus SIGKILL, which we will get to next. Once received, the application will shutdown as quickly as it can, allowing other processes to stop properly and cleaning up other files.  Each application will have a different shutdown time based on the tasks needed to be done.
+SIGTERM is the signal Kubernetes sends to the main process of each container when a pod is being stopped, for example during a rolling update, a scale-down, a node drain, or after a failed liveness probe.  SIGTERM lets the application clean up and shut itself down properly, unlike SIGKILL, which we will get to next. Once received, the application will shutdown as quickly as it can, allowing other processes to stop properly and cleaning up other files.  Each application will have a different shutdown time based on the tasks needed to be done.
 
 ### SIGKILL
 
@@ -72,12 +108,14 @@ SIGKILL is a signal sent to a container or pod forcing it to shutdown.  A SIGKIL
 
 ### postStart
 
-The postStart hook is a command that is run after the creation of a container and begins asynchronously with the container's primary process. PostStart is put in place in order to give the container time to warm up and check itself during startup.  During the postStart loop the container will be labeled in "pending" mode in kubernetes while running through it's initial processes.  If the postStart function errors out it will do so with a nonzero exit code and the container process will be killed by Kubernetes.  Careful planning must be done when deciding what logic goes into the postStart function because if it fails the container will also fail to start.  Both postStart and preStop have two handler types that they run:
+The postStart hook is a command that is run after the creation of a container and begins asynchronously with the container's primary process. PostStart is put in place in order to give the container time to warm up and check itself during startup.  Until the postStart hook completes, the container isn't marked as running and the pod doesn't become ready.  If the postStart function errors out it will do so with a nonzero exit code and the container process will be killed by Kubernetes.  Careful planning must be done when deciding what logic goes into the postStart function because if it fails the container will also fail to start.  Both postStart and preStop have two handler types that they run:
 
 - exec: Runs a command directly in the container.
 
 - httpGet: Executes an HTTP GET request against an opened port on the pod container.
 
+- sleep: Pauses for a number of seconds (Kubernetes 1.30+), a simple way to delay shutdown until load balancers have stopped sending traffic.
+
 ### preStop
 
-The preStop hook is a call that blocks a container from terminating too quickly and makes sure the container has a graceful shutdown.  The preStop call must finish before the container is deleted by the container runtime.  The preStop signal does not stop the container from being deleted completely, it is only an alternative to a SIGTERM signal for a graceful shutdown. 
+The preStop hook runs **before** SIGTERM is sent to the container, giving the application a chance to shut down gracefully, for example to finish in-flight requests or deregister from a service. SIGTERM is sent only after the hook completes. The hook doesn't pause the termination grace period: if the preStop hook and the application's shutdown together take longer than `terminationGracePeriodSeconds`, the container is killed with SIGKILL.

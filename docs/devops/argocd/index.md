@@ -47,14 +47,13 @@ On OpenShift, Argo CD is delivered as **[Red Hat OpenShift GitOps](https://docs.
 
 ## Activities
 
-These activities give you a chance to walkthrough building CD pipelines using ArgoCD.
+These activities give you a chance to deliver an application with Argo CD using GitOps.
 
 These tasks assume that you have:
  - Reviewed the Continuous Deployment concept page.
 
-| Task | Description | Link | Time |
-| ---- | ----------- | :--- | ---- |
-| ***Try It Yourself*** | | | |
-| Argo CD Lab | Deploy, self-heal and update an app with OpenShift GitOps | [Argo CD Lab](../../labs/devops/argocd/index.md) | 1 hour |
+| Lab | Description |
+| --- | ----------- |
+| [Argo CD Lab](../../labs/devops/argocd/index.md) | Deploy, self-heal and update an app with OpenShift GitOps |
 
 Once you have completed these tasks, you will have deployed an application with Argo CD and have an understanding of Continuous Deployment.

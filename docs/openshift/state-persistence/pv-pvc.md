@@ -16,11 +16,11 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
 === "OpenShift"
 
-    [Persistent Storage :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){ .md-button target="_blank"}
+    [Persistent Storage :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Persistent Volume Types :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){ .md-button target="_blank"}
+    [Persistent Volume Types :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){ .md-button target="_blank"}
+    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/expanding-persistent-volumes){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -111,7 +111,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                              | Link                                                            |
-| --------------------- | -------------------------------------------------------- | :-------------------------------------------------------------- |
-| **_Try It Yourself_** |                                                          |                                                                 |
-| Persistent Volumes    | Create a Persistent Volume that's accessible from a Pod. | [Persistent Volumes](../../labs/kubernetes/lab5/index.md)       |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 5 - Persistent Storage](../../labs/kubernetes/lab5/index.md) | Give a PostgreSQL pod storage that survives restarts |

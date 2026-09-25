@@ -29,7 +29,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
           A health check periodically performs diagnostics on a running container using any combination of the readiness, liveness, and startup health checks.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/application-health){ target="_blank"}
 
       -   :fontawesome-solid-vr-cardboard:{ .lg .middle } __Virtual Machine Health__
 
@@ -37,7 +37,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
           Use readiness and liveness probes to detect and handle unhealthy virtual machines (VMs).
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/virt/monitoring/virt-monitoring-vm-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/monitoring#virt-monitoring-vm-health){ target="_blank"}
 
     </div>
 
@@ -89,7 +89,7 @@ spec:
   shareProcessNamespace: true
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
       livenessProbe:
@@ -121,7 +121,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           Read about the descriptions and example commands for OpenShift CLI (`oc`) developer commands.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc#cli-developer-commands){ target="_blank"}
 
       -   :fontawesome-solid-circle-nodes:{ .lg .middle } __Cluster Logging__
 
@@ -129,7 +129,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           As a cluster administrator, you can deploy logging on an OpenShift Container Platform cluster, and use it to collect and aggregate node system audit logs, application container logs, and infrastructure logs.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/red_hat_openshift_logging/){ target="_blank"}
 
       -   :fontawesome-solid-file-lines:{ .lg .middle } __Logging Collector__
 
@@ -137,7 +137,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           The collector collects log data from each node, transforms the data, and forwards it to configured outputs.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/observability/logging/cluster-logging.html#logging-architecture-overview_cluster-logging){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/red_hat_openshift_logging/){ target="_blank"}
 
     </div>
 
@@ -214,7 +214,7 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
           OpenShift Container Platform applications have a number of options to detect and handle unhealthy containers.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/application-health){ target="_blank"}
 
     </div>
 
@@ -324,7 +324,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                                          | Link                                             |
-| --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
-| **_Try It Yourself_** |                                                                      |                                                  |
-| Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab2/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 2 - Probes](../../../labs/kubernetes/lab2/index.md) | Add liveness and readiness probes to recover from an unhealthy app |

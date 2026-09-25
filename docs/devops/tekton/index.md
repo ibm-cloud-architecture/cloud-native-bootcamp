@@ -30,10 +30,9 @@ These tasks assume that you have:
 - Reviewed the continuous integration concept page.
 - Access to an OpenShift cluster with OpenShift Pipelines installed (see the lab prerequisites).
 
-| Task | Description | Link | Time |
-| ---- | ----------- | :--- | ---- |
-| ***Try It Yourself*** | | | |
-| In-cluster builds | Build an image inside OpenShift with a BuildConfig | [Image Registry Lab, Part 3](../../labs/containers/container-registry/index.md#part-3-build-inside-the-cluster) | 20 min |
-| Tekton Lab | Build and deploy an app with OpenShift Pipelines | [Tekton Lab](../../labs/devops/tekton/index.md) | 1 hour |
+| Lab | Description |
+| --- | ----------- |
+| [Image Registry Lab, Part 3](../../labs/containers/container-registry/index.md#part-3-build-inside-the-cluster) | Build an image inside OpenShift with a BuildConfig |
+| [Tekton Lab](../../labs/devops/tekton/index.md) | Build and deploy an app from Git with OpenShift Pipelines |
 
 Once you have completed these tasks, you will have an understanding of continuous integration and how to use Tekton to build a pipeline.

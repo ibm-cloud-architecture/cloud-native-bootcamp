@@ -67,7 +67,7 @@ metadata:
 spec:
   containers:
     - name: myapp-container
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
 ```
@@ -100,7 +100,7 @@ spec:
   restartPolicy: Never
   containers:
     - name: myapp
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
           name: http
@@ -145,7 +145,7 @@ metadata:
 spec:
   containers:
     - name: my-app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
       resources:
@@ -191,7 +191,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                            | Link                                                     |
-| --------------------- | ------------------------------------------------------ | :------------------------------------------------------- |
-| **_Try It Yourself_** |                                                        |                                                          |
-| Pod Configuration     | Configure a pod to meet compute resource requirements. | [Pod Configuration](../../labs/kubernetes/lab6/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 6 - Pod Configuration](../../labs/kubernetes/lab6/index.md) | Wire up ConfigMaps, Secrets, resource limits and a ServiceAccount |

@@ -35,9 +35,9 @@ Node Affinity allows you to constrain which nodes a pod can be scheduled on base
 
 === "OpenShift"
 
-    [Controlling Pod Placement :fontawesome-solid-sitemap:](https://docs.openshift.com/container-platform/4.17/nodes/scheduling/nodes-scheduler-taints-tolerations.html){ .md-button target="_blank"}
+    [Controlling Pod Placement :fontawesome-solid-sitemap:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/controlling-pod-placement-onto-nodes-scheduling#nodes-scheduler-taints-tolerations){ .md-button target="_blank"}
 
-    [Node Affinity :fontawesome-solid-sitemap:](https://docs.openshift.com/container-platform/4.17/nodes/scheduling/nodes-scheduler-node-affinity.html){ .md-button target="_blank"}
+    [Node Affinity :fontawesome-solid-sitemap:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/controlling-pod-placement-onto-nodes-scheduling#nodes-scheduler-node-affinity){ .md-button target="_blank"}
 
 === "Kubernetes"
 

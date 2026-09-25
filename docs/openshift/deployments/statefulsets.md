@@ -33,7 +33,7 @@ StatefulSets create pods with predictable names following the pattern `{stateful
 
 === "OpenShift"
 
-    [StatefulSets :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.17/rest_api/workloads_apis/statefulset-apps-v1.html){ .md-button target="_blank"}
+    [StatefulSets :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/workloads_apis/statefulset-apps-v1){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -81,7 +81,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:8.0
+          image: mysql:8.4
           ports:
             - containerPort: 3306
               name: mysql

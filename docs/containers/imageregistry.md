@@ -34,7 +34,7 @@ Container images follow a standard naming format:
 | Image Reference | Description |
 | --------------- | ----------- |
 | `nginx` | Docker Hub official image, latest tag implied |
-| `nginx:1.25` | Docker Hub official image with specific tag |
+| `nginx:1.29` | Docker Hub official image with specific tag |
 | `myuser/myapp:v1.0` | Docker Hub user namespace |
 | `quay.io/myorg/myapp:latest` | Quay.io registry |
 | `us.icr.io/mynamespace/myapp:v2` | IBM Cloud Registry |

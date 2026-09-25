@@ -22,9 +22,9 @@ The Horizontal Pod Autoscaler automatically scales the number of pods in a deplo
 
 === "OpenShift"
 
-    [Horizontal Pod Autoscaler :fontawesome-solid-chart-line:](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
+    [Horizontal Pod Autoscaler :fontawesome-solid-chart-line:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-pods#nodes-pods-autoscaling){ .md-button target="_blank"}
 
-    [Custom Metrics Autoscaler :fontawesome-solid-chart-line:](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-autoscaling-custom.html){ .md-button target="_blank"}
+    [Custom Metrics Autoscaler :fontawesome-solid-chart-line:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-pods){ .md-button target="_blank"}
 
 === "Kubernetes"
 

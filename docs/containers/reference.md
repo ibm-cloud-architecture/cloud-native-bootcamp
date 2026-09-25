@@ -473,10 +473,10 @@ volumes:
 
 ## Activities
 
-| Task                   | Description                                       | Link                                                                     | Time   |
-| ---------------------- | ------------------------------------------------- | ------------------------------------------------------------------------ | ------ |
-| IBM Container Registry | Build and Deploy Run using IBM Container Registry | [IBM Container Registry](../labs/containers/container-registry/index.md) | 30 min |
-| Docker Lab             | Running a Sample Application on Docker            | [Docker Lab](../labs/containers/index.md)                                | 30 min |
+| Lab | Description |
+| --- | ----------- |
+| [Containers Lab](../labs/containers/index.md) | Build, run, inspect and push a container image with Podman or Docker |
+| [Image Registry Lab](../labs/containers/container-registry/index.md) | Deploy from Quay.io, use pull secrets, and build inside OpenShift |
 
 Once you have completed these tasks, you should have a base understanding of containers and how to use Docker and Podman.
 

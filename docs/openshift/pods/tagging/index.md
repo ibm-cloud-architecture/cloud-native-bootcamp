@@ -18,7 +18,7 @@ You can use either labels or annotations to attach metadata to Kubernetes object
 
           Read about the descriptions and example commands for OpenShift CLI (`oc`) developer commands.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc#cli-developer-commands){ target="_blank"}
 
     </div>
 
@@ -61,7 +61,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
 ```
 
 === "OpenShift"

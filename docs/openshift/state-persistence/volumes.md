@@ -10,7 +10,7 @@ A Kubernetes volume, on the other hand, has an explicit lifetime - the same as t
 
 === "OpenShift"
 
-    [Volume Lifecycle :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){ .md-button target="_blank"}
+    [Volume Lifecycle :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -43,7 +43,7 @@ metadata:
   name: test-pd
 spec:
   containers:
-    - image: bitnami/nginx
+    - image: quay.io/nginx/nginx-unprivileged:1.29
       name: test-container
       volumeMounts:
         - mountPath: /test-pd

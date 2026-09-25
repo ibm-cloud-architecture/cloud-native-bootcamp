@@ -55,7 +55,7 @@ spec:
       emptyDir: {}
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       volumeMounts:
         - name: shared-data
           mountPath: /app
@@ -83,7 +83,7 @@ spec:
   shareProcessNamespace: true
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
     - name: sidecard
@@ -130,7 +130,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                     | Link                                                          |
-| --------------------- | ----------------------------------------------- | :------------------------------------------------------------ |
-| **_Try It Yourself_** |                                                 |                                                               |
-| Multiple Containers   | Build a container using legacy container image. | [Multiple Containers](../../../labs/kubernetes/lab4/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 4 - Multi-Container Pods](../../../labs/kubernetes/lab4/index.md) | Use the ambassador pattern to expose a legacy app |

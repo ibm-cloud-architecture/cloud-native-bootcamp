@@ -21,9 +21,9 @@ Network Policies are Kubernetes resources that control traffic flow between pods
 
 === "OpenShift"
 
-    [Network Policies :fontawesome-solid-network-wired:](https://docs.openshift.com/container-platform/4.17/networking/network_policy/about-network-policy.html){ .md-button target="_blank"}
+    [Network Policies :fontawesome-solid-network-wired:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/network_security/network-policy){ .md-button target="_blank"}
 
-    [Creating Network Policies :fontawesome-solid-network-wired:](https://docs.openshift.com/container-platform/4.17/networking/network_policy/creating-network-policy.html){ .md-button target="_blank"}
+    [Creating Network Policies :fontawesome-solid-network-wired:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/network_security/network-policy){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -227,7 +227,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                                            | Link                                                        |
-| --------------------- | ---------------------------------------------------------------------- | :---------------------------------------------------------- |
-| **_Try It Yourself_** |                                                                        |                                                             |
-| Network Policies      | Create a policy to allow client pods with labels to access secure pod. | [Network Policies](../../labs/kubernetes/lab10/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 10 - Network Policies](../../labs/kubernetes/lab10/index.md) | Allow only labelled clients to reach a secure pod |

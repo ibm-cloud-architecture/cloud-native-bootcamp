@@ -12,7 +12,7 @@ You can data from a ConfigMap in 3 different ways.
 
 === "OpenShift"
 
-    [Mapping Volumes :fontawesome-solid-map:](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){ .md-button target="_blank"}
+    [Mapping Volumes :fontawesome-solid-map:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-containers#nodes-containers-projected-volumes){ .md-button target="_blank"}
 
 === "Kubernetes"
 
