@@ -9,12 +9,12 @@ Kubernetes networking rests on a few simple rules, and OpenShift builds on them:
 - **NetworkPolicies** restrict which pods may talk to which.
 
 ```mermaid
-flowchart LR
-    user([Client outside the cluster]) -->|https://app.apps.example.com| router[Router / Ingress controller]
-    router -->|Route or Ingress| svc[Service<br/>my-service:80]
-    svc -->|selector app=web| p1[Pod 10.128.2.14:8080]
-    svc --> p2[Pod 10.131.0.9:8080]
-    other[Other pod] -->|my-service.my-project.svc:80| svc
+flowchart TB
+    user([Client outside the cluster]) -->|"https://app.apps.example.com"| router[Router / Ingress controller]
+    other([Another pod in the cluster]) -->|"my-service.my-project.svc"| svc
+    router -->|Route or Ingress| svc[Service: my-service]
+    svc -->|"selector app=web"| p1[Pod 10.128.2.14]
+    svc -->|"selector app=web"| p2[Pod 10.131.0.9]
 ```
 
 ## Service discovery with DNS

@@ -12,9 +12,9 @@ theme:
   favicon: images/watson-white-logo.png
   icon:
     repo: fontawesome/brands/github
-  font:
-    text: IBM Plex Sans
-    code: IBM Plex Mono
+  # IBM Plex is loaded via extra_css (full weight range) and self-hosted by
+  # the privacy plugin, so Material's own Google Fonts loader is disabled.
+  font: false
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -23,14 +23,14 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: custom
-      accent: blue
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: custom
-      accent: blue
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
@@ -56,6 +56,9 @@ theme:
 
 plugins:
   - search
+  # Downloads external assets (IBM Plex fonts) at build time and serves them
+  # from the site, so fonts work on networks that block Google Fonts.
+  - privacy
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
@@ -71,6 +74,7 @@ validation:
   anchors: warn
 
 extra_css:
+  - https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap
   - stylesheets/index.css
 
 extra:
@@ -127,9 +131,8 @@ nav:
       - Image Registries: containers/imageregistry.md
       - Registry Tutorials: containers/registry-tutorials.md
       - References: containers/reference.md
-      - Labs:
-          - Containers Lab: labs/containers/index.md
-          - Image Registry Lab: labs/containers/container-registry/index.md
+      - Containers Lab: labs/containers/index.md
+      - Image Registry Lab: labs/containers/container-registry/index.md
   - Kubernetes/OpenShift:
       - openshift/index.md
       - Container Orchestration Concepts: openshift/orchestrationConcepts.md
