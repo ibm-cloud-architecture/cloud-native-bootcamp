@@ -2,310 +2,134 @@
 
 ## Required skills
 
-This activities contained here require you to be proficient in working from the command line with a linux shell (Bash, Zsh, etc.) Below is a partial list of activities you should be able to perform. 
+The labs assume you're comfortable working at the command line in a Linux-style shell (Bash, Zsh or similar). You should be able to:
 
-- Copy, move, and rename files
-- Understand linux file permissions
-- Edit text files (vi, vim, emacs, etc)
-- Edit environment variables ($PATH)
+- Navigate directories and copy, move and rename files
+- Understand Linux file permissions
+- Edit text files with a terminal or graphical editor
+- Set environment variables and understand `$PATH`
 
-Here is a course for learning (or brushing up) on working from the linux command line [Linux Command Line Basics](https://www.udacity.com/course/linux-command-line-basics--ud595)
+If you need a refresher, try [The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners).
 
-## Workstation Setup
-=== "Openshift (MacOS/Linux)"
+!!! tip "Windows users"
+    Use [Windows Subsystem for Linux (WSL 2)](https://learn.microsoft.com/windows/wsl/install) with an Ubuntu distribution. All commands in the bootcamp are written for a Bash-compatible shell, and they work unchanged in WSL.
 
-    ## Create accounts
+## Accounts
 
-    You'll need these accounts to use the Developer Tools environment.
+| Account | Used for |
+| --- | --- |
+| [GitHub](https://github.com/signup) | Forking the bootcamp repository in the Argo CD and Tekton labs, and hosting your own code |
+| [Quay.io](https://quay.io/) | Pushing container images in the container labs |
+| [Red Hat Developer](https://developers.redhat.com/register) | OpenShift Local and the Developer Sandbox (free) |
 
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
+## Tools
 
-    - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
+| Tool | Purpose | Required? |
+| --- | --- | --- |
+| [Git](https://git-scm.com/downloads) | Source control | Yes |
+| [Podman](https://podman.io/docs/installation) or [Podman Desktop](https://podman-desktop.io/) | Building and running containers. [Docker](https://docs.docker.com/get-started/get-docker/) also works. | Yes |
+| [OpenShift CLI (`oc`)](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/) | Working with OpenShift. It includes all `kubectl` functionality. | Yes |
+| [Tekton CLI (`tkn`)](https://tekton.dev/docs/cli/) | Tekton Lab | For the CI lab |
+| [Argo CD CLI (`argocd`)](https://argo-cd.readthedocs.io/en/stable/cli_installation/) | Argo CD Lab | For the CD lab |
+| [Visual Studio Code](https://code.visualstudio.com/) | Editing code and YAML. Add the Red Hat YAML extension for Kubernetes schema validation. | Recommended |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Only needed if you use a non-OpenShift cluster | Optional |
 
-    - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
+=== "macOS"
 
-    - [RedHat Account](https://www.redhat.com/en): Needed for OpenShift Local.
+    With [Homebrew](https://brew.sh/):
 
-    ## Install CLIs and tools
+    ```bash
+    brew install git podman openshift-cli tektoncd-cli argocd
+    brew install --cask podman-desktop visual-studio-code
+    podman machine init && podman machine start
+    ```
 
-    The following is a list of desktop tools required to help with installation and development.
+=== "Linux"
 
-    - [Git Client](https://git-scm.com/): Needs to be installed in your development operating system, it comes as standard for Mac OS
+    Install Git and Podman with your distribution's package manager, for example on Fedora or RHEL:
 
-    - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started): Required for management of IBM Cloud Account and management of your managed IBM Kubernetes and Red Hat OpenShift clusters
-        - Don't install just the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli), install the [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started#step1-install-idt)
-        ```
-        curl -sL https://ibm.biz/idt-installer | bash
-        ```
+    ```bash
+    sudo dnf install -y git podman
+    ```
 
-    !!! Note
-        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
+    Then download `oc` from the [OpenShift mirror](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/) (`openshift-client-linux-*.tar.gz`), and `tkn` and `argocd` from their release pages linked in the table. Extract each binary into a directory on your `PATH`, such as `~/.local/bin`.
 
-    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
-        - Installed and running on your local machine
+=== "Windows (WSL 2)"
 
-    - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
-    pipelines from the command line.
-        ```
-            brew tap tektoncd/tools
-            brew install tektoncd/tools/tektoncd-cli
-        ```
+    Inside your WSL Ubuntu shell:
 
-    - [Visual Studio Code](https://code.visualstudio.com/download): A popular code editor
-        - You will be required to edit some files, having a good quality editor is always best practice
-        - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
+    ```bash
+    sudo apt update && sudo apt install -y git podman
+    ```
 
-    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
-        - Used for SpringBoot content
+    Then download the Linux builds of `oc`, `tkn` and `argocd`, as described in the Linux tab. Alternatively, install [Podman Desktop for Windows](https://podman-desktop.io/docs/installation/windows-install), which manages a Podman machine in WSL for you.
 
+### Check your setup
 
-=== "Openshift (Windows)"
-
-    ## Create accounts
-
-    You'll need these accounts to use the Developer Tools environment.
-
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
-
-    - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
-
-    - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
-
-    - [RedHat Account](https://www.redhat.com/en): Needed for OpenShift Local.
-
-    ## Cloud Native VM
-
-    Use the [Cloud Native VM](https://github.com/csantanapr/vagrant-cloud-native#install) it comes pre-installed with kubernetes and all cloud native CLIs.
-
-    Is highly recommended for Windows users to use this VM.
-
-    ## Install CLIs and tools
-
-    The following is a list of desktop tools required to help with installation and development.
-
-    - [Git Client](https://git-scm.com/): Needs to be installed in your development operating system, it comes as standard for Mac OS
-
-    - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started): Required for management of IBM Cloud Account and management of your managed IBM Kubernetes and Red Hat OpenShift clusters
-        - Don't install just the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli), install the [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started#step1-install-idt)
-        ```
-        curl -sL https://ibm.biz/idt-installer | bash
-        ```
-
-    !!! Note 
-        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-
-    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
-        - Installed and running on your local machine
-
-    - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton pipelines from the command line.
-
-
-    - [Visual Studio Code](https://code.visualstudio.com/download): A popular code editor
-        - You will be required to edit some files, having a good quality editor is always best practice
-        - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
-
-    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
-        - Used for SpringBoot content
-
-    - [OpenShift Local](https://docs.redhat.com/en/documentation/red_hat_openshift_local/): For running a local OpenShift cluster
-
-    !!! warning
-        Make sure you have Cisco VPN turned off when using OpenShift Local.
-
-=== "Kubernetes (MacOS/Linux)"
-    ## Create accounts
-
-    You'll need these accounts to use the Developer Tools environment.
-
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
-
-    - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
-
-    - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
-
-    ## Install CLIs and tools
-
-    The following is a list of desktop tools required to help with installation and development.
-
-    - [Git Client](https://git-scm.com/): Needs to be installed in your development operating system, it comes as standard for Mac OS
-
-    - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started): Required for management of IBM Cloud Account and management of your managed IBM Kubernetes and Red Hat OpenShift clusters
-        - Don't install just the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli), install the [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started#step1-install-idt)
-        ```
-        curl -sL https://ibm.biz/idt-installer | bash
-        ```
-
-     !!! Note
-        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-    
-
-    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
-        - Installed and running on your local machine
-
-    - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
-    pipelines from the command line.
-        ```
-            brew tap tektoncd/tools
-            brew install tektoncd/tools/tektoncd-cli
-        ```
-
-    - [Visual Studio Code](https://code.visualstudio.com/download): A popular code editor
-        - You will be required to edit some files, having a good quality editor is always best practice
-        - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
-
-    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
-        - Used for SpringBoot content
-
-    - [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/): Follow the instructions for your Operating System.
-
-    !!! warning
-        Make sure you have Cisco VPN turned off when using minikube.
-
-=== "Kubernetes (Windows)"
-
-    ## Create accounts
-
-    You'll need these accounts to use the Developer Tools environment.
-
-    - [GitHub account](http://github.com) (public, not enterprise): Create one if you do not have one already. If you have not logged in for a while, make sure your login is working.
-
-    - [IBM Cloud Account](https://cloud.ibm.com): Create one if needed, make sure you can log in. 
-
-    - [O'Reilly Account](https://learning.oreilly.com/home/): The account is free and easy to create.
-
-    ## Cloud Native VM
-
-    Use the [Cloud Native VM](https://github.com/csantanapr/vagrant-cloud-native#install) it comes pre-installed with kubernetes and all cloud native CLIs.
-
-    Is highly recommended for Windows users to use this VM.
-
-    ## Install CLIs and tools
-
-    The following is a list of desktop tools required to help with installation and development.
-
-    - [Git Client](https://git-scm.com/): Needs to be installed in your development operating system, it comes as standard for Mac OS
-
-    - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started): Required for management of IBM Cloud Account and management of your managed IBM Kubernetes and Red Hat OpenShift clusters
-        - Don't install just the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli), install the [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started#step1-install-idt)
-        ```
-        curl -sL https://ibm.biz/idt-installer | bash
-        ```
-
-    !!! Note
-        If you log in to the web UI using SSO, you'll need to [create an API key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id) for logging into the CLI. 
-
-
-    - [Podman Desktop](https://podman-desktop.io/): Required for building and running container images.
-        - Installed and running on your local machine
-
-    - [Tekton CLI](https://github.com/tektoncd/cli): Used to help control Tekton
-    pipelines from the command line.
-        ```
-            brew tap tektoncd/tools
-            brew install tektoncd/tools/tektoncd-cli
-        ```
-
-    - [Visual Studio Code](https://code.visualstudio.com/download): A popular code editor
-        - You will be required to edit some files, having a good quality editor is always best practice
-        - Enabling [launching VSCode from a terminal](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
-
-    - [JDK 17 or 21 LTS](https://adoptium.net/): _Optional_ installed on your local machine
-        - Used for SpringBoot content
-
-    - [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/): Follow the instructions for your Operating System.
-
-    !!! warning
-        Make sure you have Cisco VPN turned off when using minikube.
-
-
-## Check Your Setup
-
-After installing the required CLIs and tools, you can run a system check script to verify which dependencies you have installed and which ones are missing.
+Download and run the system check script. It reports which tools are installed and where to get the missing ones:
 
 [Download System Check Script :fontawesome-solid-download:](scripts/system-check.sh){ .md-button download }
 
-**Run the script after downloading:**
+```bash
+chmod +x system-check.sh
+./system-check.sh
+```
 
-    chmod +x system-check.sh
-    ./system-check.sh
+## Get a cluster
 
-!!! tip
-    The script checks for: IBM Cloud CLI, Git, OpenShift Local (crc), Minikube, Docker, Podman, kubectl, oc, Tekton CLI, and ArgoCD CLI. You don't need all of these - just the ones relevant to the labs you plan to complete.
-
-## Environment Setup
-=== "MiniKube"
-
-    - Verify your cluster has 4GB+ memory and Kubernetes 1.28+
-        ```
-        minikube config view
-        ```
-    - Set the driver (use `docker` for most systems, or `qemu` for Apple Silicon Macs)
-        ```
-        minikube config set driver docker
-        ```
-    - In case memory is not set, or need to increase set the memory and recreate the VM
-        ```
-        minikube config set memory 4096
-        minikube config set kubernetes-version v1.31.0
-        minikube delete
-        minikube start
-        ```
-    - Kubernetes should be v1.28+
-        ```
-        kubectl version
-        ```
+The labs are written for **Red Hat OpenShift 4.x**. Choose one of these options:
 
 === "OpenShift Local"
 
-    Make sure OpenShift Local is installed. Check out the [OpenShift Local](https://docs.redhat.com/en/documentation/red_hat_openshift_local/2.44/html/getting_started_guide/index){target="_blank"} Page.
+    [OpenShift Local](https://developers.redhat.com/products/openshift-local/overview) runs a single-node OpenShift cluster on your laptop. It supports macOS (Intel and Apple Silicon), Windows and Linux.
 
-    ** Setup CRC **
-    ```
+    - **Resources:** 4 CPU cores, about 11 GB of free memory, and 35 GB of disk
+    - **Setup:** download the installer and your **pull secret** from the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift/create/local), then run:
+
+    ```bash
     crc setup
+    crc start                  # paste your pull secret when prompted
+    eval $(crc oc-env)         # put the bundled oc on your PATH
+    crc console --credentials  # shows the oc login commands for developer and kubeadmin
     ```
-    ** Start CRC **
+
+    Log in as `kubeadmin` to install the operators needed by the Tekton and Argo CD labs.
+
+=== "Developer Sandbox"
+
+    The [Developer Sandbox for Red Hat OpenShift](https://developers.redhat.com/developer-sandbox) is a free, hosted OpenShift environment. It needs nothing but a browser and the `oc` CLI.
+
+    1. Sign in with your Red Hat account and start the sandbox.
+    2. In the web console, click your user name > **Copy login command**, then run the `oc login` command it shows.
+    3. You get a pre-created project. Use it instead of running `oc new-project` in the labs.
+
+    You aren't a cluster administrator in the Sandbox, so you can't install operators or create extra projects.
+
+=== "Shared cluster"
+
+    Your instructor may provide a shared OpenShift cluster for the class.
+
+    1. Open the web console URL you were given, click your user name > **Copy login command**, and run the `oc login --token=... --server=...` command.
+    2. Create projects with your initials as a prefix to avoid name clashes, for example `oc new-project jd-lab1`.
+
+=== "Plain Kubernetes"
+
+    Labs 1–10 and the container labs also work on upstream Kubernetes, for example [kind](https://kind.sigs.k8s.io/) running on Podman:
+
+    ```bash
+    brew install kind            # or see the kind install docs
+    KIND_EXPERIMENTAL_PROVIDER=podman kind create cluster --name bootcamp
     ```
-    crc start
-    ```
-=== "IKS"
 
-    - Login to [IBM Cloud](https://cloud.ibm.com) with your IBM ID.
+    Use `kubectl` in place of `oc`, and `kubectl create namespace` in place of `oc new-project`. Lab 11 (Routes) and the OpenShift-specific parts of the Image Registry, Tekton and Argo CD labs need OpenShift.
 
-    - Click "Create Resource" and search for "kubernetes service".
+Verify that you're connected:
 
-    - Select the tile for "Kubernetes Service" and do the following:
-    - Select the "Free Cluster" plan.
-    - Name your cluster.
-    - Select "Create" at the bottom right of the screen.
+```bash
+oc whoami
+oc version
+```
 
-    - Once the Cluster is provisioned, Click on the "Connect via CLI" in the top right corner.
+## Next steps
 
-    - Follow the instructions to connect and you are set to go.
-
-=== "OpenShift on IBM Cloud (4.x)"
-
-    - In this approach you share an OpenShift cluster on IBM Cloud with other bootcamp attendees.
-
-    - Considering 10-15 attendees we recommend a cluster with 3 worker nodes (each 8 vCPUs + 32GB RAM - b3c.8x32).
-
-    - Ask your IBM cloud account owner to provide access to an OpenShift cluster.
-
-    - In addition to the IBM Cloud CLI also install the [OpenShift Origin CLI](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli#cli_oc) to be able to execute all commands.
-
-    - Open your OpenShift web console from within your IBM cloud account, select your profile and choose "copy login command" to retrieve an access token for the login.
-
-    - Login with your OpenShift Origin CLI.
-        ```
-        oc login --token=<token> --server=<server-url>:<server-port>
-        ```
-
-    - Create your own project / namespace in OpenShift that you will leverage across all labs.
-        ```
-        oc new-project <dev-your_initials>
-        ```
-
-    - Validate in the OpenShift web console that your project has been created (Administrator view -> Home -> Projects)
-
-
-## Next Steps
-Once Setup is complete, you can now begin reading about [Cloud Native](./cloud/index.md) by clicking the link, or the `Next` button below.
+Once your setup is complete, start with [Cloud Native](cloud/index.md) concepts, or go straight to the [labs](labs/index.md).

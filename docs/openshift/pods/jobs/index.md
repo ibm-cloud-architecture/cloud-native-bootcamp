@@ -8,15 +8,15 @@ A Job creates one or more Pods and ensures that a specified number of them succe
 
 One CronJob object is like one line of a crontab (cron table) file. It runs a job periodically on a given schedule, written in Cron format.
 
-All CronJob schedule: times are based on the timezone of the master where the job is initiated.
+CronJob schedules use the time zone of the kube-controller-manager, which is usually UTC. Set `spec.timeZone` (for example `America/Chicago`) to schedule in a specific time zone. Use `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` to control how many finished Jobs are kept, and `concurrencyPolicy` to decide whether runs may overlap.
 
 ## Resources
 
 === "OpenShift"
 
-    [Jobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.17/nodes/jobs/nodes-nodes-jobs.html){ .md-button target="_blank"}
+    [Jobs :fontawesome-solid-briefcase:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/using-jobs-and-daemon-sets#nodes-nodes-jobs){ .md-button target="_blank"}
 
-    [CronJobs :fontawesome-solid-briefcase:](https://docs.openshift.com/container-platform/4.17/nodes/jobs/nodes-nodes-jobs.html#nodes-nodes-jobs-creating-cron_nodes-nodes-jobs){ .md-button target="_blank"}
+    [CronJobs :fontawesome-solid-briefcase:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/using-jobs-and-daemon-sets#nodes-nodes-jobs){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -97,9 +97,10 @@ spec:
     ```
     oc describe job pi
     ```
-    **Gets Pods from the Job**
+    **Gets Pods and logs from the Job**
     ```
-    oc get pods
+    oc get pods -l job-name=pi
+    oc logs job/pi
     ```
     **Deletes Job**
     ```
@@ -111,15 +112,16 @@ spec:
     ```
     **Describes CronJob**
     ```
-    oc describe cronjobs pi
+    oc describe cronjob hello
     ```
-    **Gets Pods from CronJob**
+    **Runs the CronJob now, without waiting for the schedule**
     ```
-    oc get pods
+    oc create job hello-now --from=cronjob/hello
+    oc logs job/hello-now
     ```
     **Deletes CronJob**
     ```
-    oc delete cronjobs pi
+    oc delete cronjob hello
     ```
 
 === "Kubernetes"
@@ -132,9 +134,10 @@ spec:
     ```
     kubectl describe job pi
     ```
-    **Gets Pods from the Job**
+    **Gets Pods and logs from the Job**
     ```
-    kubectl get pods
+    kubectl get pods -l job-name=pi
+    kubectl logs job/pi
     ```
     **Deletes Job**
     ```
@@ -146,21 +149,20 @@ spec:
     ```
     **Describes CronJob**
     ```
-    kubectl describe cronjobs pi
+    kubectl describe cronjob hello
     ```
-    **Gets Pods from CronJob**
+    **Runs the CronJob now, without waiting for the schedule**
     ```
-    kubectl get pods
+    kubectl create job hello-now --from=cronjob/hello
+    kubectl logs job/hello-now
     ```
     **Deletes CronJob**
     ```
-    kubectl delete cronjobs pi
+    kubectl delete cronjob hello
     ```
 
 ## Activities
 
-| Task                  | Description                                              | Link                                                      |
-| --------------------- | -------------------------------------------------------- | :-------------------------------------------------------- |
-| **_Try It Yourself_** |                                                          |                                                           |
-| Rolling Updates Lab   | Create a Rolling Update for your application.            | [Rolling Updates](../../../labs/kubernetes/lab7/index.md) |
-| Cron Jobs Lab         | Create a CronJob to run periodic tasks in your cluster.  | [Cron Jobs](../../../labs/kubernetes/lab8/index.md)       |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 8 - Cron Jobs](../../../labs/kubernetes/lab8/index.md) | Run a periodic task with a CronJob |

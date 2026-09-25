@@ -10,7 +10,7 @@ There are two primary ways to install Operators in OpenShift: through the web co
 
 1. **Navigate to OperatorHub**
    - Log in to the OpenShift web console
-   - Go to **Operators** → **OperatorHub**
+   - Go to **Operators** → **OperatorHub** (**Ecosystem** → **Software Catalog** on OpenShift 4.20 and later)
 
 2. **Find the Operator**
    - Use the search bar to find your desired Operator

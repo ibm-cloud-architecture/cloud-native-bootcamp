@@ -12,7 +12,7 @@ You can data from a ConfigMap in 3 different ways.
 
 === "OpenShift"
 
-    [Mapping Volumes :fontawesome-solid-map:](https://docs.openshift.com/container-platform/4.13/nodes/containers/nodes-containers-projected-volumes.html){ .md-button target="_blank"}
+    [Mapping Volumes :fontawesome-solid-map:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-containers#nodes-containers-projected-volumes){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -20,7 +20,7 @@ You can data from a ConfigMap in 3 different ways.
 
 ## References
 
-```yaml
+```yaml title="ConfigMap"
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -30,11 +30,11 @@ data:
   location: naboo
 ```
 
-```yaml
+```yaml title="Single key as an environment variable"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: cm-env-var
 spec:
   restartPolicy: Never
   containers:
@@ -50,11 +50,11 @@ spec:
               key: color
 ```
 
-```yaml
+```yaml title="All keys as files in a volume"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: cm-volume
 spec:
   restartPolicy: Never
   containers:
@@ -75,11 +75,11 @@ spec:
         name: my-cm
 ```
 
-```yaml
+```yaml title="All keys as environment variables"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: cm-env-from
 spec:
   restartPolicy: Never
   containers:
@@ -89,5 +89,40 @@ spec:
       envFrom:
         - configMapRef:
             name: my-cm
-  restartPolicy: Never
 ```
+
+=== "OpenShift"
+
+    ``` Bash title="Create the ConfigMap from literals instead of YAML"
+    oc create configmap my-cm --from-literal=color=blue --from-literal=location=naboo
+    ```
+
+    ``` Bash title="Create a ConfigMap from a file"
+    oc create configmap app-config --from-file=app.properties
+    ```
+
+    ``` Bash title="See what each pod printed"
+    oc logs cm-env-var
+    oc logs cm-volume
+    oc logs cm-env-from
+    ```
+
+=== "Kubernetes"
+
+    ``` Bash title="Create the ConfigMap from literals instead of YAML"
+    kubectl create configmap my-cm --from-literal=color=blue --from-literal=location=naboo
+    ```
+
+    ``` Bash title="Create a ConfigMap from a file"
+    kubectl create configmap app-config --from-file=app.properties
+    ```
+
+    ``` Bash title="See what each pod printed"
+    kubectl logs cm-env-var
+    kubectl logs cm-volume
+    kubectl logs cm-env-from
+    ```
+
+!!! tip
+    Environment variables are read only when the container starts. Files mounted from a ConfigMap are updated automatically (after a short delay) when the ConfigMap changes, unless you mount them with `subPath`.
+

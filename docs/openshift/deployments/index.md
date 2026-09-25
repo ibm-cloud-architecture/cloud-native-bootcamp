@@ -18,13 +18,13 @@ The following are typical use cases for Deployments:
 
 === "OpenShift"
 
-    [Deployments :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.17/applications/deployments/what-deployments-are.html){ .md-button target="_blank"}
+    [Deployments :fontawesome-solid-cloud-arrow-up:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#what-deployments-are){ .md-button target="_blank"}
 
-    [Managing Deployment Processes :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.17/applications/deployments/managing-deployment-processes.html){ .md-button target="_blank"}
+    [Managing Deployment Processes :fontawesome-solid-cloud-arrow-up:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#deployment-operations){ .md-button target="_blank"}
 
-    [DeploymentConfig Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.17/applications/deployments/deployment-strategies.html){ .md-button target="_blank"}
+    [DeploymentConfig Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#deployment-strategies){ .md-button target="_blank"}
 
-    [Route Based Deployment Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.openshift.com/container-platform/4.17/applications/deployments/route-based-deployment-strategies.html){ .md-button target="_blank"}
+    [Route Based Deployment Strategies :fontawesome-solid-cloud-arrow-up:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#route-based-deployment-strategies){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: bitnami/nginx:1.16.0
+          image: quay.io/nginx/nginx-unprivileged:1.28
           ports:
             - containerPort: 8080
 ```
@@ -112,7 +112,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                  | Link                                                   |
-| --------------------- | -------------------------------------------- | :----------------------------------------------------- |
-| **_Try It Yourself_** |                                              |                                                        |
-| Rolling Updates Lab   | Create a Rolling Update for your application | [Rolling Updates](../../labs/kubernetes/lab7/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 7 - Rolling Updates](../../labs/kubernetes/lab7/index.md) | Roll out a new version, then roll back a bad one |

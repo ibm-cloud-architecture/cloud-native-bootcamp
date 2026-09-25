@@ -22,9 +22,9 @@ The Horizontal Pod Autoscaler automatically scales the number of pods in a deplo
 
 === "OpenShift"
 
-    [Horizontal Pod Autoscaler :fontawesome-solid-chart-line:](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-autoscaling.html){ .md-button target="_blank"}
+    [Horizontal Pod Autoscaler :fontawesome-solid-chart-line:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-pods#nodes-pods-autoscaling){ .md-button target="_blank"}
 
-    [Custom Metrics Autoscaler :fontawesome-solid-chart-line:](https://docs.openshift.com/container-platform/4.17/nodes/pods/nodes-pods-autoscaling-custom.html){ .md-button target="_blank"}
+    [Custom Metrics Autoscaler :fontawesome-solid-chart-line:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-pods){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -152,7 +152,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
           resources:
             requests:
               cpu: 100m
@@ -161,13 +161,13 @@ spec:
               cpu: 500m
               memory: 512Mi
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 ```
 
 === "OpenShift"
 
     ``` Bash title="Create HPA Imperatively"
-    oc autoscale deployment web-app --min=2 --max=10 --cpu-percent=70
+    oc autoscale deployment web-app --name=web-app-hpa --min=2 --max=10 --cpu=70%
     ```
 
     ``` Bash title="Get HPAs"
@@ -187,13 +187,13 @@ spec:
     ```
 
     ``` Bash title="Check Metrics Server"
-    oc top pods
+    oc adm top pods
     ```
 
 === "Kubernetes"
 
     ``` Bash title="Create HPA Imperatively"
-    kubectl autoscale deployment web-app --min=2 --max=10 --cpu-percent=70
+    kubectl autoscale deployment web-app --name=web-app-hpa --min=2 --max=10 --cpu=70%
     ```
 
     ``` Bash title="Get HPAs"

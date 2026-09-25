@@ -1,131 +1,64 @@
-# Services
+# Networking Overview
 
-An abstract way to expose an application running on a set of Pods as a network service.
+Kubernetes networking rests on a few simple rules, and OpenShift builds on them:
 
-Kubernetes Pods are mortal. They are born and when they die, they are not resurrected. If you use a Deployment to run your app, it can create and destroy Pods dynamically.
+- **Every pod gets its own IP address.** All pods can reach each other directly, across nodes, without NAT. The cluster's network plugin (OVN-Kubernetes on OpenShift) implements this.
+- **Pod IPs are temporary.** Pods are replaced during rollouts, scaling and failures, and each new pod gets a new IP. So clients shouldn't talk to pod IPs directly.
+- **Services give pods a stable address.** A Service selects pods by label and provides a fixed virtual IP and DNS name, load-balancing across whichever pods are ready.
+- **Traffic from outside the cluster** comes in through a Route or Ingress (HTTP/HTTPS), a Gateway, or a `LoadBalancer`/`NodePort` Service (any TCP/UDP).
+- **NetworkPolicies** restrict which pods may talk to which.
 
-Each Pod gets its own IP address, however in a Deployment, the set of Pods running in one moment in time could be different from the set of Pods running that application a moment later.
+```mermaid
+flowchart LR
+    user([Client outside the cluster]) -->|https://app.apps.example.com| router[Router / Ingress controller]
+    router -->|Route or Ingress| svc[Service<br/>my-service:80]
+    svc -->|selector app=web| p1[Pod 10.128.2.14:8080]
+    svc --> p2[Pod 10.131.0.9:8080]
+    other[Other pod] -->|my-service.my-project.svc:80| svc
+```
 
-In Kubernetes, a Service is an abstraction which defines a logical set of Pods and a policy by which to access them (sometimes this pattern is called a micro-service). The set of Pods targeted by a Service is usually determined by a selector (see below for why you might want a Service without a selector).
+## Service discovery with DNS
 
-If you’re able to use Kubernetes APIs for service discovery in your application, you can query the API server for Endpoints, that get updated whenever the set of Pods in a Service changes.
+Every Service gets a DNS name, `<service>.<namespace>.svc.cluster.local`. Pods in the same namespace can simply use `<service>`, and pods in other namespaces use `<service>.<namespace>`. Each port of the Service is reachable at that name:
 
-For non-native applications, Kubernetes offers ways to place a network port or load balancer in between your application and the backend Pods.
+```bash
+curl http://my-service:80                  # same namespace
+curl http://my-service.other-project:80    # another namespace
+```
+
+## Ways to expose an application
+
+| Mechanism | Scope | Use it for |
+| --- | --- | --- |
+| [Service](services.md) `ClusterIP` | Inside the cluster | Pod-to-pod communication. This is the default type. |
+| [Service](services.md) `NodePort` | Every node's IP, on a port from 30000–32767 | Testing, or when an external load balancer targets the nodes |
+| [Service](services.md) `LoadBalancer` | A cloud load balancer with its own IP | Non-HTTP protocols on cloud platforms |
+| [Route](routes.md) | Hostname on the OpenShift router | HTTP/HTTPS apps on OpenShift, with TLS options and traffic splitting |
+| [Ingress](ingress.md) | Hostname on an ingress controller | Portable HTTP/HTTPS routing (OpenShift turns it into a Route) |
+| [Gateway API](ingress.md#references) | Gateways shared by many teams | The successor to Ingress on upstream Kubernetes. OpenShift supports it from 4.19. |
+
+## Controlling traffic between pods
+
+By default every pod accepts traffic from every other pod. Use [Network Policies](network-policies.md) to allow only the traffic an application needs, for example "only the frontend may call the API on port 8080".
 
 ## Resources
 
-=== "OpenShift & Kubernetes"
-
-    [Services :fontawesome-solid-wrench:](https://kubernetes.io/docs/concepts/services-networking/service/){ .md-button target="_blank"}
-
-    [Exposing Services :fontawesome-solid-wrench:](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/){ .md-button target="_blank"}
-
-## References
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-deployment
-  labels:
-    app: nginx
-    version: v1
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-        version: v1
-    spec:
-      containers:
-        - name: nginx
-          image: bitnami/nginx
-          ports:
-            - containerPort: 8080
-              name: http
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-spec:
-  selector:
-    app: nginx
-  ports:
-    - name: http
-      port: 80
-      targetPort: http
-```
-
 === "OpenShift"
 
-    ```Bash title="Get Logs"
-    oc logs
-    ```
+    [Ingress and load balancing :fontawesome-solid-network-wired:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/ingress_and_load_balancing/index){ .md-button target="_blank"}
 
-    ``` Bash title="Use Stern to View Logs"
-    brew install stern
-    stern . -n default
-    ```
+    [Network security :fontawesome-solid-network-wired:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/network_security/index){ .md-button target="_blank"}
 
 === "Kubernetes"
 
-    ``` Bash title="Get Logs"
-    kubectl logs
-    ```
+    [Services, Load Balancing, and Networking :fontawesome-solid-network-wired:](https://kubernetes.io/docs/concepts/services-networking/){ .md-button target="_blank"}
 
-    ``` Bash title="Use Stern to View Logs"
-    brew install stern
-    stern . -n default
-    ```
-
-<Tab>
-</Tab>
-
-=== "OpenShift"
-
-    ``` Bash title="Get Service"
-    oc get svc
-    ```
-
-    ``` Bash title="Get Service Description"
-    oc describe svc my-service
-    ```
-
-    ``` Bash title="Expose a Service"
-    oc expose service <service_name>
-    ```
-
-    ``` Bash title="Get Route for the Service"
-    oc get route
-    ```
-
-=== "Kubernetes"
-
-    ``` Bash title="Get Service"
-    kubectl get svc
-    ```
-
-    ``` Bash title="Get Service Description"
-    kubectl describe svc my-service
-    ```
-
-    ``` Bash title="Get Service Endpoints"
-    kubectl get ep my-service
-    ```
-
-    ``` Bash title="Expose a Deployment via a Service"
-    kubectl expose deployment my-deployment --port 80 --target-port=http --selector app=nginx --name my-service-2 --type NodePort
-    ```
+    [DNS for Services and Pods :fontawesome-solid-network-wired:](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/){ .md-button target="_blank"}
 
 ## Activities
 
-| Task                   | Description                                    | Link                                                              |
-| ---------------------- | ---------------------------------------------- | :---------------------------------------------------------------- |
-| **_Try It Yourself_**  |                                                |                                                                   |
-| Creating Services      | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab9/index.md)        |
-| IKS Ingress Controller | Configure Ingress on Free IKS Cluster          | [Setting IKS Ingress](../../labs/kubernetes/ingress-iks/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 9 - Services](../../labs/kubernetes/lab9/index.md) | Expose deployments inside and outside the cluster |
+| [Lab 10 - Network Policies](../../labs/kubernetes/lab10/index.md) | Allow only labelled clients to reach a secure pod |
+| [Lab 11 - Routes & Ingress](../../labs/kubernetes/lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress |

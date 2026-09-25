@@ -2,20 +2,25 @@
 
 ## Liveness and Readiness Probes
 
-A Probe is a diagnostic performed periodically by the kubelet on a Container. To perform a diagnostic, the kubelet calls a Handler implemented by the Container. There are three types of handlers:
+A probe is a diagnostic performed periodically by the kubelet on a container. Each probe uses one of four mechanisms:
 
-**_ExecAction_**: Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0.
+**_exec_**: Runs a command inside the container. The check succeeds if the command exits with status code 0.
 
-**_TCPSocketAction_**: Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open.
+**_tcpSocket_**: Opens a TCP connection to the container's IP address on a specified port. The check succeeds if the port is open.
 
-**_HTTPGetAction_**: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
+**_httpGet_**: Sends an HTTP GET request to the container's IP address on a specified port and path. The check succeeds if the response status code is at least 200 and below 400.
 
+**_grpc_**: Calls the standard [gRPC health checking protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md) on a specified port. The check succeeds if the service reports `SERVING`.
 
-The kubelet can optionally perform and react to three kinds of probes on running Containers:
+The kubelet can run three kinds of probes on each container:
 
-**_livenessProbe_**: Indicates whether the Container is running. Runs for the lifetime of the Container.
+**_startupProbe_**: Indicates whether the application inside the container has started. Liveness and readiness probes don't run until the startup probe succeeds. If it keeps failing, the container is restarted. Use it for slow-starting applications instead of a long `initialDelaySeconds`.
 
-**_readinessProbe_**: Indicates whether the Container is ready to service requests. Only runs at start.
+**_livenessProbe_**: Indicates whether the container is still working. Runs for the lifetime of the container. If it fails `failureThreshold` times in a row, the kubelet kills the container, and it's restarted according to the pod's `restartPolicy`.
+
+**_readinessProbe_**: Indicates whether the container is ready to serve requests. It also runs for the lifetime of the container. While it fails, the pod is removed from the endpoints of every Service that selects it. The container is **not** restarted.
+
+The timing of every probe is tuned with `initialDelaySeconds`, `periodSeconds` (default 10), `timeoutSeconds` (default 1), `failureThreshold` (default 3) and `successThreshold` (default 1).
 
 ### Resources
 
@@ -29,7 +34,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
           A health check periodically performs diagnostics on a running container using any combination of the readiness, liveness, and startup health checks.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/applications/application-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/application-health){ target="_blank"}
 
       -   :fontawesome-solid-vr-cardboard:{ .lg .middle } __Virtual Machine Health__
 
@@ -37,7 +42,7 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
           Use readiness and liveness probes to detect and handle unhealthy virtual machines (VMs).
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.14/virt/monitoring/virt-monitoring-vm-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/monitoring#virt-monitoring-vm-health){ target="_blank"}
 
     </div>
 
@@ -65,11 +70,11 @@ The kubelet can optionally perform and react to three kinds of probes on running
 
 ### References
 
-```yaml
+```yaml title="Exec liveness probe"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: exec-probe
 spec:
   containers:
     - name: app
@@ -80,16 +85,15 @@ spec:
           command: ["echo", "alive"]
 ```
 
-```yaml
+```yaml title="TCP liveness and HTTP readiness probes"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: web-probes
 spec:
-  shareProcessNamespace: true
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
       livenessProbe:
@@ -101,6 +105,29 @@ spec:
           path: /
           port: 8080
         periodSeconds: 10
+```
+
+```yaml title="Startup probe for a slow-starting app"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: slow-start
+spec:
+  containers:
+    - name: app
+      image: quay.io/nginx/nginx-unprivileged:1.29
+      ports:
+        - containerPort: 8080
+      startupProbe:          # allow up to 30 x 10s = 5 minutes to start
+        httpGet:
+          path: /
+          port: 8080
+        failureThreshold: 30
+        periodSeconds: 10
+      livenessProbe:         # only starts once the startup probe has passed
+        httpGet:
+          path: /
+          port: 8080
 ```
 
 ## Container Logging
@@ -121,7 +148,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           Read about the descriptions and example commands for OpenShift CLI (`oc`) developer commands.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/developer-cli-commands.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc#cli-developer-commands){ target="_blank"}
 
       -   :fontawesome-solid-circle-nodes:{ .lg .middle } __Cluster Logging__
 
@@ -129,7 +156,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           As a cluster administrator, you can deploy logging on an OpenShift Container Platform cluster, and use it to collect and aggregate node system audit logs, application container logs, and infrastructure logs.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/logging/cluster-logging.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/red_hat_openshift_logging/){ target="_blank"}
 
       -   :fontawesome-solid-file-lines:{ .lg .middle } __Logging Collector__
 
@@ -137,7 +164,7 @@ Kubernetes provides no native storage solution for log data, but you can integra
 
           The collector collects log data from each node, transforms the data, and forwards it to configured outputs.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/observability/logging/cluster-logging.html#logging-architecture-overview_cluster-logging){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/red_hat_openshift_logging/){ target="_blank"}
 
     </div>
 
@@ -177,7 +204,11 @@ spec:
 === "OpenShift"
 
     ```Bash title="Get Logs"
-    oc logs
+    oc logs counter                  # current logs
+    oc logs -f counter               # follow new lines
+    oc logs counter --previous       # logs from the previous (crashed) container
+    oc logs counter -c count         # a specific container in a multi-container pod
+    oc logs deployment/my-deployment # logs from a pod of a deployment
     ```
 
     ``` Bash title="Use Stern to View Logs"
@@ -188,7 +219,11 @@ spec:
 === "Kubernetes"
 
     ``` Bash title="Get Logs"
-    kubectl logs
+    kubectl logs counter
+    kubectl logs -f counter
+    kubectl logs counter --previous
+    kubectl logs counter -c count
+    kubectl logs deployment/my-deployment
     ```
 
     ``` Bash title="Use Stern to View Logs"
@@ -200,7 +235,7 @@ spec:
 
 To scale an application and provide a reliable service, you need to understand how the application behaves when it is deployed. You can examine application performance in a Kubernetes cluster by examining the containers, pods, services, and the characteristics of the overall cluster. Kubernetes provides detailed information about an application’s resource usage at each of these levels. This information allows you to evaluate your application’s performance and where bottlenecks can be removed to improve overall performance.
 
-Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Prometheus itself.
+[Prometheus](https://prometheus.io/), a CNCF project, can natively monitor Kubernetes, nodes, and Prometheus itself. OpenShift includes a preconfigured Prometheus-based monitoring stack, and can also monitor your own applications' metrics (user workload monitoring).
 
 ### Resources
 
@@ -214,7 +249,7 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
           OpenShift Container Platform applications have a number of options to detect and handle unhealthy containers.
 
-          [:octicons-arrow-right-24: Learn more](https://docs.openshift.com/container-platform/4.13/applications/application-health.html){ target="_blank"}
+          [:octicons-arrow-right-24: Learn more](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/application-health){ target="_blank"}
 
     </div>
 
@@ -242,89 +277,87 @@ Prometheus, a CNCF project, can natively monitor Kubernetes, nodes, and Promethe
 
 ### References
 
-```yaml
+The following pods use the Kubernetes `resource-consumer` test image to burn a fixed amount of CPU, so you can watch resource usage:
+
+```yaml title="cpu-500m.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: 500m
+  name: cpu-500m
 spec:
   containers:
     - name: app
-      image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
+      image: registry.k8s.io/e2e-test-images/resource-consumer:1.13
       resources:
         requests:
           cpu: 700m
           memory: 128Mi
-    - name: busybox-sidecar
-      image: radial/busyboxplus:curl
+    - name: load-generator
+      image: registry.access.redhat.com/ubi9/ubi-minimal
       command:
-        [
-          /bin/sh,
-          -c,
-          'until curl localhost:8080/ConsumeCPU -d "millicores=500&durationSec=3600"; do sleep 5; done && sleep 3700',
-        ]
+        - /bin/sh
+        - -c
+        - until curl -s localhost:8080/ConsumeCPU -d "millicores=500&durationSec=3600"; do sleep 5; done && sleep infinity
 ```
 
-```yaml
+```yaml title="cpu-200m.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: 200m
+  name: cpu-200m
 spec:
   containers:
     - name: app
-      image: gcr.io/kubernetes-e2e-test-images/resource-consumer:1.4
+      image: registry.k8s.io/e2e-test-images/resource-consumer:1.13
       resources:
         requests:
           cpu: 300m
           memory: 64Mi
-    - name: busybox-sidecar
-      image: radial/busyboxplus:curl
+    - name: load-generator
+      image: registry.access.redhat.com/ubi9/ubi-minimal
       command:
-        [
-          /bin/sh,
-          -c,
-          'until curl localhost:8080/ConsumeCPU -d "millicores=200&durationSec=3600"; do sleep 5; done && sleep 3700',
-        ]
+        - /bin/sh
+        - -c
+        - until curl -s localhost:8080/ConsumeCPU -d "millicores=200&durationSec=3600"; do sleep 5; done && sleep infinity
 ```
 
 === "OpenShift"
 
+    OpenShift ships with cluster monitoring (Prometheus) and the metrics API enabled. You can also see pod metrics in the web console under **Observe** in the developer perspective.
+
+    ``` Bash title="Resource usage of pods and nodes"
+    oc adm top pods
+    oc adm top pods --containers
+    oc adm top nodes
     ```
+
+    ``` Bash title="Explore the cluster"
     oc get projects
     oc api-resources -o wide
-    oc api-resources -o name
-
     oc get nodes,ns,po,deploy,svc
-
-    oc describe node --all
+    oc describe node <node-name>
     ```
 
 === "Kubernetes"
 
-    **Verify Metrics is enabled**
-    ```
+    Resource metrics require the [metrics-server](https://github.com/kubernetes-sigs/metrics-server), which most managed Kubernetes services install for you.
+
+    ``` Bash title="Verify metrics are enabled"
     kubectl get --raw /apis/metrics.k8s.io/
     ```
 
-    **Get Node Description**
-    ```
-    kubectl describe node
-    ```
-
-    **Check Resource Usage**
-    ```
+    ``` Bash title="Check resource usage"
     kubectl top pods
+    kubectl top pods --containers
     kubectl top nodes
     ```
 
-</Tab>
-
-</Tabs>
+    ``` Bash title="Get node description"
+    kubectl describe node <node-name>
+    ```
 
 ## Activities
 
-| Task                  | Description                                                          | Link                                             |
-| --------------------- | -------------------------------------------------------------------- | :----------------------------------------------- |
-| **_Try It Yourself_** |                                                                      |                                                  |
-| Probes                | Create some Health & Startup Probes to find what's causing an issue. | [Probes](../../../labs/kubernetes/lab2/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 2 - Probes](../../../labs/kubernetes/lab2/index.md) | Add liveness and readiness probes to recover from an unhealthy app |

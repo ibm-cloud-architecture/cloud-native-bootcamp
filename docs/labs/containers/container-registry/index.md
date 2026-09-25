@@ -1,152 +1,151 @@
-# IBM Container Registries
+# Image Registry Lab
 
+<span class="lab-badge">40 min</span> <span class="lab-badge">Intermediate</span>
 
-=== "Quay.io"
-
-    ### Introduction
-
-    In this lab you will learn how to use podman.
-
-=== "IBM Container Registry"
-
-    ### Introduction
-
-=== "Docker Hub"
-
-In this lab we are going to create a Container Image and store it in the [IBM Cloud Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overview)
+In the [Containers Lab](../index.md) you pushed the `greeting` image to Quay.io. In this lab you'll run that image on OpenShift, pull it from a **private** repository with a pull secret, and then build the image **inside the cluster** and store it in OpenShift's internal registry.
 
 ## Prerequisites
-- IBM Cloud Account
 
-### Login into IBM Cloud
+- You've finished the [Containers Lab](../index.md), and `quay.io/<your-username>/greeting:v1.0.0` exists and is **public**. If you built it on an Apple Silicon Mac, build it for `linux/amd64` (or multi-arch), as described at the end of that lab.
+- You're logged in to an OpenShift cluster with `oc`. See [lab environment options](../../kubernetes/index.md#lab-environment).
+- You still have the `greeting` directory with `main.go`, `go.mod` and `Containerfile`.
 
-#### Using the IBM Cloud Shell
+```bash
+export QUAY_USER=<your-username>
+oc new-project registry-lab
+```
 
-1. Login into [IBM Cloud](https://cloud.ibm.com/)
-1. Select correct account from top right drop down if your IBM id is associated with multiple accounts
-1. Click the IBM Cloud Shell Icon on the top right corner of the IBM Cloud Console
-    ![ibm cloud shell icon](../images/ibmcloud-shell-button.png)
-1. This opens a new browser window with command linux terminal prompt.
-    ![ibm cloud shell prompt](../images/ibmcloud-shell-prompt.png)
+## Part 1: Deploy an image from a public registry
 
+1. Create a Deployment named `greeting` from your Quay image, with container port `8080`.
 
-## Create a new Container Registry namespace
+    ??? success "Solution"
+        ```bash
+        oc create deployment greeting --image=quay.io/${QUAY_USER}/greeting:v1.0.0 --port=8080
+        oc rollout status deployment/greeting
+        ```
 
-1. Ensure that you're targeting the correct IBM Cloud Container Registry region. For example for Dallas region use **us-south**
-    ```
-    ibmcloud cr region-set us-south
-    ```
-1. Choose a name for your first namespace, and create that namespace. Use this namespace for the rest of the Quick Start.Create a new Container Registry Namespace. This namespace is different from a Kubernetes/OpenShift namespace. The name needs to be all lowercase  and globaly unique within a region.
-    ```
-    ibmcloud cr namespace-add <my_namespace>
-    ```
-    Now set the environment `NAMESPACE` to be use for the rest of the lab
-    ```
-    export NAMESPACE=<my_namespace>
-    ```
+2. Expose the Deployment as a Service, then expose the Service as a Route.
 
-## Building and Pushing a Container Image
-1. Clone the following git repository and change directory to `1-containers`
-    ```
-    git clone --depth 1 https://github.com/csantanapr/think2020-nodejs.git my-app
-    cd my-app/1-containers/
-    ```
-1. Inspect the file `Dockerfile` it contains a multistage build, first layer builds the application, the second copies only the built files.
-    ```
-    cat Dockerfile
-    ```
-    ```Dockerfile
-    FROM registry.access.redhat.com/ubi8/nodejs-18 as base
+    ??? success "Solution"
+        ```bash
+        oc expose deployment greeting --port=8080
+        oc expose service greeting
+        ```
 
-    FROM base as builder
+3. Call the app through its Route:
 
-    WORKDIR /opt/app-root/src
-
-    COPY package*.json ./
-
-    RUN npm ci
-
-    COPY public public 
-    COPY src src 
-
-    RUN npm run build
-
-    FROM base
-
-    WORKDIR /opt/app-root/src
-
-    COPY --from=builder  /opt/app-root/src/build build
-
-    COPY package*.json ./
-
-    RUN npm ci --only=production
-
-    COPY --chown=1001:0 server server
-    RUN chmod -R g=u server
-
-    ENV PORT=8080
-
-    LABEL com.example.source="https://github.com/csantanapr/think2020-nodejs"
-    LABEL com.example.version="1.0"
-
-    ARG ENV=production
-    ENV NODE_ENV $ENV
-    ENV NODE_VERSION $NODEJS_VERSION
-    CMD npm run $NODE_ENV
-    ```
-1. Build and push the image, if not already set replace `$NAMESPACE` with the namespace you added previously, replace `us.icr.io` if using a different region.
-    ```
-    ibmcloud cr build --tag us.icr.io/$NAMESPACE/my-app:1.0 ./
+    ```bash
+    curl "http://$(oc get route greeting -o jsonpath='{.spec.host}')/greeting?name=OpenShift"
     ```
 
-## Explore the Container Registry on the IBM Cloud Console
-1. Explore the container image details using the IBM Cloud Console. Go to the Main Menu->Kubernetes->Registry you can use the tabs `Namespaces`, `Repository`, `Images`
-    ![cr namespace](../images/cr-namespaces.png)
-    ![cr namespace](../images/cr-repositories.png)
-    ![cr namespace](../images/cr-images.png)
-    ![cr namespace](../images/cr-settings.png)
+    ```json
+    {"message":"Welcome to the Cloud Native Bootcamp!","name":"OpenShift"}
+    ```
 
+## Part 2: Pull from a private repository
 
-## Extra Credit (Run Imge on Kubernetes)
+Most company images live in private repositories. The cluster needs credentials, a **pull secret**, to download them.
 
-If you have a Kubernetes Cluster you can run your application image
+4. On [quay.io](https://quay.io/), open the `greeting` repository, go to **Settings**, and make it **private**.
 
-1. Get the Access token for your Kubernetes cluster, command assumes your cluster name is `mycluster`
-    ```
-    ibmcloud ks cluster config -c mycluster
-    ```
-1. Run the following commands to create a deployment using the image we just build. If not already set replace `$NAMESPACE` with your IBM Container Registry Namespace we stored the image.
-    ```
-    kubectl create deployment my-app --image us.icr.io/$NAMESPACE/my-app:1.0
-    kubectl rollout status deployment/my-app
-    kubectl port-forward deployment/my-app 8080:8080
-    ```
-    If the app is connected you should see the following output
-    ```
-    Forwarding from 127.0.0.1:8080 -> 8080
-    Forwarding from [::1]:8080 -> 8080
-    ```
-1. Open a new Session and run the following command
-    ```
-    curl localhost:8080 -I
-    ```
-    You should see in the first line of output the following
-    ```
-    HTTP/1.1 200 OK
-    ```
-1. To access the app using a browser use the IBM Cloud Shell Web Preview. Click the Web Preview Icon and select port `8080` from the drop down. The application will open in a new browser window.
-    ![ibm cloud shell web preview select](../images/ibmcloud-shell-preview.png)
-    ![web app](../images/web-app.png)
+5. Force a new pull by restarting the Deployment. The new pod fails to start. Find out why.
 
-1. To stop the application on the terminal with the `kubectl port-forward` command quit by pressing Ctrl+C in **Session 1*
+    ??? success "Solution"
+        ```bash
+        oc rollout restart deployment/greeting
+        oc get pods
+        oc describe pod -l app=greeting | grep -A 5 Events
+        ```
 
-### Delete Deployment and Image
+        The new pod shows `ErrImagePull` / `ImagePullBackOff`, with an `unauthorized` error in the events. The old pod keeps serving traffic, because the rolling update never removes the working pod before its replacement is ready.
 
-1. Delete the app deployment
-    ```
-    kubectl delete deployment my-app
-    ```
-1. Delete the container image, if not already set replace `$NAMESPACE` with the registry namespace
-    ```
-    ibmcloud cr image-rm us.icr.io/$NAMESPACE/my-app:1.0
-    ```
+6. Create a robot account with read access to the repository:
+
+    1. In Quay, open **Account Settings > Robot Accounts** and create a robot account, for example `openshift_puller`.
+    2. Give it **Read** permission on the `greeting` repository.
+    3. Open the robot account and copy its username (`<your-username>+openshift_puller`) and token.
+
+    Robot accounts are better than your personal password: each one is scoped to specific repositories and can be revoked on its own.
+
+7. Create a pull secret named `quay-pull` from the robot credentials, and link it to the `default` ServiceAccount for pulling images.
+
+    ??? success "Solution"
+        ```bash
+        oc create secret docker-registry quay-pull \
+          --docker-server=quay.io \
+          --docker-username="${QUAY_USER}+openshift_puller" \
+          --docker-password='<robot-token>'
+        oc secrets link default quay-pull --for=pull
+        ```
+
+        `oc secrets link` adds the secret to the ServiceAccount's `imagePullSecrets`. Every pod that runs as that ServiceAccount can then pull with it. You could also list the secret under `spec.imagePullSecrets` in each Pod template.
+
+8. Delete the failing pod so it's recreated with the pull secret, and check that the rollout completes.
+
+    ??? success "Solution"
+        ```bash
+        oc delete pod -l app=greeting --field-selector=status.phase=Pending
+        oc rollout status deployment/greeting
+        ```
+
+## Part 3: Build inside the cluster
+
+OpenShift can build images itself, without Podman on your laptop and without an external registry. A **BuildConfig** describes the build. The result goes into the cluster's **internal registry**, where an **ImageStream** tracks it.
+
+9. From inside your `greeting` directory, create a binary build named `greeting-internal` that uses your Containerfile.
+
+    ??? success "Solution"
+        ```bash
+        cd greeting
+        oc new-build --name=greeting-internal --binary --strategy=docker
+        ```
+
+        `--binary` means the source is uploaded from your machine when the build starts, not cloned from Git.
+
+10. Start the build, upload the current directory, and follow the build log.
+
+    ??? success "Solution"
+        ```bash
+        oc start-build greeting-internal --from-dir=. --follow
+        ```
+
+        The log ends with `Push successful`. The image was pushed to `image-registry.openshift-image-registry.svc:5000/registry-lab/greeting-internal`.
+
+11. Look at the ImageStream that tracks the image.
+
+    ??? success "Solution"
+        ```bash
+        oc get imagestream greeting-internal
+        oc describe imagestream greeting-internal
+        ```
+
+12. Deploy the image from the ImageStream with a custom greeting, and expose it.
+
+    ??? success "Solution"
+        ```bash
+        oc new-app greeting-internal --name=greeting-internal -e GREETING="Built on OpenShift"
+        oc expose service greeting-internal
+        curl "http://$(oc get route greeting-internal -o jsonpath='{.spec.host}')/greeting"
+        ```
+
+        ```json
+        {"message":"Built on OpenShift","name":"World"}
+        ```
+
+        `oc new-app` creates a Deployment and a Service. Because the Deployment uses an ImageStream tag, a later build automatically rolls out the new image.
+
+!!! tip "Builds from Git"
+    Instead of uploading a local directory, you can build straight from a Git repository: `oc new-build https://github.com/<you>/<repo>.git --strategy=docker`. In the [Tekton lab](../../devops/tekton/index.md) you'll automate build and deploy with a pipeline.
+
+## Cleanup
+
+```bash
+oc delete project registry-lab
+```
+
+## What you learned
+
+- [x] Deploying and exposing an image from a public registry
+- [x] Pulling from private registries with robot accounts and pull secrets
+- [x] Building images in-cluster with BuildConfigs, ImageStreams and the internal registry

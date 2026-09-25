@@ -44,93 +44,141 @@ Container images solve many real-world problems with existing packaging and depl
 
 ## References
 
-```yaml
+### Sharing files through a volume
+
+Containers in a Pod can share volumes. Here a helper container writes the web page that nginx serves:
+
+```yaml title="shared-volume.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: shared-volume
 spec:
   volumes:
     - name: shared-data
       emptyDir: {}
   containers:
     - name: app
-      image: bitnami/nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
       volumeMounts:
         - name: shared-data
-          mountPath: /app
+          mountPath: /usr/share/nginx/html
       ports:
         - containerPort: 8080
-    - name: sidecard
+    - name: content
       image: busybox
       volumeMounts:
         - name: shared-data
           mountPath: /pod-data
       command:
-        [
-          "sh",
-          "-c",
-          "echo Hello from the side container > /pod-data/index.html && sleep 3600",
-        ]
+        - sh
+        - -c
+        - echo "Hello from the side container" > /pod-data/index.html && sleep infinity
 ```
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-pod
-spec:
-  shareProcessNamespace: true
-  containers:
-    - name: app
-      image: bitnami/nginx
-      ports:
-        - containerPort: 8080
-    - name: sidecard
-      image: busybox
-      securityContext:
-        capabilities:
-          add:
-            - SYS_PTRACE
-      stdin: true
-      tty: true
-```
+Containers in a Pod also share the network namespace, so the helper can reach nginx on `localhost`:
 
 === "OpenShift"
 
-    **Attach Pods Together**
-    ```
-    oc attach -it my-pod -c sidecard
-    ```
-    ```
-    ps ax
-    ```
-    ```
-    kill -HUP 7
-    ```
-    ```
-    ps ax
+    ```bash
+    oc apply -f shared-volume.yaml
+    oc exec shared-volume -c content -- wget -qO- localhost:8080
     ```
 
 === "Kubernetes"
 
-    **Attach Pods Together**
+    ```bash
+    kubectl apply -f shared-volume.yaml
+    kubectl exec shared-volume -c content -- wget -qO- localhost:8080
     ```
-    kubectl attach -it my-pod -c sidecard
+
+```text title="Expected output"
+Hello from the side container
+```
+
+### Native sidecar containers
+
+A **sidecar** is a helper that runs alongside the app for the Pod's whole life, such as a log shipper, proxy or config reloader. Since Kubernetes 1.29 (OpenShift 4.16), you declare a sidecar as an `initContainer` with `restartPolicy: Always`. It starts **before** the app containers, keeps running next to them, and stops **after** them. That matters for Jobs, too: a regular second container would keep a Job's Pod from ever completing, while a native sidecar is stopped automatically when the main container finishes.
+
+```yaml title="native-sidecar.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: native-sidecar
+spec:
+  volumes:
+    - name: logs
+      emptyDir: {}
+  initContainers:
+    - name: log-shipper
+      image: busybox
+      restartPolicy: Always       # this makes it a sidecar
+      command: ["sh", "-c", "touch /var/log/app/app.log && tail -F /var/log/app/app.log"]
+      volumeMounts:
+        - name: logs
+          mountPath: /var/log/app
+  containers:
+    - name: app
+      image: busybox
+      command: ["sh", "-c", "for i in 1 2 3 4 5; do echo \"event $i\" >> /var/log/app/app.log; sleep 2; done"]
+      volumeMounts:
+        - name: logs
+          mountPath: /var/log/app
+  restartPolicy: Never
+```
+
+After about 10 seconds the app container finishes, the sidecar is stopped, and the Pod reaches `Completed`. The sidecar's logs contain the app's events:
+
+```bash
+oc logs native-sidecar -c log-shipper
+```
+
+### Sharing the process namespace
+
+With `shareProcessNamespace: true`, containers in a Pod can see each other's processes. For example, a helper can signal nginx to reload its configuration:
+
+```yaml title="shared-processes.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-processes
+spec:
+  shareProcessNamespace: true
+  containers:
+    - name: app
+      image: quay.io/nginx/nginx-unprivileged:1.29
+      ports:
+        - containerPort: 8080
+    - name: helper
+      image: busybox
+      command: ["sleep", "infinity"]
+```
+
+=== "OpenShift"
+
+    ```bash
+    oc apply -f shared-processes.yaml
+    oc exec shared-processes -c helper -- ps
+    oc exec shared-processes -c helper -- pkill -HUP -o nginx
+    oc logs shared-processes -c app | grep -i sighup
     ```
+
+=== "Kubernetes"
+
+    ```bash
+    kubectl apply -f shared-processes.yaml
+    kubectl exec shared-processes -c helper -- ps
+    kubectl exec shared-processes -c helper -- pkill -HUP -o nginx
+    kubectl logs shared-processes -c app | grep -i sighup
     ```
-    ps ax
-    ```
-    ```
-    kill -HUP 7
-    ```
-    ```
-    ps ax
-    ```
+
+`ps` lists the nginx processes from the `app` container. After the `HUP` signal, the nginx log shows `signal 1 (SIGHUP) received from ..., reconfiguring`.
+
+!!! note
+    Signalling another container's process requires both containers to run as the same user. On OpenShift that's always the case, because every container in the Pod gets the same UID. Adding capabilities such as `SYS_PTRACE` isn't allowed under the default `restricted-v2` SCC.
 
 ## Activities
 
-| Task                  | Description                                     | Link                                                          |
-| --------------------- | ----------------------------------------------- | :------------------------------------------------------------ |
-| **_Try It Yourself_** |                                                 |                                                               |
-| Multiple Containers   | Build a container using legacy container image. | [Multiple Containers](../../../labs/kubernetes/lab4/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 4 - Multi-Container Pods](../../../labs/kubernetes/lab4/index.md) | Use the ambassador pattern to expose a legacy app |

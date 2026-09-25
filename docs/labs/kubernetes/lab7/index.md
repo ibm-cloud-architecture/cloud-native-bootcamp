@@ -1,16 +1,22 @@
-# Kubernetes Lab 7 - Rolling Updates
+# Lab 7 - Rolling Updates
+
+<span class="lab-badge">25 min</span> <span class="lab-badge">Beginner</span>
 
 ## Problem
 
-Your company's developers have just finished developing a new version of their jedi-themed mobile game. They are ready to update the backend services that are running in your Kubernetes cluster. There is a deployment in the cluster managing the replicas for this application. The deployment is called `jedi-deployment`. You have been asked to update the image for the container named `jedi-ws` in this deployment template to a new version, `bitnami/nginx:1.19.0`.
+Your company's developers have just finished a new version of their Jedi-themed mobile game, and they're ready to update the backend running in your cluster. A Deployment named `jedi-deployment` manages the application replicas.
 
-After you have updated the image using a rolling update, check on the status of the update to make sure it is working. If it is not working, perform a rollback to the previous state.
+Update the container named `jedi-ws` to the new image `quay.io/nginx/nginx-unprivileged:1.29` using a rolling update, and confirm the rollout succeeds. Then a teammate pushes a broken release. Roll it back.
 
 ## Setup
 
-First, create the initial deployment by saving the following YAML to a file named `jedi-deployment.yaml`:
+```bash
+oc new-project lab7
+```
 
-```yaml
+Save this manifest to `jedi-deployment.yaml` and apply it:
+
+```yaml title="jedi-deployment.yaml"
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,58 +34,44 @@ spec:
         app: jedi
     spec:
       containers:
-      - name: jedi-ws
-        image: bitnami/nginx:1.18.0
-        ports:
-        - containerPort: 8080
+        - name: jedi-ws
+          image: quay.io/nginx/nginx-unprivileged:1.28
+          ports:
+            - containerPort: 8080
 ```
 
-Apply the deployment:
-
 ```bash
-kubectl apply -f jedi-deployment.yaml
-```
-
-Verify the deployment is running:
-
-```bash
-kubectl get deployment jedi-deployment
-kubectl get pods -l app=jedi
+oc apply -f jedi-deployment.yaml
+oc rollout status deployment/jedi-deployment
 ```
 
 ## Tasks
 
-1. **Update the deployment** to use the new image `bitnami/nginx:1.19.0` for the container named `jedi-ws`
-2. **Check the rollout status** to verify the update is progressing
-3. **View the rollout history** to see the deployment revisions
-4. If the update fails, **perform a rollback** to the previous working version
+1. **Update** the `jedi-ws` container to `quay.io/nginx/nginx-unprivileged:1.29`, and record why you changed it in the `kubernetes.io/change-cause` annotation.
+2. **Watch** the rollout until it completes.
+3. **View** the rollout history. You should see two revisions.
+4. **Deploy a broken release**: update the image to `quay.io/nginx/nginx-unprivileged:9.99`, a tag that doesn't exist. Check the rollout status and the pods. What happens to the old pods?
+5. **Roll back** to the working version.
 
 ## Hints
 
-- Use `kubectl set image` to update the container image
-- Use `kubectl rollout status` to check rollout progress
-- Use `kubectl rollout history` to view revision history
-- Use `kubectl rollout undo` to rollback if needed
-- Watch pods in real-time with `kubectl get pods -w`
+- `oc set image` changes a container's image.
+- `oc annotate` sets the change cause. The old `--record` flag is deprecated.
+- `oc rollout status`, `oc rollout history` and `oc rollout undo` manage rollouts.
+- Watch the pods change in real time with `oc get pods -l app=jedi -w`.
 
 ## Verification
 
-After completing the lab, you should be able to:
+After the rollback, the Deployment runs version 1.29 with all 3 replicas available:
 
-1. See the deployment running with the updated image:
-
-   ```bash
-   kubectl describe deployment jedi-deployment | grep Image
-   ```
-
-2. View the rollout history showing multiple revisions:
-
-   ```bash
-   kubectl rollout history deployment/jedi-deployment
-   ```
+```bash
+oc get deployment jedi-deployment -o jsonpath='{.spec.template.spec.containers[0].image}{"\n"}'
+oc get deployment jedi-deployment
+oc rollout history deployment/jedi-deployment
+```
 
 ## Cleanup
 
 ```bash
-kubectl delete deployment jedi-deployment
+oc delete project lab7
 ```

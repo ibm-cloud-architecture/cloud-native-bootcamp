@@ -1,7 +1,6 @@
-# Do not use with Docker builds, only for local dev with mkdocs CLI
-mkdocs-material>=9.5.49
-mkdocs-minify-plugin>=0.8.0
-#mkdocs-redirects>=1.0.3
-mkdocs-video>=1.5.0
-mkdocs-git-revision-date-localized-plugin>=1.4.5
-git+https://github.com/linkchecker/linkchecker@v10.5.0#egg=linkchecker
+# Site build dependencies (used by CI, the dev container and local builds).
+# MkDocs 2.0 drops the plugin/theme system Material depends on, so stay on 1.x.
+mkdocs>=1.6.1,<2
+mkdocs-material>=9.7,<10
+mkdocs-git-revision-date-localized-plugin>=1.4,<2
+mkdocs-minify-plugin>=0.8,<1

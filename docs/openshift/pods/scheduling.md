@@ -35,9 +35,9 @@ Node Affinity allows you to constrain which nodes a pod can be scheduled on base
 
 === "OpenShift"
 
-    [Controlling Pod Placement :fontawesome-solid-sitemap:](https://docs.openshift.com/container-platform/4.17/nodes/scheduling/nodes-scheduler-taints-tolerations.html){ .md-button target="_blank"}
+    [Controlling Pod Placement :fontawesome-solid-sitemap:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/controlling-pod-placement-onto-nodes-scheduling#nodes-scheduler-taints-tolerations){ .md-button target="_blank"}
 
-    [Node Affinity :fontawesome-solid-sitemap:](https://docs.openshift.com/container-platform/4.17/nodes/scheduling/nodes-scheduler-node-affinity.html){ .md-button target="_blank"}
+    [Node Affinity :fontawesome-solid-sitemap:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/controlling-pod-placement-onto-nodes-scheduling#nodes-scheduler-node-affinity){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -65,7 +65,12 @@ metadata:
 spec:
   containers:
     - name: cuda-app
-      image: nvidia/cuda:latest
+      image: nvidia/cuda:13.4.1-base-ubi9
+      command: ["nvidia-smi"]
+      resources:
+        limits:
+          nvidia.com/gpu: 1   # only schedulable on nodes with a GPU
+  restartPolicy: Never
   tolerations:
     - key: "dedicated"
       operator: "Equal"
@@ -83,7 +88,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   tolerations:
     - key: "dedicated"
       operator: "Exists"
@@ -100,7 +105,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   tolerations:
     - key: "node-role.kubernetes.io/control-plane"
       operator: "Exists"
@@ -119,7 +124,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -142,7 +147,7 @@ metadata:
 spec:
   containers:
     - name: app
-      image: nginx
+      image: quay.io/nginx/nginx-unprivileged:1.29
   affinity:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
@@ -181,7 +186,7 @@ spec:
     spec:
       containers:
         - name: cuda-app
-          image: nvidia/cuda:latest
+          image: nvidia/cuda:13.4.1-base-ubi9
           resources:
             limits:
               nvidia.com/gpu: 1
@@ -221,7 +226,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

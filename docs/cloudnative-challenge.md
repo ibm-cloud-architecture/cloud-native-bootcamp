@@ -3,7 +3,7 @@
 ## Phase 1 - Local Develop
 
 - Start by creating a Github Repo for your application.
-- Choose `NodeJS`, `Python`, or `React`.
+- Choose a stack you want to learn, for example `Node.js`, `Python`, `Go`, `Java` (Quarkus or Spring Boot), or a `React` front end with an API back end.
 - Site about one of the following:
     - Yourself
     - Hobby
@@ -14,8 +14,8 @@
 
 - Minimum of 3 webpages
 - Minimum of 1 GET and POST method each.
-- SwaggerUI Configured for API Testing.
-- API's exposed through Swagger
+- An OpenAPI specification for your API, with Swagger UI configured for testing it.
+- A `/healthz` endpoint that Kubernetes probes can call.
 - Custom CSS files for added formatting.
   
 ### Testing
@@ -40,31 +40,33 @@ Setup each of the following tests that apply:
 
 ### Container Image
 
-- Create a DockerFile
-- Build your docker image from the dockerfile
-- Run it locally via Docker Desktop or another docker engine.
+- Create a `Containerfile` (or `Dockerfile`). Use a multi-stage build and a small base image such as UBI minimal.
+- Make the image run as a non-root user and work with any UID, as OpenShift requires.
+- Build your image with Podman (or Docker).
+- Run it locally with `podman run` and test it.
 
 ### Image Registries
 
-- Once validation of working docker image, push the image up to a registry.
+- Once your image works, push it to a registry. Build it for `linux/amd64`, or build a multi-arch image, if you're on an Apple Silicon Mac.
 - Use one of the following registries:
-    - Docker
     - Quay.io
-    - IBM Container
-- Push the image up with the following name: ```{DockerRegistry}/{yourusername}/techdemos-cn:v1```
+    - GitHub Container Registry (ghcr.io)
+    - Docker Hub
+    - IBM Cloud Container Registry
+- Push the image up with the following name: ```{registry}/{yourusername}/techdemos-cn:v1```
 
 ## Phase 4 - Kubernetes Ready
 
 ### Create Pod and Deployment files
 
 - Create a `Pod` YAML to validate your image.
-- Next, create a `deployment` yaml file with the setting of 3 replicas.
+- Next, create a `deployment` yaml file with the setting of 3 replicas, liveness and readiness probes, and resource requests and limits.
 - Verify starting of deployment
 - Push all YAML files to Github
 
 ### Application Exposing
 
-- Create a `Service` and `Route` yaml
+- Create a `Service` and a `Route` (or `Ingress`) yaml
 - Save `Service` and `Route` yamls in Github
 
 ### Configuration Setup
@@ -85,10 +87,10 @@ Setup each of the following tests that apply:
 - Make each of the above their own task.
 - Setup triggers to respond to Github commits and PR's
 
-### GitsOps Configuration
+### GitOps Configuration
 
-- Use ArgoCD to setup Deployment.
-- Test your ArgoCD deployment
+- Use Argo CD (OpenShift GitOps) to deploy from a Git repository.
+- Test your Argo CD deployment
   - Make a change to site and push them.
 - Validate new image version.
 
@@ -96,7 +98,7 @@ Setup each of the following tests that apply:
 
 ### Chatbot Functions
 
-- Watson Assistant Integration
+- Integrate an AI assistant, for example IBM watsonx Assistant or an LLM through watsonx.ai
 - Conversation about your sites topic.
 - Have Chat window or page.
 - Integrate Watson Assistant Actions.

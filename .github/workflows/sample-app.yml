@@ -1,0 +1,46 @@
+name: sample-app
+
+# Builds the lab sample app for amd64 and arm64 and publishes it to
+# ghcr.io/<owner>/<repo>/greeting. The GitOps manifests in sample-app/gitops
+# reference the version tag below; bump it when the app changes.
+
+on:
+  push:
+    branches: [main]
+    paths: ["sample-app/greeting/**", ".github/workflows/sample-app.yml"]
+  pull_request:
+    paths: ["sample-app/greeting/**", ".github/workflows/sample-app.yml"]
+  workflow_dispatch:
+
+env:
+  VERSION: v1.0.0
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v7
+        with:
+          context: sample-app/greeting
+          file: sample-app/greeting/Containerfile
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ghcr.io/${{ github.repository }}/greeting:${{ env.VERSION }}
+            ghcr.io/${{ github.repository }}/greeting:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.description=Cloud Native Bootcamp sample greeting service

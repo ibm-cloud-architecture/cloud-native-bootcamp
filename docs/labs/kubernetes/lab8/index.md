@@ -1,25 +1,62 @@
-# Kubernetes Lab 8 - Cron Jobs
+# Lab 8 - Cron Jobs
+
+<span class="lab-badge">20 min</span> <span class="lab-badge">Beginner</span>
 
 ## Problem
 
-Your commander has a simple data process that is run periodically to check status. They would like to stop doing this manually in order to save time, so you have been asked to implement a cron job in the Kubernetes cluster to run this process.
+Your commander runs a simple status check on the X-Wing fleet by hand, every few minutes. To save time, you've been asked to automate it with a CronJob.
 
-- Create a cron job called xwing-cronjob using the `ibmcase/xwing-status:1.0` image.
-- Have the job run every second minute with the following cron expression: `*/2 * * * *`.
-- Pass the argument `/usr/sbin/xwing-status.sh` to the container.
+The CronJob must meet these requirements:
+
+- The CronJob is named `xwing-cronjob`.
+- It runs every two minutes, using the cron expression `*/2 * * * *`.
+- It uses the image `registry.access.redhat.com/ubi9/ubi-minimal`.
+- The container runs this command, which prints the date and the fleet status:
+
+    ```bash
+    /bin/sh -c 'date; echo "X-Wing fleet status: all systems go"'
+    ```
+
+- Failed jobs are retried (`restartPolicy: OnFailure`).
+- Only the last 3 successful jobs are kept.
+
+## Setup
+
+```bash
+oc new-project lab8
+```
 
 ## Verification
 
-- Run `kubectl get cronjobs.batch` and `LAST-SCHEDULE` to see last time it ran
-- From a bash shell, run the following to see the logs for all jobs:
+1. Check the CronJob. After a couple of minutes, `LAST SCHEDULE` shows when it last ran:
 
-```
-jobs=( $(kubectl get jobs --no-headers -o custom-columns=":metadata.name") )
-echo -e "Job \t\t\t\t Pod \t\t\t\t\tLog"
-for job in "${jobs[@]}"
-do
-   pod=$(kubectl get pods -l job-name=$job --no-headers -o custom-columns=":metadata.name")
-   echo -en "$job \t $pod \t"
-   kubectl logs $pod
-done
+    ```bash
+    oc get cronjob xwing-cronjob
+    ```
+
+2. You don't have to wait for the schedule. Trigger a run now by creating a Job from the CronJob's template:
+
+    ```bash
+    oc create job xwing-manual --from=cronjob/xwing-cronjob
+    oc wait --for=condition=Complete job/xwing-manual --timeout=60s
+    oc logs job/xwing-manual
+    ```
+
+3. Watch the scheduled Jobs appear every two minutes, then read the logs of all of them:
+
+    ```bash
+    oc get jobs -w
+    ```
+
+    ```bash
+    for job in $(oc get jobs -o name); do
+      echo "== ${job}"
+      oc logs "${job}"
+    done
+    ```
+
+## Cleanup
+
+```bash
+oc delete project lab8
 ```

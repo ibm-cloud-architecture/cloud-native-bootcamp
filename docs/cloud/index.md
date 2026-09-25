@@ -39,7 +39,7 @@ IaaS provides virtualized computing resources over the internet. Users manage op
 
 PaaS provides a platform for developing, running, and managing applications without the complexity of maintaining the underlying infrastructure.
 
-**Examples:** IBM Cloud Foundry, Red Hat OpenShift, Heroku, Google App Engine
+**Examples:** Red Hat OpenShift, IBM Cloud Code Engine, Heroku, Google App Engine
 
 **Use Cases:**
 
@@ -52,7 +52,7 @@ PaaS provides a platform for developing, running, and managing applications with
 
 SaaS delivers software applications over the internet on a subscription basis. The provider manages everything from infrastructure to application updates.
 
-**Examples:** IBM Watson, Salesforce, Microsoft 365, Slack
+**Examples:** IBM watsonx Orchestrate, Salesforce, Microsoft 365, Slack
 
 **Use Cases:**
 
@@ -115,11 +115,12 @@ Organizations are moving to the cloud for several compelling reasons:
 
 ## Cloud Migration Strategies
 
-When migrating applications to the cloud, organizations typically follow one of these strategies (the "6 R's"):
+When migrating applications to the cloud, organizations typically choose one of these strategies for each application (often called the "7 Rs"):
 
 | Strategy | Description | When to Use |
 | -------- | ----------- | ----------- |
 | Rehost | "Lift and shift" - Move as-is to the cloud | Quick migration, minimal changes |
+| Relocate | Move whole virtualized workloads to the cloud without changing them (for example, VMware or OpenShift Virtualization) | Move a data center quickly |
 | Replatform | Make minimal optimizations | Leverage some cloud benefits |
 | Repurchase | Move to a SaaS solution | Replace with commercial product |
 | Refactor | Re-architect for cloud-native | Maximize cloud benefits |

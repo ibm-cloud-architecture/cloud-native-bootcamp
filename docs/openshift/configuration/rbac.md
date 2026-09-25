@@ -23,15 +23,15 @@ RBAC authorization uses four kinds of Kubernetes objects:
 
 === "OpenShift"
 
-    [RBAC Overview :fontawesome-solid-shield-halved:](https://docs.openshift.com/container-platform/4.17/authentication/using-rbac.html){ .md-button target="_blank"}
+    [RBAC Overview :fontawesome-solid-shield-halved:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/authentication_and_authorization/using-rbac){ .md-button target="_blank"}
 
-    [Default Cluster Roles :fontawesome-solid-shield-halved:](https://docs.openshift.com/container-platform/4.17/authentication/using-rbac.html#default-roles_using-rbac){ .md-button target="_blank"}
+    [Default Cluster Roles :fontawesome-solid-shield-halved:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/authentication_and_authorization/using-rbac){ .md-button target="_blank"}
 
 === "Kubernetes"
 
     [RBAC Authorization :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){ .md-button target="_blank"}
 
-    [Using RBAC :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/admin/authorization/rbac/){ .md-button target="_blank"}
+    [Using RBAC :fontawesome-solid-shield-halved:](https://kubernetes.io/docs/reference/access-authn-authz/rbac/){ .md-button target="_blank"}
 
 ## References
 

@@ -1,55 +1,46 @@
 # Labs
 
+Every lab is hands-on and runs on OpenShift, or on any Kubernetes cluster where noted. See the [Kubernetes lab environment options](kubernetes/index.md#lab-environment) for how to get a cluster.
+
 ## Containers
 
-| Task                   | Description                                       | Link                                                             |
-| ---------------------- | ------------------------------------------------- | :--------------------------------------------------------------- |
-| **_Try It Yourself_**  |                                                   |                                                                  |
-| IBM Container Registry | Build and Deploy Run using IBM Container Registry | [IBM Container Registry](containers/container-registry/index.md) |
-| Docker Lab             | Running a Sample Application on Docker            | [Docker Lab](containers/index.md)                                |
+| Lab | Description | Time |
+| --- | ----------- | ---- |
+| [Containers Lab](containers/index.md) | Build, run, inspect and push a container image with Podman or Docker | 45 min |
+| [Image Registry Lab](containers/container-registry/index.md) | Deploy from Quay.io, use pull secrets, and build inside OpenShift | 40 min |
 
-## Kubernetes
+## Kubernetes & OpenShift
 
-| Task                          | Description                                                              | Link                                                      |
-| ----------------------------- | ------------------------------------------------------------------------ | :-------------------------------------------------------- |
-| **_Try It Yourself_**         |                                                                          |                                                           |
-| Pod Creation                  | Challenge yourself to create a Pod YAML file to meet certain parameters. | [Pod Creation](kubernetes/lab1/index.md)                  |
-| Probes                        | Create some Health & Startup Probes to find what's causing an issue.     | [Probes](kubernetes/lab2/index.md)                        |
-| Debugging                     | Find which service is breaking in your cluster and find out why.         | [Debugging](kubernetes/lab3/index.md)                     |
-| Multiple Containers           | Build a container using legacy container image.                          | [Multiple Containers](kubernetes/lab4/index.md)           |
-| Setting up Persistent Volumes | Create a Persistent Volume that's accessible from a SQL Pod.             | [Setting up Persistent Volumes](kubernetes/lab5/index.md) |
-| Pod Configuration             | Configure a pod to meet compute resource requirements.                   | [Pod Configuration](kubernetes/lab6/index.md)             |
-| Rolling Updates Lab           | Create a Rolling Update for your application.                            | [Rolling Updates](kubernetes/lab7/index.md)               |
-| Cron Jobs Lab                 | Create a CronJob to run periodic tasks in your cluster.                  | [Cron Jobs](kubernetes/lab8/index.md)                     |
-| Creating Services             | Create two services with certain requirements.                           | [Setting up Services](kubernetes/lab9/index.md)           |
-| Network Policies              | Create a policy to allow client pods with labels to access secure pod.   | [Network Policies](kubernetes/lab10/index.md)             |
-| IKS Ingress Controller        | Configure Ingress on Free IKS Cluster                                    | [Setting IKS Ingress](kubernetes/ingress-iks/index.md)    |
-| **_Solutions_**               |                                                                          |                                                           |
-| Lab Solutions                 | Solutions for the Kubernetes Labs                                        | [Solutions](kubernetes/lab-solutions.md)                  |
+| Lab | Description | Time |
+| --- | ----------- | ---- |
+| [Lab 1 - Pod Creation](kubernetes/lab1/index.md) | Write a Pod manifest that meets a set of requirements | 15 min |
+| [Lab 2 - Probes](kubernetes/lab2/index.md) | Add liveness and readiness probes to recover from an unhealthy app | 20 min |
+| [Lab 3 - Debugging](kubernetes/lab3/index.md) | Find and fix everything that's broken in a deployment | 30 min |
+| [Lab 4 - Multi-Container Pods](kubernetes/lab4/index.md) | Use the ambassador pattern to expose a legacy app | 30 min |
+| [Lab 5 - Persistent Storage](kubernetes/lab5/index.md) | Give a PostgreSQL pod storage that survives restarts | 30 min |
+| [Lab 6 - Pod Configuration](kubernetes/lab6/index.md) | Wire up ConfigMaps, Secrets, resource limits and a ServiceAccount | 30 min |
+| [Lab 7 - Rolling Updates](kubernetes/lab7/index.md) | Roll out a new version, then roll back a bad one | 25 min |
+| [Lab 8 - Cron Jobs](kubernetes/lab8/index.md) | Run a periodic task with a CronJob | 20 min |
+| [Lab 9 - Services](kubernetes/lab9/index.md) | Expose deployments inside and outside the cluster | 25 min |
+| [Lab 10 - Network Policies](kubernetes/lab10/index.md) | Allow only labelled clients to reach a secure pod | 30 min |
+| [Lab 11 - Routes & Ingress](kubernetes/lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress | 30 min |
+
+Stuck? See the [lab solutions](kubernetes/lab-solutions.md).
 
 ## Continuous Integration
 
-| Task                               | Description                                         | Link                                                                                                           |
-| ---------------------------------- | --------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
-| **_Walkthroughs_**                 |                                                     |                                                                                                                |
-| Deploying Applications From Source | Using OpenShift 4 Source-to-Image                   | [S2I](https://docs.openshift.com/container-platform/4.17/openshift_images/using_images/using-s21-images.html)  |
-| **_Try It Yourself_**              |                                                     |                                                                                                                |
-| Tekton Lab                         | Using Tekton to test new versions of applications.  | [Tekton](devops/tekton/index.md)                                                                               |
-| IBM Cloud DevOps                   | Using IBM Cloud ToolChain with Tekton               | [Tekton on IBM Cloud](devops/ibm-toolchain/index.md)                                                           |
-| Jenkins Lab                        | Using Jenkins to test new versions of applications. | [Jenkins](devops/jenkins/index.md)                                                                             |
+| Lab | Description | Time |
+| --- | ----------- | ---- |
+| [Tekton Lab](devops/tekton/index.md) | Build and deploy an app from Git with OpenShift Pipelines | 60 min |
 
-## Continuous Deployment
+## Continuous Delivery
 
-| Task                  | Description                                      | Link                                                                             |
-| --------------------- | ------------------------------------------------ | :------------------------------------------------------------------------------- |
-| **_Walkthroughs_**    |                                                  |                                                                                  |
-| GitOps                | Introduction to GitOps with OpenShift            | [Learn OpenShift](https://learn.openshift.com/introduction/gitops-introduction/) |
-| **_Try It Yourself_** |                                                  |                                                                                  |
-| ArgoCD Lab            | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](devops/argocd/index.md)                                                 |
+| Lab | Description | Time |
+| --- | ----------- | ---- |
+| [Argo CD Lab](devops/argocd/index.md) | Deploy, self-heal and update an app with OpenShift GitOps | 60 min |
 
 ## Projects
 
-| Task                   | Description                                    | Link                                        |
-| ---------------------- | ---------------------------------------------- | :------------------------------------------ |
-| **_Try It Yourself_**  |                                                |                                             |
-| Cloud Native Challenge | Deploy your own app using what we have learned | [CN Challenge](../cloudnative-challenge.md) |
+| Project | Description |
+| ------- | ----------- |
+| [Cloud Native Challenge](../cloudnative-challenge.md) | Build, containerize, deploy and automate your own application using everything you've learned |

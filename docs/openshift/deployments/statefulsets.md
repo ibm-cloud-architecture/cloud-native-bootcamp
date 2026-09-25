@@ -33,7 +33,7 @@ StatefulSets create pods with predictable names following the pattern `{stateful
 
 === "OpenShift"
 
-    [StatefulSets :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.17/rest_api/workloads_apis/statefulset-apps-v1.html){ .md-button target="_blank"}
+    [StatefulSets :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/workloads_apis/statefulset-apps-v1){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -61,6 +61,18 @@ spec:
     app: mysql
 ```
 
+_Secret with the MySQL root password_
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+type: Opaque
+stringData:
+  password: changeme
+```
+
 _StatefulSet Definition_
 
 ```yaml
@@ -81,7 +93,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: mysql:8.0
+          image: mysql:8.4
           ports:
             - containerPort: 3306
               name: mysql
@@ -91,6 +103,15 @@ spec:
                 secretKeyRef:
                   name: mysql-secret
                   key: password
+          readinessProbe:   # the next replica starts only when this one is ready
+            exec:
+              command: ["sh", "-c", "mysqladmin ping -uroot -p\"$MYSQL_ROOT_PASSWORD\""]
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
           volumeMounts:
             - name: data
               mountPath: /var/lib/mysql
@@ -99,11 +120,14 @@ spec:
         name: data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "standard"
+        # No storageClassName: the cluster's default StorageClass is used
         resources:
           requests:
-            storage: 10Gi
+            storage: 1Gi
 ```
+
+!!! note
+    This StatefulSet runs three **independent** MySQL servers, each with its own name (`mysql-0`, `mysql-1`, `mysql-2`), DNS entry (`mysql-0.mysql`) and volume. A StatefulSet provides stable identity, ordering and storage. It doesn't set up replication between the instances. For replicated databases, use an operator, for example from OperatorHub.
 
 === "OpenShift"
 

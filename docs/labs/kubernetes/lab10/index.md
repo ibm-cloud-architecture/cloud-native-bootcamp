@@ -1,36 +1,23 @@
-# Kubernetes Lab 10 - Network Policies
+# Lab 10 - Network Policies
+
+<span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>
 
 ## Problem
 
-Network policies allow you to control traffic flow between pods. In this lab, you will create a network policy that restricts access to a secure pod, allowing only pods with a specific label to connect.
+By default, every pod can talk to every other pod. A NetworkPolicy restricts which traffic is allowed. In this lab you'll lock down a secure pod so that only pods with a specific label can connect to it.
 
-## Prerequisites
-
-Network policies require a CNI plugin that supports them (such as Calico, Cilium, or Weave Net). This lab uses Calico.
-
-### Setup for Minikube
-
-If using minikube, start it with CNI support and install Calico:
-
-```bash
-minikube start --network-plugin=cni
-kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
-kubectl -n kube-system get pods | grep calico-node
-```
-
-Wait for all calico-node pods to be Running before proceeding.
-
-### Setup for OpenShift
-
-OpenShift includes network policy support by default. No additional setup is required.
+!!! info "Cluster support"
+    NetworkPolicies are enforced by the cluster's network plugin. OpenShift's default network plugin, OVN-Kubernetes, supports them with no extra setup. On local Kubernetes, kind's default network plugin supports them too. On minikube, start with `minikube start --cni=calico`.
 
 ## Setup
 
-### Step 1: Create the secured pod
+```bash
+oc new-project lab10
+```
 
-Save the following to `secure-pod.yaml` and apply it:
+### Create the secure pod
 
-```yaml
+```yaml title="secure-pod.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -40,99 +27,78 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: bitnami/nginx:1.25
+      image: quay.io/nginx/nginx-unprivileged:1.29
       ports:
         - containerPort: 8080
 ```
 
-```bash
-kubectl apply -f secure-pod.yaml
-```
+### Create the client pod (without the required label)
 
-### Step 2: Create the client pod (without the required label)
-
-Save the following to `client-pod.yaml` and apply it:
-
-```yaml
+```yaml title="client-pod.yaml"
 apiVersion: v1
 kind: Pod
 metadata:
   name: network-policy-client-pod
 spec:
   containers:
-    - name: busybox
-      image: curlimages/curl:8.5.0
-      command: ["/bin/sh", "-c", "while true; do sleep 3600; done"]
+    - name: client
+      image: registry.access.redhat.com/ubi9/ubi-minimal
+      command: ["sleep", "infinity"]
 ```
 
 ```bash
-kubectl apply -f client-pod.yaml
+oc apply -f secure-pod.yaml -f client-pod.yaml
+oc wait --for=condition=Ready pod/network-policy-secure-pod pod/network-policy-client-pod
 ```
 
-### Step 3: Get the secure pod IP address
+### Test connectivity before you add a policy
 
 ```bash
-kubectl get pod network-policy-secure-pod -o jsonpath='{.status.podIP}'
+SECURE_POD_IP=$(oc get pod network-policy-secure-pod -o jsonpath='{.status.podIP}')
+oc exec network-policy-client-pod -- curl -s --max-time 5 "http://${SECURE_POD_IP}:8080" | grep "<title>"
 ```
 
-Save this IP for testing connectivity.
-
-### Step 4: Test connectivity before network policy
-
-Before applying any network policy, verify the client can reach the secure pod:
-
-```bash
-kubectl exec network-policy-client-pod -- curl -s --max-time 5 http://<SECURE_POD_IP>:8080
-```
-
-You should see the nginx welcome page HTML.
+You should see `<title>Welcome to nginx!</title>`.
 
 ## Tasks
 
-1. **Create a NetworkPolicy** that:
-   - Applies to pods with label `app: secure-app`
-   - Only allows ingress traffic from pods with label `allow-access: "true"`
-   - Denies all other ingress traffic
-
-2. **Test that the policy works** by verifying:
-   - The client pod (without the label) cannot access the secure pod
-   - After adding the label, the client pod can access the secure pod
+1. **Create a NetworkPolicy** named `secure-app-policy` that:
+    - applies to pods with the label `app: secure-app`
+    - allows ingress traffic only from pods with the label `allow-access: "true"`
+    - denies all other ingress traffic
+2. **Test the policy**:
+    - the client pod, which doesn't have the label, can no longer reach the secure pod
+    - after you add the label, the client pod can reach it again
 
 ## Hints
 
-- NetworkPolicy uses `podSelector` to select which pods the policy applies to
-- Use `ingress.from.podSelector` to specify which pods can send traffic
-- The `policyTypes` field should include `Ingress`
+- A NetworkPolicy's `podSelector` chooses the pods the policy applies to.
+- `ingress[].from[].podSelector` chooses which pods may send traffic.
+- Once a pod is selected by any policy with `policyTypes: [Ingress]`, all ingress traffic not explicitly allowed is denied.
 
 ## Verification
 
-### Test 1: Verify access is denied without the label
+1. Without the label, the connection times out:
 
-After applying the network policy, the client pod should NOT be able to reach the secure pod:
+    ```bash
+    oc exec network-policy-client-pod -- curl -s --max-time 5 "http://${SECURE_POD_IP}:8080" \
+      || echo "Connection blocked"
+    ```
 
-```bash
-kubectl exec network-policy-client-pod -- curl -s --max-time 5 http://<SECURE_POD_IP>:8080
-```
+2. Add the label to the client pod:
 
-This should timeout or fail.
+    ```bash
+    oc label pod network-policy-client-pod allow-access=true
+    ```
 
-### Test 2: Add the required label to the client pod
+3. The connection now succeeds:
 
-```bash
-kubectl label pod network-policy-client-pod allow-access=true
-```
-
-### Test 3: Verify access is now allowed
-
-```bash
-kubectl exec network-policy-client-pod -- curl -s --max-time 5 http://<SECURE_POD_IP>:8080
-```
-
-You should now see the nginx welcome page.
+    ```bash
+    oc exec network-policy-client-pod -- curl -s --max-time 5 "http://${SECURE_POD_IP}:8080" | grep "<title>"
+    ```
 
 ## Cleanup
 
 ```bash
-kubectl delete pod network-policy-secure-pod network-policy-client-pod
-kubectl delete networkpolicy my-network-policy
+oc delete project lab10
 ```

@@ -18,9 +18,9 @@ Two primary members
 
 === "OpenShift"
 
-     [Pods :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/pods/nodes-pods-using.html){ .md-button target="_blank"}
+     [Pods :fontawesome-solid-globe:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-pods#nodes-pods-using-pp){ .md-button target="_blank"}
 
-     [Nodes :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/nodes/nodes/nodes-nodes-viewing.html){ .md-button target="_blank"}
+     [Nodes :fontawesome-solid-globe:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/nodes/working-with-nodes#nodes-nodes-viewing){ .md-button target="_blank"}
 
 === "Kubernetes"
 

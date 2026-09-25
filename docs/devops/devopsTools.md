@@ -111,9 +111,9 @@ Throughout this bootcamp, you will gain hands-on experience with several key Dev
 
 | Tool | Purpose | Lab |
 | ---- | ------- | --- |
-| Tekton | CI/CD Pipelines | [Tekton Lab](../labs/devops/tekton/index.md) |
-| ArgoCD | GitOps Deployment | [ArgoCD Lab](../labs/devops/argocd/index.md) |
-| Jenkins | CI/CD Automation | [Jenkins Lab](../labs/devops/jenkins/index.md) |
-| IBM Toolchain | IBM Cloud DevOps | [IBM Toolchain Lab](../labs/devops/ibm-toolchain/index.md) |
+| Podman | Building and running container images | [Containers Lab](../labs/containers/index.md) |
+| Quay.io / OpenShift registry | Storing and distributing images | [Image Registry Lab](../labs/containers/container-registry/index.md) |
+| Tekton (OpenShift Pipelines) | Continuous integration pipelines | [Tekton Lab](../labs/devops/tekton/index.md) |
+| Argo CD (OpenShift GitOps) | GitOps continuous delivery | [Argo CD Lab](../labs/devops/argocd/index.md) |
 
 These tools represent modern approaches to implementing CI/CD pipelines and GitOps workflows in cloud-native environments.

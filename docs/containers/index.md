@@ -12,7 +12,7 @@ To solve these problems, we need Containers.
 
 Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change. They work by hiding the differences between applications inside the container so that everything outside the container can be standardized.
 
-For example, Docker created a standard way to create images for Linux Containers.
+Docker popularized a standard way to build and share images for Linux containers. That format is now the vendor-neutral [OCI](https://opencontainers.org/) standard, used by Podman, Docker, Kubernetes and OpenShift alike.
 
 <iframe width="1206" height="678" src="https://www.youtube.com/embed/0qotVMX-J5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -157,7 +157,7 @@ A text file containing instructions to build a Docker image.
 
 ```dockerfile
 # Base image
-FROM node:20-alpine
+FROM node:24-alpine
 
 # Set working directory
 WORKDIR /app
@@ -193,7 +193,7 @@ Multi-stage builds reduce image size by separating build and runtime environment
 
 ```dockerfile
 # Build stage
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -201,7 +201,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:20-alpine
+FROM node:24-alpine
 WORKDIR /app
 # Copy only production dependencies and built files
 COPY --from=builder /app/dist ./dist
@@ -258,10 +258,10 @@ Choose the smallest base image that meets your needs:
 
 ```dockerfile
 # Good - minimal image
-FROM node:20-alpine
+FROM node:24-alpine
 
 # Avoid - full image with unnecessary tools
-FROM node:20
+FROM node:24
 ```
 
 ### 2. Run as Non-root User
@@ -274,6 +274,16 @@ RUN addgroup -g 1001 appgroup && \
     adduser -u 1001 -G appgroup -s /bin/sh -D appuser
 USER appuser
 ```
+
+!!! info "Arbitrary user IDs on OpenShift"
+    OpenShift goes one step further: by default it runs every container as a **random, non-root UID** that is a member of the root group (GID 0), and ignores the `USER` in your image. Make any directories your app writes to owned by group 0 and group-writable, so the app works whatever UID it gets:
+
+    ```dockerfile
+    RUN chgrp -R 0 /app && chmod -R g=u /app
+    USER 1001
+    ```
+
+    Images such as Red Hat's UBI images and `nginx-unprivileged` are built this way.
 
 ### 3. Optimize Layer Caching
 
@@ -310,7 +320,7 @@ Always pin base image and dependency versions:
 
 ```dockerfile
 # Good - pinned version
-FROM node:20.10.0-alpine3.19
+FROM node:24.21.0-alpine3.24
 
 # Avoid - unpredictable updates
 FROM node:latest
@@ -333,12 +343,15 @@ RUN apt-get install -y curl
 
 ### 7. Add Health Checks
 
-Enable orchestrators to monitor container health:
+Expose a health endpoint in your app, and let the platform check it:
 
 ```dockerfile
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:3000/health || exit 1
 ```
+
+!!! note
+    `HEALTHCHECK` is used by Docker and Podman when you run containers locally. **Kubernetes and OpenShift ignore it**, and it isn't part of the OCI image format (Podman drops it unless you build with `--format docker`). On a cluster, define [liveness, readiness and startup probes](../openshift/pods/health-checks/index.md) instead, pointing at the same endpoint.
 
 ## Container Security
 
@@ -365,7 +378,7 @@ cosign sign myregistry.io/myapp:latest
 - **Resource limits** - Set CPU and memory limits
 
 ```bash
-# Secure container run
+# Secure container run (identical flags work with podman)
 docker run -d \
   --read-only \
   --user 1001:1001 \
@@ -392,5 +405,6 @@ syft myapp:latest -o spdx-json > sbom.json
 - [Podman Documentation](https://docs.podman.io/)
 - [Open Container Initiative (OCI)](https://opencontainers.org/)
 - [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/)
-- [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Container Security Guide - NIST](https://csrc.nist.gov/publications/detail/sp/800-190/final)
+- [Dockerfile Best Practices](https://docs.docker.com/build/building/best-practices/)
+- [Red Hat guidelines for creating images](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/images/creating-images)
+- [Container Security Guide - NIST SP 800-190](https://csrc.nist.gov/pubs/sp/800/190/final)

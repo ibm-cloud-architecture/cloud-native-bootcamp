@@ -1,378 +1,314 @@
 # Containers Lab
 
-=== "Podman"
+<span class="lab-badge">45 min</span> <span class="lab-badge">Beginner</span>
 
-    ## Introduction
+In this lab you'll build a container image for a small web service, run it, inspect it, and push it to a public registry.
 
-    In this lab you will learn how to use podman.
+The lab doesn't hand you every command. **Each step describes what to do. Work out the command yourself**, then expand the solution to check your answer.
 
-=== "Docker"
+## Prerequisites
 
-    ## Introduction
+- A container engine:
+    - **[Podman](https://podman.io/docs/installation)** (recommended). It's daemonless and runs rootless by default, and it's what OpenShift uses under the hood. On macOS and Windows, run `podman machine init` and `podman machine start` once after installing.
+    - **[Docker](https://docs.docker.com/get-started/get-docker/)** also works. Every `podman` command in this lab works the same with `docker`.
+- A free **[Quay.io](https://quay.io/)** account, used to push your image in Part 4.
 
-    In this lab, you will learn about how to use docker and how to run applications using docker. This lab will not explicitly give you the commands to progress through these exercises, but will show you a similar expected output.
+## Part 1: Verify your setup
 
-    **It's your goal to create the commands needed (shown as < command > at each step) to complete the lab.**
+1. Print the version of your container engine.
 
-    ## Prerequisites
+    ??? success "Solution"
+        ```bash
+        podman version
+        ```
 
-    - Create a [Quay account](https://quay.io/). This account is needed to push images to a container registry. Follow the [tutorial](https://quay.io/tutorial/) to get familiar with interacting with Quay
-    - You need to install [Docker](https://www.docker.com/) in your environment. Follow the instructions [here](https://docs.docker.com/docker-for-mac/install/) to install it on Mac and [here](https://docs.docker.com/docker-for-windows/install/) to install it on Windows.
+2. Run the `quay.io/podman/hello` container. Because the image isn't on your machine yet, it's pulled from the registry first.
 
-    ## Working with docker
+    ??? success "Solution"
+        ```bash
+        podman run --rm quay.io/podman/hello
+        ```
 
-    Before proceeding, make sure docker is properly installed on your system.
+        `--rm` deletes the container as soon as it exits.
 
-    1. Please verify your Docker by looking up the version.
+    ```text title="Expected output (abridged)"
+    Trying to pull quay.io/podman/hello:latest...
+    ...
+    !... Hello Podman World ...!
+    ```
 
-    If it is installed, you will see a version number something similar to below.
+3. List the images stored on your machine.
+
+    ??? success "Solution"
+        ```bash
+        podman images
+        ```
+
+## Part 2: Build an image
+
+### Create the application
+
+Create a new directory named `greeting` for the application:
+
+```bash
+mkdir greeting && cd greeting
+```
+
+Save the following as `main.go`. It's a small HTTP service that returns a JSON greeting and reads its message from an environment variable:
+
+```go title="main.go"
+package main
+
+import (
+	"encoding/json"
+	"log"
+	"net/http"
+	"os"
+)
+
+func main() {
+	message := os.Getenv("GREETING")
+	if message == "" {
+		message = "Welcome to the Cloud Native Bootcamp!"
+	}
+
+	http.HandleFunc("/greeting", func(w http.ResponseWriter, r *http.Request) {
+		name := r.URL.Query().Get("name")
+		if name == "" {
+			name = "World"
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{
+			"message": message,
+			"name":    name,
+		})
+	})
+	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ok"))
+	})
+
+	log.Println("greeting service listening on :8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+```
+
+Save this as `go.mod`:
+
+```text title="go.mod"
+module greeting
+
+go 1.22
+```
+
+You don't need Go installed. The build happens inside a container.
+
+### Write the Containerfile
+
+A `Containerfile` (Docker calls it a `Dockerfile`, and both tools accept either name) describes how to build the image. Save this as `Containerfile`:
+
+```dockerfile title="Containerfile"
+# Stage 1: compile the Go binary with Red Hat's Go toolchain image
+FROM registry.access.redhat.com/ubi9/go-toolset AS builder
+COPY --chown=1001:0 . .
+RUN CGO_ENABLED=0 go build -o greeting .
+
+# Stage 2: copy only the binary into a minimal runtime image
+FROM registry.access.redhat.com/ubi9/ubi-micro
+COPY --from=builder /opt/app-root/src/greeting /usr/local/bin/greeting
+EXPOSE 8080
+USER 1001
+CMD ["greeting"]
+```
+
+- `FROM` sets the base image. It starts each **stage** of the build.
+- `COPY` copies files into the image. `--from=builder` copies from an earlier stage instead of from your directory.
+- `RUN` runs a command at build time.
+- `EXPOSE` documents the port the app listens on.
+- `USER` runs the app as a non-root user. OpenShift ignores this and assigns a random UID, which is why the app doesn't depend on a particular user.
+- `CMD` is the command that runs when the container starts.
+
+This is a **multi-stage build**. The first stage contains the whole Go toolchain, which is several hundred MB. The final image contains only the compiled binary on top of `ubi-micro`, so it's around 30 MB. Smaller images pull faster, start faster, and have fewer packages that could contain vulnerabilities.
+
+### Build it
+
+4. Build the image from the current directory and tag it `greeting:v1.0.0`.
+
+    ??? success "Solution"
+        ```bash
+        podman build -t greeting:v1.0.0 .
+        ```
+
+    ```text title="Expected output (abridged)"
+    [1/2] STEP 1/3: FROM registry.access.redhat.com/ubi9/go-toolset AS builder
+    ...
+    [2/2] STEP 5/5: CMD ["greeting"]
+    [2/2] COMMIT greeting:v1.0.0
+    Successfully tagged localhost/greeting:v1.0.0
+    ```
+
+5. List your images again and compare the size of `greeting` with `go-toolset`.
+
+    ??? success "Solution"
+        ```bash
+        podman images
+        ```
+
+    ```text title="Expected output (abridged)"
+    REPOSITORY                                     TAG     IMAGE ID      CREATED        SIZE
+    localhost/greeting                             v1.0.0  9a182f49a53c  1 minute ago   32.8 MB
+    registry.access.redhat.com/ubi9/go-toolset     latest  f2ea3c4b2b32  2 days ago     1.16 GB
+    registry.access.redhat.com/ubi9/ubi-micro      latest  23bcc0c14418  10 days ago    24.7 MB
+    ```
+
+## Part 3: Run and inspect the container
+
+6. Run the image in the background (detached), name the container `greeting`, and map port `8080` on your machine to port `8080` in the container.
+
+    ??? success "Solution"
+        ```bash
+        podman run -d --name greeting -p 8080:8080 greeting:v1.0.0
+        ```
+
+    !!! tip "Port already in use?"
+        If something else on your machine uses port 8080, map a different host port, for example `-p 9080:8080`, and use that port in the steps below.
+
+7. Call the service:
 
     ```bash
-    $ <command>
-    Docker version 19.03.0-beta3, build c55e026
+    curl "localhost:8080/greeting?name=John"
     ```
 
-    ** Running a hello-world container **
+    ```json
+    {"message":"Welcome to the Cloud Native Bootcamp!","name":"John"}
+    ```
 
-    Let us start with a `hello-world` container.
+8. Try to run a second container with the same name. What happens?
 
-    2. run a `hello-world` container.
+    ??? success "Solution"
+        ```bash
+        podman run -d --name greeting -p 8081:8080 greeting:v1.0.0
+        ```
 
-    If it is successfully run, you will see something like below.
+        ```text
+        Error: creating container storage: the container name "greeting" is already in use by 3c1f.... You have to remove that container to be able to reuse that name: that name is already in use
+        ```
+
+        Container names must be unique. Naming containers makes them easy to find and manage.
+
+9. List the running containers.
+
+    ??? success "Solution"
+        ```bash
+        podman ps
+        ```
+
+10. Inspect the container to see its full configuration: environment variables, network settings, mounts and state. Then use a Go template to print only its IP address and state.
+
+    ??? success "Solution"
+        ```bash
+        podman inspect greeting
+        podman inspect greeting --format '{{.State.Status}} {{.NetworkSettings.IPAddress}}'
+        ```
+
+11. Show the container's logs.
+
+    ??? success "Solution"
+        ```bash
+        podman logs greeting
+        ```
+
+        ```text
+        2026/09/24 23:29:00 greeting service listening on :8080
+        ```
+
+        Add `-f` to follow the logs as new lines are written.
+
+12. Run a command **inside** the running container to see which user the app runs as.
+
+    ??? success "Solution"
+        ```bash
+        podman exec greeting id
+        ```
+
+        ```text
+        uid=1001(1001) gid=0(root) groups=0(root)
+        ```
+
+13. Stop and remove the container, then start a new one with the `GREETING` environment variable set to a message of your choice, and call it again.
+
+    ??? success "Solution"
+        ```bash
+        podman stop greeting
+        podman rm greeting
+        podman run -d --name greeting -p 8080:8080 -e GREETING="Hello from my container" greeting:v1.0.0
+        curl "localhost:8080/greeting?name=John"
+        ```
+
+        This is how containers are configured: the same image, with different settings supplied at runtime. Kubernetes does the same with ConfigMaps and Secrets.
+
+## Part 4: Push the image to a registry
+
+A **container registry** stores and distributes images. Docker Hub, Quay.io and GitHub Container Registry are public registries. OpenShift also has a built-in internal registry.
+
+14. Log in to Quay.io.
+
+    ??? success "Solution"
+        ```bash
+        podman login quay.io
+        ```
+
+        If your Quay account uses single sign-on (for example, a Red Hat login), create an **encrypted password** under **Account Settings > Docker CLI Password** and use it here instead of your account password.
+
+15. Tag your image for your Quay repository: `quay.io/<your-username>/greeting:v1.0.0`. The tag includes the registry hostname, which tells the engine where to push.
+
+    ??? success "Solution"
+        ```bash
+        export QUAY_USER=<your-username>
+        podman tag greeting:v1.0.0 quay.io/${QUAY_USER}/greeting:v1.0.0
+        ```
+
+16. Push the image.
+
+    ??? success "Solution"
+        ```bash
+        podman push quay.io/${QUAY_USER}/greeting:v1.0.0
+        ```
+
+17. On [quay.io](https://quay.io/), open the new `greeting` repository and, under **Settings**, make it **public**. New repositories are private by default.
+
+18. Remove the local images, then pull your image back from Quay.
+
+    ??? success "Solution"
+        ```bash
+        podman rm -f greeting
+        podman rmi quay.io/${QUAY_USER}/greeting:v1.0.0 greeting:v1.0.0
+        podman pull quay.io/${QUAY_USER}/greeting:v1.0.0
+        ```
+
+!!! warning "Building on Apple Silicon (M-series Macs)?"
+    Images you build on an ARM Mac are `arm64` by default, but most OpenShift clusters run on `amd64` (x86_64) nodes. Pods fail there with `exec format error`. Build for the target platform, or build a multi-arch image that covers both:
 
     ```bash
-    $ <command>
-    Unable to find image 'hello-world:latest' locally
-    latest: Pulling from library/hello-world
-    1b930d010525: Pull complete
-    Digest: sha256:41a65640635299bab090f783209c1e3a3f11934cf7756b09cb2f1e02147c6ed8
-    Status: Downloaded newer image for hello-world:latest
+    # Single platform
+    podman build --platform linux/amd64 -t quay.io/${QUAY_USER}/greeting:v1.0.0 .
 
-    Hello from Docker!
-    This message shows that your installation appears to be working correctly.
-
-    To generate this message, Docker took the following steps:
-    1. The Docker client contacted the Docker daemon.
-    2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-        (amd64)
-    3. The Docker daemon created a new container from that image which runs the
-        executable that produces the output you are currently reading.
-    4. The Docker daemon streamed that output to the Docker client, which sent it
-        to your terminal.
-
-    To try something more ambitious, you can run an Ubuntu container with:
-    $ docker run -it ubuntu bash
-
-    Share images, automate workflows, and more with a free Docker ID:
-    https://hub.docker.com/
-
-    For more examples and ideas, visit:
-    https://docs.docker.com/get-started/
+    # Multi-arch manifest list for amd64 and arm64
+    podman build --platform linux/amd64,linux/arm64 --manifest quay.io/${QUAY_USER}/greeting:v1.0.0 .
+    podman manifest push quay.io/${QUAY_USER}/greeting:v1.0.0
     ```
 
-    Since, `hello-world` image is not existing locally, it is pulled from `library/hello-world`. But if it is already existing, docker will not pull it every time but rather use the existing one.
+## Cleanup
 
-    This image is pulled from https://hub.docker.com/_/hello-world. Docker hub is a repository used to store docker images. Similarly, you can use your own registries to store images. For example, IBM Cloud provides you a container registry.
+```bash
+podman rm -f greeting
+podman rmi greeting:v1.0.0
+```
 
-    **Verifying the hello-world image**
+Keep the `greeting` image on Quay. The [Image Registry Lab](container-registry/index.md) deploys it to OpenShift.
 
-    3. Now verify if an image is existing in your system locally.
+## What you learned
 
-    You will then see something like below.
-
-    ```bash
-    $ <command>
-    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-    hello-world         latest              fce289e99eb9        5 months ago        1.84kB
-    ```
-
-    ## Get the sample application
-
-    To get the sample application, you will need to clone it from github.
-
-    ```bash
-    # Clone the sample app
-    git clone https://github.com/ibm-cloud-architecture/cloudnative_sample_app.git
-
-    # Go to the project's root folder
-    cd cloudnative_sample_app/
-    ```
-
-    ## Run the application on Docker
-
-    ### Build the docker image
-
-    Let's take look at the docker file before building it.
-
-    ```
-    FROM maven:3.3-jdk-8 as builder
-
-    COPY . .
-    RUN mvn clean install
-
-    FROM openliberty/open-liberty:springBoot2-ubi-min as staging
-
-    COPY --chown=1001:0 --from=builder /target/cloudnativesampleapp-1.0-SNAPSHOT.jar /config/app.jar
-    RUN springBootUtility thin \
-        --sourceAppPath=/config/app.jar \
-        --targetThinAppPath=/config/dropins/spring/thinClinic.jar \
-        --targetLibCachePath=/opt/ol/wlp/usr/shared/resources/lib.index.cache
-
-    ```
-
-    - Using the `FROM` instruction, we provide the name and tag of an image that should be used as our base. This must always be the first instruction in the Dockerfile.
-    - Using `COPY` instruction, we copy new contents from the source filesystem to the container filesystem.
-    - `RUN` instruction executes the commands.
-
-    This Dockerfile leverages multi-stage builds, which lets you create multiple stages in your Dockerfile to do certain tasks.
-
-    In our case, we have two stages.
-
-    - The first one uses `maven:3.3-jdk-8` as its base image to download and build the project and its dependencies using Maven.
-    - The second stage uses `openliberty/open-liberty:springBoot2-ubi-min` as its base image to run the compiled code from the previous stage.
-
-    The advantage of using the multi-stage builds approach is that the resulting image only uses the base image of the last stage. Meaning that in our case, we will only end up with the `openliberty/open-liberty:springBoot2-ubi-min` as our base image, which is much tinier than having an image that has both Maven and the JRE.
-
-    By using the multi-stage builds approach when it makes sense to use it, you will end up with much lighter and easier to maintain images, which can save you space on your Docker Registry. Also, having tinier images usually means less resource consumption on your worker nodes, which can result cost-savings.
-
-    Once, you have the docker file ready, the next step is to build it. The `build` command allows you to build a docker image which you can later run as a container.
-
-    1. Build the docker file with the `image_name` of `greeting` and give it a `image_tag` of `v1.0.0` and build it using the current context.
-
-    You will see something like below:
-
-    ```bash
-    $ <command>
-    Sending build context to Docker daemon  22.17MB
-    Step 1/6 : FROM maven:3.3-jdk-8 as builder
-    ---> 9997d8483b2f
-    Step 2/6 : COPY . .
-    ---> c198e3e54023
-    Step 3/6 : RUN mvn clean install
-    ---> Running in 24378df7f87b
-    [INFO] Scanning for projects...
-    .
-    .
-    .
-    [INFO] Installing /target/cloudnativesampleapp-1.0-SNAPSHOT.jar to /root/.m2/repository/projects/cloudnativesampleapp/1.0-SNAPSHOT/cloudnativesampleapp-1.0-SNAPSHOT.jar
-    [INFO] Installing /pom.xml to /root/.m2/repository/projects/cloudnativesampleapp/1.0-SNAPSHOT/cloudnativesampleapp-1.0-SNAPSHOT.pom
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 44.619 s
-    [INFO] Finished at: 2020-04-06T16:07:04+00:00
-    [INFO] Final Memory: 38M/385M
-    [INFO] ------------------------------------------------------------------------
-    Removing intermediate container 24378df7f87b
-    ---> cc5620334e1b
-    Step 4/6 : FROM openliberty/open-liberty:springBoot2-ubi-min as staging
-    ---> 021530b0b3cb
-    Step 5/6 : COPY --chown=1001:0 --from=builder /target/cloudnativesampleapp-1.0-SNAPSHOT.jar /config/app.jar
-    ---> dbc81e5f4691
-    Step 6/6 : RUN springBootUtility thin     --sourceAppPath=/config/app.jar     --targetThinAppPath=/config/dropins/spring/thinClinic.jar     --targetLibCachePath=/opt/ol/wlp/usr/shared/resources/lib.index.cache
-    ---> Running in 8ea80b5863cb
-    Creating a thin application from: /config/app.jar
-    Library cache: /opt/ol/wlp/usr/shared/resources/lib.index.cache
-    Thin application: /config/dropins/spring/thinClinic.jar
-    Removing intermediate container 8ea80b5863cb
-    ---> a935a129dcb2
-    Successfully built a935a129dcb2
-    Successfully tagged greeting:v1.0.0
-    ```
-
-    2. Next, verify your newly built image
-
-    The output will be as follows.
-
-    ```bash
-    $ <command>
-    REPOSITORY                           TAG                   IMAGE ID            CREATED             SIZE
-    greeting                             v1.0.0                89bd7032fdee        51 seconds ago      537MB
-    openliberty/open-liberty             springBoot2-ubi-min   bcfcb2c5ce16        6 days ago          480MB
-    hello-world                          latest                f9cad508cb4c        5 months ago        1.84kB
-    ```
-
-    ### Run the docker container
-
-    Now let's try running the docker container. Run it with the following parameters:
-
-    3. Expose port `9080`. Run it in the background in detached mode. Give the container the name of `greeting`.
-
-    Once done, you will have something like below.
-
-    ```bash
-    $ <command>
-    bc2dc95a6bd1f51a226b291999da9031f4443096c1462cb3fead3df36613b753
-    ```
-
-    Also, docker cannot create two containers with the same name. If you try to run the same container having the same name again, you will see something like below.
-
-    ```bash
-    $ <command>
-    docker: Error response from daemon: Conflict. The container name "/greeting" is already in use by container "a74b91789b29af6e7be92b30d0e68eef852bfb24336a44ef1485bb58becbd664". You have to remove (or rename) that container to be able to reuse that name.
-    See 'docker run --help'.
-    ```
-
-    It is a good practice to name your containers. Naming helps you to discover your service easily.
-
-    4. List all the running containers.
-
-    You will see something like below.
-
-    ```bash
-    $ <command>
-    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                              NAMES
-    bc2dc95a6bd1        greeting:v1.0.0     "/opt/ol/helpers/run…"   18 minutes ago      Up 18 minutes       0.0.0.0:9080->9080/tcp, 9443/tcp   greeting
-    ```
-
-    5. Let's inspect the running container.
-
-    By inspecting the container, you can access detailed information about the container. By using this command, you get to know the details about network settings, volumes, configs, state etc.
-
-    If we consider our container, it is as follows. You can see lot of information about the `greeting` container.
-
-    ```bash
-    $ <command>
-    [
-        {
-            "Id": "bc2dc95a6bd1f51a226b291999da9031f4443096c1462cb3fead3df36613b753",
-            "Created": "2019-08-30T16:56:40.2081539Z",
-            "Path": "/opt/ol/helpers/runtime/docker-server.sh",
-            "Args": [
-                "/opt/ol/wlp/bin/server",
-                "run",
-                "defaultServer"
-            ],
-            "State": {
-                "Status": "running",
-                "Running": true,
-                "Paused": false,
-                "Restarting": false,
-                "OOMKilled": false,
-                "Dead": false,
-                "Pid": 27548,
-                "ExitCode": 0,
-                "Error": "",
-                "StartedAt": "2019-08-30T16:56:41.0927889Z",
-                "FinishedAt": "0001-01-01T00:00:00Z"
-            },
-            ..........
-            ..........
-            ..........
-        }
-    ]
-    ```
-
-    6. Get the logs of the `greeting` container.
-
-    It helps you to access the logs of your container. It allows you to debug the container if it fails. It also lets you to know what is happening with your application.
-
-    At the end, you will see something like below.
-
-    ```bash
-    .   ____          _            __ _ _
-    /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-    ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
-    \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-    '  |____| .__|_| |_|_| |_\__, | / / / /
-    =========|_|==============|___/=/_/_/_/
-    :: Spring Boot ::        (v2.1.7.RELEASE)
-    2019-08-30 16:57:01.494  INFO 1 --- [ecutor-thread-5] application.SBApplication                : Starting SBApplication on bc2dc95a6bd1 with PID 1 (/opt/ol/wlp/usr/servers/defaultServer/dropins/spring/thinClinic.jar started by default in /opt/ol/wlp/output/defaultServer)
-    2019-08-30 16:57:01.601  INFO 1 --- [ecutor-thread-5] application.SBApplication                : No active profile set, falling back to default profiles: default
-    [AUDIT   ] CWWKT0016I: Web application available (default_host): http://bc2dc95a6bd1:9080/
-    2019-08-30 16:57:09.641  INFO 1 --- [cutor-thread-25] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7672 ms
-    2019-08-30 16:57:12.279  INFO 1 --- [ecutor-thread-5] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
-    2019-08-30 16:57:12.974  INFO 1 --- [ecutor-thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-    2019-08-30 16:57:13.860  INFO 1 --- [ecutor-thread-5] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-    2019-08-30 16:57:13.961  INFO 1 --- [ecutor-thread-5] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-    2019-08-30 16:57:14.020  INFO 1 --- [ecutor-thread-5] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-    2019-08-30 16:57:14.504  INFO 1 --- [ecutor-thread-5] application.SBApplication                : Started SBApplication in 17.584 seconds (JVM running for 33.368)
-    [AUDIT   ] CWWKZ0001I: Application thinClinic started in 21.090 seconds.
-    [AUDIT   ] CWWKF0012I: The server installed the following features: [el-3.0, jsp-2.3, servlet-4.0, springBoot-2.0, ssl-1.0, transportSecurity-1.0, websocket-1.1].
-    [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 33.103 seconds.
-    ```
-
-    This shows that the Spring Boot application is successfully started.
-
-    ### Access the application
-
-    - To access the application, open the browser and access http://localhost:9080/greeting?name=John.
-
-    You will see something like below.
-
-    ```bash
-    {"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}
-    ```
-
-    **Container Image Registry**
-
-    Container Image Registry is a place where you can store the container images. They can be public or private registries. They can be hosted by third party as well. In this lab, we are using Quay.
-
-    ### Pushing an image to a Registry
-
-    Let us now push the image to the Quay registry. Before pushing the image to the registry, one needs to login.
-
-    7. Login to Quay using your credentials.
-
-    Once logged in we need to take the image for the registry.
-
-    8. Tag your image for the image registry using the `same name and tag from before`. Be sure to include the host name of the target image registry in the destination tag (e.g. quay.io). _NOTE: the tag command has both the source tag and repository destination tag in it._
-
-    9. Now push the image to the registry. This allows you to share images to a registry.
-
-    If everything goes fine, you will see something like below.
-
-    ```bash
-    $ <command>
-    The push refers to repository [quay.io/<repository_name>/greeting]
-    2e4d09cd03a2: Pushed
-    d862b7819235: Pushed
-    a9212239031e: Pushed
-    4be784548734: Pushed
-    a43c287826a1: Mounted from library/ibmjava
-    e936f9f1df3e: Mounted from library/ibmjava
-    92d3f22d44f3: Mounted from library/ibmjava
-    10e46f329a25: Mounted from library/ibmjava
-    24ab7de5faec: Mounted from library/ibmjava
-    1ea5a27b0484: Mounted from library/ibmjava
-    v1.0.0: digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54562e6b4 size: 2415
-    ```
-
-    Once the push is successful, your image will be residing in the registry.
-
-    ### Clean Up
-
-    10. Stop the `greeting` container.
-
-    11. Remove the container.
-
-    12. Remove the image. (_NOTE: You will need the image_id to remove it._)
-
-    ### Pulling an image from the registry
-
-    Sometimes, you may need the images that are residing on your registry. Or you may want to use some public images out there. Then, we need to pull the image from the registry.
-
-    13. Pull the image `greeting` from the registry,
-
-    If it successfully got pulled, we will see something like below.
-
-    ```bash
-    ddcb5f219ce2: Pull complete
-    e3371bbd24a0: Pull complete
-    49d2efb3c01b: Pull complete
-    Digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54562e6b4
-    Status: Downloaded newer image for <repository_name>/greeting:v1.0.0
-    docker.io/<repository_name>/greeting:v1.0.0
-    ```
-
-    ## Conclusion
-
-    You have successfully completed this lab! Let's take a look at what you learned and did today:
-
-    - Learned about Dockerfile.
-    - Learned about docker images.
-    - Learned about docker containers.
-    - Learned about multi-stage docker builds.
-    - Ran the Greetings service on Docker.
-
-    Congratulations !!!
+- [x] Building images with a Containerfile and multi-stage builds
+- [x] Running, inspecting and configuring containers
+- [x] Tagging and pushing images to a registry
+- [x] Building images for the right CPU architecture

@@ -6,17 +6,20 @@ Namespaces provide a scope for names. Names of resources need to be unique withi
 
 Namespaces are a way to divide cluster resources between multiple users (via resource quota).
 
-It is not necessary to use multiple namespaces just to separate slightly different resources, such as different versions of the same software: use labels to distinguish resources within the same namespace. In practice namespaces are used to deploy different versions based on stages of the CICD pipeline (dev, test, stage, prod)
+It is not necessary to use multiple namespaces just to separate slightly different resources, such as different versions of the same software: use labels to distinguish resources within the same namespace. In practice namespaces are often used to separate teams, applications, or stages of the CI/CD pipeline (dev, test, stage, prod).
+
+!!! info "Projects in OpenShift"
+    An OpenShift **Project** is a Kubernetes namespace with extra metadata (display name, description) and default access control. When you run `oc new-project`, OpenShift creates the namespace and makes you its admin, even if you aren't allowed to create namespaces directly. Use `oc new-project` rather than `oc create namespace` on OpenShift.
 
 ## Resources
 
 === "OpenShift"
 
-    [Working with Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/working-with-projects.html){ .md-button target="_blank"}
+    [Working with Projects :fontawesome-solid-globe:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/projects#working-with-projects){ .md-button target="_blank"}
 
-    [Creating Projects :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/cli_reference/openshift_cli/getting-started-cli.html#creating-a-project){ .md-button target="_blank" }
+    [Creating Projects :fontawesome-solid-globe:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc#cli-getting-started){ .md-button target="_blank" }
     
-    [Configure Project Creation :fontawesome-solid-globe:](https://docs.openshift.com/container-platform/4.13/applications/projects/configuring-project-creation.html){ .md-button target="_blank"}
+    [Configure Project Creation :fontawesome-solid-globe:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/projects#configuring-project-creation){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -31,7 +34,7 @@ metadata:
   name: dev
 ```
 
-```yaml title="Pod YAML specifiying Namespace"
+```yaml title="Pod YAML specifying Namespace"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -73,7 +76,7 @@ spec:
     kubectl get namespaces
     ```
 
-    ``` Bash title="Create a new namespace called bar"
+    ``` Bash title="Create a new namespace called dev"
     kubectl create ns dev
     ```
 

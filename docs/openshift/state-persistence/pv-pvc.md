@@ -16,11 +16,11 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
 === "OpenShift"
 
-    [Persistent Storage :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html){ .md-button target="_blank"}
+    [Persistent Storage :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Persistent Volume Types :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#types-of-persistent-volumes_understanding-persistent-storage){ .md-button target="_blank"}
+    [Persistent Volume Types :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/expanding-persistent-volumes.html){ .md-button target="_blank"}
+    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/expanding-persistent-volumes){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -28,32 +28,20 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
     [Writing Portable Configurations :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#writing-portable-configuration){ .md-button target="_blank"}
 
-    [Configuring Persistent Volume Storage :fontawesome-solid-database:](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/){ .md-button target="_blank"}
+    [Persistent Volumes :fontawesome-solid-database:](https://kubernetes.io/docs/concepts/storage/persistent-volumes/){ .md-button target="_blank"}
 
 ## References
 
-```yaml
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: my-pv
-spec:
-  storageClassName: local-storage
-  capacity:
-    storage: 128Mi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data-1"
-```
+### Dynamic provisioning (the usual way)
 
-```yaml
+Create a claim without a `storageClassName`, and the cluster's default StorageClass provisions a matching PersistentVolume for you. This is how storage works on OpenShift and managed Kubernetes services, and it doesn't need any special permissions.
+
+```yaml title="PersistentVolumeClaim"
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: my-pvc
 spec:
-  storageClassName: local-storage
   accessModes:
     - ReadWriteOnce
   resources:
@@ -61,14 +49,14 @@ spec:
       storage: 100Mi
 ```
 
-```yaml
+```yaml title="Pod using the claim"
 kind: Pod
 apiVersion: v1
 metadata:
   name: my-pod
 spec:
   containers:
-    - name: nginx
+    - name: app
       image: busybox
       command:
         [
@@ -83,6 +71,42 @@ spec:
     - name: my-data
       persistentVolumeClaim:
         claimName: my-pvc
+```
+
+Delete and recreate the pod, then run `oc exec my-pod -- cat /mnt/data/message.txt`. It shows one line per pod that has run, because the data lives in the PersistentVolume, not in the container.
+
+### Static provisioning (cluster administrators)
+
+Without a provisioner, an administrator creates PersistentVolumes by hand, and claims bind to them by matching `storageClassName`, access mode and size. `hostPath` volumes like this one are only suitable for single-node test clusters. On OpenShift, pods running under the default `restricted-v2` SCC generally can't write to a root-owned host directory, so you would use NFS, iSCSI or a CSI driver instead.
+
+```yaml title="PersistentVolume (requires cluster-admin)"
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: my-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 128Mi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data-1"
+```
+
+```yaml title="PersistentVolumeClaim that binds to it"
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-static-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
 ```
 
 === "OpenShift"
@@ -111,7 +135,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                              | Link                                                            |
-| --------------------- | -------------------------------------------------------- | :-------------------------------------------------------------- |
-| **_Try It Yourself_** |                                                          |                                                                 |
-| Persistent Volumes    | Create a Persistent Volume that's accessible from a Pod. | [Persistent Volumes](../../labs/kubernetes/lab5/index.md)       |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 5 - Persistent Storage](../../labs/kubernetes/lab5/index.md) | Give a PostgreSQL pod storage that survives restarts |

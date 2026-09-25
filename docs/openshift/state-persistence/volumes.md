@@ -10,7 +10,7 @@ A Kubernetes volume, on the other hand, has an explicit lifetime - the same as t
 
 === "OpenShift"
 
-    [Volume Lifecycle :fontawesome-solid-database:](https://docs.openshift.com/container-platform/4.13/storage/understanding-persistent-storage.html#lifecycle-volume-claim_understanding-persistent-storage){ .md-button target="_blank"}
+    [Volume Lifecycle :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -43,7 +43,7 @@ metadata:
   name: test-pd
 spec:
   containers:
-    - image: bitnami/nginx
+    - image: quay.io/nginx/nginx-unprivileged:1.29
       name: test-container
       volumeMounts:
         - mountPath: /test-pd
@@ -56,3 +56,6 @@ spec:
         # this field is optional
         type: Directory
 ```
+
+!!! warning "hostPath is blocked by default"
+    `hostPath` mounts a directory from the node into the pod, which gives the pod access to the host. OpenShift's default `restricted-v2` SCC and the Kubernetes `restricted` Pod Security level both reject it. It's meant for privileged node agents, such as log collectors or CSI drivers, that a cluster administrator has explicitly allowed. For application data, use a PersistentVolumeClaim.

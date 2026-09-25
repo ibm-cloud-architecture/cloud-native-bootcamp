@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: bitnami/nginx
+          image: quay.io/nginx/nginx-unprivileged:1.29
           ports:
             - containerPort: 8080
               name: http
@@ -83,8 +83,6 @@ spec:
     stern . -n default
     ```
 
-<Tab>
-</Tab>
 
 === "OpenShift"
 
@@ -115,7 +113,7 @@ spec:
     ```
 
     ``` Bash title="Get Service Endpoints"
-    kubectl get ep my-service
+    kubectl get endpointslices -l kubernetes.io/service-name=my-service
     ```
 
     ``` Bash title="Expose a Deployment via a Service"
@@ -124,7 +122,6 @@ spec:
 
 ## Activities
 
-| Task                  | Description                                    | Link                                                       |
-| --------------------- | ---------------------------------------------- | :--------------------------------------------------------- |
-| **_Try It Yourself_** |                                                |                                                            |
-| Creating Services     | Create two services with certain requirements. | [Setting up Services](../../labs/kubernetes/lab9/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 9 - Services](../../labs/kubernetes/lab9/index.md) | Expose deployments inside and outside the cluster |

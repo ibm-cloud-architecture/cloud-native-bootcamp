@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-
-set -x
-
-NAME=${1:-prodguide-dev}
-docker logs -f ${NAME}
+# Follow the dev container logs.
+. "$(dirname "$0")/common.sh"
+${ENGINE} logs -f "${NAME}"

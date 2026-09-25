@@ -56,7 +56,7 @@ Organizations can also create their own custom Operator catalogs to distribute i
 
 ### Through the OpenShift Web Console
 
-1. Navigate to **Operators** → **OperatorHub** in the left menu
+1. Navigate to **Operators** → **OperatorHub** in the left menu (**Ecosystem** → **Software Catalog** on OpenShift 4.20 and later)
 2. Browse or search for Operators
 3. Filter by category, source, or capability level
 4. Click on an Operator to view details and installation options

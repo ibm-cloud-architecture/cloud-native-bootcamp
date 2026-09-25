@@ -1,35 +1,23 @@
 {
-    "name": "Cloud Native Bootcamp",
-    "version": "1.0.0",
-    "description": "Cloud Native Bootcamp",
-    "main": "index.js",
-    "directories": {
-      "doc": "docs"
-    },
-    "scripts": {
-      "dev:build": "./dev/build.sh prodguide-dev",
-      "predev": "./dev/clean.sh prodguide-dev",
-      "dev": "./dev/run.sh prodguide-dev 8000",
-      "postdev": "./dev/logs.sh prodguide-dev",
-      "dev:stop": "./dev/clean.sh prodguide-dev",
-      "test": "./dev/test.sh prodguide-dev && exit 1",
-      "build": "./build.sh",
-      "dev:spell": "cspell docs/**/*.md",
-      "dev:links": "linkchecker -f linkcheckerrc --check-extern public",
-      "serve": "./dev/mkdocs.sh"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.ibm.com/CE-National/TechDemos.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.ibm.com/CE-National/TechDemos/issues"
-    },
-    "homepage": "https://github.ibm.com/CE-National/TechDemos#readme",
-    "dependencies": {
-      "cspell": "^8.17.0"
-    }
+  "name": "cloud-native-bootcamp",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Cloud Native Bootcamp documentation site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-cloud-architecture/cloud-native-bootcamp.git"
+  },
+  "scripts": {
+    "serve": "./dev/mkdocs.sh",
+    "build": "mkdocs build --strict",
+    "dev:build": "./dev/build.sh",
+    "dev": "./dev/run.sh",
+    "dev:stop": "./dev/clean.sh",
+    "dev:logs": "./dev/logs.sh",
+    "test": "./dev/test.sh",
+    "spell": "cspell 'docs/**/*.md'"
+  },
+  "devDependencies": {
+    "cspell": "^9.0.0"
   }
+}

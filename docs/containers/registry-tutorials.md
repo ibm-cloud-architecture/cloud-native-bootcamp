@@ -2,6 +2,187 @@
 
 This page provides step-by-step tutorials for working with popular container registries. Select a registry below to get started.
 
+=== "Red Hat Quay"
+
+    ## Red Hat Quay
+
+    Red Hat Quay is an enterprise container registry that provides security scanning, geo-replication, and detailed access controls. It's commonly used in OpenShift environments.
+
+    ### Prerequisites
+
+    - Docker or Podman installed and running
+    - A free Quay.io account ([Sign up here](https://quay.io/signin/){target="_blank"})
+
+    ### Tutorial
+
+    === "Podman"
+
+        **1. Login to Quay.io**
+
+        ```bash
+        podman login quay.io
+        ```
+
+        Enter your Quay.io username and password when prompted:
+
+        ```text
+        Username: your_username
+        Password: your_password
+        Login Succeeded!
+        ```
+
+        **2. Pull a base image**
+
+        Pull an image from Docker Hub to use as a starting point:
+
+        ```bash
+        podman pull docker.io/library/alpine:latest
+        ```
+
+        **3. Create a simple container**
+
+        Run a container and make a small modification:
+
+        ```bash
+        podman run -it --name my-alpine docker.io/library/alpine:latest /bin/sh
+        ```
+
+        Inside the container, create a file:
+
+        ```bash
+        echo "Hello from Quay!" > /hello.txt
+        exit
+        ```
+
+        **4. Commit the container to a new image**
+
+        ```bash
+        podman commit my-alpine my-quay-image:v1.0
+        ```
+
+        **5. Tag for Quay.io**
+
+        Tag the image with your Quay.io username and repository name:
+
+        ```bash
+        podman tag my-quay-image:v1.0 quay.io/your_username/my-quay-image:v1.0
+        ```
+
+        !!! note "Replace `your_username`"
+            Replace `your_username` with your actual Quay.io username.
+
+        **6. Push to Quay.io**
+
+        ```bash
+        podman push quay.io/your_username/my-quay-image:v1.0
+        ```
+
+        **7. Verify your push**
+
+        Visit [Quay.io Repositories](https://quay.io/repository/){target="_blank"} to see your pushed image.
+
+        !!! tip "Repository Visibility"
+            By default, new repositories on Quay.io are private. You can change visibility in the repository settings.
+
+        **8. Clean up**
+
+        ```bash
+        podman rm my-alpine
+        podman rmi my-quay-image:v1.0
+        ```
+
+    === "Docker"
+
+        **1. Login to Quay.io**
+
+        ```bash
+        docker login quay.io
+        ```
+
+        Enter your Quay.io username and password when prompted:
+
+        ```text
+        Username: your_username
+        Password: your_password
+        Login Succeeded!
+        ```
+
+        **2. Pull a base image**
+
+        Pull an image from Docker Hub to use as a starting point:
+
+        ```bash
+        docker pull alpine:latest
+        ```
+
+        **3. Create a simple container**
+
+        Run a container and make a small modification:
+
+        ```bash
+        docker run -it --name my-alpine alpine:latest /bin/sh
+        ```
+
+        Inside the container, create a file:
+
+        ```bash
+        echo "Hello from Quay!" > /hello.txt
+        exit
+        ```
+
+        **4. Commit the container to a new image**
+
+        ```bash
+        docker commit my-alpine my-quay-image:v1.0
+        ```
+
+        **5. Tag for Quay.io**
+
+        Tag the image with your Quay.io username and repository name:
+
+        ```bash
+        docker tag my-quay-image:v1.0 quay.io/your_username/my-quay-image:v1.0
+        ```
+
+        !!! note "Replace `your_username`"
+            Replace `your_username` with your actual Quay.io username.
+
+        **6. Push to Quay.io**
+
+        ```bash
+        docker push quay.io/your_username/my-quay-image:v1.0
+        ```
+
+        **7. Verify your push**
+
+        Visit [Quay.io Repositories](https://quay.io/repository/){target="_blank"} to see your pushed image.
+
+        !!! tip "Repository Visibility"
+            By default, new repositories on Quay.io are private. You can change visibility in the repository settings.
+
+        **8. Clean up**
+
+        ```bash
+        docker rm my-alpine
+        docker rmi my-quay-image:v1.0
+        ```
+
+    ### Quay.io Features
+
+    Once your image is pushed, Quay.io automatically provides:
+
+    | Feature | Description |
+    | ------- | ----------- |
+    | **Security Scanning** | Automatic vulnerability scanning of your images |
+    | **Build Triggers** | Automatically build images from Git repositories |
+    | **Robot Accounts** | Service accounts for CI/CD automation |
+    | **Teams & Permissions** | Fine-grained access control |
+    | **Image Expiration** | Automatic cleanup of old tags |
+
+    ### Resources
+
+    [Quay.io Documentation :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3/){ .md-button target="_blank"}
+
 === "IBM Cloud Registry"
 
     ## IBM Cloud Container Registry
@@ -218,187 +399,6 @@ This page provides step-by-step tutorials for working with popular container reg
 
     [IBM Cloud Registry Documentation :fontawesome-solid-cloud:](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started){ .md-button target="_blank"}
 
-=== "Red Hat Quay"
-
-    ## Red Hat Quay
-
-    Red Hat Quay is an enterprise container registry that provides security scanning, geo-replication, and detailed access controls. It's commonly used in OpenShift environments.
-
-    ### Prerequisites
-
-    - Docker or Podman installed and running
-    - A free Quay.io account ([Sign up here](https://quay.io/signin/){target="_blank"})
-
-    ### Tutorial
-
-    === "Podman"
-
-        **1. Login to Quay.io**
-
-        ```bash
-        podman login quay.io
-        ```
-
-        Enter your Quay.io username and password when prompted:
-
-        ```text
-        Username: your_username
-        Password: your_password
-        Login Succeeded!
-        ```
-
-        **2. Pull a base image**
-
-        Pull an image from Docker Hub to use as a starting point:
-
-        ```bash
-        podman pull docker.io/library/alpine:latest
-        ```
-
-        **3. Create a simple container**
-
-        Run a container and make a small modification:
-
-        ```bash
-        podman run -it --name my-alpine docker.io/library/alpine:latest /bin/sh
-        ```
-
-        Inside the container, create a file:
-
-        ```bash
-        echo "Hello from Quay!" > /hello.txt
-        exit
-        ```
-
-        **4. Commit the container to a new image**
-
-        ```bash
-        podman commit my-alpine my-quay-image:v1.0
-        ```
-
-        **5. Tag for Quay.io**
-
-        Tag the image with your Quay.io username and repository name:
-
-        ```bash
-        podman tag my-quay-image:v1.0 quay.io/your_username/my-quay-image:v1.0
-        ```
-
-        !!! note "Replace `your_username`"
-            Replace `your_username` with your actual Quay.io username.
-
-        **6. Push to Quay.io**
-
-        ```bash
-        podman push quay.io/your_username/my-quay-image:v1.0
-        ```
-
-        **7. Verify your push**
-
-        Visit [Quay.io Repositories](https://quay.io/repository/){target="_blank"} to see your pushed image.
-
-        !!! tip "Repository Visibility"
-            By default, new repositories on Quay.io are private. You can change visibility in the repository settings.
-
-        **8. Clean up**
-
-        ```bash
-        podman rm my-alpine
-        podman rmi my-quay-image:v1.0
-        ```
-
-    === "Docker"
-
-        **1. Login to Quay.io**
-
-        ```bash
-        docker login quay.io
-        ```
-
-        Enter your Quay.io username and password when prompted:
-
-        ```text
-        Username: your_username
-        Password: your_password
-        Login Succeeded!
-        ```
-
-        **2. Pull a base image**
-
-        Pull an image from Docker Hub to use as a starting point:
-
-        ```bash
-        docker pull alpine:latest
-        ```
-
-        **3. Create a simple container**
-
-        Run a container and make a small modification:
-
-        ```bash
-        docker run -it --name my-alpine alpine:latest /bin/sh
-        ```
-
-        Inside the container, create a file:
-
-        ```bash
-        echo "Hello from Quay!" > /hello.txt
-        exit
-        ```
-
-        **4. Commit the container to a new image**
-
-        ```bash
-        docker commit my-alpine my-quay-image:v1.0
-        ```
-
-        **5. Tag for Quay.io**
-
-        Tag the image with your Quay.io username and repository name:
-
-        ```bash
-        docker tag my-quay-image:v1.0 quay.io/your_username/my-quay-image:v1.0
-        ```
-
-        !!! note "Replace `your_username`"
-            Replace `your_username` with your actual Quay.io username.
-
-        **6. Push to Quay.io**
-
-        ```bash
-        docker push quay.io/your_username/my-quay-image:v1.0
-        ```
-
-        **7. Verify your push**
-
-        Visit [Quay.io Repositories](https://quay.io/repository/){target="_blank"} to see your pushed image.
-
-        !!! tip "Repository Visibility"
-            By default, new repositories on Quay.io are private. You can change visibility in the repository settings.
-
-        **8. Clean up**
-
-        ```bash
-        docker rm my-alpine
-        docker rmi my-quay-image:v1.0
-        ```
-
-    ### Quay.io Features
-
-    Once your image is pushed, Quay.io automatically provides:
-
-    | Feature | Description |
-    | ------- | ----------- |
-    | **Security Scanning** | Automatic vulnerability scanning of your images |
-    | **Build Triggers** | Automatically build images from Git repositories |
-    | **Robot Accounts** | Service accounts for CI/CD automation |
-    | **Teams & Permissions** | Fine-grained access control |
-    | **Image Expiration** | Automatic cleanup of old tags |
-
-    ### Resources
-
-    [Quay.io Documentation :fontawesome-brands-redhat:](https://docs.redhat.com/en/documentation/red_hat_quay/3/){ .md-button target="_blank"}
-
 === "Docker Hub"
 
     ## Docker Hub
@@ -423,7 +423,7 @@ This page provides step-by-step tutorials for working with popular container reg
         **2. Pull an image**
 
         ```bash
-        podman pull docker.io/library/nginx:1.25-alpine
+        podman pull docker.io/library/nginx:1.29-alpine
         ```
 
         **3. Login to Docker Hub**
@@ -461,7 +461,7 @@ This page provides step-by-step tutorials for working with popular container reg
         **2. Pull an image**
 
         ```bash
-        docker pull nginx:1.25-alpine
+        docker pull nginx:1.29-alpine
         ```
 
         **3. Login to Docker Hub**

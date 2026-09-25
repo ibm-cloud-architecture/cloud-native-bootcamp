@@ -17,9 +17,9 @@ A Deployment’s revision is created when a Deployment’s rollout is triggered.
 
 === "OpenShift"
 
-    [Rollouts :fontawesome-solid-rotate-right:](https://docs.openshift.com/container-platform/4.13/applications/deployments/what-deployments-are.html#delpoymentconfigs-specific-features_what-deployments-are){ .md-button target="_blank"}
+    [Rollouts :fontawesome-solid-rotate-right:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#what-deployments-are){ .md-button target="_blank"}
 
-    [Rolling Back :fontawesome-solid-rotate-left:](https://docs.openshift.com/container-platform/4.13/applications/deployments/managing-deployment-processes.html#deployments-rolling-back_deployment-operations){ .md-button target="_blank"}
+    [Rolling Back :fontawesome-solid-rotate-left:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/building_applications/deployments#deployment-operations){ .md-button target="_blank"}
 
 === "Kubernetes"
 
@@ -48,26 +48,34 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: bitnami/nginx:1.16.0
+          image: quay.io/nginx/nginx-unprivileged:1.28
           ports:
             - containerPort: 8080
 ```
 
 === "OpenShift"
 
+    ``` Bash title="Create a Deployment"
+    oc apply -f deployment.yaml
+    ```
+
     ``` Bash title="Get Deployments"
     oc get deployments
     ```
 
-    ``` Bash title="Sets new image for Deployment"
-    oc set image deployment/my-deployment nginx=bitnami/nginx:1.16.1 --record
+    ``` Bash title="Set a new image for the Deployment"
+    oc set image deployment/my-deployment nginx=quay.io/nginx/nginx-unprivileged:1.29
+    ```
+
+    ``` Bash title="Record why you changed it (shown in the rollout history)"
+    oc annotate deployment/my-deployment kubernetes.io/change-cause="Upgrade to nginx 1.29"
     ```
 
     ``` Bash title="Check the status of a rollout"
-    oc rollout status deployment my-deployment
+    oc rollout status deployment/my-deployment
     ```
 
-    ``` Bash title="Get Replicasets"
+    ``` Bash title="Get ReplicaSets"
     oc get rs
     ```
 
@@ -76,11 +84,24 @@ spec:
     ```
 
     ``` Bash title="Get Rollout History"
-    oc rollout history deployment my-deployment
+    oc rollout history deployment/my-deployment
     ```
 
-    ``` Bash title="Undo Rollout"
-    oc rollback my-deployment
+    ``` Bash title="Undo the last rollout"
+    oc rollout undo deployment/my-deployment
+    ```
+
+    ``` Bash title="Roll back to a specific revision"
+    oc rollout undo deployment/my-deployment --to-revision=2
+    ```
+
+    ``` Bash title="Pause and resume a rollout"
+    oc rollout pause deployment/my-deployment
+    oc rollout resume deployment/my-deployment
+    ```
+
+    ``` Bash title="Restart all pods (for example, to pick up a changed Secret)"
+    oc rollout restart deployment/my-deployment
     ```
 
     ``` Bash title="Delete Deployment"
@@ -93,17 +114,57 @@ spec:
     kubectl apply -f deployment.yaml
     ```
 
-    ``` Bash title="Create a new namespace called bar"
-    kubectl create ns dev
+    ``` Bash title="Get Deployments"
+    kubectl get deployments
     ```
 
-    ``` Bash title="Setting Namespace in Context"
-    kubectl config set-context --current --namespace=dev
+    ``` Bash title="Set a new image for the Deployment"
+    kubectl set image deployment/my-deployment nginx=quay.io/nginx/nginx-unprivileged:1.29
+    ```
+
+    ``` Bash title="Record why you changed it (shown in the rollout history)"
+    kubectl annotate deployment/my-deployment kubernetes.io/change-cause="Upgrade to nginx 1.29"
+    ```
+
+    ``` Bash title="Check the status of a rollout"
+    kubectl rollout status deployment/my-deployment
+    ```
+
+    ``` Bash title="Get ReplicaSets"
+    kubectl get rs
+    ```
+
+    ``` Bash title="Get Deployment Description"
+    kubectl describe deployment my-deployment
+    ```
+
+    ``` Bash title="Get Rollout History"
+    kubectl rollout history deployment/my-deployment
+    ```
+
+    ``` Bash title="Undo the last rollout"
+    kubectl rollout undo deployment/my-deployment
+    ```
+
+    ``` Bash title="Roll back to a specific revision"
+    kubectl rollout undo deployment/my-deployment --to-revision=2
+    ```
+
+    ``` Bash title="Pause and resume a rollout"
+    kubectl rollout pause deployment/my-deployment
+    kubectl rollout resume deployment/my-deployment
+    ```
+
+    ``` Bash title="Restart all pods (for example, to pick up a changed Secret)"
+    kubectl rollout restart deployment/my-deployment
+    ```
+
+    ``` Bash title="Delete Deployment"
+    kubectl delete deployment my-deployment
     ```
 
 ## Activities
 
-| Task                  | Description                                  | Link                                                      |
-| --------------------- | -------------------------------------------- | :-------------------------------------------------------- |
-| **_Try It Yourself_** |                                              |                                                           |
-| Rolling Updates Lab   | Create a Rolling Update for your application | [Rolling Updates](../../../labs/kubernetes/lab7/index.md) |
+| Lab | Description |
+| --- | ----------- |
+| [Lab 7 - Rolling Updates](../../../labs/kubernetes/lab7/index.md) | Roll out a new version, then roll back a bad one |

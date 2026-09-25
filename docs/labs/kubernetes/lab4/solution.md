@@ -1,63 +1,60 @@
-# Kubernetes Lab 4 - Manage Multiple Containers
+# Lab 4 Solution - Multi-Container Pods
 
-## Solution
-
-```yaml
+```yaml title="vader-service.yaml"
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: vader-service-ambassador-config
 data:
-  haproxy.cfg: |-
-    global
-        daemon
-        maxconn 256
-
-    defaults
-        mode http
-        timeout connect 5000ms
-        timeout client 50000ms
-        timeout server 50000ms
-
-    listen http-in
-        bind *:80
-        server server1 127.0.0.1:8989 maxconn 32
-```
-
-```yaml
+  default.conf: |
+    server {
+        listen 8080;
+        location / {
+            proxy_pass http://127.0.0.1:8989;
+        }
+    }
+---
 apiVersion: v1
 kind: Pod
 metadata:
   name: vader-service
 spec:
   containers:
-  - name: millennium-falcon
-    image: ibmcase/millennium-falcon:1
-  - name: haproxy-ambassador
-    image: haproxy:2.8
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: config-volume
-      mountPath: /usr/local/etc/haproxy
+    - name: millennium-falcon
+      image: registry.k8s.io/e2e-test-images/agnhost:2.56
+      args: ["netexec", "--http-port=8989"]
+    - name: nginx-ambassador
+      image: quay.io/nginx/nginx-unprivileged:1.29
+      ports:
+        - containerPort: 8080
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/nginx/conf.d
   volumes:
-  - name: config-volume
-    configMap:
-      name: vader-service-ambassador-config
-``` 
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: busybox
-spec:
-  containers:
-  - name: myapp-container
-    image: curlimages/curl:8.5.0
-    command: ['sh', '-c', 'while true; do sleep 3600; done']
+    - name: config-volume
+      configMap:
+        name: vader-service-ambassador-config
 ```
 
 ```bash
-kubectl exec busybox -- curl $(kubectl get pod vader-service -o=jsonpath='{.status.podIP}'):80
+oc apply -f vader-service.yaml
+oc get pod vader-service
 ```
+
+```text title="Expected output"
+NAME            READY   STATUS    RESTARTS   AGE
+vader-service   2/2     Running   0          15s
+```
+
+`2/2` means both containers are running. Test it from the client Pod:
+
+```bash
+oc exec client -- curl -s "$(oc get pod vader-service -o jsonpath='{.status.podIP}'):8080/echo?msg=The+hyperdrive+needs+repair"
+```
+
+```text title="Expected output"
+The hyperdrive needs repair
+```
+
+!!! tip "Sidecar containers"
+    Since Kubernetes 1.29 (OpenShift 4.16), you can also declare helper containers as **native sidecars**: put them under `initContainers` with `restartPolicy: Always`. Native sidecars start before the app containers and stop after them, which matters for proxies and log shippers. A plain second container, as used here, is fine for a long-running Pod like this one.

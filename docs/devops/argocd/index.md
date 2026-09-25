@@ -16,9 +16,9 @@ configuration so that teams can benefit from the same assurance as they do for t
   - Changes to the state are made via pull requests
   - Git push reconciled with the state of the running system with the state in the Git repository
 
-## ArgoCD Overview
+## Argo CD Overview
 
-ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications by continuously monitoring Git repositories and synchronizing the desired application state with the live state in Kubernetes clusters.
+[Argo CD](https://argo-cd.readthedocs.io/) is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications by continuously monitoring Git repositories and synchronizing the desired application state with the live state in Kubernetes clusters.
 
 ### Key Features
 
@@ -31,7 +31,7 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It auto
 - **Web UI and CLI** - Visualize and manage applications through a web interface or command line
 - **Webhook integration** - Trigger deployments automatically from Git events
 
-### How ArgoCD Works
+### How Argo CD Works
 
 1. You define your application's desired state in a Git repository (Kubernetes manifests, Helm charts, or Kustomize)
 2. ArgoCD continuously monitors the Git repository for changes
@@ -39,22 +39,21 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It auto
 4. ArgoCD automatically or manually syncs the cluster to match the desired state
 5. You can visualize the sync status and health of your applications in real-time
 
+On OpenShift, Argo CD is delivered as **[Red Hat OpenShift GitOps](https://docs.redhat.com/en/documentation/red_hat_openshift_gitops/)**. The operator installs a cluster-wide Argo CD instance in the `openshift-gitops` namespace, integrates its login with OpenShift, and lets teams run their own Argo CD instances.
+
 ## Presentations
 
 [GitOps Overview :fontawesome-regular-file-pdf:](../materials/05-Understanding-GitOps.pdf){ .md-button target="_blank"}
 
 ## Activities
 
-These activities give you a chance to walkthrough building CD pipelines using ArgoCD.
+These activities give you a chance to deliver an application with Argo CD using GitOps.
 
 These tasks assume that you have:
  - Reviewed the Continuous Deployment concept page.
 
-| Task                            | Description         | Link        | Time    |
-| --------------------------------| ------------------  |:----------- |---------|
-| ***Walkthroughs***                         |         |         |     |
-| GitOps | Introduction to GitOps with OpenShift | [Learn OpenShift GitOps](https://docs.openshift.com/gitops/1.13/understanding_openshift_gitops/about-redhat-openshift-gitops.html){:target="_blank"} | 20 min |
-| ***Try It Yourself***                         |         |         |     |
-| ArgoCD Lab | Learn how to setup ArgoCD and Deploy Application | [ArgoCD](../../labs/devops/argocd/index.md) | 30 min |
+| Lab | Description |
+| --- | ----------- |
+| [Argo CD Lab](../../labs/devops/argocd/index.md) | Deploy, self-heal and update an app with OpenShift GitOps |
 
-Once you have completed these tasks, you will have created an ArgoCD deployment and have an understanding of Continuous Deployment.
+Once you have completed these tasks, you will have deployed an application with Argo CD and have an understanding of Continuous Deployment.
