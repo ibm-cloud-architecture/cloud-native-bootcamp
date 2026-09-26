@@ -36,3 +36,15 @@
 *[UBI]: Red Hat Universal Base Image: freely redistributable container base images
 *[UID]: User ID (a Linux user identifier)
 *[YAML]: YAML Ain't Markup Language: the format of Kubernetes manifests
+*[CDI]: Containerized Data Importer: fills VM disks (PVCs) from images and URLs
+*[KVM]: Kernel-based Virtual Machine: the Linux hypervisor that runs VMs
+*[MTV]: Migration Toolkit for Virtualization: migrates VMs from VMware and other hypervisors
+*[OTel]: OpenTelemetry: the CNCF standard for traces, metrics and logs
+*[OTLP]: OpenTelemetry Protocol: how telemetry is sent to collectors and backends
+*[PromQL]: Prometheus Query Language
+*[RWX]: ReadWriteMany: a volume that many nodes can mount read-write at once
+*[SLO]: Service Level Objective: a target for reliability, e.g. 99.5% of requests succeed
+*[SLOs]: Service Level Objectives: targets for reliability
+*[VM]: Virtual machine
+*[VMs]: Virtual machines
+*[VMI]: VirtualMachineInstance: a running KubeVirt virtual machine

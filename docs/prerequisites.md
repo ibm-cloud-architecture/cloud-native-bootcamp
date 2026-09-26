@@ -82,7 +82,7 @@ chmod +x system-check.sh
 
 ## Get a cluster
 
-The labs are written for **Red Hat OpenShift 4.x**. Choose one of these options:
+The labs are written for **Red Hat OpenShift 4.x**. [Lab Environments](lab-environments.md) shows which environment each lab needs, and has a one-command local cluster for the Kubernetes labs. Choose one of these options:
 
 === "OpenShift Local"
 

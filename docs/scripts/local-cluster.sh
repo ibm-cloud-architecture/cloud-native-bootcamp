@@ -18,7 +18,8 @@
 #   --all             Everything above
 #
 # Requirements: kind, kubectl, and Docker or Podman. Give the Docker/Podman VM at least
-# 4 CPUs and 8 GB of memory (12 GB with --virtualization).
+# 4 CPUs and 8 GB of memory (12 GB with --virtualization). --virtualization needs Docker or
+# rootful Podman, and is only practical on a Linux host with /dev/kvm.
 
 set -euo pipefail
 
@@ -158,6 +159,15 @@ EOF
     sleep 2
   done
   kubectl -n monitoring rollout status statefulset/prometheus-prometheus --timeout=300s
+fi
+
+if [ "$VIRT" = true ] && [ "${KIND_EXPERIMENTAL_PROVIDER:-}" = podman ] \
+   && [ "$(podman info --format '{{.Host.Security.Rootless}}' 2>/dev/null)" = true ]; then
+  echo
+  echo "Skipping --virtualization: KubeVirt can't start VMs on kind with rootless Podman"
+  echo "(it can't create the VM's network device or cgroups). Use Docker, rootful Podman"
+  echo "(podman machine set --rootful), or a Linux host with /dev/kvm - or run Lab 14 on OpenShift."
+  VIRT=false
 fi
 
 if [ "$VIRT" = true ]; then
