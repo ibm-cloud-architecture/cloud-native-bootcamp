@@ -1,3 +1,8 @@
+---
+tags:
+  - Getting started
+---
+
 # Agenda
 
 The following tables list the topics and hands-on activities for an in-person week, or a suggested order for self-paced learning. Each topic links to its concept page, where you'll also find the presentation slides (PDF), and each activity links to its labs. Before you start, complete the [Prerequisites](prerequisites.md).

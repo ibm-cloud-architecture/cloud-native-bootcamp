@@ -1,3 +1,10 @@
+---
+tags:
+  - Solution
+  - Configuration
+  - Security
+---
+
 # Lab 6 Solution - Pod Configuration
 
 Create the ConfigMap, Secret and ServiceAccount. You can do this imperatively:

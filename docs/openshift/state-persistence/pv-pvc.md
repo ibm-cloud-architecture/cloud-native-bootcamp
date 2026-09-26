@@ -1,3 +1,8 @@
+---
+tags:
+  - Storage
+---
+
 # PersistentVolumes and Claims
 
 Managing storage is a distinct problem from managing compute instances. The PersistentVolume subsystem provides an API for users and administrators that abstracts details of how storage is provided from how it is consumed.
@@ -20,7 +25,7 @@ PersistentVolumes binds are exclusive, and since PersistentVolumeClaims are name
 
     [Persistent Volume Types :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/understanding-persistent-storage){ .md-button target="_blank"}
 
-    [Expanding Peristent Volumes :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/expanding-persistent-volumes){ .md-button target="_blank"}
+    [Expanding Persistent Volumes :fontawesome-solid-database:](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/storage/expanding-persistent-volumes){ .md-button target="_blank"}
 
 === "Kubernetes"
 

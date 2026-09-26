@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Pods
+  - Intermediate
+---
+
 # Lab 4 - Multi-Container Pods
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>

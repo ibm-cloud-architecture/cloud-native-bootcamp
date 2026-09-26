@@ -1,3 +1,9 @@
+---
+tags:
+  - Pods
+  - Scheduling
+---
+
 # Taints, Tolerations & Node Affinity
 
 Kubernetes provides several mechanisms to control which nodes pods can be scheduled on. These features help you ensure workloads run on appropriate nodes and enable advanced scheduling scenarios.

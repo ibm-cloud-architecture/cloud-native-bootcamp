@@ -1,3 +1,8 @@
+---
+tags:
+  - DevOps
+---
+
 # DevOps Tools
 
 DevOps relies on a variety of tools to automate and streamline the software development lifecycle. These tools help teams collaborate more effectively, automate repetitive tasks, and deliver software faster and more reliably.

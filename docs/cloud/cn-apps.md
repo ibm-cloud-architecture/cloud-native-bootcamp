@@ -1,3 +1,8 @@
+---
+tags:
+  - Cloud native
+---
+
 # Cloud Native Applications
 
 ## What is Cloud-Native?

@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Pods
+---
+
 # Lab 4 Solution - Multi-Container Pods
 
 ```yaml title="vader-service.yaml"

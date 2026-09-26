@@ -1,6 +1,9 @@
 # Site build dependencies (used by CI, the dev container and local builds).
-# MkDocs 2.0 drops the plugin/theme system Material depends on, so stay on 1.x.
+# Requires Python 3.10+. MkDocs 2.0 drops the plugin/theme system Material
+# depends on, so stay on MkDocs 1.x.
 mkdocs>=1.6.1,<2
-mkdocs-material>=9.7,<10
-mkdocs-git-revision-date-localized-plugin>=1.4,<2
+mkdocs-material>=9.7.7,<10
+pymdown-extensions>=12.1,<13
+mkdocs-git-revision-date-localized-plugin>=1.6,<2
 mkdocs-minify-plugin>=0.8,<1
+mkdocs-redirects>=1.2.3,<2

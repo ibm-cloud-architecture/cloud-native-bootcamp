@@ -1,3 +1,9 @@
+---
+tags:
+  - Kubernetes
+  - Workloads
+---
+
 # Concepts in Container Orchestration
 
 ## Declarative Deployment Pattern

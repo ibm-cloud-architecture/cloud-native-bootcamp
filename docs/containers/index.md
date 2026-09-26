@@ -1,3 +1,8 @@
+---
+tags:
+  - Containers
+---
+
 # What are Containers?
 
 You wanted to run your application on different computing environments. It may be your laptop, test environment, staging environment or production environment.

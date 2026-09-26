@@ -11,7 +11,7 @@ Source for the [Cloud Native Bootcamp](https://ibm-cloud-architecture.github.io/
 
 ## Running the site locally
 
-Requires Python 3.10 or later (3.9 works but is end-of-life).
+Requires Python 3.10 or later (3.14 recommended).
 
 ```bash
 git clone https://github.com/ibm-cloud-architecture/cloud-native-bootcamp.git
@@ -33,6 +33,15 @@ npm run test        # strict build inside the container
 npm run dev:stop
 ```
 
+## Checks
+
+```bash
+mkdocs build --strict   # broken links, missing nav entries, warnings
+npm install && npm run spell   # spelling; add real terms to cspell.json
+```
+
+Acronym tooltips come from `includes/abbreviations.md`, which is appended to every page. Page tags live in each page's front matter and are listed on the "Browse by Tag" page.
+
 ## Publishing
 
-Pushing to `main` builds the site with `mkdocs build --strict` and deploys it to GitHub Pages (`.github/workflows/docs.yml`). Pull requests run the same build plus an external link check.
+Pushing to `main` builds the site with `mkdocs build --strict` and deploys it to GitHub Pages (`.github/workflows/docs.yml`). Pull requests run the same build, plus non-blocking spelling and external link checks.

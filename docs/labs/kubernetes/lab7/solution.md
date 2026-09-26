@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Workloads
+---
+
 # Lab 7 Solution - Rolling Updates
 
 ## 1. Update the image

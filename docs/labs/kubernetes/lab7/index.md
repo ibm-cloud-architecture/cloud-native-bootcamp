@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Workloads
+  - Beginner
+---
+
 # Lab 7 - Rolling Updates
 
 <span class="lab-badge">25 min</span> <span class="lab-badge">Beginner</span>

@@ -1,3 +1,10 @@
+---
+tags:
+  - Solution
+  - Pods
+  - Observability
+---
+
 # Lab 2 Solution - Probes
 
 ```yaml title="energy-shield-service.yaml"

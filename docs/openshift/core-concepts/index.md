@@ -1,3 +1,8 @@
+---
+tags:
+  - Kubernetes
+---
+
 # Kubernetes API Primitives
 
 Kubernetes API primitive, also known as Kubernetes objects, are the basic building blocks of any application running in Kubernetes

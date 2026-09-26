@@ -1,3 +1,8 @@
+---
+tags:
+  - Networking
+---
+
 # Services
 
 An abstract way to expose an application running on a set of Pods as a network service.

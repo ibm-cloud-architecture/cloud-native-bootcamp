@@ -1,3 +1,9 @@
+---
+tags:
+  - Security
+  - OpenShift
+---
+
 # Security Contexts
 
 A **security context** defines privilege and access control settings for a Pod or container: which user and group it runs as, which Linux capabilities it has, whether it can escalate privileges, whether its root filesystem is read-only, and which seccomp and SELinux profiles apply.

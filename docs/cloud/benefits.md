@@ -1,3 +1,8 @@
+---
+tags:
+  - Cloud native
+---
+
 # Benefits of Cloud
 
 ## Cost Efficiency

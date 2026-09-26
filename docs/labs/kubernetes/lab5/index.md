@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Storage
+  - Intermediate
+---
+
 # Lab 5 - Persistent Storage
 
 <span class="lab-badge">30 min</span> <span class="lab-badge">Intermediate</span>

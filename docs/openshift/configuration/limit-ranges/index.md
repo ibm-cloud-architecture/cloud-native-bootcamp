@@ -1,3 +1,8 @@
+---
+tags:
+  - Configuration
+---
+
 # Limit Ranges
 
 In an OpenShift Container Platform cluster, containers run with unlimited compute resources. By using limit ranges, you can restrict the amount of resources consumed for the following objects within a project.
@@ -99,7 +104,7 @@ spec:
 
 [7] The default amount of memory that a container can use if not specified in teh _Pod_ spec
 
-[8] The default amount of CPU that a contianer can request if not specified in the _Pod_ spec
+[8] The default amount of CPU that a container can request if not specified in the _Pod_ spec
 
 [9] The default amount of memory that a container can request if not specified in the _Pod_ spec
 
@@ -174,7 +179,7 @@ spec:
 
 [2] The maximum number of unique image tags in the _imagestream.spec.tags_ parameter in _imagestream_ spec
 
-[3] The maximum number of unique image regerenes in the _imagestream.status.tags_ parameter in the _imagestream_ spec
+[3] The maximum number of unique image references in the _imagestream.status.tags_ parameter in the _imagestream_ spec
 
 ### Persistent Volume Claim Limits
 

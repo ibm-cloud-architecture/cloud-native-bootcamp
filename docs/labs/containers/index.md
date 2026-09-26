@@ -1,3 +1,10 @@
+---
+tags:
+  - Lab
+  - Containers
+  - Beginner
+---
+
 # Containers Lab
 
 <span class="lab-badge">45 min</span> <span class="lab-badge">Beginner</span>

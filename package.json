@@ -15,9 +15,9 @@
     "dev:stop": "./dev/clean.sh",
     "dev:logs": "./dev/logs.sh",
     "test": "./dev/test.sh",
-    "spell": "cspell 'docs/**/*.md'"
+    "spell": "cspell --no-progress 'docs/**/*.md' README.md 'sample-app/**/*.md'"
   },
   "devDependencies": {
-    "cspell": "^9.0.0"
+    "cspell": "^10.3.4"
   }
 }

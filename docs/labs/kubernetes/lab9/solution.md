@@ -1,3 +1,9 @@
+---
+tags:
+  - Solution
+  - Networking
+---
+
 # Lab 9 Solution - Services
 
 The pods expose port `8080` and carry the labels `app: jedi` and `app: yoda`. Check with `oc describe deployment jedi-deployment` or `oc get pods --show-labels`.

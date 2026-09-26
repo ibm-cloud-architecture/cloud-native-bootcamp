@@ -1,3 +1,8 @@
+---
+tags:
+  - Networking
+---
+
 # Ingress
 
 An API object that manages external access to the services in a cluster, typically HTTP.

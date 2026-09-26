@@ -1,3 +1,9 @@
+---
+tags:
+  - Kubernetes
+  - OpenShift
+---
+
 # Projects/Namespaces
 
 Namespaces are intended for use in environments with many users spread across multiple teams, or projects.

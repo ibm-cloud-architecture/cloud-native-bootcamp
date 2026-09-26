@@ -1,3 +1,9 @@
+---
+tags:
+  - Workloads
+  - Storage
+---
+
 # StatefulSets
 
 StatefulSets are workload API objects used to manage stateful applications. Unlike Deployments, StatefulSets maintain a sticky identity for each pod and provide guarantees about the ordering and uniqueness of these pods.

@@ -1,3 +1,9 @@
+---
+tags:
+  - Networking
+  - OpenShift only
+---
+
 # Routes
 
 **_OpenShift Only_**

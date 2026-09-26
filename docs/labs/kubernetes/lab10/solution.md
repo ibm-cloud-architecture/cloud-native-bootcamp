@@ -1,3 +1,10 @@
+---
+tags:
+  - Solution
+  - Networking
+  - Security
+---
+
 # Lab 10 Solution - Network Policies
 
 ```yaml title="secure-app-policy.yaml"

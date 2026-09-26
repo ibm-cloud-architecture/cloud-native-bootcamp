@@ -1,3 +1,8 @@
+---
+tags:
+  - Project
+---
+
 # Cloud Native Challenge
 
 ## Phase 1 - Local Develop

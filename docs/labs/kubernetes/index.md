@@ -1,3 +1,8 @@
+---
+tags:
+  - Kubernetes
+---
+
 # Kubernetes & OpenShift Labs
 
 These hands-on labs let you practice the concepts from the Kubernetes/OpenShift section. Each lab describes a problem and the requirements to meet, but not every command. Use the course material and the official docs to work it out, then check your answer against the solution.
