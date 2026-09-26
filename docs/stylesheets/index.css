@@ -96,24 +96,26 @@ body {
   --md-footer-bg-color--dark: #161616;
 }
 
-/* ---------- Carbon Gray 100 theme (dark) ---------- */
+/* ---------- Carbon Gray 90 theme (dark), softened for long reading ---------- */
+/* Dark gray page (not near-black) and off-white text keep contrast high
+   (about 11.5:1, above WCAG AAA) without the glare of pure white on black. */
 
 [data-md-color-scheme="slate"] {
   --md-hue: 0;
 
-  --cds-background: #161616;
-  --cds-layer-01: #262626;
-  --cds-layer-02: #393939;
-  --cds-border-subtle: #393939;
-  --cds-border-strong: #6f6f6f;
-  --cds-text-primary: #f4f4f4;
+  --cds-background: #262626;
+  --cds-layer-01: #393939;
+  --cds-layer-02: #474747;
+  --cds-border-subtle: #474747;
+  --cds-border-strong: #8d8d8d;
+  --cds-text-primary: #e0e0e0;
   --cds-text-secondary: #c6c6c6;
   --cds-text-helper: #a8a8a8;
   --cds-link: #78a9ff;
   --cds-link-hover: #a6c8ff;
   --cds-link-visited: #be95ff;
   --cds-highlight: #002d9c;
-  --cds-tag-bg: #0043ce;
+  --cds-tag-bg: #002d9c;
   --cds-tag-fg: #d0e2ff;
 
   --md-default-fg-color: var(--cds-text-primary);
@@ -121,37 +123,37 @@ body {
   --md-default-fg-color--lighter: var(--cds-text-helper);
   --md-default-fg-color--lightest: var(--cds-border-subtle);
   --md-default-bg-color: var(--cds-background);
-  --md-default-bg-color--light: rgba(22, 22, 22, 0.54);
-  --md-default-bg-color--lighter: rgba(22, 22, 22, 0.26);
-  --md-default-bg-color--lightest: rgba(22, 22, 22, 0.07);
+  --md-default-bg-color--light: rgba(38, 38, 38, 0.54);
+  --md-default-bg-color--lighter: rgba(38, 38, 38, 0.26);
+  --md-default-bg-color--lightest: rgba(38, 38, 38, 0.07);
 
   --md-code-fg-color: #e0e0e0;
   --md-code-bg-color: var(--cds-layer-01);
-  --md-code-bg-color--light: rgba(38, 38, 38, 0.9);
-  --md-code-bg-color--lighter: rgba(38, 38, 38, 0.54);
+  --md-code-bg-color--light: rgba(57, 57, 57, 0.9);
+  --md-code-bg-color--lighter: rgba(57, 57, 57, 0.54);
 
   --md-typeset-color: var(--cds-text-primary);
   --md-typeset-a-color: var(--cds-link);
   --md-typeset-mark-color: rgba(69, 137, 255, 0.35);
   --md-typeset-kbd-color: var(--cds-layer-02);
-  --md-typeset-kbd-accent-color: #525252;
+  --md-typeset-kbd-accent-color: #6f6f6f;
   --md-typeset-kbd-border-color: var(--cds-background);
   --md-typeset-table-color: var(--cds-border-subtle);
-  --md-typeset-table-color--light: rgba(38, 38, 38, 0.6);
+  --md-typeset-table-color--light: rgba(57, 57, 57, 0.6);
 
   --md-accent-fg-color: var(--cds-link-hover);
   --md-accent-fg-color--transparent: rgba(120, 169, 255, 0.12);
-  --md-accent-bg-color: #161616;
-  --md-accent-bg-color--light: rgba(22, 22, 22, 0.7);
+  --md-accent-bg-color: #262626;
+  --md-accent-bg-color--light: rgba(38, 38, 38, 0.7);
 
   --md-admonition-fg-color: var(--cds-text-primary);
   --md-admonition-bg-color: var(--cds-background);
 
-  --md-footer-fg-color: #f4f4f4;
+  --md-footer-fg-color: #e0e0e0;
   --md-footer-fg-color--light: #c6c6c6;
   --md-footer-fg-color--lighter: #8d8d8d;
-  --md-footer-bg-color: #262626;
-  --md-footer-bg-color--dark: #1c1c1c;
+  --md-footer-bg-color: #1c1c1c;
+  --md-footer-bg-color--dark: #161616;
 
   --md-shadow-z1: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3), 0 0 0.05rem rgba(0, 0, 0, 0.4);
   --md-shadow-z2: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5), 0 0 0.05rem rgba(0, 0, 0, 0.5);
@@ -185,7 +187,7 @@ body {
   color: #f4f4f4;
 }
 
-/* Separate the shell from a Gray 100 page, as Carbon does */
+/* A subtle edge between the Gray 100 shell and the Gray 90 page */
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {
   border-bottom: 1px solid #393939;
