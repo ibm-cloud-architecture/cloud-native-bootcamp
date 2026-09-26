@@ -46,19 +46,21 @@ body {
   font-weight: 600;
 }
 
-/* ---------- Carbon White theme (light) ---------- */
+/* ---------- Carbon Gray 10 theme (light), softened for long reading ---------- */
+/* Light gray page with white panels (code, cards, tables, notes) avoids a
+   full field of pure white; text and links stay at 7:1 contrast or better. */
 
 [data-md-color-scheme="default"] {
-  --cds-background: #ffffff;
-  --cds-layer-01: #f4f4f4;
+  --cds-background: #f4f4f4;
+  --cds-layer-01: #ffffff;
   --cds-layer-02: #e8e8e8;
-  --cds-border-subtle: #e0e0e0;
+  --cds-border-subtle: #dcdcdc;
   --cds-border-strong: #8d8d8d;
-  --cds-text-primary: #161616;
+  --cds-text-primary: #262626;
   --cds-text-secondary: #525252;
   --cds-text-helper: #6f6f6f;
-  --cds-link: #0f62fe;
-  --cds-link-hover: #0043ce;
+  --cds-link: #0043ce;
+  --cds-link-hover: #002d9c;
   --cds-link-visited: #8a3ffc;
   --cds-highlight: #d0e2ff;
   --cds-tag-bg: #d0e2ff;
@@ -69,20 +71,21 @@ body {
   --md-default-fg-color--lighter: var(--cds-text-helper);
   --md-default-fg-color--lightest: var(--cds-border-subtle);
   --md-default-bg-color: var(--cds-background);
-  --md-default-bg-color--light: rgba(255, 255, 255, 0.7);
-  --md-default-bg-color--lighter: rgba(255, 255, 255, 0.3);
-  --md-default-bg-color--lightest: rgba(255, 255, 255, 0.12);
+  --md-default-bg-color--light: rgba(244, 244, 244, 0.7);
+  --md-default-bg-color--lighter: rgba(244, 244, 244, 0.3);
+  --md-default-bg-color--lightest: rgba(244, 244, 244, 0.12);
 
   --md-code-fg-color: #262626;
   --md-code-bg-color: var(--cds-layer-01);
-  --md-code-bg-color--light: rgba(244, 244, 244, 0.9);
-  --md-code-bg-color--lighter: rgba(244, 244, 244, 0.54);
+  --md-code-bg-color--light: rgba(255, 255, 255, 0.9);
+  --md-code-bg-color--lighter: rgba(255, 255, 255, 0.54);
 
   --md-typeset-color: var(--cds-text-primary);
   --md-typeset-a-color: var(--cds-link);
   --md-typeset-mark-color: rgba(15, 98, 254, 0.2);
   --md-typeset-table-color: var(--cds-border-subtle);
-  --md-typeset-table-color--light: rgba(244, 244, 244, 0.6);
+  --md-typeset-table-color--light: rgba(232, 232, 232, 0.5);
+  --md-admonition-bg-color: var(--cds-layer-01);
 
   --md-accent-fg-color: var(--cds-link-hover);
   --md-accent-fg-color--transparent: rgba(15, 98, 254, 0.1);
@@ -96,24 +99,26 @@ body {
   --md-footer-bg-color--dark: #161616;
 }
 
-/* ---------- Carbon Gray 100 theme (dark) ---------- */
+/* ---------- Carbon Gray 90 theme (dark), softened for long reading ---------- */
+/* Dark gray page (not near-black) and off-white text keep contrast high
+   (about 11.5:1, above WCAG AAA) without the glare of pure white on black. */
 
 [data-md-color-scheme="slate"] {
   --md-hue: 0;
 
-  --cds-background: #161616;
-  --cds-layer-01: #262626;
-  --cds-layer-02: #393939;
-  --cds-border-subtle: #393939;
-  --cds-border-strong: #6f6f6f;
-  --cds-text-primary: #f4f4f4;
+  --cds-background: #262626;
+  --cds-layer-01: #393939;
+  --cds-layer-02: #474747;
+  --cds-border-subtle: #474747;
+  --cds-border-strong: #8d8d8d;
+  --cds-text-primary: #e0e0e0;
   --cds-text-secondary: #c6c6c6;
   --cds-text-helper: #a8a8a8;
   --cds-link: #78a9ff;
   --cds-link-hover: #a6c8ff;
   --cds-link-visited: #be95ff;
   --cds-highlight: #002d9c;
-  --cds-tag-bg: #0043ce;
+  --cds-tag-bg: #002d9c;
   --cds-tag-fg: #d0e2ff;
 
   --md-default-fg-color: var(--cds-text-primary);
@@ -121,37 +126,37 @@ body {
   --md-default-fg-color--lighter: var(--cds-text-helper);
   --md-default-fg-color--lightest: var(--cds-border-subtle);
   --md-default-bg-color: var(--cds-background);
-  --md-default-bg-color--light: rgba(22, 22, 22, 0.54);
-  --md-default-bg-color--lighter: rgba(22, 22, 22, 0.26);
-  --md-default-bg-color--lightest: rgba(22, 22, 22, 0.07);
+  --md-default-bg-color--light: rgba(38, 38, 38, 0.54);
+  --md-default-bg-color--lighter: rgba(38, 38, 38, 0.26);
+  --md-default-bg-color--lightest: rgba(38, 38, 38, 0.07);
 
   --md-code-fg-color: #e0e0e0;
   --md-code-bg-color: var(--cds-layer-01);
-  --md-code-bg-color--light: rgba(38, 38, 38, 0.9);
-  --md-code-bg-color--lighter: rgba(38, 38, 38, 0.54);
+  --md-code-bg-color--light: rgba(57, 57, 57, 0.9);
+  --md-code-bg-color--lighter: rgba(57, 57, 57, 0.54);
 
   --md-typeset-color: var(--cds-text-primary);
   --md-typeset-a-color: var(--cds-link);
   --md-typeset-mark-color: rgba(69, 137, 255, 0.35);
   --md-typeset-kbd-color: var(--cds-layer-02);
-  --md-typeset-kbd-accent-color: #525252;
+  --md-typeset-kbd-accent-color: #6f6f6f;
   --md-typeset-kbd-border-color: var(--cds-background);
   --md-typeset-table-color: var(--cds-border-subtle);
-  --md-typeset-table-color--light: rgba(38, 38, 38, 0.6);
+  --md-typeset-table-color--light: rgba(57, 57, 57, 0.6);
 
   --md-accent-fg-color: var(--cds-link-hover);
   --md-accent-fg-color--transparent: rgba(120, 169, 255, 0.12);
-  --md-accent-bg-color: #161616;
-  --md-accent-bg-color--light: rgba(22, 22, 22, 0.7);
+  --md-accent-bg-color: #262626;
+  --md-accent-bg-color--light: rgba(38, 38, 38, 0.7);
 
   --md-admonition-fg-color: var(--cds-text-primary);
   --md-admonition-bg-color: var(--cds-background);
 
-  --md-footer-fg-color: #f4f4f4;
+  --md-footer-fg-color: #e0e0e0;
   --md-footer-fg-color--light: #c6c6c6;
   --md-footer-fg-color--lighter: #8d8d8d;
-  --md-footer-bg-color: #262626;
-  --md-footer-bg-color--dark: #1c1c1c;
+  --md-footer-bg-color: #1c1c1c;
+  --md-footer-bg-color--dark: #161616;
 
   --md-shadow-z1: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3), 0 0 0.05rem rgba(0, 0, 0, 0.4);
   --md-shadow-z2: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5), 0 0 0.05rem rgba(0, 0, 0, 0.5);
@@ -185,7 +190,7 @@ body {
   color: #f4f4f4;
 }
 
-/* Separate the shell from a Gray 100 page, as Carbon does */
+/* A subtle edge between the Gray 100 shell and the Gray 90 page */
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {
   border-bottom: 1px solid #393939;
@@ -323,6 +328,23 @@ body {
   border-color: var(--md-default-fg-color--lightest);
 }
 
+/* Light mode: inline code keeps a visible chip on both the gray page and
+   the white panels (tables, cards, notes); code blocks stay white. */
+[data-md-color-scheme="default"] .md-typeset :not(pre) > code {
+  background-color: var(--cds-layer-02);
+}
+
+/* Light mode: cards and tables are white panels on the gray page */
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="default"] .md-typeset .grid > .card,
+[data-md-color-scheme="default"] .md-typeset table:not([class]) {
+  background-color: var(--cds-layer-01);
+}
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th {
+  background-color: var(--cds-layer-02);
+}
+
 /* Admonitions: square corners like Carbon notifications */
 .md-typeset .admonition,
 .md-typeset details {
@@ -404,5 +426,15 @@ body {
     border-left: 2px solid var(--md-typeset-a-color);
     padding-left: calc(0.7rem - 1px);
     color: var(--md-typeset-a-color);
+  }
+}
+
+/* ---------- Wider layout on large screens ---------- */
+/* Material caps the page at 61rem. On big monitors that leaves wide empty
+   margins, so let the layout grow there (laptops are unchanged). Adjust the
+   max-width to taste; much wider makes paragraph lines hard to read. */
+@media screen and (min-width: 100em) {
+  .md-grid {
+    max-width: 76rem;
   }
 }
