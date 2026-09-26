@@ -135,17 +135,20 @@ nav:
       - Browse by Tag: tags.md
   - Cloud:
       - Overview: cloud/index.md
-      - Cloud Concepts: cloud/cn-concepts.md
-      - Benefits of Cloud: cloud/benefits.md
-      - Cloud Applications: cloud/cn-apps.md
+      - Concepts:
+          - Cloud Native Concepts: cloud/cn-concepts.md
+          - Benefits of Cloud: cloud/benefits.md
+          - Cloud Native Applications: cloud/cn-apps.md
   - Containers:
       - Overview: containers/index.md
-      - Benefits of Containers: containers/benefitsContainers.md
-      - Image Registries: containers/imageregistry.md
-      - Registry Tutorials: containers/registry-tutorials.md
-      - References: containers/reference.md
-      - Containers Lab: labs/containers/index.md
-      - Image Registry Lab: labs/containers/container-registry/index.md
+      - Concepts:
+          - Benefits of Containers: containers/benefitsContainers.md
+          - Image Registries: containers/imageregistry.md
+          - Registry Tutorials: containers/registry-tutorials.md
+          - CLI Reference: containers/reference.md
+      - Labs:
+          - Containers Lab: labs/containers/index.md
+          - Image Registry Lab: labs/containers/container-registry/index.md
   - Kubernetes/OpenShift:
       - Overview: openshift/index.md
       - Container Orchestration Concepts: openshift/orchestrationConcepts.md
