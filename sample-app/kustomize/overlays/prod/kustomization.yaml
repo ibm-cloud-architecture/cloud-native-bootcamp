@@ -1,0 +1,23 @@
+# Prod: three replicas, more memory, and a prod greeting.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+components:
+  - ../../components/openshift-route
+labels:
+  - pairs:
+      environment: prod
+    includeSelectors: false
+replicas:
+  - name: greeting
+    count: 3
+configMapGenerator:
+  - name: greeting-config
+    literals:
+      - GREETING=Welcome to production
+images:
+  - name: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting
+    newTag: v1.0.0
+patches:
+  - path: resources-patch.yaml

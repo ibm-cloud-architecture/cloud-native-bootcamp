@@ -1,0 +1,16 @@
+# Strategic merge patch: prod gets higher requests and limits.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting
+spec:
+  template:
+    spec:
+      containers:
+        - name: greeting
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              memory: 128Mi

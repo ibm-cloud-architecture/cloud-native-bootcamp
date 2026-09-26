@@ -1,0 +1,23 @@
+# Generates traffic for 5 minutes: normal, failing, and slow requests.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load
+  labels:
+    app: load
+spec:
+  restartPolicy: Never
+  containers:
+    - name: load
+      image: registry.access.redhat.com/ubi9/ubi-minimal
+      command:
+        - sh
+        - -c
+        - |
+          end=$(( $(date +%s) + 300 ))
+          while [ "$(date +%s)" -lt "$end" ]; do
+            curl -s greeting:8080/greeting > /dev/null
+            curl -s greeting:8080/fail > /dev/null
+            curl -s "greeting:8080/greeting?name=slow&delay_ms=300" > /dev/null
+            sleep 1
+          done

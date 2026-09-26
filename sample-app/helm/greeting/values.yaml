@@ -1,0 +1,38 @@
+# Default values for the greeting chart. Override with --set or -f my-values.yaml.
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting
+  # Defaults to the chart's appVersion when empty
+  tag: ""
+  pullPolicy: IfNotPresent
+
+# Message returned by /greeting
+greeting: Deployed with Helm
+
+service:
+  port: 8080
+
+# OpenShift Route. Only rendered when the cluster has the route.openshift.io API.
+route:
+  enabled: true
+  host: ""          # empty: OpenShift generates one
+  tls: true         # edge TLS with HTTP -> HTTPS redirect
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    memory: 64Mi
+
+# Prometheus scraping of /metrics (needs the ServiceMonitor API, e.g. OpenShift
+# user workload monitoring or the Prometheus Operator)
+serviceMonitor:
+  enabled: false
+  interval: 15s
+
+# OpenTelemetry tracing: OTLP/HTTP endpoint of a collector, e.g. http://jaeger:4318
+tracing:
+  otlpEndpoint: ""

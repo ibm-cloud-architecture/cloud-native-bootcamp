@@ -1,0 +1,20 @@
+# Alert when more than 10% of greeting requests fail for at least a minute.
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: greeting-alerts
+spec:
+  groups:
+    - name: greeting
+      rules:
+        - alert: GreetingHighErrorRate
+          expr: |
+            sum by (namespace) (rate(greeting_requests_total{code=~"5.."}[2m]))
+              /
+            sum by (namespace) (rate(greeting_requests_total[2m])) > 0.1
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: More than 10% of greeting requests are failing
+            description: '{{ $value | humanizePercentage }} of requests in {{ $labels.namespace }} return 5xx.'

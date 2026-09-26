@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greeting
+  template:
+    metadata:
+      labels:
+        app: greeting
+    spec:
+      containers:
+        - name: greeting
+          image: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.0.0
+          ports:
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: greeting-config
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              memory: 64Mi

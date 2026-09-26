@@ -1,0 +1,18 @@
+# Dev: one replica, a dev greeting, and an env label on everything.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+components:
+  - ../../components/openshift-route
+labels:
+  - pairs:
+      environment: dev
+    includeSelectors: false
+configMapGenerator:
+  - name: greeting-config
+    literals:
+      - GREETING=Hello from the dev environment
+images:
+  - name: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting
+    newTag: v1.0.0

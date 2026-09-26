@@ -1,0 +1,11 @@
+# Base: the parts of the greeting app that are the same in every environment.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app.kubernetes.io/name: greeting
+      app.kubernetes.io/part-of: cloud-native-bootcamp
+    includeSelectors: false
+resources:
+  - deployment.yaml
+  - service.yaml

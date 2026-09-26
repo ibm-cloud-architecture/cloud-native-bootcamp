@@ -1,0 +1,51 @@
+# Jaeger all-in-one (v2) for the observability lab: receives OpenTelemetry
+# traces over OTLP and serves the Jaeger UI. Stores traces in memory only.
+# For production on OpenShift, use the distributed tracing platform (Tempo)
+# and the Red Hat build of OpenTelemetry instead.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger
+  template:
+    metadata:
+      labels:
+        app: jaeger
+    spec:
+      containers:
+        - name: jaeger
+          image: quay.io/jaegertracing/jaeger:2.21.0
+          ports:
+            - name: otlp-http
+              containerPort: 4318
+            - name: ui
+              containerPort: 16686
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+spec:
+  selector:
+    app: jaeger
+  ports:
+    - name: otlp-http
+      port: 4318
+      targetPort: otlp-http
+    - name: ui
+      port: 16686
+      targetPort: ui

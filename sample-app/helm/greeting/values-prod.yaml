@@ -1,0 +1,11 @@
+# Production overrides: helm upgrade --install greeting ./greeting -f values-prod.yaml
+replicaCount: 3
+greeting: Welcome to production
+resources:
+  requests:
+    cpu: 50m
+    memory: 32Mi
+  limits:
+    memory: 128Mi
+serviceMonitor:
+  enabled: true
