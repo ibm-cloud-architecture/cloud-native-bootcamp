@@ -2,326 +2,330 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/agenda/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/cloudnative-challenge/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/prerequisites/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/tags/</loc>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/cloud/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/cloud/benefits/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/cloud/cn-apps/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/cloud/cn-concepts/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/containers/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/containers/benefitsContainers/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/containers/imageregistry/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/containers/reference/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/containers/registry-tutorials/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/devops/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/devops/devopsTools/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/devops/gitops/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/devops/argocd/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/devops/tekton/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/containers/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/containers/container-registry/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/devops/argocd/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/devops/tekton/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab-solutions/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab1/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab1/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab10/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab10/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab11/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab11/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab2/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab2/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab3/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab3/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab4/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab4/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab5/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab5/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab6/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab6/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab7/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab7/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab8/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab8/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab9/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/labs/kubernetes/lab9/solution/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/orchestrationConcepts/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/rbac/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/config-map/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/limit-ranges/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/secrets/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/security-contexts/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/configuration/service-accounts/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/core-concepts/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/core-concepts/namespaces-projects/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/deployments/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/deployments/daemonsets/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/deployments/hpa/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/deployments/statefulsets/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/deployments/updates/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/operators/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/operators/operatorCatalog/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/operators/operatorUsage/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/scheduling/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/health-checks/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/jobs/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/multi-container/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/tagging/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/pods/troubleshooting/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/services-networking/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/services-networking/ingress/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/services-networking/network-policies/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/services-networking/routes/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/services-networking/services/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/state-persistence/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/state-persistence/pv-pvc/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
     <url>
          <loc>https://ibm-cloud-architecture.github.io/cloud-native-bootcamp/openshift/state-persistence/volumes/</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-09-26</lastmod>
     </url>
 </urlset>
