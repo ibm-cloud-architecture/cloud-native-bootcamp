@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: greeting
-          image: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.0.0
+          image: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.1.0
           ports:
             - name: http
               containerPort: 8080

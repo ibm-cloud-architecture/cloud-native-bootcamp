@@ -137,4 +137,4 @@ oc delete project greeting-dev greeting-prod greeting-test greeting-helm
 ```
 
 !!! note "About the image"
-    The overlays and chart use `ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.0.0`. To use the image you built in the [Containers Lab](../../containers/index.md) instead, set `images[].newName` in an overlay, or `--set image.repository=quay.io/<you>/greeting` with Helm.
+    The overlays and chart use `ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.1.0`. To use the image you built in the [Containers Lab](../../containers/index.md) instead, set `images[].newName` in an overlay, or `--set image.repository=quay.io/<you>/greeting` with Helm.

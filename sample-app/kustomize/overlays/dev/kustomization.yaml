@@ -15,4 +15,4 @@ configMapGenerator:
       - GREETING=Hello from the dev environment
 images:
   - name: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting
-    newTag: v1.0.0
+    newTag: v1.1.0

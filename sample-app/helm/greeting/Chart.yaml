@@ -3,7 +3,7 @@ name: greeting
 description: The Cloud Native Bootcamp sample greeting service
 type: application
 version: 0.1.0
-appVersion: "v1.0.0"
+appVersion: "v1.1.0"
 home: https://github.com/ibm-cloud-architecture/cloud-native-bootcamp
 sources:
   - https://github.com/ibm-cloud-architecture/cloud-native-bootcamp/tree/main/sample-app/greeting

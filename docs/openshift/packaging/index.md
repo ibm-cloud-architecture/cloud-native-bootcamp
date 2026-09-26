@@ -61,7 +61,7 @@ configMapGenerator:
       - GREETING=Welcome to production
 images:
   - name: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting
-    newTag: v1.0.0                  # pin or promote an image tag
+    newTag: v1.1.0                  # pin or promote an image tag
 patches:
   - path: resources-patch.yaml      # strategic merge patch
 ```
