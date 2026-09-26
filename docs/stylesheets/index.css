@@ -406,3 +406,13 @@ body {
     color: var(--md-typeset-a-color);
   }
 }
+
+/* ---------- Wider layout on large screens ---------- */
+/* Material caps the page at 61rem. On big monitors that leaves wide empty
+   margins, so let the layout grow there (laptops are unchanged). Adjust the
+   max-width to taste; much wider makes paragraph lines hard to read. */
+@media screen and (min-width: 100em) {
+  .md-grid {
+    max-width: 76rem;
+  }
+}
