@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-test"
+  labels:
+    {{- include "greeting.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  restartPolicy: Never
+  containers:
+    - name: curl
+      image: registry.access.redhat.com/ubi9/ubi-minimal
+      command:
+        - sh
+        - -c
+        - curl -sf "http://{{ .Release.Name }}:{{ .Values.service.port }}/greeting?name=helm-test" | grep -q {{ .Values.greeting | quote }}

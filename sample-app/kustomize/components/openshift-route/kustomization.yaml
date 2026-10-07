@@ -1,0 +1,6 @@
+# Optional component: an edge-terminated OpenShift Route for the Service.
+# Remove it from an overlay's `components:` list when deploying to plain Kubernetes.
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+resources:
+  - route.yaml

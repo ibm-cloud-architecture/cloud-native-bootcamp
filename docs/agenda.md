@@ -72,6 +72,9 @@ The following tables list the topics and hands-on activities for an in-person we
     | [Container Activities](./labs/index.md#containers)                     | Activity                     |  1.5 Hours |
     | [Kubernetes](./openshift/index.md)                                         | Presentation                 |  6 Hours |
     | [Kubernetes Activities](./labs/index.md#kubernetes-openshift)                   | Activity                     |  5 Hours |
+    | [Helm & Kustomize](./openshift/packaging/index.md) and [Lab 12](./labs/kubernetes/lab12/index.md) | Presentation + Activity | 1 Hour |
+    | [Observability](./openshift/observability/index.md) and [Lab 13](./labs/kubernetes/lab13/index.md) | Presentation + Activity | 1.5 Hours |
+    | [Virtualization](./openshift/virtualization/index.md) and [Lab 14](./labs/kubernetes/lab14/index.md) | Presentation + Activity | 1 Hour |
     | [Continuous Integration](./devops/tekton/index.md)                 | Presentation                 |  1 Hour  |
     | [Continuous Integration Lab](./labs/index.md#continuous-integration)   | Activity                     |  1 Hour  |
     | [Continuous Deployment](./devops/argocd/index.md)                   | Presentation                 |  1 Hour  |

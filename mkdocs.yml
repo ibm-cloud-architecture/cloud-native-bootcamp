@@ -131,6 +131,7 @@ nav:
       - Welcome: index.md
       - Course Agenda: agenda.md
       - Prerequisites: prerequisites.md
+      - Lab Environments: lab-environments.md
       - Cloud Native Challenge: cloudnative-challenge.md
       - Browse by Tag: tags.md
   - Cloud:
@@ -192,6 +193,12 @@ nav:
           - Overview: openshift/operators/index.md
           - Operator Catalog: openshift/operators/operatorCatalog.md
           - Using Operators: openshift/operators/operatorUsage.md
+      - Packaging:
+          - Helm & Kustomize: openshift/packaging/index.md
+      - Observability:
+          - Metrics, Logs & Traces: openshift/observability/index.md
+      - Virtualization:
+          - OpenShift Virtualization: openshift/virtualization/index.md
       - Labs:
           - Labs Overview: labs/kubernetes/index.md
           - Lab 1 - Pod Creation: labs/kubernetes/lab1/index.md
@@ -205,6 +212,9 @@ nav:
           - Lab 9 - Services: labs/kubernetes/lab9/index.md
           - Lab 10 - Network Policies: labs/kubernetes/lab10/index.md
           - Lab 11 - Routes & Ingress: labs/kubernetes/lab11/index.md
+          - Lab 12 - Helm & Kustomize: labs/kubernetes/lab12/index.md
+          - Lab 13 - Observability: labs/kubernetes/lab13/index.md
+          - Lab 14 - Virtual Machines: labs/kubernetes/lab14/index.md
   - DevOps/GitOps:
       - Overview: devops/index.md
       - DevOps Tools: devops/devopsTools.md
@@ -230,3 +240,6 @@ nav:
           - Lab 9 Solution: labs/kubernetes/lab9/solution.md
           - Lab 10 Solution: labs/kubernetes/lab10/solution.md
           - Lab 11 Solution: labs/kubernetes/lab11/solution.md
+          - Lab 12 Solution: labs/kubernetes/lab12/solution.md
+          - Lab 13 Solution: labs/kubernetes/lab13/solution.md
+          - Lab 14 Solution: labs/kubernetes/lab14/solution.md

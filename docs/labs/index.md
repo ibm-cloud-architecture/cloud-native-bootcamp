@@ -1,6 +1,6 @@
 # Labs
 
-Every lab is hands-on and runs on OpenShift, or on any Kubernetes cluster where noted. See the [Kubernetes lab environment options](kubernetes/index.md#lab-environment) for how to get a cluster.
+Every lab is hands-on and runs on OpenShift, or on any Kubernetes cluster where noted. See [Lab Environments](../lab-environments.md) for which environment each lab needs and how to get one.
 
 ## Containers
 
@@ -24,6 +24,9 @@ Every lab is hands-on and runs on OpenShift, or on any Kubernetes cluster where 
 | [Lab 9 - Services](kubernetes/lab9/index.md) | Expose deployments inside and outside the cluster | 25 min |
 | [Lab 10 - Network Policies](kubernetes/lab10/index.md) | Allow only labelled clients to reach a secure pod | 30 min |
 | [Lab 11 - Routes & Ingress](kubernetes/lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress | 30 min |
+| [Lab 12 - Helm & Kustomize](kubernetes/lab12/index.md) | Deploy one app to dev and prod with Kustomize, then manage it as a Helm release | 45 min |
+| [Lab 13 - Observability](kubernetes/lab13/index.md) | Scrape metrics, fire an alert, trace a slow request, and correlate logs | 45 min |
+| [Lab 14 - Virtual Machines](kubernetes/lab14/index.md) | Run a VM next to your containers and expose a service it runs | 45 min |
 
 Stuck? See the [lab solutions](kubernetes/lab-solutions.md).
 

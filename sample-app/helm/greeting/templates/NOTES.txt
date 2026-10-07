@@ -1,0 +1,13 @@
+{{ .Release.Name }} is deployed ({{ .Values.replicaCount }} replica(s), image tag {{ .Values.image.tag | default .Chart.AppVersion }}).
+
+Check it:
+  oc get deployment,service {{ .Release.Name }} -n {{ .Release.Namespace }}
+{{- if and .Values.route.enabled (.Capabilities.APIVersions.Has "route.openshift.io/v1") }}
+  curl -sk "https://$(oc get route {{ .Release.Name }} -n {{ .Release.Namespace }} -o jsonpath='{.spec.host}')/greeting?name=Helm"
+{{- else }}
+  oc port-forward service/{{ .Release.Name }} 8080:{{ .Values.service.port }} -n {{ .Release.Namespace }}
+  curl "localhost:8080/greeting?name=Helm"
+{{- end }}
+
+Run the chart's connectivity test:
+  helm test {{ .Release.Name }} -n {{ .Release.Namespace }}

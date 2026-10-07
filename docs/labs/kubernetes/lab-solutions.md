@@ -20,3 +20,6 @@ Each solution shows one working answer. Other answers can be just as valid if th
 | Lab 9 - Services | [Solution](lab9/solution.md) |
 | Lab 10 - Network Policies | [Solution](lab10/solution.md) |
 | Lab 11 - Routes & Ingress | [Solution](lab11/solution.md) |
+| Lab 12 - Helm & Kustomize | [Solution](lab12/solution.md) |
+| Lab 13 - Observability | [Solution](lab13/solution.md) |
+| Lab 14 - Virtual Machines | [Solution](lab14/solution.md) |

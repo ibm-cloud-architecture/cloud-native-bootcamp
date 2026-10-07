@@ -5,7 +5,7 @@
 This Cloud Native Bootcamp teaches IBMers, Business Partners and clients what it takes to build and run applications in the cloud. You'll come away with hands-on experience in each technology below: packaging apps in containers, running them on Kubernetes and Red Hat OpenShift, and automating delivery with CI/CD pipelines and GitOps.
 
 !!! tip "Start here"
-    Set up your workstation and get an OpenShift cluster on the [Prerequisites](prerequisites.md) page, then follow the [Course Agenda](agenda.md) or jump straight into the [Labs](labs/index.md).
+    Set up your workstation on the [Prerequisites](prerequisites.md) page, pick a cluster on [Lab Environments](lab-environments.md), then follow the [Course Agenda](agenda.md) or jump straight into the [Labs](labs/index.md).
 
 ## Concepts Covered
 
@@ -49,11 +49,11 @@ This Cloud Native Bootcamp teaches IBMers, Business Partners and clients what it
 
 <div class="grid cards" markdown>
 
--   :material-flask-outline:{ .lg .middle } __15 labs, tested end to end__
+-   :material-flask-outline:{ .lg .middle } __18 labs, tested end to end__
 
     ---
 
-    From your first container image to a GitOps-managed deployment. Every lab runs on OpenShift, uses multi-architecture images, and has a worked solution.
+    From your first container image to GitOps, observability and virtual machines. Every lab runs on OpenShift, uses multi-architecture images, and has a worked solution.
 
     [:octicons-arrow-right-24: Browse the labs](./labs/index.md)
 

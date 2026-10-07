@@ -18,7 +18,7 @@ The labs are written for **Red Hat OpenShift 4.x** and use the `oc` CLI. Any of 
 | A shared OpenShift cluster | Ask your instructor for the login command. |
 
 !!! tip "Using plain Kubernetes instead?"
-    Every lab except [Lab 11](lab11/index.md) also works on upstream Kubernetes (kind, minikube, or a managed service). Replace `oc` with `kubectl`, and replace `oc new-project <name>` with `kubectl create namespace <name>` followed by `kubectl config set-context --current --namespace=<name>`.
+    See [Lab Environments](../../lab-environments.md) for a one-command local cluster and which labs need OpenShift. Labs 1–10, 12 and 13 also work on upstream Kubernetes (kind, minikube, or a managed service). Replace `oc` with `kubectl`, and replace `oc new-project <name>` with `kubectl create namespace <name>` followed by `kubectl config set-context --current --namespace=<name>`.
 
 All lab images are multi-architecture (x86_64 and ARM64) and run as a random non-root user, so they work under OpenShift's default `restricted-v2` security context constraint.
 
@@ -40,6 +40,9 @@ All lab images are multi-architecture (x86_64 and ARM64) and run as a random non
 | Lab 9 | [Services](lab9/index.md) | Expose deployments inside and outside the cluster. |
 | Lab 10 | [Network Policies](lab10/index.md) | Allow only labelled clients to reach a secure pod. |
 | Lab 11 | [Routes & Ingress](lab11/index.md) | Publish an app with an OpenShift Route and a Kubernetes Ingress. |
+| Lab 12 | [Helm & Kustomize](lab12/index.md) | Deploy one app to dev and prod with Kustomize, then manage it as a Helm release. |
+| Lab 13 | [Observability](lab13/index.md) | Scrape metrics, fire an alert, trace a slow request, and correlate logs. |
+| Lab 14 | [Virtual Machines](lab14/index.md) | Run a VM next to your containers and expose a service it runs. |
 
 ## Solutions
 

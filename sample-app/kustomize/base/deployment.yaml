@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: greeting
-  labels:
-    app: greeting
 spec:
   replicas: 1
   selector:
@@ -18,18 +16,19 @@ spec:
         - name: greeting
           image: ghcr.io/ibm-cloud-architecture/cloud-native-bootcamp/greeting:v1.1.0
           ports:
-            - containerPort: 8080
-          env:
-            - name: GREETING
-              value: Deployed by Argo CD
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: greeting-config
           readinessProbe:
             httpGet:
               path: /healthz
-              port: 8080
+              port: http
           livenessProbe:
             httpGet:
               path: /healthz
-              port: 8080
+              port: http
           resources:
             requests:
               cpu: 10m
