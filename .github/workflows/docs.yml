@@ -9,8 +9,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 env:
   DISABLE_MKDOCS_2_WARNING: "true"
@@ -38,9 +36,6 @@ jobs:
   build:
     needs: spelling
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -51,13 +46,13 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: zensical build --clean --strict
-      - uses: actions/upload-pages-artifact@v5
+      - name: Deploy to gh-pages branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: site
-      - uses: actions/deploy-pages@v5
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        id: deployment
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          publish_branch: gh-pages
 
   links:
     needs: build
