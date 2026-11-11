@@ -28,11 +28,17 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # full history for git-revision-date-localized
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
-          cache: pip
-      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
+      # - uses: actions/setup-python@v7
+      #   with:
+      #     python-version: "3.14"
+      #     cache: pip
+      # Self-hosted macOS: use the local Homebrew Python instead of setup-python
+      # (setup-python tries to write to /Users/runner, which is not permitted).
+      - name: Create venv from local Python
+        run: |
+          /opt/homebrew/bin/python3.14 -m venv .venv
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+      - run: echo "cache_id=$(date -u '+%V')" >> "$GITHUB_ENV"
       - uses: actions/cache@v6
         with:
           key: mkdocs-material-${{ env.cache_id }}
