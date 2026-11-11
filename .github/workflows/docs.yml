@@ -2,12 +2,15 @@ name: docs
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 env:
   DISABLE_MKDOCS_2_WARNING: "true"
@@ -18,16 +21,25 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # full history for git-revision-date-localized
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
-          cache: pip
-      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
+      # - uses: actions/setup-python@v7
+      #   with:
+      #     python-version: "3.14"
+      #     cache: pip
+      # Self-hosted macOS: use the local Homebrew Python instead of setup-python
+      # (setup-python tries to write to /Users/runner, which is not permitted).
+      - name: Create venv from local Python
+        run: |
+          /opt/homebrew/bin/python3.14 -m venv .venv
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+      - run: echo "cache_id=$(date -u '+%V')" >> "$GITHUB_ENV"
       - uses: actions/cache@v6
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -35,11 +47,17 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt
-      - name: Build (fail on warnings, broken links and missing nav entries)
-        run: mkdocs build --strict
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: mkdocs gh-deploy --force
+      # - name: Build (fail on warnings, broken links and missing nav entries)
+      #   run: mkdocs build --strict
+      # - name: Deploy to GitHub Pages
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #   run: mkdocs gh-deploy --force
+      - run: zensical build --clean --strict
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - uses: actions/deploy-pages@v5
+        id: deployment
 
   spelling:
     runs-on: ubuntu-latest
