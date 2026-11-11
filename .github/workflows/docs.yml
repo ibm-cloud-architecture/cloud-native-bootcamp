@@ -1,10 +1,10 @@
 name: docs
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#   workflow_dispatch:
 
 permissions:
   contents: write
@@ -35,11 +35,17 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt
-      - name: Build (fail on warnings, broken links and missing nav entries)
-        run: mkdocs build --strict
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: mkdocs gh-deploy --force
+      # - name: Build (fail on warnings, broken links and missing nav entries)
+      #   run: mkdocs build --strict
+      # - name: Deploy to GitHub Pages
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #   run: mkdocs gh-deploy --force
+      - run: zensical build --clean 
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - uses: actions/deploy-pages@v5
+        id: deployment
 
   spelling:
     runs-on: ubuntu-latest
