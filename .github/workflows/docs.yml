@@ -10,6 +10,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 env:
   DISABLE_MKDOCS_2_WARNING: "true"
